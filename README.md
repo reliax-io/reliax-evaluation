@@ -25,6 +25,7 @@ pre-registered benchmark is future work).
 ## Reproduce
 
 ```bash
+git clone https://github.com/Ouatt-Isma/reliax-evaluation.git && cd reliax-evaluation
 python -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python eval/run_eval.py       # ~2 minutes; rewrites results/results.json
 .venv/bin/python eval/make_figures.py   # rewrites results/fig_*.png
