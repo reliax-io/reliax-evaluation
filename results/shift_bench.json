@@ -1,0 +1,1090 @@
+{
+  "dataset": "taiwan_default_uci350",
+  "referral_rate": 0.1,
+  "baseline": "msp",
+  "alpha": 0.05,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "n_train": 8000,
+  "n_cal": 4000,
+  "n_test": 4000,
+  "regimes": {
+    "iid": {
+      "description": "random split (control)",
+      "n_test": 4000,
+      "accuracy": {
+        "mean": 0.8128,
+        "std": 0.0072
+      },
+      "auc": {
+        "mean": 0.7555,
+        "std": 0.0095
+      },
+      "default_rate": {
+        "mean": 0.2184,
+        "std": 0.0097
+      },
+      "bad_approval_rate": {
+        "mean": 0.1378,
+        "std": 0.0099
+      },
+      "coverage_at_95": {
+        "mean": 0.9519,
+        "std": 0.0058
+      },
+      "signals": {
+        "msp": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1609,
+            "std": 0.0119
+          },
+          "err_capture@0.1": {
+            "mean": 0.2271,
+            "std": 0.014
+          },
+          "aurc": {
+            "mean": 0.109,
+            "std": 0.0075
+          },
+          "ratio_vs_baseline": {
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "ratio_ci95_seed0": [
+            1.0,
+            1.0
+          ]
+        },
+        "ensemble_conf": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1728,
+            "std": 0.0135
+          },
+          "err_capture@0.1": {
+            "mean": 0.2366,
+            "std": 0.0162
+          },
+          "aurc": {
+            "mean": 0.1055,
+            "std": 0.0073
+          },
+          "ratio_vs_baseline": {
+            "mean": 1.0768,
+            "std": 0.0864
+          },
+          "ratio_ci95_seed0": [
+            1.0499876237623764,
+            1.4055112341256915
+          ]
+        },
+        "ensemble_disagreement": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1501,
+            "std": 0.0033
+          },
+          "err_capture@0.1": {
+            "mean": 0.2017,
+            "std": 0.0072
+          },
+          "aurc": {
+            "mean": 0.1132,
+            "std": 0.0081
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.9373,
+            "std": 0.0652
+          },
+          "ratio_ci95_seed0": [
+            0.8469191522762952,
+            1.246917211328976
+          ]
+        },
+        "conformal_pvalue": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1605,
+            "std": 0.0114
+          },
+          "err_capture@0.1": {
+            "mean": 0.2268,
+            "std": 0.014
+          },
+          "aurc": {
+            "mean": 0.109,
+            "std": 0.0075
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.9981,
+            "std": 0.0038
+          },
+          "ratio_ci95_seed0": [
+            0.9891304347826086,
+            1.0120481927710843
+          ]
+        },
+        "va_width": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.0938,
+            "std": 0.0322
+          },
+          "err_capture@0.1": {
+            "mean": 0.1285,
+            "std": 0.0167
+          },
+          "aurc": {
+            "mean": 0.1306,
+            "std": 0.0087
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.5928,
+            "std": 0.2149
+          },
+          "ratio_ci95_seed0": [
+            0.66,
+            1.0909389952153108
+          ]
+        },
+        "ood_knn": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.0759,
+            "std": 0.0063
+          },
+          "err_capture@0.1": {
+            "mean": 0.0863,
+            "std": 0.0069
+          },
+          "aurc": {
+            "mean": 0.17,
+            "std": 0.009
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.4753,
+            "std": 0.0592
+          },
+          "ratio_ci95_seed0": [
+            0.34444444444444444,
+            0.6705918220946916
+          ]
+        },
+        "auditor": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1486,
+            "std": 0.0141
+          },
+          "err_capture@0.1": {
+            "mean": 0.2485,
+            "std": 0.0095
+          },
+          "aurc": {
+            "mean": 0.1026,
+            "std": 0.009
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.9258,
+            "std": 0.0872
+          },
+          "ratio_ci95_seed0": [
+            0.8199954954954956,
+            1.2000595238095237
+          ]
+        },
+        "composite": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1521,
+            "std": 0.0094
+          },
+          "err_capture@0.1": {
+            "mean": 0.231,
+            "std": 0.0119
+          },
+          "aurc": {
+            "mean": 0.1073,
+            "std": 0.0111
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.9485,
+            "std": 0.0694
+          },
+          "ratio_ci95_seed0": [
+            0.8854166666666666,
+            1.2098927875243664
+          ]
+        },
+        "sl_fusion": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1542,
+            "std": 0.0089
+          },
+          "err_capture@0.1": {
+            "mean": 0.2497,
+            "std": 0.0122
+          },
+          "aurc": {
+            "mean": 0.103,
+            "std": 0.0077
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.9628,
+            "std": 0.0779
+          },
+          "ratio_ci95_seed0": [
+            0.8571428571428571,
+            1.2533333333333332
+          ]
+        },
+        "random": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1009,
+            "std": 0.0156
+          },
+          "err_capture@0.1": {
+            "mean": 0.0969,
+            "std": 0.0101
+          },
+          "aurc": {
+            "mean": 0.1772,
+            "std": 0.0073
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.633,
+            "std": 0.1227
+          },
+          "ratio_ci95_seed0": [
+            0.6161421911421912,
+            1.041124831178854
+          ]
+        },
+        "oracle": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.7295,
+            "std": 0.0524
+          },
+          "err_capture@0.1": {
+            "mean": 0.535,
+            "std": 0.0209
+          },
+          "aurc": {
+            "mean": 0.0633,
+            "std": 0.0053
+          },
+          "ratio_vs_baseline": {
+            "mean": 4.5534,
+            "std": 0.4062
+          },
+          "ratio_ci95_seed0": [
+            3.738317757009346,
+            5.47945205479452
+          ]
+        }
+      }
+    },
+    "pay0": {
+      "description": "PAY_0<=0 -> PAY_0>=1 (payment delay)",
+      "n_test": 4000,
+      "accuracy": {
+        "mean": 0.538,
+        "std": 0.0127
+      },
+      "auc": {
+        "mean": 0.584,
+        "std": 0.0114
+      },
+      "default_rate": {
+        "mean": 0.5008,
+        "std": 0.0009
+      },
+      "bad_approval_rate": {
+        "mean": 0.389,
+        "std": 0.0222
+      },
+      "coverage_at_95": {
+        "mean": 0.9113,
+        "std": 0.0111
+      },
+      "signals": {
+        "msp": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.0776,
+            "std": 0.0101
+          },
+          "err_capture@0.1": {
+            "mean": 0.1097,
+            "std": 0.0046
+          },
+          "aurc": {
+            "mean": 0.405,
+            "std": 0.0128
+          },
+          "ratio_vs_baseline": {
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "ratio_ci95_seed0": [
+            1.0,
+            1.0
+          ]
+        },
+        "ensemble_conf": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.077,
+            "std": 0.0148
+          },
+          "err_capture@0.1": {
+            "mean": 0.1082,
+            "std": 0.005
+          },
+          "aurc": {
+            "mean": 0.4039,
+            "std": 0.0122
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.9916,
+            "std": 0.1292
+          },
+          "ratio_ci95_seed0": [
+            0.8287534666778721,
+            1.1071621274409045
+          ]
+        },
+        "ensemble_disagreement": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.0858,
+            "std": 0.0068
+          },
+          "err_capture@0.1": {
+            "mean": 0.1107,
+            "std": 0.0059
+          },
+          "aurc": {
+            "mean": 0.4069,
+            "std": 0.0156
+          },
+          "ratio_vs_baseline": {
+            "mean": 1.1149,
+            "std": 0.0793
+          },
+          "ratio_ci95_seed0": [
+            0.9333333333333333,
+            1.2790697674418605
+          ]
+        },
+        "conformal_pvalue": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.0772,
+            "std": 0.0104
+          },
+          "err_capture@0.1": {
+            "mean": 0.109,
+            "std": 0.0044
+          },
+          "aurc": {
+            "mean": 0.405,
+            "std": 0.0128
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.9947,
+            "std": 0.0103
+          },
+          "ratio_ci95_seed0": [
+            0.9794520547945207,
+            1.0204116578138105
+          ]
+        },
+        "va_width": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.0594,
+            "std": 0.0527
+          },
+          "err_capture@0.1": {
+            "mean": 0.0965,
+            "std": 0.0115
+          },
+          "aurc": {
+            "mean": 0.4315,
+            "std": 0.0132
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.8647,
+            "std": 0.8327
+          },
+          "ratio_ci95_seed0": [
+            0.28375025789147923,
+            0.460994059132357
+          ]
+        },
+        "ood_knn": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1017,
+            "std": 0.0144
+          },
+          "err_capture@0.1": {
+            "mean": 0.1066,
+            "std": 0.0089
+          },
+          "aurc": {
+            "mean": 0.3652,
+            "std": 0.0057
+          },
+          "ratio_vs_baseline": {
+            "mean": 1.3163,
+            "std": 0.1401
+          },
+          "ratio_ci95_seed0": [
+            1.1298285048285048,
+            1.5396941258255126
+          ]
+        },
+        "auditor": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.023,
+            "std": 0.0221
+          },
+          "err_capture@0.1": {
+            "mean": 0.0916,
+            "std": 0.0077
+          },
+          "aurc": {
+            "mean": 0.4093,
+            "std": 0.0162
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.3105,
+            "std": 0.2983
+          },
+          "ratio_ci95_seed0": [
+            0.5031046374271234,
+            0.7823355216212357
+          ]
+        },
+        "composite": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.0546,
+            "std": 0.009
+          },
+          "err_capture@0.1": {
+            "mean": 0.1039,
+            "std": 0.0033
+          },
+          "aurc": {
+            "mean": 0.4012,
+            "std": 0.0061
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.7233,
+            "std": 0.1811
+          },
+          "ratio_ci95_seed0": [
+            0.5839403811296723,
+            0.767123287671233
+          ]
+        },
+        "sl_fusion": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.0229,
+            "std": 0.0188
+          },
+          "err_capture@0.1": {
+            "mean": 0.0921,
+            "std": 0.007
+          },
+          "aurc": {
+            "mean": 0.4046,
+            "std": 0.0092
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.3155,
+            "std": 0.2813
+          },
+          "ratio_ci95_seed0": [
+            0.3870712535728869,
+            0.6207235948954655
+          ]
+        },
+        "random": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.0963,
+            "std": 0.0035
+          },
+          "err_capture@0.1": {
+            "mean": 0.0987,
+            "std": 0.0018
+          },
+          "aurc": {
+            "mean": 0.44,
+            "std": 0.0149
+          },
+          "ratio_vs_baseline": {
+            "mean": 1.265,
+            "std": 0.1876
+          },
+          "ratio_ci95_seed0": [
+            0.8982007322933749,
+            1.2575757575757576
+          ]
+        },
+        "oracle": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.2579,
+            "std": 0.0147
+          },
+          "err_capture@0.1": {
+            "mean": 0.2166,
+            "std": 0.0059
+          },
+          "aurc": {
+            "mean": 0.1898,
+            "std": 0.0102
+          },
+          "ratio_vs_baseline": {
+            "mean": 3.3858,
+            "std": 0.5079
+          },
+          "ratio_ci95_seed0": [
+            2.4092778298824036,
+            3.125
+          ]
+        }
+      }
+    },
+    "limit": {
+      "description": "high limit -> low limit",
+      "n_test": 4000,
+      "accuracy": {
+        "mean": 0.7621,
+        "std": 0.003
+      },
+      "auc": {
+        "mean": 0.7257,
+        "std": 0.0098
+      },
+      "default_rate": {
+        "mean": 0.2849,
+        "std": 0.0039
+      },
+      "bad_approval_rate": {
+        "mean": 0.1905,
+        "std": 0.0056
+      },
+      "coverage_at_95": {
+        "mean": 0.9087,
+        "std": 0.0057
+      },
+      "signals": {
+        "msp": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1563,
+            "std": 0.0092
+          },
+          "err_capture@0.1": {
+            "mean": 0.1944,
+            "std": 0.0062
+          },
+          "aurc": {
+            "mean": 0.1632,
+            "std": 0.0074
+          },
+          "ratio_vs_baseline": {
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "ratio_ci95_seed0": [
+            1.0,
+            1.0
+          ]
+        },
+        "ensemble_conf": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1604,
+            "std": 0.018
+          },
+          "err_capture@0.1": {
+            "mean": 0.2025,
+            "std": 0.0055
+          },
+          "aurc": {
+            "mean": 0.1576,
+            "std": 0.0064
+          },
+          "ratio_vs_baseline": {
+            "mean": 1.0242,
+            "std": 0.0709
+          },
+          "ratio_ci95_seed0": [
+            1.0143478260869565,
+            1.2900227272727272
+          ]
+        },
+        "ensemble_disagreement": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1463,
+            "std": 0.0142
+          },
+          "err_capture@0.1": {
+            "mean": 0.1825,
+            "std": 0.0069
+          },
+          "aurc": {
+            "mean": 0.1606,
+            "std": 0.0064
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.9363,
+            "std": 0.0721
+          },
+          "ratio_ci95_seed0": [
+            0.8652440054035799,
+            1.1607614692218347
+          ]
+        },
+        "conformal_pvalue": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1563,
+            "std": 0.0092
+          },
+          "err_capture@0.1": {
+            "mean": 0.1944,
+            "std": 0.0062
+          },
+          "aurc": {
+            "mean": 0.1633,
+            "std": 0.0074
+          },
+          "ratio_vs_baseline": {
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "ratio_ci95_seed0": [
+            0.983047225843836,
+            1.0142908902691512
+          ]
+        },
+        "va_width": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.0318,
+            "std": 0.0156
+          },
+          "err_capture@0.1": {
+            "mean": 0.1348,
+            "std": 0.0061
+          },
+          "aurc": {
+            "mean": 0.1823,
+            "std": 0.0056
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.2019,
+            "std": 0.0984
+          },
+          "ratio_ci95_seed0": [
+            0.09755557953809627,
+            0.23188695652173913
+          ]
+        },
+        "ood_knn": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1328,
+            "std": 0.0127
+          },
+          "err_capture@0.1": {
+            "mean": 0.1657,
+            "std": 0.0079
+          },
+          "aurc": {
+            "mean": 0.1593,
+            "std": 0.004
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.8509,
+            "std": 0.0785
+          },
+          "ratio_ci95_seed0": [
+            0.6165124349334875,
+            0.9532818449290412
+          ]
+        },
+        "auditor": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1403,
+            "std": 0.0198
+          },
+          "err_capture@0.1": {
+            "mean": 0.1922,
+            "std": 0.0147
+          },
+          "aurc": {
+            "mean": 0.1524,
+            "std": 0.0033
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.8979,
+            "std": 0.1124
+          },
+          "ratio_ci95_seed0": [
+            0.7812362938596491,
+            1.029747797614407
+          ]
+        },
+        "composite": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1414,
+            "std": 0.0139
+          },
+          "err_capture@0.1": {
+            "mean": 0.1995,
+            "std": 0.0085
+          },
+          "aurc": {
+            "mean": 0.1469,
+            "std": 0.0069
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.904,
+            "std": 0.0581
+          },
+          "ratio_ci95_seed0": [
+            0.75,
+            0.927927927927928
+          ]
+        },
+        "sl_fusion": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1467,
+            "std": 0.0207
+          },
+          "err_capture@0.1": {
+            "mean": 0.2018,
+            "std": 0.0109
+          },
+          "aurc": {
+            "mean": 0.1535,
+            "std": 0.0045
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.939,
+            "std": 0.1153
+          },
+          "ratio_ci95_seed0": [
+            0.7443565308620387,
+            0.9729790057915058
+          ]
+        },
+        "random": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.0943,
+            "std": 0.0079
+          },
+          "err_capture@0.1": {
+            "mean": 0.0937,
+            "std": 0.0051
+          },
+          "aurc": {
+            "mean": 0.2275,
+            "std": 0.0028
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.6082,
+            "std": 0.0882
+          },
+          "ratio_ci95_seed0": [
+            0.42747937700073874,
+            0.7142857142857142
+          ]
+        },
+        "oracle": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.5255,
+            "std": 0.015
+          },
+          "err_capture@0.1": {
+            "mean": 0.4205,
+            "std": 0.0053
+          },
+          "aurc": {
+            "mean": 0.0724,
+            "std": 0.0042
+          },
+          "ratio_vs_baseline": {
+            "mean": 3.3787,
+            "std": 0.2807
+          },
+          "ratio_ci95_seed0": [
+            2.919179096583095,
+            3.9603960396039604
+          ]
+        }
+      }
+    },
+    "util": {
+      "description": "low utilisation -> high utilisation",
+      "n_test": 4000,
+      "accuracy": {
+        "mean": 0.7921,
+        "std": 0.0061
+      },
+      "auc": {
+        "mean": 0.7526,
+        "std": 0.0105
+      },
+      "default_rate": {
+        "mean": 0.2553,
+        "std": 0.0045
+      },
+      "bad_approval_rate": {
+        "mean": 0.1478,
+        "std": 0.0119
+      },
+      "coverage_at_95": {
+        "mean": 0.9031,
+        "std": 0.0032
+      },
+      "signals": {
+        "msp": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1537,
+            "std": 0.0108
+          },
+          "err_capture@0.1": {
+            "mean": 0.2131,
+            "std": 0.0105
+          },
+          "aurc": {
+            "mean": 0.1311,
+            "std": 0.0045
+          },
+          "ratio_vs_baseline": {
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "ratio_ci95_seed0": [
+            1.0,
+            1.0
+          ]
+        },
+        "ensemble_conf": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1488,
+            "std": 0.0128
+          },
+          "err_capture@0.1": {
+            "mean": 0.2208,
+            "std": 0.008
+          },
+          "aurc": {
+            "mean": 0.1289,
+            "std": 0.0048
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.9725,
+            "std": 0.1039
+          },
+          "ratio_ci95_seed0": [
+            0.7464215525712414,
+            1.1044972505891595
+          ]
+        },
+        "ensemble_disagreement": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1485,
+            "std": 0.0157
+          },
+          "err_capture@0.1": {
+            "mean": 0.2012,
+            "std": 0.0077
+          },
+          "aurc": {
+            "mean": 0.13,
+            "std": 0.0039
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.975,
+            "std": 0.1511
+          },
+          "ratio_ci95_seed0": [
+            0.7738095238095238,
+            1.182931123325318
+          ]
+        },
+        "conformal_pvalue": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1537,
+            "std": 0.0108
+          },
+          "err_capture@0.1": {
+            "mean": 0.2131,
+            "std": 0.0105
+          },
+          "aurc": {
+            "mean": 0.1311,
+            "std": 0.0045
+          },
+          "ratio_vs_baseline": {
+            "mean": 1.0,
+            "std": 0.0
+          },
+          "ratio_ci95_seed0": [
+            0.9880952380952381,
+            1.0147113696224759
+          ]
+        },
+        "va_width": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.0385,
+            "std": 0.0156
+          },
+          "err_capture@0.1": {
+            "mean": 0.1309,
+            "std": 0.0201
+          },
+          "aurc": {
+            "mean": 0.1581,
+            "std": 0.0134
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.2492,
+            "std": 0.1017
+          },
+          "ratio_ci95_seed0": [
+            0.013504623044096728,
+            0.20897327876745297
+          ]
+        },
+        "ood_knn": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1204,
+            "std": 0.013
+          },
+          "err_capture@0.1": {
+            "mean": 0.095,
+            "std": 0.0078
+          },
+          "aurc": {
+            "mean": 0.1864,
+            "std": 0.007
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.7904,
+            "std": 0.12
+          },
+          "ratio_ci95_seed0": [
+            0.641304347826087,
+            1.1481757877280263
+          ]
+        },
+        "auditor": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1442,
+            "std": 0.0332
+          },
+          "err_capture@0.1": {
+            "mean": 0.2186,
+            "std": 0.0102
+          },
+          "aurc": {
+            "mean": 0.1303,
+            "std": 0.008
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.9527,
+            "std": 0.266
+          },
+          "ratio_ci95_seed0": [
+            0.6295940170940171,
+            1.0
+          ]
+        },
+        "composite": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.15,
+            "std": 0.0075
+          },
+          "err_capture@0.1": {
+            "mean": 0.1952,
+            "std": 0.0107
+          },
+          "aurc": {
+            "mean": 0.1297,
+            "std": 0.005
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.9834,
+            "std": 0.1044
+          },
+          "ratio_ci95_seed0": [
+            0.9506172839506173,
+            1.2337814529220779
+          ]
+        },
+        "sl_fusion": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1488,
+            "std": 0.031
+          },
+          "err_capture@0.1": {
+            "mean": 0.2227,
+            "std": 0.0122
+          },
+          "aurc": {
+            "mean": 0.1284,
+            "std": 0.005
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.9829,
+            "std": 0.2545
+          },
+          "ratio_ci95_seed0": [
+            0.7164086972544684,
+            1.046153846153846
+          ]
+        },
+        "random": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.1,
+            "std": 0.005
+          },
+          "err_capture@0.1": {
+            "mean": 0.1006,
+            "std": 0.0053
+          },
+          "aurc": {
+            "mean": 0.1963,
+            "std": 0.0046
+          },
+          "ratio_vs_baseline": {
+            "mean": 0.6537,
+            "std": 0.0524
+          },
+          "ratio_ci95_seed0": [
+            0.5194681900378102,
+            0.9577464788732393
+          ]
+        },
+        "oracle": {
+          "bad_approval_capture@0.1": {
+            "mean": 0.6812,
+            "std": 0.0569
+          },
+          "err_capture@0.1": {
+            "mean": 0.4814,
+            "std": 0.0142
+          },
+          "aurc": {
+            "mean": 0.0767,
+            "std": 0.0057
+          },
+          "ratio_vs_baseline": {
+            "mean": 4.4624,
+            "std": 0.5532
+          },
+          "ratio_ci95_seed0": [
+            4.347826086956522,
+            6.666666666666667
+          ]
+        }
+      }
+    }
+  }
+}
