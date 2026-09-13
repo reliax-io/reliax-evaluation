@@ -109,6 +109,52 @@
     }
    },
    "hnsw_recall_at_10": 0.9909
+  },
+  "1000000": {
+   "build_s": {
+    "calibration_set": 466.0,
+    "knn_exact_index": 465.04,
+    "hnsw_index": 34.1
+   },
+   "components": {
+    "conformal": {
+     "p50_ms": 1.0976,
+     "p95_ms": 2.5649,
+     "mean_ms": 1.3364,
+     "n": 3000
+    },
+    "knn_exact": {
+     "p50_ms": 10.4699,
+     "p95_ms": 23.9718,
+     "mean_ms": 12.3962,
+     "n": 3000
+    },
+    "knn_hnsw": {
+     "p50_ms": 0.104,
+     "p95_ms": 0.1935,
+     "mean_ms": 0.1322,
+     "n": 3000
+    },
+    "martingale": {
+     "p50_ms": 0.0124,
+     "p95_ms": 0.0231,
+     "mean_ms": 0.0162,
+     "n": 3000
+    },
+    "venn_abers": {
+     "p50_ms": 472.3517,
+     "p95_ms": 652.5857,
+     "mean_ms": 486.9459,
+     "n": 3000
+    },
+    "full_envelope": {
+     "p50_ms": 492.5132,
+     "p95_ms": 636.969,
+     "mean_ms": 497.9477,
+     "n": 3000
+    }
+   },
+   "hnsw_recall_at_10": 0.9394
   }
  },
  "loopback_http_hop": {

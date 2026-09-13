@@ -1,5 +1,1145 @@
 {
  "tasks": {
+  "acsincome": {
+   "seeds_run": 5,
+   "seeds_ok": 5,
+   "errors": [],
+   "n": {
+    "train": 200000,
+    "cal": 20000,
+    "id_test": 20000,
+    "ood_test": 20000
+   },
+   "tableshift_baseline_drop": -1.3,
+   "shift_present": false,
+   "claimed_d": {
+    "mean": 0.008,
+    "std": 0.0019,
+    "n": 5
+   },
+   "id_test": {
+    "accuracy": {
+     "mean": 0.8263,
+     "std": 0.0013,
+     "n": 5
+    },
+    "auc": {
+     "mean": 0.8966,
+     "std": 0.0008,
+     "n": 5
+    },
+    "coverage": {
+     "0.05": {
+      "mean": 0.9494,
+      "std": 0.0011,
+      "n": 5
+     },
+     "0.1": {
+      "mean": 0.8985,
+      "std": 0.0013,
+      "n": 5
+     }
+    },
+    "review_rate": {
+     "mean": 0.3349,
+     "std": 0.0045,
+     "n": 5
+    },
+    "mean_set_size": {
+     "mean": 1.3349,
+     "std": 0.0045,
+     "n": 5
+    },
+    "raw_ece": {
+     "mean": 0.0092,
+     "std": 0.0012,
+     "n": 5
+    },
+    "va_ece": {
+     "mean": 0.0214,
+     "std": 0.0025,
+     "n": 5
+    },
+    "realized_d": {
+     "mean": 0.0088,
+     "std": 0.0008,
+     "n": 5
+    },
+    "gap_d": {
+     "mean": 0.0008,
+     "std": 0.0019,
+     "n": 5
+    },
+    "martingale": {
+     "alarm_rate": 0.0,
+     "watch_rate": 0.2,
+     "max_log10": {
+      "mean": 0.6104,
+      "std": 0.7686,
+      "n": 5
+     },
+     "steps_to_alarm": {
+      "mean": null,
+      "std": null,
+      "n": 0
+     }
+    },
+    "martingale_extra_id": {
+     "streams": 100,
+     "watch_rate": 0.0,
+     "alarm_rate": 0.0
+    },
+    "segments": {
+     "RAC1P": [
+      {
+       "segment": "0",
+       "n": 4482,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9465,
+        "std": 0.0016,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9477,
+        "std": 0.002,
+        "n": 5
+       }
+      },
+      {
+       "segment": "1",
+       "n": 15518,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9502,
+        "std": 0.0016,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.95,
+        "std": 0.0013,
+        "n": 5
+       }
+      }
+     ],
+     "SEX": [
+      {
+       "segment": "0",
+       "n": 9591,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9518,
+        "std": 0.001,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9481,
+        "std": 0.0019,
+        "n": 5
+       }
+      },
+      {
+       "segment": "1",
+       "n": 10408,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9471,
+        "std": 0.0019,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9503,
+        "std": 0.0027,
+        "n": 5
+       }
+      }
+     ]
+    }
+   },
+   "ood_test": {
+    "accuracy": {
+     "mean": 0.8079,
+     "std": 0.002,
+     "n": 5
+    },
+    "auc": {
+     "mean": 0.8989,
+     "std": 0.0026,
+     "n": 5
+    },
+    "coverage": {
+     "0.05": {
+      "mean": 0.9369,
+      "std": 0.0022,
+      "n": 5
+     },
+     "0.1": {
+      "mean": 0.8817,
+      "std": 0.0026,
+      "n": 5
+     }
+    },
+    "review_rate": {
+     "mean": 0.3431,
+     "std": 0.0041,
+     "n": 5
+    },
+    "mean_set_size": {
+     "mean": 1.3431,
+     "std": 0.0041,
+     "n": 5
+    },
+    "raw_ece": {
+     "mean": 0.063,
+     "std": 0.004,
+     "n": 5
+    },
+    "va_ece": {
+     "mean": 0.0622,
+     "std": 0.0068,
+     "n": 5
+    },
+    "realized_d": {
+     "mean": 0.0631,
+     "std": 0.004,
+     "n": 5
+    },
+    "gap_d": {
+     "mean": 0.0551,
+     "std": 0.0038,
+     "n": 5
+    },
+    "martingale": {
+     "alarm_rate": 0.6,
+     "watch_rate": 1.0,
+     "max_log10": {
+      "mean": 1.9902,
+      "std": 0.1218,
+      "n": 5
+     },
+     "steps_to_alarm": {
+      "mean": 508.3333,
+      "std": 61.8457,
+      "n": 3
+     }
+    },
+    "segments": {
+     "RAC1P": [
+      {
+       "segment": "0",
+       "n": 3001,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9351,
+        "std": 0.0059,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9364,
+        "std": 0.0091,
+        "n": 5
+       }
+      },
+      {
+       "segment": "1",
+       "n": 16999,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9372,
+        "std": 0.0017,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.937,
+        "std": 0.0017,
+        "n": 5
+       }
+      }
+     ],
+     "SEX": [
+      {
+       "segment": "0",
+       "n": 9838,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9302,
+        "std": 0.0024,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9253,
+        "std": 0.0035,
+        "n": 5
+       }
+      },
+      {
+       "segment": "1",
+       "n": 10161,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9435,
+        "std": 0.0026,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9469,
+        "std": 0.0032,
+        "n": 5
+       }
+      }
+     ]
+    }
+   },
+   "coverage_drop_0.05": {
+    "mean": 0.0124,
+    "std": 0.0015,
+    "n": 5
+   },
+   "hypotheses": {
+    "H-A1_id_coverage_within_0.01": true,
+    "H-A3_false_alarm_at_most_1_in_5": true,
+    "note": "TableShift baseline drop above -5.0: H-A2 to H-A5 not applicable"
+   }
+  },
+  "acsfoodstamps": {
+   "seeds_run": 5,
+   "seeds_ok": 5,
+   "errors": [],
+   "n": {
+    "train": 200000,
+    "cal": 20000,
+    "id_test": 20000,
+    "ood_test": 20000
+   },
+   "tableshift_baseline_drop": -2.4,
+   "shift_present": false,
+   "claimed_d": {
+    "mean": 0.0069,
+    "std": 0.0009,
+    "n": 5
+   },
+   "id_test": {
+    "accuracy": {
+     "mean": 0.8482,
+     "std": 0.0014,
+     "n": 5
+    },
+    "auc": {
+     "mean": 0.8515,
+     "std": 0.0028,
+     "n": 5
+    },
+    "coverage": {
+     "0.05": {
+      "mean": 0.9492,
+      "std": 0.0021,
+      "n": 5
+     },
+     "0.1": {
+      "mean": 0.8996,
+      "std": 0.0026,
+      "n": 5
+     }
+    },
+    "review_rate": {
+     "mean": 0.2905,
+     "std": 0.0044,
+     "n": 5
+    },
+    "mean_set_size": {
+     "mean": 1.2905,
+     "std": 0.0044,
+     "n": 5
+    },
+    "raw_ece": {
+     "mean": 0.0082,
+     "std": 0.0014,
+     "n": 5
+    },
+    "va_ece": {
+     "mean": 0.0176,
+     "std": 0.0035,
+     "n": 5
+    },
+    "realized_d": {
+     "mean": 0.0072,
+     "std": 0.0014,
+     "n": 5
+    },
+    "gap_d": {
+     "mean": 0.0004,
+     "std": 0.0022,
+     "n": 5
+    },
+    "martingale": {
+     "alarm_rate": 0.0,
+     "watch_rate": 0.0,
+     "max_log10": {
+      "mean": 0.3246,
+      "std": 0.2839,
+      "n": 5
+     },
+     "steps_to_alarm": {
+      "mean": null,
+      "std": null,
+      "n": 0
+     }
+    },
+    "martingale_extra_id": {
+     "streams": 100,
+     "watch_rate": 0.02,
+     "alarm_rate": 0.01
+    },
+    "segments": {
+     "RAC1P": [
+      {
+       "segment": "0",
+       "n": 5615,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.938,
+        "std": 0.0049,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9452,
+        "std": 0.0033,
+        "n": 5
+       }
+      },
+      {
+       "segment": "1",
+       "n": 14384,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9536,
+        "std": 0.0019,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9508,
+        "std": 0.002,
+        "n": 5
+       }
+      }
+     ],
+     "SEX": [
+      {
+       "segment": "0",
+       "n": 12081,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9517,
+        "std": 0.0025,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.948,
+        "std": 0.0025,
+        "n": 5
+       }
+      },
+      {
+       "segment": "1",
+       "n": 7919,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9454,
+        "std": 0.0022,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9505,
+        "std": 0.0025,
+        "n": 5
+       }
+      }
+     ]
+    }
+   },
+   "ood_test": {
+    "accuracy": {
+     "mean": 0.8203,
+     "std": 0.0025,
+     "n": 5
+    },
+    "auc": {
+     "mean": 0.8423,
+     "std": 0.003,
+     "n": 5
+    },
+    "coverage": {
+     "0.05": {
+      "mean": 0.9429,
+      "std": 0.0018,
+      "n": 5
+     },
+     "0.1": {
+      "mean": 0.8827,
+      "std": 0.0025,
+      "n": 5
+     }
+    },
+    "review_rate": {
+     "mean": 0.3257,
+     "std": 0.0055,
+     "n": 5
+    },
+    "mean_set_size": {
+     "mean": 1.3257,
+     "std": 0.0055,
+     "n": 5
+    },
+    "raw_ece": {
+     "mean": 0.0153,
+     "std": 0.0017,
+     "n": 5
+    },
+    "va_ece": {
+     "mean": 0.028,
+     "std": 0.0045,
+     "n": 5
+    },
+    "realized_d": {
+     "mean": 0.0155,
+     "std": 0.0023,
+     "n": 5
+    },
+    "gap_d": {
+     "mean": 0.0087,
+     "std": 0.002,
+     "n": 5
+    },
+    "martingale": {
+     "alarm_rate": 1.0,
+     "watch_rate": 1.0,
+     "max_log10": {
+      "mean": 2.0656,
+      "std": 0.0209,
+      "n": 5
+     },
+     "steps_to_alarm": {
+      "mean": 138.0,
+      "std": 25.7138,
+      "n": 5
+     }
+    },
+    "segments": {
+     "RAC1P": [
+      {
+       "segment": "0",
+       "n": 4966,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9303,
+        "std": 0.0039,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9382,
+        "std": 0.0025,
+        "n": 5
+       }
+      },
+      {
+       "segment": "1",
+       "n": 15033,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9471,
+        "std": 0.0016,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9441,
+        "std": 0.0024,
+        "n": 5
+       }
+      }
+     ],
+     "SEX": [
+      {
+       "segment": "0",
+       "n": 12069,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9465,
+        "std": 0.0011,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9417,
+        "std": 0.0018,
+        "n": 5
+       }
+      },
+      {
+       "segment": "1",
+       "n": 7930,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9374,
+        "std": 0.0038,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9436,
+        "std": 0.0022,
+        "n": 5
+       }
+      }
+     ]
+    }
+   },
+   "coverage_drop_0.05": {
+    "mean": 0.0063,
+    "std": 0.0017,
+    "n": 5
+   },
+   "hypotheses": {
+    "H-A1_id_coverage_within_0.01": true,
+    "H-A3_false_alarm_at_most_1_in_5": true,
+    "note": "TableShift baseline drop above -5.0: H-A2 to H-A5 not applicable"
+   }
+  },
+  "acsunemployment": {
+   "seeds_run": 5,
+   "seeds_ok": 5,
+   "errors": [],
+   "n": {
+    "train": 200000,
+    "cal": 20000,
+    "id_test": 20000,
+    "ood_test": 20000
+   },
+   "tableshift_baseline_drop": -1.3,
+   "shift_present": false,
+   "claimed_d": {
+    "mean": 0.001,
+    "std": 0.0005,
+    "n": 5
+   },
+   "id_test": {
+    "accuracy": {
+     "mean": 0.9724,
+     "std": 0.0011,
+     "n": 5
+    },
+    "auc": {
+     "mean": 0.9767,
+     "std": 0.0014,
+     "n": 5
+    },
+    "coverage": {
+     "0.05": {
+      "mean": 0.948,
+      "std": 0.0013,
+      "n": 5
+     },
+     "0.1": {
+      "mean": 0.897,
+      "std": 0.003,
+      "n": 5
+     }
+    },
+    "review_rate": {
+     "mean": 0.0397,
+     "std": 0.0007,
+     "n": 5
+    },
+    "mean_set_size": {
+     "mean": 0.9603,
+     "std": 0.0007,
+     "n": 5
+    },
+    "raw_ece": {
+     "mean": 0.0027,
+     "std": 0.0005,
+     "n": 5
+    },
+    "va_ece": {
+     "mean": 0.0072,
+     "std": 0.0015,
+     "n": 5
+    },
+    "realized_d": {
+     "mean": 0.0011,
+     "std": 0.0003,
+     "n": 5
+    },
+    "gap_d": {
+     "mean": 0.0001,
+     "std": 0.0007,
+     "n": 5
+    },
+    "martingale": {
+     "alarm_rate": 0.0,
+     "watch_rate": 0.0,
+     "max_log10": {
+      "mean": 0.0796,
+      "std": 0.1414,
+      "n": 5
+     },
+     "steps_to_alarm": {
+      "mean": null,
+      "std": null,
+      "n": 0
+     }
+    },
+    "martingale_extra_id": {
+     "streams": 100,
+     "watch_rate": 0.02,
+     "alarm_rate": 0.0
+    },
+    "segments": {
+     "RAC1P": [
+      {
+       "segment": "0",
+       "n": 4699,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9271,
+        "std": 0.003,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9463,
+        "std": 0.0028,
+        "n": 5
+       }
+      },
+      {
+       "segment": "1",
+       "n": 15300,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9544,
+        "std": 0.0013,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9479,
+        "std": 0.0019,
+        "n": 5
+       }
+      }
+     ],
+     "SEX": [
+      {
+       "segment": "0",
+       "n": 10272,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9548,
+        "std": 0.0015,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9488,
+        "std": 0.0027,
+        "n": 5
+       }
+      },
+      {
+       "segment": "1",
+       "n": 9727,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9408,
+        "std": 0.0016,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9475,
+        "std": 0.0028,
+        "n": 5
+       }
+      }
+     ]
+    }
+   },
+   "ood_test": {
+    "accuracy": {
+     "mean": 0.9617,
+     "std": 0.0005,
+     "n": 5
+    },
+    "auc": {
+     "mean": 0.9729,
+     "std": 0.0003,
+     "n": 5
+    },
+    "coverage": {
+     "0.05": {
+      "mean": 0.9256,
+      "std": 0.002,
+      "n": 5
+     },
+     "0.1": {
+      "mean": 0.8668,
+      "std": 0.0024,
+      "n": 5
+     }
+    },
+    "review_rate": {
+     "mean": 0.0592,
+     "std": 0.0027,
+     "n": 5
+    },
+    "mean_set_size": {
+     "mean": 0.9408,
+     "std": 0.0027,
+     "n": 5
+    },
+    "raw_ece": {
+     "mean": 0.0043,
+     "std": 0.001,
+     "n": 5
+    },
+    "va_ece": {
+     "mean": 0.0093,
+     "std": 0.0025,
+     "n": 5
+    },
+    "realized_d": {
+     "mean": 0.0015,
+     "std": 0.0003,
+     "n": 5
+    },
+    "gap_d": {
+     "mean": 0.0005,
+     "std": 0.0003,
+     "n": 5
+    },
+    "martingale": {
+     "alarm_rate": 1.0,
+     "watch_rate": 1.0,
+     "max_log10": {
+      "mean": 2.1424,
+      "std": 0.1693,
+      "n": 5
+     },
+     "steps_to_alarm": {
+      "mean": 92.6,
+      "std": 21.1528,
+      "n": 5
+     }
+    },
+    "segments": {
+     "RAC1P": [
+      {
+       "segment": "0",
+       "n": 7256,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9157,
+        "std": 0.0015,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9398,
+        "std": 0.0022,
+        "n": 5
+       }
+      },
+      {
+       "segment": "1",
+       "n": 12744,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9313,
+        "std": 0.0027,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9209,
+        "std": 0.0034,
+        "n": 5
+       }
+      }
+     ],
+     "SEX": [
+      {
+       "segment": "0",
+       "n": 8678,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9322,
+        "std": 0.0019,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9229,
+        "std": 0.0016,
+        "n": 5
+       }
+      },
+      {
+       "segment": "1",
+       "n": 11321,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9206,
+        "std": 0.0046,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9309,
+        "std": 0.0026,
+        "n": 5
+       }
+      }
+     ]
+    }
+   },
+   "coverage_drop_0.05": {
+    "mean": 0.0224,
+    "std": 0.002,
+    "n": 5
+   },
+   "hypotheses": {
+    "H-A1_id_coverage_within_0.01": true,
+    "H-A3_false_alarm_at_most_1_in_5": true,
+    "note": "TableShift baseline drop above -5.0: H-A2 to H-A5 not applicable"
+   }
+  },
+  "brfss_diabetes": {
+   "seeds_run": 5,
+   "seeds_ok": 5,
+   "errors": [],
+   "n": {
+    "train": 200000,
+    "cal": 20000,
+    "id_test": 20000,
+    "ood_test": 20000
+   },
+   "tableshift_baseline_drop": -4.5,
+   "shift_present": false,
+   "claimed_d": {
+    "mean": 0.0067,
+    "std": 0.0011,
+    "n": 5
+   },
+   "id_test": {
+    "accuracy": {
+     "mean": 0.8764,
+     "std": 0.002,
+     "n": 5
+    },
+    "auc": {
+     "mean": 0.8258,
+     "std": 0.0016,
+     "n": 5
+    },
+    "coverage": {
+     "0.05": {
+      "mean": 0.9496,
+      "std": 0.0023,
+      "n": 5
+     },
+     "0.1": {
+      "mean": 0.898,
+      "std": 0.0028,
+      "n": 5
+     }
+    },
+    "review_rate": {
+     "mean": 0.2168,
+     "std": 0.0081,
+     "n": 5
+    },
+    "mean_set_size": {
+     "mean": 1.2168,
+     "std": 0.0081,
+     "n": 5
+    },
+    "raw_ece": {
+     "mean": 0.0069,
+     "std": 0.0011,
+     "n": 5
+    },
+    "va_ece": {
+     "mean": 0.0167,
+     "std": 0.0025,
+     "n": 5
+    },
+    "realized_d": {
+     "mean": 0.0075,
+     "std": 0.0015,
+     "n": 5
+    },
+    "gap_d": {
+     "mean": 0.0008,
+     "std": 0.0024,
+     "n": 5
+    },
+    "martingale": {
+     "alarm_rate": 0.0,
+     "watch_rate": 0.0,
+     "max_log10": {
+      "mean": 0.3932,
+      "std": 0.2941,
+      "n": 5
+     },
+     "steps_to_alarm": {
+      "mean": null,
+      "std": null,
+      "n": 0
+     }
+    },
+    "martingale_extra_id": {
+     "streams": 100,
+     "watch_rate": 0.02,
+     "alarm_rate": 0.02
+    },
+    "segments": {
+     "SEX": [
+      {
+       "segment": "0",
+       "n": 9260,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9487,
+        "std": 0.002,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9524,
+        "std": 0.0012,
+        "n": 5
+       }
+      },
+      {
+       "segment": "1",
+       "n": 10739,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9503,
+        "std": 0.0027,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9472,
+        "std": 0.0039,
+        "n": 5
+       }
+      }
+     ]
+    }
+   },
+   "ood_test": {
+    "accuracy": {
+     "mean": 0.8341,
+     "std": 0.0016,
+     "n": 5
+    },
+    "auc": {
+     "mean": 0.8175,
+     "std": 0.0047,
+     "n": 5
+    },
+    "coverage": {
+     "0.05": {
+      "mean": 0.9315,
+      "std": 0.0025,
+      "n": 5
+     },
+     "0.1": {
+      "mean": 0.8612,
+      "std": 0.0029,
+      "n": 5
+     }
+    },
+    "review_rate": {
+     "mean": 0.2456,
+     "std": 0.0045,
+     "n": 5
+    },
+    "mean_set_size": {
+     "mean": 1.2456,
+     "std": 0.0045,
+     "n": 5
+    },
+    "raw_ece": {
+     "mean": 0.0385,
+     "std": 0.0023,
+     "n": 5
+    },
+    "va_ece": {
+     "mean": 0.0371,
+     "std": 0.0075,
+     "n": 5
+    },
+    "realized_d": {
+     "mean": 0.0379,
+     "std": 0.0028,
+     "n": 5
+    },
+    "gap_d": {
+     "mean": 0.0313,
+     "std": 0.0025,
+     "n": 5
+    },
+    "martingale": {
+     "alarm_rate": 1.0,
+     "watch_rate": 1.0,
+     "max_log10": {
+      "mean": 2.0922,
+      "std": 0.0491,
+      "n": 5
+     },
+     "steps_to_alarm": {
+      "mean": 86.4,
+      "std": 32.3394,
+      "n": 5
+     }
+    },
+    "segments": {
+     "SEX": [
+      {
+       "segment": "0",
+       "n": 9035,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9341,
+        "std": 0.003,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9386,
+        "std": 0.0032,
+        "n": 5
+       }
+      },
+      {
+       "segment": "1",
+       "n": 10964,
+       "thin": false,
+       "marginal_coverage": {
+        "mean": 0.9293,
+        "std": 0.0035,
+        "n": 5
+       },
+       "mondrian_coverage": {
+        "mean": 0.9246,
+        "std": 0.0062,
+        "n": 5
+       }
+      }
+     ]
+    }
+   },
+   "coverage_drop_0.05": {
+    "mean": 0.0181,
+    "std": 0.0026,
+    "n": 5
+   },
+   "hypotheses": {
+    "H-A1_id_coverage_within_0.01": true,
+    "H-A3_false_alarm_at_most_1_in_5": true,
+    "note": "TableShift baseline drop above -5.0: H-A2 to H-A5 not applicable"
+   }
+  },
   "diabetes_readmission": {
    "seeds_run": 5,
    "seeds_ok": 5,
@@ -83,6 +1223,11 @@
       "std": 0.0,
       "n": 1
      }
+    },
+    "martingale_extra_id": {
+     "streams": 100,
+     "watch_rate": 0.27,
+     "alarm_rate": 0.08
     },
     "segments": {
      "race": [
@@ -208,13 +1353,13 @@
      "alarm_rate": 1.0,
      "watch_rate": 1.0,
      "max_log10": {
-      "mean": 2.1166,
-      "std": 0.1049,
+      "mean": 2.1168,
+      "std": 0.1067,
       "n": 5
      },
      "steps_to_alarm": {
-      "mean": 203.0,
-      "std": 130.0461,
+      "mean": 202.0,
+      "std": 129.0969,
       "n": 5
      }
     },
@@ -386,6 +1531,11 @@
        "steps_to_alarm": null,
        "watch": false,
        "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 4,
+       "alarm": 1
       }
      },
      "ood_test": {
@@ -460,15 +1610,15 @@
        }
       },
       "martingale": {
-       "max_log10": 2.004,
+       "max_log10": 2.002,
        "steps_to_watch": 231,
-       "steps_to_alarm": 328,
+       "steps_to_alarm": 323,
        "watch": true,
        "alarm": true
       }
      }
     },
-    "seconds": 9
+    "seconds": 19
    },
    {
     "n": {
@@ -556,6 +1706,11 @@
        "steps_to_alarm": 566,
        "watch": true,
        "alarm": true
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 11,
+       "alarm": 2
       }
      },
      "ood_test": {
@@ -630,7 +1785,7 @@
        }
       },
       "martingale": {
-       "max_log10": 2.23,
+       "max_log10": 2.233,
        "steps_to_watch": 142,
        "steps_to_alarm": 224,
        "watch": true,
@@ -638,7 +1793,7 @@
       }
      }
     },
-    "seconds": 9
+    "seconds": 19
    },
    {
     "n": {
@@ -726,6 +1881,11 @@
        "steps_to_alarm": null,
        "watch": true,
        "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 3,
+       "alarm": 1
       }
      },
      "ood_test": {
@@ -800,7 +1960,7 @@
        }
       },
       "martingale": {
-       "max_log10": 2.086,
+       "max_log10": 2.088,
        "steps_to_watch": 323,
        "steps_to_alarm": 350,
        "watch": true,
@@ -808,7 +1968,7 @@
       }
      }
     },
-    "seconds": 10
+    "seconds": 19
    },
    {
     "n": {
@@ -896,6 +2056,11 @@
        "steps_to_alarm": null,
        "watch": true,
        "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 6,
+       "alarm": 2
       }
      },
      "ood_test": {
@@ -970,7 +2135,7 @@
        }
       },
       "martingale": {
-       "max_log10": 2.25,
+       "max_log10": 2.251,
        "steps_to_watch": 9,
        "steps_to_alarm": 12,
        "watch": true,
@@ -978,7 +2143,7 @@
       }
      }
     },
-    "seconds": 9
+    "seconds": 19
    },
    {
     "n": {
@@ -1066,6 +2231,11 @@
        "steps_to_alarm": null,
        "watch": false,
        "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 3,
+       "alarm": 2
       }
      },
      "ood_test": {
@@ -1140,7 +2310,7 @@
        }
       },
       "martingale": {
-       "max_log10": 2.013,
+       "max_log10": 2.01,
        "steps_to_watch": 65,
        "steps_to_alarm": 101,
        "watch": true,
@@ -1148,7 +2318,3235 @@
       }
      }
     },
-    "seconds": 9
+    "seconds": 19
+   }
+  ],
+  "brfss_diabetes": [
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.0054,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.8771,
+      "auc": 0.825457336138027,
+      "coverage": {
+       "0.05": 0.94775,
+       "0.1": 0.8947
+      },
+      "review_rate": 0.2114,
+      "mean_set_size": 1.2114,
+      "raw_ece": 0.006369036110997504,
+      "realized_d": 0.00714735287009526,
+      "gap_d": 0.00177026535806622,
+      "va_ece": 0.013498449999999995,
+      "segments": {
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 9195,
+          "marginal_coverage": 0.9468,
+          "mondrian_coverage": 0.9512,
+          "marginal_qhat": 0.7878,
+          "mondrian_qhat": 0.7997,
+          "thin": false,
+          "cal_n": 9237
+         },
+         {
+          "segment": "1",
+          "n": 10805,
+          "marginal_coverage": 0.9485,
+          "mondrian_coverage": 0.9465,
+          "marginal_qhat": 0.7878,
+          "mondrian_qhat": 0.7801,
+          "thin": false,
+          "cal_n": 10763
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9468
+       }
+      },
+      "martingale": {
+       "max_log10": 0.312,
+       "steps_to_watch": null,
+       "steps_to_alarm": null,
+       "watch": false,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 1,
+       "alarm": 1
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.83585,
+      "auc": 0.8194791351356839,
+      "coverage": {
+       "0.05": 0.93285,
+       "0.1": 0.8617
+      },
+      "review_rate": 0.24295,
+      "mean_set_size": 1.24295,
+      "raw_ece": 0.03542774041610076,
+      "realized_d": 0.03431430212894004,
+      "gap_d": 0.028937214616910997,
+      "va_ece": 0.028386750000000002,
+      "segments": {
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 8936,
+          "marginal_coverage": 0.9363,
+          "mondrian_coverage": 0.9396,
+          "marginal_qhat": 0.7878,
+          "mondrian_qhat": 0.7997,
+          "thin": false,
+          "cal_n": 9237
+         },
+         {
+          "segment": "1",
+          "n": 11064,
+          "marginal_coverage": 0.93,
+          "mondrian_coverage": 0.9274,
+          "marginal_qhat": 0.7878,
+          "mondrian_qhat": 0.7801,
+          "thin": false,
+          "cal_n": 10763
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.93
+       }
+      },
+      "martingale": {
+       "max_log10": 2.143,
+       "steps_to_watch": 66,
+       "steps_to_alarm": 68,
+       "watch": true,
+       "alarm": true
+      }
+     }
+    },
+    "seconds": 46
+   },
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.0064,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.87285,
+      "auc": 0.8256599923521255,
+      "coverage": {
+       "0.05": 0.94835,
+       "0.1": 0.8968
+      },
+      "review_rate": 0.2226,
+      "mean_set_size": 1.2226,
+      "raw_ece": 0.008455422060206318,
+      "realized_d": 0.009136719091590001,
+      "gap_d": 0.0027034964971783156,
+      "va_ece": 0.015987250000000015,
+      "segments": {
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 9271,
+          "marginal_coverage": 0.9479,
+          "mondrian_coverage": 0.953,
+          "marginal_qhat": 0.7947,
+          "mondrian_qhat": 0.8153,
+          "thin": false,
+          "cal_n": 9281
+         },
+         {
+          "segment": "1",
+          "n": 10729,
+          "marginal_coverage": 0.9487,
+          "mondrian_coverage": 0.9429,
+          "marginal_qhat": 0.7947,
+          "mondrian_qhat": 0.7697,
+          "thin": false,
+          "cal_n": 10719
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9479
+       }
+      },
+      "martingale": {
+       "max_log10": 0.305,
+       "steps_to_watch": null,
+       "steps_to_alarm": null,
+       "watch": false,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 0,
+       "alarm": 0
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.8314,
+      "auc": 0.8184887324927425,
+      "coverage": {
+       "0.05": 0.9301,
+       "0.1": 0.86035
+      },
+      "review_rate": 0.24835,
+      "mean_set_size": 1.24835,
+      "raw_ece": 0.04226114531385826,
+      "realized_d": 0.04248131405212174,
+      "gap_d": 0.036048091457710055,
+      "va_ece": 0.049929999999999974,
+      "segments": {
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 9093,
+          "marginal_coverage": 0.9334,
+          "mondrian_coverage": 0.9419,
+          "marginal_qhat": 0.7947,
+          "mondrian_qhat": 0.8153,
+          "thin": false,
+          "cal_n": 9281
+         },
+         {
+          "segment": "1",
+          "n": 10907,
+          "marginal_coverage": 0.9274,
+          "mondrian_coverage": 0.9169,
+          "marginal_qhat": 0.7947,
+          "mondrian_qhat": 0.7697,
+          "thin": false,
+          "cal_n": 10719
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9274
+       }
+      },
+      "martingale": {
+       "max_log10": 2.093,
+       "steps_to_watch": 66,
+       "steps_to_alarm": 72,
+       "watch": true,
+       "alarm": true
+      }
+     }
+    },
+    "seconds": 47
+   },
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.0065,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.87685,
+      "auc": 0.8232593315552766,
+      "coverage": {
+       "0.05": 0.94875,
+       "0.1": 0.8958
+      },
+      "review_rate": 0.2085,
+      "mean_set_size": 1.2085,
+      "raw_ece": 0.007444926857595572,
+      "realized_d": 0.009163089956553579,
+      "gap_d": 0.002705734259078953,
+      "va_ece": 0.017471550000000002,
+      "segments": {
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 9265,
+          "marginal_coverage": 0.9475,
+          "mondrian_coverage": 0.9534,
+          "marginal_qhat": 0.782,
+          "mondrian_qhat": 0.7997,
+          "thin": false,
+          "cal_n": 9197
+         },
+         {
+          "segment": "1",
+          "n": 10735,
+          "marginal_coverage": 0.9498,
+          "mondrian_coverage": 0.9454,
+          "marginal_qhat": 0.782,
+          "mondrian_qhat": 0.7659,
+          "thin": false,
+          "cal_n": 10803
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9475
+       }
+      },
+      "martingale": {
+       "max_log10": 0.0,
+       "steps_to_watch": null,
+       "steps_to_alarm": null,
+       "watch": false,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 0,
+       "alarm": 0
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.83345,
+      "auc": 0.8093054147940533,
+      "coverage": {
+       "0.05": 0.9273,
+       "0.1": 0.85595
+      },
+      "review_rate": 0.2387,
+      "mean_set_size": 1.2387,
+      "raw_ece": 0.03733456608030613,
+      "realized_d": 0.03623165059806713,
+      "gap_d": 0.029774294900592503,
+      "va_ece": 0.040726299999999986,
+      "segments": {
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 9091,
+          "marginal_coverage": 0.9308,
+          "mondrian_coverage": 0.9373,
+          "marginal_qhat": 0.782,
+          "mondrian_qhat": 0.7997,
+          "thin": false,
+          "cal_n": 9197
+         },
+         {
+          "segment": "1",
+          "n": 10909,
+          "marginal_coverage": 0.9244,
+          "mondrian_coverage": 0.9184,
+          "marginal_qhat": 0.782,
+          "mondrian_qhat": 0.7659,
+          "thin": false,
+          "cal_n": 10803
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9244
+       }
+      },
+      "martingale": {
+       "max_log10": 2.0,
+       "steps_to_watch": 115,
+       "steps_to_alarm": 151,
+       "watch": true,
+       "alarm": true
+      }
+     }
+    },
+    "seconds": 47
+   },
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.0088,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.87885,
+      "auc": 0.8265509614130077,
+      "coverage": {
+       "0.05": 0.9541,
+       "0.1": 0.9022
+      },
+      "review_rate": 0.22975,
+      "mean_set_size": 1.22975,
+      "raw_ece": 0.00527267527359054,
+      "realized_d": 0.005224371116135271,
+      "gap_d": -0.0036086762241434632,
+      "va_ece": 0.015419449999999986,
+      "segments": {
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 9219,
+          "marginal_coverage": 0.9524,
+          "mondrian_coverage": 0.9537,
+          "marginal_qhat": 0.803,
+          "mondrian_qhat": 0.8059,
+          "thin": false,
+          "cal_n": 9224
+         },
+         {
+          "segment": "1",
+          "n": 10781,
+          "marginal_coverage": 0.9556,
+          "mondrian_coverage": 0.9544,
+          "marginal_qhat": 0.803,
+          "mondrian_qhat": 0.7998,
+          "thin": false,
+          "cal_n": 10776
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9524
+       }
+      },
+      "martingale": {
+       "max_log10": 0.445,
+       "steps_to_watch": null,
+       "steps_to_alarm": null,
+       "watch": false,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 1,
+       "alarm": 1
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.83405,
+      "auc": 0.8166038156691461,
+      "coverage": {
+       "0.05": 0.9335,
+       "0.1": 0.8637
+      },
+      "review_rate": 0.25185,
+      "mean_set_size": 1.25185,
+      "raw_ece": 0.03946468654320358,
+      "realized_d": 0.03920816139539213,
+      "gap_d": 0.030375114055113395,
+      "va_ece": 0.03428289999999999,
+      "segments": {
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 8997,
+          "marginal_coverage": 0.9315,
+          "mondrian_coverage": 0.9331,
+          "marginal_qhat": 0.803,
+          "mondrian_qhat": 0.8059,
+          "thin": false,
+          "cal_n": 9224
+         },
+         {
+          "segment": "1",
+          "n": 11003,
+          "marginal_coverage": 0.9351,
+          "mondrian_coverage": 0.9337,
+          "marginal_qhat": 0.803,
+          "mondrian_qhat": 0.7998,
+          "thin": false,
+          "cal_n": 10776
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9315
+       }
+      },
+      "martingale": {
+       "max_log10": 2.104,
+       "steps_to_watch": 56,
+       "steps_to_alarm": 69,
+       "watch": true,
+       "alarm": true
+      }
+     }
+    },
+    "seconds": 46
+   },
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.0062,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.8761,
+      "auc": 0.8281932748670768,
+      "coverage": {
+       "0.05": 0.94905,
+       "0.1": 0.9004
+      },
+      "review_rate": 0.2116,
+      "mean_set_size": 1.2116,
+      "raw_ece": 0.007149142087336516,
+      "realized_d": 0.006715394818259615,
+      "gap_d": 0.0005437946328367034,
+      "va_ece": 0.02110255000000001,
+      "segments": {
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 9352,
+          "marginal_coverage": 0.949,
+          "mondrian_coverage": 0.9509,
+          "marginal_qhat": 0.7884,
+          "mondrian_qhat": 0.7965,
+          "thin": false,
+          "cal_n": 9283
+         },
+         {
+          "segment": "1",
+          "n": 10648,
+          "marginal_coverage": 0.9491,
+          "mondrian_coverage": 0.9468,
+          "marginal_qhat": 0.7884,
+          "mondrian_qhat": 0.78,
+          "thin": false,
+          "cal_n": 10717
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.949
+       }
+      },
+      "martingale": {
+       "max_log10": 0.904,
+       "steps_to_watch": null,
+       "steps_to_alarm": null,
+       "watch": false,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 0,
+       "alarm": 0
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.83575,
+      "auc": 0.8236036950786387,
+      "coverage": {
+       "0.05": 0.93365,
+       "0.1": 0.8641
+      },
+      "review_rate": 0.2461,
+      "mean_set_size": 1.2461,
+      "raw_ece": 0.03823910362068142,
+      "realized_d": 0.03739992592256281,
+      "gap_d": 0.0312283257371399,
+      "va_ece": 0.03231419999999999,
+      "segments": {
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 9061,
+          "marginal_coverage": 0.9387,
+          "mondrian_coverage": 0.9413,
+          "marginal_qhat": 0.7884,
+          "mondrian_qhat": 0.7965,
+          "thin": false,
+          "cal_n": 9283
+         },
+         {
+          "segment": "1",
+          "n": 10939,
+          "marginal_coverage": 0.9294,
+          "mondrian_coverage": 0.9267,
+          "marginal_qhat": 0.7884,
+          "mondrian_qhat": 0.78,
+          "thin": false,
+          "cal_n": 10717
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9294
+       }
+      },
+      "martingale": {
+       "max_log10": 2.121,
+       "steps_to_watch": 44,
+       "steps_to_alarm": 72,
+       "watch": true,
+       "alarm": true
+      }
+     }
+    },
+    "seconds": 52
+   }
+  ],
+  "acsincome": [
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.0109,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.82685,
+      "auc": 0.8959637964752363,
+      "coverage": {
+       "0.05": 0.9494,
+       "0.1": 0.9001
+      },
+      "review_rate": 0.3397,
+      "mean_set_size": 1.3397,
+      "raw_ece": 0.008203974404022612,
+      "realized_d": 0.008905241850411878,
+      "gap_d": -0.0020047845601785883,
+      "va_ece": 0.021769999999999984,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 4548,
+          "marginal_coverage": 0.9485,
+          "mondrian_coverage": 0.9505,
+          "marginal_qhat": 0.7719,
+          "mondrian_qhat": 0.7803,
+          "thin": false,
+          "cal_n": 4468
+         },
+         {
+          "segment": "1",
+          "n": 15452,
+          "marginal_coverage": 0.9497,
+          "mondrian_coverage": 0.9496,
+          "marginal_qhat": 0.7719,
+          "mondrian_qhat": 0.7714,
+          "thin": false,
+          "cal_n": 15532
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9485
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 9531,
+          "marginal_coverage": 0.9536,
+          "mondrian_coverage": 0.9503,
+          "marginal_qhat": 0.7719,
+          "mondrian_qhat": 0.7569,
+          "thin": false,
+          "cal_n": 9542
+         },
+         {
+          "segment": "1",
+          "n": 10469,
+          "marginal_coverage": 0.9456,
+          "mondrian_coverage": 0.9478,
+          "marginal_qhat": 0.7719,
+          "mondrian_qhat": 0.7807,
+          "thin": false,
+          "cal_n": 10458
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9456
+       }
+      },
+      "martingale": {
+       "max_log10": 0.0,
+       "steps_to_watch": null,
+       "steps_to_alarm": null,
+       "watch": false,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 0,
+       "alarm": 0
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.81015,
+      "auc": 0.8998367273129176,
+      "coverage": {
+       "0.05": 0.93675,
+       "0.1": 0.8824
+      },
+      "review_rate": 0.34555,
+      "mean_set_size": 1.34555,
+      "raw_ece": 0.06688307834434412,
+      "realized_d": 0.06690622191558636,
+      "gap_d": 0.05599619550499589,
+      "va_ece": 0.07430595000000001,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 3000,
+          "marginal_coverage": 0.9357,
+          "mondrian_coverage": 0.938,
+          "marginal_qhat": 0.7719,
+          "mondrian_qhat": 0.7803,
+          "thin": false,
+          "cal_n": 4468
+         },
+         {
+          "segment": "1",
+          "n": 17000,
+          "marginal_coverage": 0.9369,
+          "mondrian_coverage": 0.9367,
+          "marginal_qhat": 0.7719,
+          "mondrian_qhat": 0.7714,
+          "thin": false,
+          "cal_n": 15532
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9357
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 9948,
+          "marginal_coverage": 0.9282,
+          "mondrian_coverage": 0.9236,
+          "marginal_qhat": 0.7719,
+          "mondrian_qhat": 0.7569,
+          "thin": false,
+          "cal_n": 9542
+         },
+         {
+          "segment": "1",
+          "n": 10052,
+          "marginal_coverage": 0.9452,
+          "mondrian_coverage": 0.9486,
+          "marginal_qhat": 0.7719,
+          "mondrian_qhat": 0.7807,
+          "thin": false,
+          "cal_n": 10458
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9282
+       }
+      },
+      "martingale": {
+       "max_log10": 2.013,
+       "steps_to_watch": 419,
+       "steps_to_alarm": 573,
+       "watch": true,
+       "alarm": true
+      }
+     }
+    },
+    "seconds": 75
+   },
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.005,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.82605,
+      "auc": 0.8966782425704567,
+      "coverage": {
+       "0.05": 0.95085,
+       "0.1": 0.898
+      },
+      "review_rate": 0.3405,
+      "mean_set_size": 1.3405,
+      "raw_ece": 0.007356999086833632,
+      "realized_d": 0.00782833104580674,
+      "gap_d": 0.002874168114585524,
+      "va_ece": 0.018771449999999985,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 4433,
+          "marginal_coverage": 0.945,
+          "mondrian_coverage": 0.9472,
+          "marginal_qhat": 0.7741,
+          "mondrian_qhat": 0.7809,
+          "thin": false,
+          "cal_n": 4502
+         },
+         {
+          "segment": "1",
+          "n": 15567,
+          "marginal_coverage": 0.9525,
+          "mondrian_coverage": 0.9525,
+          "marginal_qhat": 0.7741,
+          "mondrian_qhat": 0.774,
+          "thin": false,
+          "cal_n": 15498
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.945
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 9653,
+          "marginal_coverage": 0.952,
+          "mondrian_coverage": 0.9491,
+          "marginal_qhat": 0.7741,
+          "mondrian_qhat": 0.7656,
+          "thin": false,
+          "cal_n": 9549
+         },
+         {
+          "segment": "1",
+          "n": 10347,
+          "marginal_coverage": 0.9497,
+          "mondrian_coverage": 0.953,
+          "marginal_qhat": 0.7741,
+          "mondrian_qhat": 0.7815,
+          "thin": false,
+          "cal_n": 10451
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9497
+       }
+      },
+      "martingale": {
+       "max_log10": 1.244,
+       "steps_to_watch": null,
+       "steps_to_alarm": null,
+       "watch": false,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 0,
+       "alarm": 0
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.8104,
+      "auc": 0.9023014377962352,
+      "coverage": {
+       "0.05": 0.9408,
+       "0.1": 0.8856
+      },
+      "review_rate": 0.34705,
+      "mean_set_size": 1.34705,
+      "raw_ece": 0.06241537175974936,
+      "realized_d": 0.06253231319280544,
+      "gap_d": 0.05757815026158423,
+      "va_ece": 0.056427399999999996,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 3090,
+          "marginal_coverage": 0.9427,
+          "mondrian_coverage": 0.9469,
+          "marginal_qhat": 0.7741,
+          "mondrian_qhat": 0.7809,
+          "thin": false,
+          "cal_n": 4502
+         },
+         {
+          "segment": "1",
+          "n": 16910,
+          "marginal_coverage": 0.9404,
+          "mondrian_coverage": 0.9404,
+          "marginal_qhat": 0.7741,
+          "mondrian_qhat": 0.774,
+          "thin": false,
+          "cal_n": 15498
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9404
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 9723,
+          "marginal_coverage": 0.9349,
+          "mondrian_coverage": 0.931,
+          "marginal_qhat": 0.7741,
+          "mondrian_qhat": 0.7656,
+          "thin": false,
+          "cal_n": 9549
+         },
+         {
+          "segment": "1",
+          "n": 10277,
+          "marginal_coverage": 0.9464,
+          "mondrian_coverage": 0.9497,
+          "marginal_qhat": 0.7741,
+          "mondrian_qhat": 0.7815,
+          "thin": false,
+          "cal_n": 10451
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9349
+       }
+      },
+      "martingale": {
+       "max_log10": 1.869,
+       "steps_to_watch": 197,
+       "steps_to_alarm": null,
+       "watch": true,
+       "alarm": false
+      }
+     }
+    },
+    "seconds": 86
+   },
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.0071,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.82835,
+      "auc": 0.8981225644114195,
+      "coverage": {
+       "0.05": 0.95035,
+       "0.1": 0.8998
+      },
+      "review_rate": 0.3339,
+      "mean_set_size": 1.3339,
+      "raw_ece": 0.010324952796615045,
+      "realized_d": 0.010264183627283647,
+      "gap_d": 0.0031388770551120763,
+      "va_ece": 0.019967500000000013,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 4446,
+          "marginal_coverage": 0.9465,
+          "mondrian_coverage": 0.9496,
+          "marginal_qhat": 0.7672,
+          "mondrian_qhat": 0.7759,
+          "thin": false,
+          "cal_n": 4407
+         },
+         {
+          "segment": "1",
+          "n": 15554,
+          "marginal_coverage": 0.9515,
+          "mondrian_coverage": 0.9501,
+          "marginal_qhat": 0.7672,
+          "mondrian_qhat": 0.7634,
+          "thin": false,
+          "cal_n": 15593
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9465
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 9661,
+          "marginal_coverage": 0.9517,
+          "mondrian_coverage": 0.9447,
+          "marginal_qhat": 0.7672,
+          "mondrian_qhat": 0.7469,
+          "thin": false,
+          "cal_n": 9493
+         },
+         {
+          "segment": "1",
+          "n": 10339,
+          "marginal_coverage": 0.9491,
+          "mondrian_coverage": 0.9541,
+          "marginal_qhat": 0.7672,
+          "mondrian_qhat": 0.781,
+          "thin": false,
+          "cal_n": 10507
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9491
+       }
+      },
+      "martingale": {
+       "max_log10": 1.808,
+       "steps_to_watch": 8,
+       "steps_to_alarm": null,
+       "watch": true,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 0,
+       "alarm": 0
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.8066,
+      "auc": 0.8990061890977192,
+      "coverage": {
+       "0.05": 0.93675,
+       "0.1": 0.8826
+      },
+      "review_rate": 0.3355,
+      "mean_set_size": 1.3355,
+      "raw_ece": 0.05918215444284273,
+      "realized_d": 0.05917623681916082,
+      "gap_d": 0.05205093024698925,
+      "va_ece": 0.05509289999999999,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 3066,
+          "marginal_coverage": 0.9335,
+          "mondrian_coverage": 0.9357,
+          "marginal_qhat": 0.7672,
+          "mondrian_qhat": 0.7759,
+          "thin": false,
+          "cal_n": 4407
+         },
+         {
+          "segment": "1",
+          "n": 16934,
+          "marginal_coverage": 0.9373,
+          "mondrian_coverage": 0.9358,
+          "marginal_qhat": 0.7672,
+          "mondrian_qhat": 0.7634,
+          "thin": false,
+          "cal_n": 15593
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9335
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 9851,
+          "marginal_coverage": 0.9299,
+          "mondrian_coverage": 0.9213,
+          "marginal_qhat": 0.7672,
+          "mondrian_qhat": 0.7469,
+          "thin": false,
+          "cal_n": 9493
+         },
+         {
+          "segment": "1",
+          "n": 10149,
+          "marginal_coverage": 0.9434,
+          "mondrian_coverage": 0.949,
+          "marginal_qhat": 0.7672,
+          "mondrian_qhat": 0.781,
+          "thin": false,
+          "cal_n": 10507
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9299
+       }
+      },
+      "martingale": {
+       "max_log10": 1.837,
+       "steps_to_watch": 467,
+       "steps_to_alarm": null,
+       "watch": true,
+       "alarm": false
+      }
+     }
+    },
+    "seconds": 78
+   },
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.0082,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.8259,
+      "auc": 0.8960963648091609,
+      "coverage": {
+       "0.05": 0.9482,
+       "0.1": 0.89655
+      },
+      "review_rate": 0.3308,
+      "mean_set_size": 1.3308,
+      "raw_ece": 0.010118808875159722,
+      "realized_d": 0.008402419109296616,
+      "gap_d": 0.00024546478889242267,
+      "va_ece": 0.020557599999999985,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 4541,
+          "marginal_coverage": 0.9445,
+          "mondrian_coverage": 0.9463,
+          "marginal_qhat": 0.7678,
+          "mondrian_qhat": 0.7761,
+          "thin": false,
+          "cal_n": 4519
+         },
+         {
+          "segment": "1",
+          "n": 15459,
+          "marginal_coverage": 0.9493,
+          "mondrian_coverage": 0.9487,
+          "marginal_qhat": 0.7678,
+          "mondrian_qhat": 0.7662,
+          "thin": false,
+          "cal_n": 15481
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9445
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 9614,
+          "marginal_coverage": 0.9514,
+          "mondrian_coverage": 0.9475,
+          "marginal_qhat": 0.7678,
+          "mondrian_qhat": 0.7559,
+          "thin": false,
+          "cal_n": 9577
+         },
+         {
+          "segment": "1",
+          "n": 10386,
+          "marginal_coverage": 0.9452,
+          "mondrian_coverage": 0.9477,
+          "marginal_qhat": 0.7678,
+          "mondrian_qhat": 0.7753,
+          "thin": false,
+          "cal_n": 10423
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9452
+       }
+      },
+      "martingale": {
+       "max_log10": 0.0,
+       "steps_to_watch": null,
+       "steps_to_alarm": null,
+       "watch": false,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 0,
+       "alarm": 0
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.8053,
+      "auc": 0.8989600200474459,
+      "coverage": {
+       "0.05": 0.93655,
+       "0.1": 0.87875
+      },
+      "review_rate": 0.3451,
+      "mean_set_size": 1.3451,
+      "raw_ece": 0.06834880110254327,
+      "realized_d": 0.06834348259616038,
+      "gap_d": 0.060186528275756185,
+      "va_ece": 0.06332714999999996,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 2959,
+          "marginal_coverage": 0.9385,
+          "mondrian_coverage": 0.9415,
+          "marginal_qhat": 0.7678,
+          "mondrian_qhat": 0.7761,
+          "thin": false,
+          "cal_n": 4519
+         },
+         {
+          "segment": "1",
+          "n": 17041,
+          "marginal_coverage": 0.9362,
+          "mondrian_coverage": 0.9358,
+          "marginal_qhat": 0.7678,
+          "mondrian_qhat": 0.7662,
+          "thin": false,
+          "cal_n": 15481
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9362
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 9870,
+          "marginal_coverage": 0.9291,
+          "mondrian_coverage": 0.9228,
+          "marginal_qhat": 0.7678,
+          "mondrian_qhat": 0.7559,
+          "thin": false,
+          "cal_n": 9577
+         },
+         {
+          "segment": "1",
+          "n": 10130,
+          "marginal_coverage": 0.9438,
+          "mondrian_coverage": 0.9462,
+          "marginal_qhat": 0.7678,
+          "mondrian_qhat": 0.7753,
+          "thin": false,
+          "cal_n": 10423
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9291
+       }
+      },
+      "martingale": {
+       "max_log10": 2.072,
+       "steps_to_watch": 312,
+       "steps_to_alarm": 527,
+       "watch": true,
+       "alarm": true
+      }
+     }
+    },
+    "seconds": 72
+   },
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.0086,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.82425,
+      "auc": 0.8959118114956508,
+      "coverage": {
+       "0.05": 0.94805,
+       "0.1": 0.8978
+      },
+      "review_rate": 0.32955,
+      "mean_set_size": 1.32955,
+      "raw_ece": 0.010136727095337316,
+      "realized_d": 0.00844335697637129,
+      "gap_d": -0.00020612196824204738,
+      "va_ece": 0.02604769999999998,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 4442,
+          "marginal_coverage": 0.948,
+          "mondrian_coverage": 0.9451,
+          "marginal_qhat": 0.7645,
+          "mondrian_qhat": 0.7534,
+          "thin": false,
+          "cal_n": 4571
+         },
+         {
+          "segment": "1",
+          "n": 15558,
+          "marginal_coverage": 0.9481,
+          "mondrian_coverage": 0.9492,
+          "marginal_qhat": 0.7645,
+          "mondrian_qhat": 0.7669,
+          "thin": false,
+          "cal_n": 15429
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.948
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 9497,
+          "marginal_coverage": 0.9504,
+          "mondrian_coverage": 0.9491,
+          "marginal_qhat": 0.7645,
+          "mondrian_qhat": 0.7594,
+          "thin": false,
+          "cal_n": 9535
+         },
+         {
+          "segment": "1",
+          "n": 10503,
+          "marginal_coverage": 0.9459,
+          "mondrian_coverage": 0.9488,
+          "marginal_qhat": 0.7645,
+          "mondrian_qhat": 0.7697,
+          "thin": false,
+          "cal_n": 10465
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9459
+       }
+      },
+      "martingale": {
+       "max_log10": 0.0,
+       "steps_to_watch": null,
+       "steps_to_alarm": null,
+       "watch": false,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 0,
+       "alarm": 0
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.8073,
+      "auc": 0.8944010902547039,
+      "coverage": {
+       "0.05": 0.93385,
+       "0.1": 0.87895
+      },
+      "review_rate": 0.3425,
+      "mean_set_size": 1.3425,
+      "raw_ece": 0.058380660866045764,
+      "realized_d": 0.05837482338370737,
+      "gap_d": 0.04972534443909403,
+      "va_ece": 0.061630449999999996,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 2890,
+          "marginal_coverage": 0.9249,
+          "mondrian_coverage": 0.9197,
+          "marginal_qhat": 0.7645,
+          "mondrian_qhat": 0.7534,
+          "thin": false,
+          "cal_n": 4571
+         },
+         {
+          "segment": "1",
+          "n": 17110,
+          "marginal_coverage": 0.9354,
+          "mondrian_coverage": 0.9365,
+          "marginal_qhat": 0.7645,
+          "mondrian_qhat": 0.7669,
+          "thin": false,
+          "cal_n": 15429
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9249
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 9800,
+          "marginal_coverage": 0.9288,
+          "mondrian_coverage": 0.9276,
+          "marginal_qhat": 0.7645,
+          "mondrian_qhat": 0.7594,
+          "thin": false,
+          "cal_n": 9535
+         },
+         {
+          "segment": "1",
+          "n": 10200,
+          "marginal_coverage": 0.9387,
+          "mondrian_coverage": 0.9409,
+          "marginal_qhat": 0.7645,
+          "mondrian_qhat": 0.7697,
+          "thin": false,
+          "cal_n": 10465
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9288
+       }
+      },
+      "martingale": {
+       "max_log10": 2.16,
+       "steps_to_watch": 60,
+       "steps_to_alarm": 425,
+       "watch": true,
+       "alarm": true
+      }
+     }
+    },
+    "seconds": 75
+   }
+  ],
+  "acsfoodstamps": [
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.0075,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.8497,
+      "auc": 0.8494504272677156,
+      "coverage": {
+       "0.05": 0.94955,
+       "0.1": 0.8993
+      },
+      "review_rate": 0.289,
+      "mean_set_size": 1.289,
+      "raw_ece": 0.007211716008226261,
+      "realized_d": 0.007984747133866448,
+      "gap_d": 0.0005222107192516612,
+      "va_ece": 0.01728560000000001,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 5619,
+          "marginal_coverage": 0.9443,
+          "mondrian_coverage": 0.9484,
+          "marginal_qhat": 0.7754,
+          "mondrian_qhat": 0.7911,
+          "thin": false,
+          "cal_n": 5565
+         },
+         {
+          "segment": "1",
+          "n": 14381,
+          "marginal_coverage": 0.9516,
+          "mondrian_coverage": 0.9498,
+          "marginal_qhat": 0.7754,
+          "mondrian_qhat": 0.7673,
+          "thin": false,
+          "cal_n": 14435
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9443
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 12063,
+          "marginal_coverage": 0.9531,
+          "mondrian_coverage": 0.9505,
+          "marginal_qhat": 0.7754,
+          "mondrian_qhat": 0.7646,
+          "thin": false,
+          "cal_n": 11986
+         },
+         {
+          "segment": "1",
+          "n": 7937,
+          "marginal_coverage": 0.9442,
+          "mondrian_coverage": 0.9467,
+          "marginal_qhat": 0.7754,
+          "mondrian_qhat": 0.7895,
+          "thin": false,
+          "cal_n": 8014
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9442
+       }
+      },
+      "martingale": {
+       "max_log10": 0.651,
+       "steps_to_watch": null,
+       "steps_to_alarm": null,
+       "watch": false,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 0,
+       "alarm": 0
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.82245,
+      "auc": 0.8464782742893704,
+      "coverage": {
+       "0.05": 0.9447,
+       "0.1": 0.8809
+      },
+      "review_rate": 0.32795,
+      "mean_set_size": 1.32795,
+      "raw_ece": 0.012902702878015163,
+      "realized_d": 0.012557776012330497,
+      "gap_d": 0.005095239597715711,
+      "va_ece": 0.02923849999999999,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 5019,
+          "marginal_coverage": 0.9342,
+          "mondrian_coverage": 0.9394,
+          "marginal_qhat": 0.7754,
+          "mondrian_qhat": 0.7911,
+          "thin": false,
+          "cal_n": 5565
+         },
+         {
+          "segment": "1",
+          "n": 14981,
+          "marginal_coverage": 0.9482,
+          "mondrian_coverage": 0.9467,
+          "marginal_qhat": 0.7754,
+          "mondrian_qhat": 0.7673,
+          "thin": false,
+          "cal_n": 14435
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9342
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 12065,
+          "marginal_coverage": 0.9473,
+          "mondrian_coverage": 0.9441,
+          "marginal_qhat": 0.7754,
+          "mondrian_qhat": 0.7646,
+          "thin": false,
+          "cal_n": 11986
+         },
+         {
+          "segment": "1",
+          "n": 7935,
+          "marginal_coverage": 0.9408,
+          "mondrian_coverage": 0.944,
+          "marginal_qhat": 0.7754,
+          "mondrian_qhat": 0.7895,
+          "thin": false,
+          "cal_n": 8014
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9408
+       }
+      },
+      "martingale": {
+       "max_log10": 2.063,
+       "steps_to_watch": 152,
+       "steps_to_alarm": 166,
+       "watch": true,
+       "alarm": true
+      }
+     }
+    },
+    "seconds": 79
+   },
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.0068,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.8461,
+      "auc": 0.8476846340313919,
+      "coverage": {
+       "0.05": 0.9457,
+       "0.1": 0.89515
+      },
+      "review_rate": 0.2846,
+      "mean_set_size": 1.2846,
+      "raw_ece": 0.006403183325834253,
+      "realized_d": 0.006041404358935515,
+      "gap_d": -0.0007875504330321897,
+      "va_ece": 0.021773450000000007,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 5556,
+          "marginal_coverage": 0.9311,
+          "mondrian_coverage": 0.939,
+          "marginal_qhat": 0.775,
+          "mondrian_qhat": 0.7971,
+          "thin": false,
+          "cal_n": 5548
+         },
+         {
+          "segment": "1",
+          "n": 14444,
+          "marginal_coverage": 0.9513,
+          "mondrian_coverage": 0.9487,
+          "marginal_qhat": 0.775,
+          "mondrian_qhat": 0.7622,
+          "thin": false,
+          "cal_n": 14452
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9311
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 12089,
+          "marginal_coverage": 0.9469,
+          "mondrian_coverage": 0.9435,
+          "marginal_qhat": 0.775,
+          "mondrian_qhat": 0.7611,
+          "thin": false,
+          "cal_n": 11980
+         },
+         {
+          "segment": "1",
+          "n": 7911,
+          "marginal_coverage": 0.9439,
+          "mondrian_coverage": 0.9486,
+          "marginal_qhat": 0.775,
+          "mondrian_qhat": 0.7923,
+          "thin": false,
+          "cal_n": 8020
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9439
+       }
+      },
+      "martingale": {
+       "max_log10": 0.0,
+       "steps_to_watch": null,
+       "steps_to_alarm": null,
+       "watch": false,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 1,
+       "alarm": 1
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.82095,
+      "auc": 0.8425183684309603,
+      "coverage": {
+       "0.05": 0.942,
+       "0.1": 0.88185
+      },
+      "review_rate": 0.31655,
+      "mean_set_size": 1.31655,
+      "raw_ece": 0.014670595635913868,
+      "realized_d": 0.015857850872430166,
+      "gap_d": 0.009028896080462461,
+      "va_ece": 0.027461100000000002,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 4922,
+          "marginal_coverage": 0.9269,
+          "mondrian_coverage": 0.9368,
+          "marginal_qhat": 0.775,
+          "mondrian_qhat": 0.7971,
+          "thin": false,
+          "cal_n": 5548
+         },
+         {
+          "segment": "1",
+          "n": 15078,
+          "marginal_coverage": 0.9469,
+          "mondrian_coverage": 0.9426,
+          "marginal_qhat": 0.775,
+          "mondrian_qhat": 0.7622,
+          "thin": false,
+          "cal_n": 14452
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9269
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 11995,
+          "marginal_coverage": 0.9456,
+          "mondrian_coverage": 0.9403,
+          "marginal_qhat": 0.775,
+          "mondrian_qhat": 0.7611,
+          "thin": false,
+          "cal_n": 11980
+         },
+         {
+          "segment": "1",
+          "n": 8005,
+          "marginal_coverage": 0.9365,
+          "mondrian_coverage": 0.9432,
+          "marginal_qhat": 0.775,
+          "mondrian_qhat": 0.7923,
+          "thin": false,
+          "cal_n": 8020
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9365
+       }
+      },
+      "martingale": {
+       "max_log10": 2.032,
+       "steps_to_watch": 24,
+       "steps_to_alarm": 136,
+       "watch": true,
+       "alarm": true
+      }
+     }
+    },
+    "seconds": 69
+   },
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.0068,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.84995,
+      "auc": 0.8520373832434005,
+      "coverage": {
+       "0.05": 0.94955,
+       "0.1": 0.9013
+      },
+      "review_rate": 0.28935,
+      "mean_set_size": 1.28935,
+      "raw_ece": 0.008172412820634968,
+      "realized_d": 0.006345514262095473,
+      "gap_d": -0.0004983928666388669,
+      "va_ece": 0.01697310000000001,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 5634,
+          "marginal_coverage": 0.9352,
+          "mondrian_coverage": 0.9448,
+          "marginal_qhat": 0.7779,
+          "mondrian_qhat": 0.8,
+          "thin": false,
+          "cal_n": 5617
+         },
+         {
+          "segment": "1",
+          "n": 14366,
+          "marginal_coverage": 0.9552,
+          "mondrian_coverage": 0.9523,
+          "marginal_qhat": 0.7779,
+          "mondrian_qhat": 0.7663,
+          "thin": false,
+          "cal_n": 14383
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9352
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 12083,
+          "marginal_coverage": 0.9522,
+          "mondrian_coverage": 0.9486,
+          "marginal_qhat": 0.7779,
+          "mondrian_qhat": 0.7611,
+          "thin": false,
+          "cal_n": 12025
+         },
+         {
+          "segment": "1",
+          "n": 7917,
+          "marginal_coverage": 0.9454,
+          "mondrian_coverage": 0.9516,
+          "marginal_qhat": 0.7779,
+          "mondrian_qhat": 0.7989,
+          "thin": false,
+          "cal_n": 7975
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9454
+       }
+      },
+      "martingale": {
+       "max_log10": 0.114,
+       "steps_to_watch": null,
+       "steps_to_alarm": null,
+       "watch": false,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 1,
+       "alarm": 0
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.8171,
+      "auc": 0.8388261548442635,
+      "coverage": {
+       "0.05": 0.9417,
+       "0.1": 0.8812
+      },
+      "review_rate": 0.3279,
+      "mean_set_size": 1.3279,
+      "raw_ece": 0.01612879538161931,
+      "realized_d": 0.017517073038715962,
+      "gap_d": 0.010673165909981623,
+      "va_ece": 0.024839100000000006,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 5021,
+          "marginal_coverage": 0.9249,
+          "mondrian_coverage": 0.9341,
+          "marginal_qhat": 0.7779,
+          "mondrian_qhat": 0.8,
+          "thin": false,
+          "cal_n": 5617
+         },
+         {
+          "segment": "1",
+          "n": 14979,
+          "marginal_coverage": 0.9473,
+          "mondrian_coverage": 0.9442,
+          "marginal_qhat": 0.7779,
+          "mondrian_qhat": 0.7663,
+          "thin": false,
+          "cal_n": 14383
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9249
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 12090,
+          "marginal_coverage": 0.9447,
+          "mondrian_coverage": 0.9392,
+          "marginal_qhat": 0.7779,
+          "mondrian_qhat": 0.7611,
+          "thin": false,
+          "cal_n": 12025
+         },
+         {
+          "segment": "1",
+          "n": 7910,
+          "marginal_coverage": 0.937,
+          "mondrian_coverage": 0.9445,
+          "marginal_qhat": 0.7779,
+          "mondrian_qhat": 0.7989,
+          "thin": false,
+          "cal_n": 7975
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.937
+       }
+      },
+      "martingale": {
+       "max_log10": 2.078,
+       "steps_to_watch": 130,
+       "steps_to_alarm": 135,
+       "watch": true,
+       "alarm": true
+      }
+     }
+    },
+    "seconds": 74
+   },
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.008,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.8476,
+      "auc": 0.8525670656928407,
+      "coverage": {
+       "0.05": 0.9489,
+       "0.1": 0.8995
+      },
+      "review_rate": 0.2913,
+      "mean_set_size": 1.2913,
+      "raw_ece": 0.008643548914119815,
+      "realized_d": 0.006138314491466564,
+      "gap_d": -0.0018846749330535435,
+      "va_ece": 0.011456949999999978,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 5585,
+          "marginal_coverage": 0.9366,
+          "mondrian_coverage": 0.9461,
+          "marginal_qhat": 0.7816,
+          "mondrian_qhat": 0.8051,
+          "thin": false,
+          "cal_n": 5622
+         },
+         {
+          "segment": "1",
+          "n": 14415,
+          "marginal_coverage": 0.9537,
+          "mondrian_coverage": 0.9494,
+          "marginal_qhat": 0.7816,
+          "mondrian_qhat": 0.7677,
+          "thin": false,
+          "cal_n": 14378
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9366
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 12122,
+          "marginal_coverage": 0.9522,
+          "mondrian_coverage": 0.9474,
+          "marginal_qhat": 0.7816,
+          "mondrian_qhat": 0.7643,
+          "thin": false,
+          "cal_n": 12034
+         },
+         {
+          "segment": "1",
+          "n": 7878,
+          "marginal_coverage": 0.9438,
+          "mondrian_coverage": 0.9515,
+          "marginal_qhat": 0.7816,
+          "mondrian_qhat": 0.8065,
+          "thin": false,
+          "cal_n": 7966
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9438
+       }
+      },
+      "martingale": {
+       "max_log10": 0.679,
+       "steps_to_watch": null,
+       "steps_to_alarm": null,
+       "watch": false,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 0,
+       "alarm": 0
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.8177,
+      "auc": 0.8392070227528795,
+      "coverage": {
+       "0.05": 0.9407,
+       "0.1": 0.88195
+      },
+      "review_rate": 0.3231,
+      "mean_set_size": 1.3231,
+      "raw_ece": 0.017977135093883507,
+      "realized_d": 0.018402982615364525,
+      "gap_d": 0.010379993190844417,
+      "va_ece": 0.03566429999999998,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 4904,
+          "marginal_coverage": 0.9303,
+          "mondrian_coverage": 0.9409,
+          "marginal_qhat": 0.7816,
+          "mondrian_qhat": 0.8051,
+          "thin": false,
+          "cal_n": 5622
+         },
+         {
+          "segment": "1",
+          "n": 15096,
+          "marginal_coverage": 0.9441,
+          "mondrian_coverage": 0.9405,
+          "marginal_qhat": 0.7816,
+          "mondrian_qhat": 0.7677,
+          "thin": false,
+          "cal_n": 14378
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9303
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 12104,
+          "marginal_coverage": 0.947,
+          "mondrian_coverage": 0.9417,
+          "marginal_qhat": 0.7816,
+          "mondrian_qhat": 0.7643,
+          "thin": false,
+          "cal_n": 12034
+         },
+         {
+          "segment": "1",
+          "n": 7896,
+          "marginal_coverage": 0.931,
+          "mondrian_coverage": 0.9398,
+          "marginal_qhat": 0.7816,
+          "mondrian_qhat": 0.8065,
+          "thin": false,
+          "cal_n": 7966
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.931
+       }
+      },
+      "martingale": {
+       "max_log10": 2.06,
+       "steps_to_watch": 14,
+       "steps_to_alarm": 93,
+       "watch": true,
+       "alarm": true
+      }
+     }
+    },
+    "seconds": 68
+   },
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.0052,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.8477,
+      "auc": 0.8558217050034853,
+      "coverage": {
+       "0.05": 0.95235,
+       "0.1": 0.9029
+      },
+      "review_rate": 0.2981,
+      "mean_set_size": 1.2981,
+      "raw_ece": 0.010594848908942986,
+      "realized_d": 0.00959754633412388,
+      "gap_d": 0.00442215422572466,
+      "va_ece": 0.02029075,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 5683,
+          "marginal_coverage": 0.943,
+          "mondrian_coverage": 0.9477,
+          "marginal_qhat": 0.7849,
+          "mondrian_qhat": 0.7969,
+          "thin": false,
+          "cal_n": 5669
+         },
+         {
+          "segment": "1",
+          "n": 14317,
+          "marginal_coverage": 0.9561,
+          "mondrian_coverage": 0.954,
+          "marginal_qhat": 0.7849,
+          "mondrian_qhat": 0.7777,
+          "thin": false,
+          "cal_n": 14331
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.943
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 12048,
+          "marginal_coverage": 0.9541,
+          "mondrian_coverage": 0.9499,
+          "marginal_qhat": 0.7849,
+          "mondrian_qhat": 0.7708,
+          "thin": false,
+          "cal_n": 12021
+         },
+         {
+          "segment": "1",
+          "n": 7952,
+          "marginal_coverage": 0.9497,
+          "mondrian_coverage": 0.954,
+          "marginal_qhat": 0.7849,
+          "mondrian_qhat": 0.8006,
+          "thin": false,
+          "cal_n": 7979
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9497
+       }
+      },
+      "martingale": {
+       "max_log10": 0.179,
+       "steps_to_watch": null,
+       "steps_to_alarm": null,
+       "watch": false,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 0,
+       "alarm": 0
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.8235,
+      "auc": 0.8446494232972748,
+      "coverage": {
+       "0.05": 0.94545,
+       "0.1": 0.88755
+      },
+      "review_rate": 0.3328,
+      "mean_set_size": 1.3328,
+      "raw_ece": 0.015042803473519653,
+      "realized_d": 0.01330667722809657,
+      "gap_d": 0.008131285119697351,
+      "va_ece": 0.0226321,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 4967,
+          "marginal_coverage": 0.935,
+          "mondrian_coverage": 0.94,
+          "marginal_qhat": 0.7849,
+          "mondrian_qhat": 0.7969,
+          "thin": false,
+          "cal_n": 5669
+         },
+         {
+          "segment": "1",
+          "n": 15033,
+          "marginal_coverage": 0.9489,
+          "mondrian_coverage": 0.9467,
+          "marginal_qhat": 0.7849,
+          "mondrian_qhat": 0.7777,
+          "thin": false,
+          "cal_n": 14331
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.935
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 12094,
+          "marginal_coverage": 0.9477,
+          "mondrian_coverage": 0.9431,
+          "marginal_qhat": 0.7849,
+          "mondrian_qhat": 0.7708,
+          "thin": false,
+          "cal_n": 12021
+         },
+         {
+          "segment": "1",
+          "n": 7906,
+          "marginal_coverage": 0.9419,
+          "mondrian_coverage": 0.9465,
+          "marginal_qhat": 0.7849,
+          "mondrian_qhat": 0.8006,
+          "thin": false,
+          "cal_n": 7979
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9419
+       }
+      },
+      "martingale": {
+       "max_log10": 2.095,
+       "steps_to_watch": 140,
+       "steps_to_alarm": 160,
+       "watch": true,
+       "alarm": true
+      }
+     }
+    },
+    "seconds": 65
+   }
+  ],
+  "acsunemployment": [
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.0005,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.97165,
+      "auc": 0.9763491298691063,
+      "coverage": {
+       "0.05": 0.94865,
+       "0.1": 0.8976
+      },
+      "review_rate": 0.03845,
+      "mean_set_size": 0.96155,
+      "raw_ece": 0.0026962142305954136,
+      "realized_d": 0.0008604054813672054,
+      "gap_d": 0.0003785664899647301,
+      "va_ece": 0.007927,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 4793,
+          "marginal_coverage": 0.9249,
+          "mondrian_coverage": 0.9441,
+          "marginal_qhat": 0.2746,
+          "mondrian_qhat": 0.3804,
+          "thin": false,
+          "cal_n": 4657
+         },
+         {
+          "segment": "1",
+          "n": 15207,
+          "marginal_coverage": 0.9561,
+          "mondrian_coverage": 0.9498,
+          "marginal_qhat": 0.2746,
+          "mondrian_qhat": 0.2382,
+          "thin": false,
+          "cal_n": 15343
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9249
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 10292,
+          "marginal_coverage": 0.9555,
+          "mondrian_coverage": 0.9486,
+          "marginal_qhat": 0.2746,
+          "mondrian_qhat": 0.2349,
+          "thin": false,
+          "cal_n": 10218
+         },
+         {
+          "segment": "1",
+          "n": 9708,
+          "marginal_coverage": 0.9414,
+          "mondrian_coverage": 0.9492,
+          "marginal_qhat": 0.2746,
+          "mondrian_qhat": 0.3247,
+          "thin": false,
+          "cal_n": 9782
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9414
+       }
+      },
+      "martingale": {
+       "max_log10": 0.361,
+       "steps_to_watch": null,
+       "steps_to_alarm": null,
+       "watch": false,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 0,
+       "alarm": 0
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.96135,
+      "auc": 0.9728859044352013,
+      "coverage": {
+       "0.05": 0.9252,
+       "0.1": 0.8685
+      },
+      "review_rate": 0.05895,
+      "mean_set_size": 0.94105,
+      "raw_ece": 0.004585269343156088,
+      "realized_d": 0.000967913183522486,
+      "gap_d": 0.0004860741921200107,
+      "va_ece": 0.013106800000000004,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 7275,
+          "marginal_coverage": 0.9163,
+          "mondrian_coverage": 0.9399,
+          "marginal_qhat": 0.2746,
+          "mondrian_qhat": 0.3804,
+          "thin": false,
+          "cal_n": 4657
+         },
+         {
+          "segment": "1",
+          "n": 12725,
+          "marginal_coverage": 0.9303,
+          "mondrian_coverage": 0.9203,
+          "marginal_qhat": 0.2746,
+          "mondrian_qhat": 0.2382,
+          "thin": false,
+          "cal_n": 15343
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9163
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 8721,
+          "marginal_coverage": 0.9304,
+          "mondrian_coverage": 0.9207,
+          "marginal_qhat": 0.2746,
+          "mondrian_qhat": 0.2349,
+          "thin": false,
+          "cal_n": 10218
+         },
+         {
+          "segment": "1",
+          "n": 11279,
+          "marginal_coverage": 0.9212,
+          "mondrian_coverage": 0.9325,
+          "marginal_qhat": 0.2746,
+          "mondrian_qhat": 0.3247,
+          "thin": false,
+          "cal_n": 9782
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9212
+       }
+      },
+      "martingale": {
+       "max_log10": 2.044,
+       "steps_to_watch": 82,
+       "steps_to_alarm": 97,
+       "watch": true,
+       "alarm": true
+      }
+     }
+    },
+    "seconds": 44
+   },
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.0018,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.97465,
+      "auc": 0.9791033275001243,
+      "coverage": {
+       "0.05": 0.95025,
+       "0.1": 0.9011
+      },
+      "review_rate": 0.03945,
+      "mean_set_size": 0.96055,
+      "raw_ece": 0.002277526437973719,
+      "realized_d": 0.001144978252212984,
+      "gap_d": -0.0006391950000205961,
+      "va_ece": 0.005343900000000005,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 4705,
+          "marginal_coverage": 0.9324,
+          "mondrian_coverage": 0.9518,
+          "marginal_qhat": 0.2695,
+          "mondrian_qhat": 0.3749,
+          "thin": false,
+          "cal_n": 4622
+         },
+         {
+          "segment": "1",
+          "n": 15295,
+          "marginal_coverage": 0.9557,
+          "mondrian_coverage": 0.95,
+          "marginal_qhat": 0.2695,
+          "mondrian_qhat": 0.2375,
+          "thin": false,
+          "cal_n": 15378
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9324
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 10148,
+          "marginal_coverage": 0.9571,
+          "mondrian_coverage": 0.9519,
+          "marginal_qhat": 0.2695,
+          "mondrian_qhat": 0.2377,
+          "thin": false,
+          "cal_n": 10133
+         },
+         {
+          "segment": "1",
+          "n": 9852,
+          "marginal_coverage": 0.9432,
+          "mondrian_coverage": 0.9484,
+          "marginal_qhat": 0.2695,
+          "mondrian_qhat": 0.3008,
+          "thin": false,
+          "cal_n": 9867
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9432
+       }
+      },
+      "martingale": {
+       "max_log10": 0.0,
+       "steps_to_watch": null,
+       "steps_to_alarm": null,
+       "watch": false,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 1,
+       "alarm": 0
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.9624,
+      "auc": 0.9733114942961192,
+      "coverage": {
+       "0.05": 0.9272,
+       "0.1": 0.8699
+      },
+      "review_rate": 0.05725,
+      "mean_set_size": 0.94275,
+      "raw_ece": 0.0032630654082958185,
+      "realized_d": 0.0018264499789129652,
+      "gap_d": 4.2276726679385014e-05,
+      "va_ece": 0.0109283,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 7356,
+          "marginal_coverage": 0.916,
+          "mondrian_coverage": 0.942,
+          "marginal_qhat": 0.2695,
+          "mondrian_qhat": 0.3749,
+          "thin": false,
+          "cal_n": 4622
+         },
+         {
+          "segment": "1",
+          "n": 12644,
+          "marginal_coverage": 0.9337,
+          "mondrian_coverage": 0.9227,
+          "marginal_qhat": 0.2695,
+          "mondrian_qhat": 0.2375,
+          "thin": false,
+          "cal_n": 15378
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.916
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 8668,
+          "marginal_coverage": 0.932,
+          "mondrian_coverage": 0.9235,
+          "marginal_qhat": 0.2695,
+          "mondrian_qhat": 0.2377,
+          "thin": false,
+          "cal_n": 10133
+         },
+         {
+          "segment": "1",
+          "n": 11332,
+          "marginal_coverage": 0.9235,
+          "mondrian_coverage": 0.9304,
+          "marginal_qhat": 0.2695,
+          "mondrian_qhat": 0.3008,
+          "thin": false,
+          "cal_n": 9867
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9235
+       }
+      },
+      "martingale": {
+       "max_log10": 2.477,
+       "steps_to_watch": 70,
+       "steps_to_alarm": 75,
+       "watch": true,
+       "alarm": true
+      }
+     }
+    },
+    "seconds": 43
+   },
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.0009,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.9717,
+      "auc": 0.9750731269896705,
+      "coverage": {
+       "0.05": 0.9471,
+       "0.1": 0.89235
+      },
+      "review_rate": 0.03975,
+      "mean_set_size": 0.96025,
+      "raw_ece": 0.002371216210872956,
+      "realized_d": 0.001017951488765774,
+      "gap_d": 0.0001385780064886886,
+      "va_ece": 0.009376200000000001,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 4655,
+          "marginal_coverage": 0.925,
+          "mondrian_coverage": 0.9452,
+          "marginal_qhat": 0.2582,
+          "mondrian_qhat": 0.3605,
+          "thin": false,
+          "cal_n": 4648
+         },
+         {
+          "segment": "1",
+          "n": 15345,
+          "marginal_coverage": 0.9538,
+          "mondrian_coverage": 0.9452,
+          "marginal_qhat": 0.2582,
+          "mondrian_qhat": 0.2228,
+          "thin": false,
+          "cal_n": 15352
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.925
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 10215,
+          "marginal_coverage": 0.9532,
+          "mondrian_coverage": 0.9444,
+          "marginal_qhat": 0.2582,
+          "mondrian_qhat": 0.2186,
+          "thin": false,
+          "cal_n": 10110
+         },
+         {
+          "segment": "1",
+          "n": 9785,
+          "marginal_coverage": 0.9407,
+          "mondrian_coverage": 0.9489,
+          "marginal_qhat": 0.2582,
+          "mondrian_qhat": 0.3059,
+          "thin": false,
+          "cal_n": 9890
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9407
+       }
+      },
+      "martingale": {
+       "max_log10": 0.0,
+       "steps_to_watch": null,
+       "steps_to_alarm": null,
+       "watch": false,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 1,
+       "alarm": 0
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.96105,
+      "auc": 0.9732136735232066,
+      "coverage": {
+       "0.05": 0.9264,
+       "0.1": 0.8658
+      },
+      "review_rate": 0.05905,
+      "mean_set_size": 0.94095,
+      "raw_ece": 0.006093227819722117,
+      "realized_d": 0.0016058162460736685,
+      "gap_d": 0.0007264427637965832,
+      "va_ece": 0.006949049999999998,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 7251,
+          "marginal_coverage": 0.9179,
+          "mondrian_coverage": 0.9424,
+          "marginal_qhat": 0.2582,
+          "mondrian_qhat": 0.3605,
+          "thin": false,
+          "cal_n": 4648
+         },
+         {
+          "segment": "1",
+          "n": 12749,
+          "marginal_coverage": 0.9312,
+          "mondrian_coverage": 0.919,
+          "marginal_qhat": 0.2582,
+          "mondrian_qhat": 0.2228,
+          "thin": false,
+          "cal_n": 15352
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9179
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 8623,
+          "marginal_coverage": 0.9329,
+          "mondrian_coverage": 0.9223,
+          "marginal_qhat": 0.2582,
+          "mondrian_qhat": 0.2186,
+          "thin": false,
+          "cal_n": 10110
+         },
+         {
+          "segment": "1",
+          "n": 11377,
+          "marginal_coverage": 0.9215,
+          "mondrian_coverage": 0.9342,
+          "marginal_qhat": 0.2582,
+          "mondrian_qhat": 0.3059,
+          "thin": false,
+          "cal_n": 9890
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9215
+       }
+      },
+      "martingale": {
+       "max_log10": 2.029,
+       "steps_to_watch": 58,
+       "steps_to_alarm": 62,
+       "watch": true,
+       "alarm": true
+      }
+     }
+    },
+    "seconds": 42
+   },
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.0014,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.97185,
+      "auc": 0.9756605721213453,
+      "coverage": {
+       "0.05": 0.9468,
+       "0.1": 0.8954
+      },
+      "review_rate": 0.04055,
+      "mean_set_size": 0.95945,
+      "raw_ece": 0.0022805381993388028,
+      "realized_d": 0.0007336816786699355,
+      "gap_d": -0.0006166259613557183,
+      "va_ece": 0.007576149999999995,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 4665,
+          "marginal_coverage": 0.9284,
+          "mondrian_coverage": 0.9449,
+          "marginal_qhat": 0.2552,
+          "mondrian_qhat": 0.349,
+          "thin": false,
+          "cal_n": 4745
+         },
+         {
+          "segment": "1",
+          "n": 15335,
+          "marginal_coverage": 0.9524,
+          "mondrian_coverage": 0.9465,
+          "marginal_qhat": 0.2552,
+          "mondrian_qhat": 0.2235,
+          "thin": false,
+          "cal_n": 15255
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9284
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 10382,
+          "marginal_coverage": 0.9548,
+          "mondrian_coverage": 0.9513,
+          "marginal_qhat": 0.2552,
+          "mondrian_qhat": 0.2353,
+          "thin": false,
+          "cal_n": 10187
+         },
+         {
+          "segment": "1",
+          "n": 9618,
+          "marginal_coverage": 0.9381,
+          "mondrian_coverage": 0.942,
+          "marginal_qhat": 0.2552,
+          "mondrian_qhat": 0.2841,
+          "thin": false,
+          "cal_n": 9813
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9381
+       }
+      },
+      "martingale": {
+       "max_log10": 0.037,
+       "steps_to_watch": null,
+       "steps_to_alarm": null,
+       "watch": false,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 0,
+       "alarm": 0
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.96135,
+      "auc": 0.9726099745399008,
+      "coverage": {
+       "0.05": 0.92735,
+       "0.1": 0.86715
+      },
+      "review_rate": 0.0565,
+      "mean_set_size": 0.9435,
+      "raw_ece": 0.0041465237168764974,
+      "realized_d": 0.0016234701224066082,
+      "gap_d": 0.0002731624823809544,
+      "va_ece": 0.006419200000000002,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 7163,
+          "marginal_coverage": 0.9147,
+          "mondrian_coverage": 0.9368,
+          "marginal_qhat": 0.2552,
+          "mondrian_qhat": 0.349,
+          "thin": false,
+          "cal_n": 4745
+         },
+         {
+          "segment": "1",
+          "n": 12837,
+          "marginal_coverage": 0.9344,
+          "mondrian_coverage": 0.9262,
+          "marginal_qhat": 0.2552,
+          "mondrian_qhat": 0.2235,
+          "thin": false,
+          "cal_n": 15255
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9147
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 8696,
+          "marginal_coverage": 0.9304,
+          "mondrian_coverage": 0.9255,
+          "marginal_qhat": 0.2552,
+          "mondrian_qhat": 0.2353,
+          "thin": false,
+          "cal_n": 10187
+         },
+         {
+          "segment": "1",
+          "n": 11304,
+          "marginal_coverage": 0.925,
+          "mondrian_coverage": 0.931,
+          "marginal_qhat": 0.2552,
+          "mondrian_qhat": 0.2841,
+          "thin": false,
+          "cal_n": 9813
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.925
+       }
+      },
+      "martingale": {
+       "max_log10": 2.107,
+       "steps_to_watch": 70,
+       "steps_to_alarm": 112,
+       "watch": true,
+       "alarm": true
+      }
+     }
+    },
+    "seconds": 39
+   },
+   {
+    "n": {
+     "train": 200000,
+     "cal": 20000,
+     "id_test": 20000,
+     "ood_test": 20000
+    },
+    "claimed_d": 0.0004,
+    "splits": {
+     "id_test": {
+      "accuracy": 0.97215,
+      "auc": 0.9772098977767414,
+      "coverage": {
+       "0.05": 0.94715,
+       "0.1": 0.8985
+      },
+      "review_rate": 0.0402,
+      "mean_set_size": 0.9598,
+      "raw_ece": 0.00371291865559557,
+      "realized_d": 0.001739736628059935,
+      "gap_d": 0.0013594313646202896,
+      "va_ece": 0.005842199999999999,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 4679,
+          "marginal_coverage": 0.9248,
+          "mondrian_coverage": 0.9455,
+          "marginal_qhat": 0.2564,
+          "mondrian_qhat": 0.3705,
+          "thin": false,
+          "cal_n": 4648
+         },
+         {
+          "segment": "1",
+          "n": 15321,
+          "marginal_coverage": 0.954,
+          "mondrian_coverage": 0.9478,
+          "marginal_qhat": 0.2564,
+          "mondrian_qhat": 0.2181,
+          "thin": false,
+          "cal_n": 15352
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9248
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 10326,
+          "marginal_coverage": 0.9533,
+          "mondrian_coverage": 0.9477,
+          "marginal_qhat": 0.2564,
+          "mondrian_qhat": 0.224,
+          "thin": false,
+          "cal_n": 10267
+         },
+         {
+          "segment": "1",
+          "n": 9674,
+          "marginal_coverage": 0.9406,
+          "mondrian_coverage": 0.9492,
+          "marginal_qhat": 0.2564,
+          "mondrian_qhat": 0.3189,
+          "thin": false,
+          "cal_n": 9733
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9406
+       }
+      },
+      "martingale": {
+       "max_log10": 0.0,
+       "steps_to_watch": null,
+       "steps_to_alarm": null,
+       "watch": false,
+       "alarm": false
+      },
+      "martingale_extra_id": {
+       "streams": 20,
+       "watch": 0,
+       "alarm": 0
+      }
+     },
+     "ood_test": {
+      "accuracy": 0.9621,
+      "auc": 0.9724678790831314,
+      "coverage": {
+       "0.05": 0.92205,
+       "0.1": 0.86285
+      },
+      "review_rate": 0.06435,
+      "mean_set_size": 0.93565,
+      "raw_ece": 0.0035435694549441617,
+      "realized_d": 0.0012589122133587712,
+      "gap_d": 0.0008786069499191259,
+      "va_ece": 0.008932750000000001,
+      "segments": {
+       "RAC1P": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 7235,
+          "marginal_coverage": 0.9136,
+          "mondrian_coverage": 0.9381,
+          "marginal_qhat": 0.2564,
+          "mondrian_qhat": 0.3705,
+          "thin": false,
+          "cal_n": 4648
+         },
+         {
+          "segment": "1",
+          "n": 12765,
+          "marginal_coverage": 0.9268,
+          "mondrian_coverage": 0.9163,
+          "marginal_qhat": 0.2564,
+          "mondrian_qhat": 0.2181,
+          "thin": false,
+          "cal_n": 15352
+         }
+        ],
+        "worst_marginal_segment": "0",
+        "worst_marginal_coverage": 0.9136
+       },
+       "SEX": {
+        "alpha": 0.05,
+        "target": 0.95,
+        "segments": [
+         {
+          "segment": "0",
+          "n": 8685,
+          "marginal_coverage": 0.9354,
+          "mondrian_coverage": 0.9226,
+          "marginal_qhat": 0.2564,
+          "mondrian_qhat": 0.224,
+          "thin": false,
+          "cal_n": 10267
+         },
+         {
+          "segment": "1",
+          "n": 11315,
+          "marginal_coverage": 0.9118,
+          "mondrian_coverage": 0.9263,
+          "marginal_qhat": 0.2564,
+          "mondrian_qhat": 0.3189,
+          "thin": false,
+          "cal_n": 9733
+         }
+        ],
+        "worst_marginal_segment": "1",
+        "worst_marginal_coverage": 0.9118
+       }
+      },
+      "martingale": {
+       "max_log10": 2.055,
+       "steps_to_watch": 109,
+       "steps_to_alarm": 117,
+       "watch": true,
+       "alarm": true
+      }
+     }
+    },
+    "seconds": 44
    }
   ]
  },

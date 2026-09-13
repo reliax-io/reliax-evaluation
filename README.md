@@ -118,6 +118,25 @@ Write-up: [SHIFT_BENCHMARK_V2.md](SHIFT_BENCHMARK_V2.md). The tiers, signal
 and bar go into [PREREGISTRATION_AMENDMENT.md](PREREGISTRATION_AMENDMENT.md)
 (draft) before the confirmatory datasets are opened.
 
+## Exploratory expansion (Amendment 2, September 2026)
+
+Pre-specified in `PREREGISTRATION_AMENDMENT.md` (Amendment 2) before any
+download; nothing here touches the confirmatory sets or the triage-rank bar.
+Runners in `eval/expansion/`, results in `results/expansion/`, write-up in
+PAPER.md section 7.
+
+| workstream | source | result |
+|---|---|---|
+| A, cross-domain | TableShift, 5 public domain-split tasks (health x2, income, public policy, labour) | ID coverage within 0.01 of 0.95 on all 5; OOD coverage falls on 4 of 5; REVIEW rate rises under shift on all 5; ALARM on 100% of OOD streams on 4 tasks, 60% on the fifth; 0 to 2% false alarms on 4 tasks and 27% on hospital readmission, diagnosed (sparse one-hot inputs, 4,286 calibration rows, per-column scaling) in `TABLESHIFT.md` and `martingale_diag.json` |
+| C, parity on reported class | HMDA 2025 modified LAR, 4.7M applications, label = denied (not default) | marginal coverage 0.924 Black / 0.936 Hispanic / 0.956 White at target 0.95; Mondrian within 0.01 for every non-thin group; REVIEW rate 24.2% Black vs 14.5% White (four-fifths 0.35); geography-only proxy misassigns 27.7% and misstates two groups' REVIEW rates (`HMDA_PARITY.md`) |
+| B1, latency at scale | bootstrapped rows of Taiwan dimensionality | 8.5 / 41 / 493 ms median at 7.5k / 100k / 1M calibration rows; Venn-Abers is 96% of the 1M figure; kNN 10.5 ms exact, 0.10 ms HNSW (`LATENCY.md`) |
+| D, temporal drift | Home Credit Stability 2024 | not run: gated on the competition's non-commercial terms |
+| B2, macro drift | Fannie Mae / Freddie Mac | not run: gated on the provider's terms |
+
+Reproduce: `data_fetch/README.md` (TableShift environment in
+`data_fetch/TABLESHIFT_ENV.md`), then `eval/expansion/run_tableshift.py`,
+`run_hmda_parity.py`, `run_latency_scale.py`, `diag_martingale_sparse.py`.
+
 ## Reproduce
 
 ```bash

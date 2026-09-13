@@ -1,7 +1,7 @@
 # Per-Decision Reliability Envelopes for Credit-Risk Models: An Evaluation on Real Data
 
 **Ismael Ouattara, Sébastien Michel** · Reliax
-Working paper v0.2, September 2026 (v0.2 adds the subjective-logic fusion signal). Code and data: `paper/` in the Reliax repository.
+Working paper v0.3 draft, September 2026 (v0.2 added the subjective-logic fusion signal; v0.3 adds section 7, the exploratory expansion). Code and data: `paper/` in the Reliax repository.
 
 ## Abstract
 
@@ -31,7 +31,12 @@ while clearly improving on the weighted-blend composite it replaces, though it
 trails plain confidence on the small dataset; (7) the full envelope computes
 in 8.0 ms median per decision. We state explicitly what
 these results do not show: the pre-registered shifted-data benchmark that
-motivates the uncertainty-aware signals remains future work.
+motivates the uncertainty-aware signals remains future work. Section 7
+(v0.3, exploratory, pre-specified before any download) adds coverage parity
+on reported protected class in 4.7 million HMDA 2025 decisions, latency at
+up to a million calibration rows, and five non-credit TableShift tasks under
+the benchmark's own shifts, including one where the input-space tripwire
+fails and why.
 
 ---
 
@@ -267,9 +272,219 @@ regenerates all figures from `paper/results/results.json`. Datasets are stored
 verbatim with provenance and licenses in `paper/data/`. Environment: Python
 3.14, scikit-learn 1.9, numpy 2.5.
 
+## 7. Exploratory expansion (Amendment 2, September 2026)
+
+Everything in this section is **exploratory**. It was pre-specified in
+`PREREGISTRATION_AMENDMENT.md`, Amendment 2, before any of the datasets
+were downloaded; it does not touch the confirmatory sets (Give Me Some
+Credit, Home Credit Default Risk 2018), the triage-rank bar or any
+threshold. Every task started is reported. The per-task numbers are in
+`results/expansion/`; the runners are in `eval/expansion/`.
+
+### 7.1 Coverage parity on reported protected class (HMDA 2025)
+
+**The label is a lender's decision, not a default.** The Home Mortgage
+Disclosure Act modified LAR reports whether an application was originated or
+denied, together with the applicant's reported race, ethnicity and sex. It
+carries no repayment outcome, so this experiment measures the envelope's
+coverage, set size and REVIEW routing per protected group over a
+decision-prediction model; it says nothing about PD calibration. The 2025
+national file (52 states, fetched by script from the FFIEC data browser) gives
+4,715,455 applications after the pre-specified population filters (first
+lien, site-built, one to four units, principal residence, home purchase or
+refinancing, not reverse, not business), with a 15.3% denial rate. Per seed:
+300,000 rows for the model, 100,000 for calibration, 200,000 for test; five
+seeds. The protected attributes are audit-only and never enter the model. One
+pre-specified feature, "interest rate presence", was dropped before any model
+was fitted: HMDA reports the interest rate only on originated loans, so its
+presence is the label. Model AUC 0.864.
+
+Marginal coverage is 0.950 overall and hides a gap: 0.924 for Black
+applicants, 0.936 for Hispanic applicants, 0.941 where race is not reported,
+against 0.956 for White applicants (target 0.95). The Mondrian calibrator
+repairs every non-thin group to within 0.01 of target (worst group 0.945).
+This is the case slide 12 describes, measured on reported rather than proxied
+attributes, and it is the first dataset in this evaluation where the marginal
+certificate genuinely under-covers a protected group.
+
+| group (reported race) | n test | denial rate | marginal coverage | Mondrian coverage | REVIEW rate |
+|---|---|---|---|---|---|
+| White | 131,236 | 0.129 | 0.956 | 0.950 | 0.145 |
+| Asian | 13,116 | 0.127 | 0.949 | 0.952 | 0.084 |
+| Black or African American | 17,342 | 0.255 | **0.924** | 0.949 | **0.242** |
+| American Indian or Alaska Native | 1,368 | 0.228 | 0.941 | 0.951 | 0.204 |
+| Race not available | 30,755 | 0.211 | 0.941 | 0.950 | 0.186 |
+| Hispanic or Latino (ethnicity) | 24,917 | 0.183 | **0.936** | 0.952 | 0.165 |
+
+The REVIEW routing does not inherit the parity of the coverage. Set-size
+routing sends 24.2% of Black applicants to REVIEW against 14.5% of White
+applicants; the four-fifths ratio of REVIEW rates across non-thin race groups
+is 0.35 (0.59 across ethnicity, 0.50 across sex). The REVIEW rate tracks the
+denial rate: the model is least certain exactly where denials are most
+common. A per-group coverage guarantee therefore does not, by itself, give
+per-group parity of friction, and a fair-lending review will ask about the
+second, not the first. What the envelope does provide is the audit that
+makes this visible per decision and per group; whether a 24% REVIEW rate on
+one group is acceptable is a policy question the audit surfaces and does not
+answer.
+
+**Proxy vs reported.** The same audit was re-run with the applicant's group
+replaced by a geography-only proxy (the modal race or ethnicity of the
+applicant's census tract, ACS 5-year table B03002). The modified LAR carries
+no names, so only the geocoding half of BISG can be reproduced; this is a BIG
+proxy, not BISG. The proxy assigns a different group than the applicant
+reported for 27.7% of in-scope applicants. It overstates the Hispanic REVIEW
+rate by 3.2 points (0.196 vs 0.165 reported) and the Asian rate by 2.4 points
+(0.107 vs 0.083), both outside the reported-attribute 95% interval in all
+five seeds; the Black and White rates it gets within noise. A proxy-based
+parity audit would therefore misstate two of the six groups on this data.
+Pre-specified expectations H-C1, H-C2 and H-C3 were all met.
+
+### 7.2 Latency at 7,500, 100,000 and 1,000,000 calibration rows
+
+Latency is a property of the engine, so this measurement uses calibration
+sets built by seeded bootstrap of the Taiwan calibration split (23 features)
+with 5% Gaussian jitter, not real applicants beyond the first 7,500; the
+number is stated with that caveat wherever it appears. Per cell: 100 warm-up
+and 1,000 timed queries, three repeats, single thread, no network. The code
+measured is `reliax_core/` unchanged.
+
+| component | 7,500 rows | 100,000 rows | 1,000,000 rows |
+|---|---|---|---|
+| conformal set and p-value | 0.02 / 0.02 ms | 0.11 / 0.22 ms | 1.10 / 2.56 ms |
+| Venn-Abers interval | 2.19 / 3.25 ms | 31.6 / 40.9 ms | **472 / 653 ms** |
+| kNN distance, exact index | 1.05 / 4.48 ms | 2.21 / 6.93 ms | 10.5 / 24.0 ms |
+| kNN distance, HNSW index | 0.08 / 0.21 ms | 0.09 / 0.14 ms | 0.10 / 0.19 ms |
+| martingale update | 0.01 / 0.05 ms | 0.01 / 0.01 ms | 0.01 / 0.02 ms |
+| full envelope (with model, exact kNN) | 8.5 / 20.9 ms | 41.0 / 56.4 ms | 493 / 637 ms |
+
+Median / p95. HNSW recall at 10 against the exact index: 0.999, 0.991,
+0.939; index build 34 s at a million rows against 465 s for the exact
+leave-one-out pass. Loopback HTTP round trip on the same host: 0.21 ms median,
+0.43 ms p95; this is not an in-VPC hop, which is measured in the pilot.
+
+The pre-stated expectation H-B1 was met: at a million rows the envelope does
+not meet a per-decision budget, and the reason is one component. The
+inductive Venn-Abers predictor as implemented refits two isotonic regressions
+on the whole calibration set for every query, which is linear in n; it is 26%
+of the envelope at 7,500 rows and 96% at a million. The conformal quantile
+is also recomputed per call (1.1 ms at a million rows) and can be cached.
+Neither is a limitation of the method: Vovk, Petej and Fedorova (2015) give
+a precomputed IVAP with O(n log n) setup and O(log n) per query. Under
+Amendment 2 that implementation is measured only after a test shows it returns
+the same intervals as the frozen code on the Taiwan test split; until then the
+honest 1,000,000-row number for the shipped code is 493 ms, and the number
+without Venn-Abers is about 20 ms with the exact index and about 7 ms with
+HNSW.
+
+### 7.3 Cross-domain generalisation (TableShift)
+
+TableShift (Gardner, Popovic and Schmidt, 2023) pairs each of its tasks with a
+distribution shift that the benchmark authors defined. The ten tasks with a
+domain split were declared in Amendment 2; five are public and were run, two
+are Kaggle-hosted and three need credentialed access (ANES, MIMIC) and were
+not obtained in the plan window. The five tasks without a domain split were
+excluded before any data was seen. **None of these tasks is credit.** The
+model is a gradient-boosted classifier trained on TableShift's `train`
+split, calibrated on `validation`, tested on `id_test` and on `ood_test`
+(the benchmark's own shift); five seeds; calibration and test capped at
+20,000 rows.
+
+| task (domain) · shift | cal n | acc ID / OOD | cov ID | cov OOD | REVIEW ID / OOD | ALARM on OOD | false WATCH / ALARM (100 ID streams) | disbelief claimed / realised OOD |
+|---|---|---|---|---|---|---|---|---|
+| ACS income (finance) · region | 20,000 | 0.826 / 0.808 | 0.949 | 0.937 | 0.335 / 0.343 | 60% | 0% / 0% | 0.008 / 0.063 |
+| ACS food stamps (public policy) · region | 20,000 | 0.848 / 0.820 | 0.949 | 0.943 | 0.290 / 0.326 | 100% | 2% / 1% | 0.007 / 0.015 |
+| ACS unemployment (labour) · education | 20,000 | 0.972 / 0.962 | 0.948 | 0.926 | 0.040 / 0.059 | 100% | 2% / 0% | 0.001 / 0.002 |
+| BRFSS diabetes (health) · race | 20,000 | 0.876 / 0.834 | 0.950 | 0.931 | 0.217 / 0.246 | 100% | 2% / 2% | 0.007 / 0.038 |
+| Hospital readmission (health) · admission source | 4,286 | 0.666 / 0.624 | 0.949 | 0.961 | 0.740 / 0.820 | 100% | 27% / 8% | 0.014 / 0.040 |
+
+Coverage target 0.95; five seeds per task (std at most 0.003 on every
+coverage cell). The martingale streams are 600 rows; ALARM is wealth 100,
+WATCH is 20, so Ville's bound is 1% and 5%.
+
+What holds off credit. (1) In-distribution coverage is within 0.01 of target
+on all five tasks, on data nobody at Reliax chose (H-A1 met everywhere).
+(2) Under the benchmark's shift, coverage falls on four of five tasks, by
+0.6 to 2.2 points; the exception is hospital readmission, where the model's
+probabilities become less extreme on the new admission source, the sets
+widen, and coverage overshoots to 0.961 while the REVIEW rate rises from 74%
+to 82%. (3) The REVIEW rate rises under shift on all five tasks: set-size
+routing self-adjusts. (4) The realised calibration disbelief exceeds the
+claimed value on all five tasks under shift, by up to 8x (ACS income), which
+is what the delayed-outcome verdict is for. (5) The input-space martingale
+reaches ALARM within 600 rows on every OOD stream of four tasks and on 60% of
+ACS income's (the rest at WATCH), with 0 to 2% false alarms at WATCH on four
+tasks.
+
+Two pre-specifications aged badly and are reported as such. The H-A2 gate
+("shift present" = TableShift baseline accuracy drop of 5 points or more)
+selected exactly the one task where coverage did not fall; the four tasks it
+excluded all show the drop. The gate was a poor proxy for coverage loss, and
+the per-task numbers above are what count. And on hospital readmission the
+false-alarm rate is 60% on the pre-specified five streams and 27% WATCH, 8%
+ALARM on the 100 supplementary streams, against 5% and 1%.
+
+**Why the readmission task breaks the tripwire, and what it means.** A
+supplementary diagnostic (`eval/expansion/diag_martingale_sparse.py`, not
+pre-registered, added after the fact) tests whether the conformal p-values of
+held-out in-distribution rows are uniform against the calibration set's
+leave-one-out distances, which the martingale's guarantee requires.
+
+| task | cal n | binary / all features | KS p, shipped | false WATCH / ALARM, shipped | KS p, no scaler | false WATCH / ALARM, no scaler | OOD ALARM shipped / no scaler |
+|---|---|---|---|---|---|---|---|
+| ACS income (finance) | 20,000 | 229 / 232 | 0.171 | 0% / 0% | 0.756 | 0% / 0% | 100% / 98% |
+| ACS food stamps (public policy) | 20,000 | 234 / 239 | 0.218 | 0% / 0% | 0.195 | 2% / 0% | 100% / 22% |
+| ACS unemployment (labour) | 20,000 | 220 / 223 | 0.262 | 0% / 0% | 0.281 | 2% / 0% | 100% / 100% |
+| BRFSS diabetes (health) | 20,000 | 137 / 142 | 0.135 | 0% / 0% | 0.938 | 8% / 2% | 100% / 98% |
+| Hospital readmission (health) | 4,286 | 173 / 183 | 0.001 | 22% / 8% | 0.229 | 0% / 0% | 85% / 70% |
+
+On four tasks the shipped detector's p-values are uniform and the false-alarm
+rate is at or under Ville's bound. On hospital readmission they are not (KS
+p = 0.001, an excess of small p-values: held-out rows sit about 1.5% farther
+from the calibration cloud than calibration rows sit from each other). The
+cause is the per-column standardisation: with 4,286 calibration rows and 183
+mostly binary columns, rare categories get large weights, and the
+leave-one-out calibration distances are no longer exchangeable with test
+distances. Dropping the standardisation restores uniformity (KS p = 0.23)
+and 0% false alarms on this task, but costs detection there (OOD ALARM 85%
+to 70%) and much more on ACS food stamps (100% to 22%), where the scaled
+distance is what makes the region shift visible. Fitting the scaler on the
+training split instead does not fix it (KS p = 0.015). The credit datasets of
+sections 4 and 5 have 23 dense numeric features and 7,500 calibration rows
+and do not show this. The conclusion is a stated limitation: the shipped
+input-space tripwire is valid on dense numeric inputs and on sparse
+categorical inputs with a large calibration set, and is not valid as shipped
+on sparse categorical inputs with a small one. A distance that is
+exchangeable by construction on such inputs is a change to `reliax_core`; it
+will be pre-registered and measured, not slipped in.
+
+### 7.4 Not run, and what section 7 does not show
+
+Pre-specified and not run in this window: Home Credit, Credit Risk Model
+Stability 2024 (native temporal drift and the weighted-conformal
+recalibration recovery number; gated on a read of the Kaggle competition
+terms, which restrict use to non-commercial purposes); Fannie Mae or Freddie
+Mac loan performance (the 2008 macro cycle and the lag between the input
+verdict and the outcome verdict; gated on the provider's terms, which
+prohibit use in support of external commercial purposes without consent);
+and the TableShift tasks `college_scorecard`, `assistments`, `anes`,
+`mimic_extract_mort_hosp`, `mimic_extract_los_3`, which need a Kaggle token,
+ANES registration or PhysioNet credentials. Each stays in the exploratory
+bucket with its hypotheses fixed in Amendment 2.
+
+Section 7 does not show anything about a lender's book, about default
+outcomes outside the two UCI datasets, or about the triage rank, whose bar
+is unchanged and whose confirmatory sets remain sealed. The latency figure at
+a million rows is on synthetic rows of credit dimensionality, and the
+sharpest new number in the section, the REVIEW-rate disparity on HMDA, is a
+property of the underlying decision model's uncertainty as much as of the
+envelope: the envelope measures it, it does not create it and it does not
+remove it.
+
 ## References
 
 - Barber, R. F., Candès, E. J., Ramdas, A., Tibshirani, R. J. (2021). The limits of distribution-free conditional predictive inference. *Information and Inference*, 10(2).
+- Gardner, J., Popovic, Z., Schmidt, L. (2023). Benchmarking distribution shift in tabular data with TableShift. *NeurIPS Datasets and Benchmarks*.
 - Guo, C., Pleiss, G., Sun, Y., Weinberger, K. Q. (2017). On calibration of modern neural networks. *ICML*.
 - Hofmann, H. (1994). Statlog (German Credit Data). UCI Machine Learning Repository.
 - Jøsang, A. (2016). *Subjective Logic: A Formalism for Reasoning Under Uncertainty*. Springer.
@@ -277,6 +492,7 @@ verbatim with provenance and licenses in `paper/data/`. Environment: Python
 - Vovk, V., Gammerman, A., Shafer, G. (2005). *Algorithmic Learning in a Random World*. Springer.
 - Vovk, V., Nouretdinov, I., Gammerman, A. (2003). Testing exchangeability on-line. *ICML*.
 - Vovk, V., Petej, I. (2014). Venn-Abers predictors. *UAI*.
+- Vovk, V., Petej, I., Fedorova, V. (2015). Large-scale probabilistic predictors with and without guarantees. *NeurIPS*.
 - Yeh, I-C., Lien, C-h. (2009). The comparisons of data mining techniques for the predictive accuracy of probability of default of credit card clients. *Expert Systems with Applications*, 36(2).
 
 ---

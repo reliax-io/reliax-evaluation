@@ -294,8 +294,9 @@ def write_markdown(results):
             f"| {S['coverage_drop_0.05']['mean']:+.3f} "
             f"| {I['review_rate']['mean']:.3f} / {O['review_rate']['mean']:.3f} "
             f"| {O['martingale']['alarm_rate']:.0%} | {I['martingale']['watch_rate']:.0%} "
-            f"| {I['martingale_extra_id']['watch_rate']:.1%} WATCH, "
-            f"{I['martingale_extra_id']['alarm_rate']:.1%} ALARM "
+            + (f"| {I['martingale_extra_id']['watch_rate']:.1%} WATCH, "
+               f"{I['martingale_extra_id']['alarm_rate']:.1%} ALARM " if "martingale_extra_id" in I else "| ")
+            +
             f"| {S['claimed_d']['mean']:.3f} / {O['realized_d']['mean']:.3f} |")
     L += ["", "## Pre-specified expectations, per task", ""]
     for task, S in results["tasks"].items():

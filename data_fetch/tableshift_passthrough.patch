@@ -1,0 +1,12 @@
+diff --git a/tableshift/core/features.py b/tableshift/core/features.py
+index 32a46f6..08518c6 100644
+--- a/tableshift/core/features.py
++++ b/tableshift/core/features.py
+@@ -700,6 +700,7 @@ class Preprocessor:
+         passthrough_columns = self.get_passthrough_columns(
+             data,
+             passthrough_columns,
++            domain_label_colname=domain_label_colname,
+             target_colname=target_colname)
+ 
+         # All non-domain label passthrough columns will be cast to their
