@@ -12,8 +12,9 @@ gate does not clear.
 1. Register at Fannie Mae Data Dynamics and accept the terms.
 2. Download the acquisition and performance files for 2005 Q1 through 2010 Q4.
 3. Place them under `data_gated/cache/fannie/` (git-ignored).
-4. Run `python eval/expansion/run_gse_drift.py` only after the licence gate
-   in Amendment 2, section 2.7, has cleared.
+4. The runner `eval/expansion/run_gse_drift.py` is written and tested only
+   once the licence gate in Amendment 2, section 2.7, has cleared; the
+   protocol it must implement is fixed there.
 
 Freddie Mac's Single-Family Loan-Level Dataset is the alternative source
 with equivalent terms; the loader accepts either layout.
@@ -26,8 +27,9 @@ Amendment 2, section 2.1.
 1. Accept the competition rules on Kaggle.
 2. `kaggle competitions download -c home-credit-credit-risk-model-stability`
 3. Unpack under `data_gated/cache/homecredit2024/` (git-ignored).
-4. Run `python eval/expansion/run_homecredit_stability.py` only after the
-   licence gate in Amendment 2, section 2.6, has cleared.
+4. The runner `eval/expansion/run_homecredit_stability.py` is written and
+   tested only once the licence gate in Amendment 2, section 2.6, has
+   cleared; the protocol it must implement is fixed there.
 
 ## Sealed confirmatory sets (never placed here)
 

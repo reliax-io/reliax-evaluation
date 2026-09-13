@@ -1,0 +1,120 @@
+{
+ "meta": {
+  "date": "2026-09-13",
+  "sizes": [
+   7500,
+   100000,
+   1000000
+  ],
+  "warmup": 100,
+  "queries": 1000,
+  "repeats": 3,
+  "calibration_rows": "seeded bootstrap of the Taiwan seed-0 calibration split (7,500 rows, 23 features) with Gaussian jitter at 5% of each feature's std; not real applicants beyond 7,500",
+  "hnsw": {
+   "M": 16,
+   "ef_construction": 200,
+   "ef": 64
+  },
+  "protocol": "PREREGISTRATION_AMENDMENT.md, Amendment 2, section 2.7 (B1)"
+ },
+ "sizes": {
+  "7500": {
+   "build_s": {
+    "calibration_set": 0.1,
+    "knn_exact_index": 0.1,
+    "hnsw_index": 0.14
+   },
+   "components": {
+    "conformal": {
+     "p50_ms": 0.0203,
+     "p95_ms": 0.0231,
+     "mean_ms": 0.0214,
+     "n": 3000
+    },
+    "knn_exact": {
+     "p50_ms": 1.0492,
+     "p95_ms": 4.4833,
+     "mean_ms": 1.6456,
+     "n": 3000
+    },
+    "knn_hnsw": {
+     "p50_ms": 0.0819,
+     "p95_ms": 0.2115,
+     "mean_ms": 0.1037,
+     "n": 3000
+    },
+    "martingale": {
+     "p50_ms": 0.012,
+     "p95_ms": 0.048,
+     "mean_ms": 0.0192,
+     "n": 3000
+    },
+    "venn_abers": {
+     "p50_ms": 2.1947,
+     "p95_ms": 3.2453,
+     "mean_ms": 2.3729,
+     "n": 3000
+    },
+    "full_envelope": {
+     "p50_ms": 8.4631,
+     "p95_ms": 20.8549,
+     "mean_ms": 10.5044,
+     "n": 3000
+    }
+   },
+   "hnsw_recall_at_10": 0.9988
+  },
+  "100000": {
+   "build_s": {
+    "calibration_set": 5.4,
+    "knn_exact_index": 5.18,
+    "hnsw_index": 2.84
+   },
+   "components": {
+    "conformal": {
+     "p50_ms": 0.1062,
+     "p95_ms": 0.2189,
+     "mean_ms": 0.1299,
+     "n": 3000
+    },
+    "knn_exact": {
+     "p50_ms": 2.2141,
+     "p95_ms": 6.934,
+     "mean_ms": 2.9073,
+     "n": 3000
+    },
+    "knn_hnsw": {
+     "p50_ms": 0.0898,
+     "p95_ms": 0.1367,
+     "mean_ms": 0.0979,
+     "n": 3000
+    },
+    "martingale": {
+     "p50_ms": 0.0115,
+     "p95_ms": 0.0126,
+     "mean_ms": 0.0129,
+     "n": 3000
+    },
+    "venn_abers": {
+     "p50_ms": 31.5873,
+     "p95_ms": 40.9101,
+     "mean_ms": 33.2404,
+     "n": 3000
+    },
+    "full_envelope": {
+     "p50_ms": 40.987,
+     "p95_ms": 56.4243,
+     "mean_ms": 43.2545,
+     "n": 3000
+    }
+   },
+   "hnsw_recall_at_10": 0.9909
+  }
+ },
+ "loopback_http_hop": {
+  "p50_ms": 0.2115,
+  "p95_ms": 0.4318,
+  "mean_ms": 0.2503,
+  "n": 1000
+ }
+}

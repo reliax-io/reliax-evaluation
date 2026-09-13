@@ -1,0 +1,5687 @@
+{
+ "meta": {
+  "date": "2026-09-13",
+  "alpha": 0.05,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "sizes": {
+   "model": 300000,
+   "cal": 100000,
+   "test": 200000
+  },
+  "features": [
+   "loan_amount",
+   "loan_to_value_ratio",
+   "loan_term",
+   "property_value",
+   "income",
+   "loan_type",
+   "loan_purpose",
+   "debt_to_income_ratio",
+   "applicant_age",
+   "co_applicant",
+   "aus-1",
+   "state_code"
+  ],
+  "deviation": "interest rate presence dropped: reported only on originated loans",
+  "protocol": "PREREGISTRATION_AMENDMENT.md, Amendment 2, section 2.5"
+ },
+ "population": {
+  "rows_fetched": 6885426,
+  "rows_qualifying": 4715455,
+  "denial_rate": 0.1528,
+  "tract_match_rate": 0.9977,
+  "states": 52
+ },
+ "summary": {
+  "seeds": 5,
+  "auc": {
+   "mean": 0.8643,
+   "std": 0.0012,
+   "n": 5
+  },
+  "marginal_coverage": {
+   "mean": 0.9499,
+   "std": 0.0009,
+   "n": 5
+  },
+  "review_rate": {
+   "mean": 0.1555,
+   "std": 0.0045,
+   "n": 5
+  },
+  "attributes": {
+   "derived_race": {
+    "groups": [
+     {
+      "group": "2 or more minority races",
+      "n": 521,
+      "cal_n": 265,
+      "thin": true,
+      "denial_rate": {
+       "mean": 0.2187,
+       "std": 0.0276,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9411,
+       "std": 0.0156,
+       "n": 5
+      },
+      "mondrian_coverage": null,
+      "review_rate": {
+       "mean": 0.1843,
+       "std": 0.0139,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1419,
+       0.2052
+      ],
+      "set_size_2": {
+       "mean": 0.1843,
+       "std": 0.0139,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "American Indian or Alaska Native",
+      "n": 1368,
+      "cal_n": 700,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.2275,
+       "std": 0.0125,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9412,
+       "std": 0.0085,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.951,
+       "std": 0.0075,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.2037,
+       "std": 0.0109,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1916,
+       0.2352
+      ],
+      "set_size_2": {
+       "mean": 0.2037,
+       "std": 0.0109,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Asian",
+      "n": 13116,
+      "cal_n": 6539,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.1272,
+       "std": 0.0023,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.949,
+       "std": 0.0012,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9517,
+       "std": 0.0036,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.084,
+       "std": 0.0032,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.0825,
+       0.0922
+      ],
+      "set_size_2": {
+       "mean": 0.084,
+       "std": 0.0032,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Black or African American",
+      "n": 17342,
+      "cal_n": 8618,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.2547,
+       "std": 0.0025,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9237,
+       "std": 0.0026,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9493,
+       "std": 0.0021,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.2419,
+       "std": 0.005,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.2381,
+       0.251
+      ],
+      "set_size_2": {
+       "mean": 0.2419,
+       "std": 0.005,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Free Form Text Only",
+      "n": 29,
+      "cal_n": 14,
+      "thin": true,
+      "denial_rate": {
+       "mean": 0.295,
+       "std": 0.0383,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9063,
+       "std": 0.0597,
+       "n": 5
+      },
+      "mondrian_coverage": null,
+      "review_rate": {
+       "mean": 0.2117,
+       "std": 0.0903,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.0615,
+       0.3353
+      ],
+      "set_size_2": {
+       "mean": 0.2117,
+       "std": 0.0903,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Joint",
+      "n": 5220,
+      "cal_n": 2618,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.1099,
+       "std": 0.005,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.955,
+       "std": 0.0029,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9448,
+       "std": 0.0062,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.1033,
+       "std": 0.0058,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1016,
+       0.1187
+      ],
+      "set_size_2": {
+       "mean": 0.1033,
+       "std": 0.0058,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Native Hawaiian or Other Pacific Islander",
+      "n": 409,
+      "cal_n": 203,
+      "thin": true,
+      "denial_rate": {
+       "mean": 0.2157,
+       "std": 0.0132,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9423,
+       "std": 0.0033,
+       "n": 5
+      },
+      "mondrian_coverage": null,
+      "review_rate": {
+       "mean": 0.2116,
+       "std": 0.007,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.179,
+       0.2583
+      ],
+      "set_size_2": {
+       "mean": 0.2116,
+       "std": 0.007,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Race Not Available",
+      "n": 30755,
+      "cal_n": 15271,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.2106,
+       "std": 0.0031,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9413,
+       "std": 0.0006,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9501,
+       "std": 0.0006,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.1864,
+       "std": 0.0057,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1865,
+       0.1953
+      ],
+      "set_size_2": {
+       "mean": 0.1864,
+       "std": 0.0057,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "White",
+      "n": 131236,
+      "cal_n": 65768,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.1293,
+       "std": 0.0009,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9555,
+       "std": 0.001,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9499,
+       "std": 0.0013,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.1453,
+       "std": 0.0047,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1481,
+       0.1519
+      ],
+      "set_size_2": {
+       "mean": 0.1453,
+       "std": 0.0047,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     }
+    ],
+    "four_fifths_review": {
+     "mean": 0.3475,
+     "std": 0.0148,
+     "n": 5
+    },
+    "marginal_spread": {
+     "mean": 0.0327,
+     "std": 0.0019,
+     "n": 5
+    }
+   },
+   "derived_ethnicity": {
+    "groups": [
+     {
+      "group": "Ethnicity Not Available",
+      "n": 27530,
+      "cal_n": 13704,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.2099,
+       "std": 0.0028,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9422,
+       "std": 0.0013,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9501,
+       "std": 0.0018,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.1836,
+       "std": 0.0045,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1818,
+       0.191
+      ],
+      "set_size_2": {
+       "mean": 0.1836,
+       "std": 0.0045,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Free Form Text Only",
+      "n": 53,
+      "cal_n": 22,
+      "thin": true,
+      "denial_rate": {
+       "mean": 0.2382,
+       "std": 0.049,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9309,
+       "std": 0.0231,
+       "n": 5
+      },
+      "mondrian_coverage": null,
+      "review_rate": {
+       "mean": 0.1798,
+       "std": 0.0587,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1728,
+       0.4023
+      ],
+      "set_size_2": {
+       "mean": 0.1798,
+       "std": 0.0587,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Hispanic or Latino",
+      "n": 24917,
+      "cal_n": 12481,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.1833,
+       "std": 0.0012,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9364,
+       "std": 0.0023,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9517,
+       "std": 0.0025,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.1645,
+       "std": 0.0058,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1675,
+       0.1769
+      ],
+      "set_size_2": {
+       "mean": 0.1645,
+       "std": 0.0058,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Joint",
+      "n": 5936,
+      "cal_n": 3008,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.1174,
+       "std": 0.0033,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9537,
+       "std": 0.0021,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9489,
+       "std": 0.0064,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.1074,
+       "std": 0.0056,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1013,
+       0.1171
+      ],
+      "set_size_2": {
+       "mean": 0.1074,
+       "std": 0.0056,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Not Hispanic or Latino",
+      "n": 141562,
+      "cal_n": 70782,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.1382,
+       "std": 0.0004,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9537,
+       "std": 0.001,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9499,
+       "std": 0.0009,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.1506,
+       "std": 0.0045,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1528,
+       0.1565
+      ],
+      "set_size_2": {
+       "mean": 0.1506,
+       "std": 0.0045,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     }
+    ],
+    "four_fifths_review": {
+     "mean": 0.585,
+     "std": 0.0191,
+     "n": 5
+    },
+    "marginal_spread": {
+     "mean": 0.0179,
+     "std": 0.003,
+     "n": 5
+    }
+   },
+   "derived_sex": {
+    "groups": [
+     {
+      "group": "Female",
+      "n": 43678,
+      "cal_n": 21895,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.1745,
+       "std": 0.0011,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9469,
+       "std": 0.0012,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9495,
+       "std": 0.0014,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.1898,
+       "std": 0.0038,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1893,
+       0.1967
+      ],
+      "set_size_2": {
+       "mean": 0.1898,
+       "std": 0.0038,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Joint",
+      "n": 75073,
+      "cal_n": 37559,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.1101,
+       "std": 0.0012,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.957,
+       "std": 0.0013,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9496,
+       "std": 0.0014,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.108,
+       "std": 0.0054,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1127,
+       0.1173
+      ],
+      "set_size_2": {
+       "mean": 0.108,
+       "std": 0.0054,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Male",
+      "n": 68338,
+      "cal_n": 34133,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.1676,
+       "std": 0.001,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9465,
+       "std": 0.0007,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9504,
+       "std": 0.0014,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.1748,
+       "std": 0.0046,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1746,
+       0.1804
+      ],
+      "set_size_2": {
+       "mean": 0.1748,
+       "std": 0.0046,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Sex Not Available",
+      "n": 12909,
+      "cal_n": 6410,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.2547,
+       "std": 0.0016,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9372,
+       "std": 0.0027,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9506,
+       "std": 0.0042,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.2143,
+       "std": 0.0083,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.2081,
+       0.2223
+      ],
+      "set_size_2": {
+       "mean": 0.2143,
+       "std": 0.0083,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     }
+    ],
+    "four_fifths_review": {
+     "mean": 0.5042,
+     "std": 0.0235,
+     "n": 5
+    },
+    "marginal_spread": {
+     "mean": 0.0198,
+     "std": 0.0029,
+     "n": 5
+    }
+   },
+   "combined_group": {
+    "groups": [
+     {
+      "group": "2 or more minority races",
+      "n": 428,
+      "cal_n": 213,
+      "thin": true,
+      "denial_rate": {
+       "mean": 0.2171,
+       "std": 0.0305,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9421,
+       "std": 0.0153,
+       "n": 5
+      },
+      "mondrian_coverage": null,
+      "review_rate": {
+       "mean": 0.184,
+       "std": 0.0183,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1366,
+       0.2061
+      ],
+      "set_size_2": {
+       "mean": 0.184,
+       "std": 0.0183,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "American Indian or Alaska Native",
+      "n": 854,
+      "cal_n": 427,
+      "thin": true,
+      "denial_rate": {
+       "mean": 0.2246,
+       "std": 0.0095,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9437,
+       "std": 0.0092,
+       "n": 5
+      },
+      "mondrian_coverage": null,
+      "review_rate": {
+       "mean": 0.2216,
+       "std": 0.0168,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.2104,
+       0.2681
+      ],
+      "set_size_2": {
+       "mean": 0.2216,
+       "std": 0.0168,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Asian",
+      "n": 12761,
+      "cal_n": 6366,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.1262,
+       "std": 0.0023,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9492,
+       "std": 0.001,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9513,
+       "std": 0.0032,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.0832,
+       "std": 0.0034,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.0817,
+       0.0914
+      ],
+      "set_size_2": {
+       "mean": 0.0832,
+       "std": 0.0034,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Black or African American",
+      "n": 16598,
+      "cal_n": 8230,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.2558,
+       "std": 0.0022,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9239,
+       "std": 0.0025,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9494,
+       "std": 0.0021,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.244,
+       "std": 0.0049,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.2401,
+       0.2533
+      ],
+      "set_size_2": {
+       "mean": 0.244,
+       "std": 0.0049,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Free Form Text Only",
+      "n": 12,
+      "cal_n": 3,
+      "thin": true,
+      "denial_rate": {
+       "mean": 0.287,
+       "std": 0.0522,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9494,
+       "std": 0.0712,
+       "n": 5
+      },
+      "mondrian_coverage": null,
+      "review_rate": {
+       "mean": 0.2506,
+       "std": 0.1162,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.0401,
+       0.3994
+      ],
+      "set_size_2": {
+       "mean": 0.2506,
+       "std": 0.1162,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Hispanic or Latino",
+      "n": 24917,
+      "cal_n": 12481,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.1833,
+       "std": 0.0012,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9364,
+       "std": 0.0023,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9517,
+       "std": 0.0025,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.1645,
+       "std": 0.0058,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1675,
+       0.1769
+      ],
+      "set_size_2": {
+       "mean": 0.1645,
+       "std": 0.0058,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Joint",
+      "n": 4921,
+      "cal_n": 2467,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.106,
+       "std": 0.0048,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9573,
+       "std": 0.0027,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9456,
+       "std": 0.006,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.1029,
+       "std": 0.0056,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1017,
+       0.1193
+      ],
+      "set_size_2": {
+       "mean": 0.1029,
+       "std": 0.0056,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Native Hawaiian or Other Pacific Islander",
+      "n": 325,
+      "cal_n": 163,
+      "thin": true,
+      "denial_rate": {
+       "mean": 0.2107,
+       "std": 0.0127,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9465,
+       "std": 0.0041,
+       "n": 5
+      },
+      "mondrian_coverage": null,
+      "review_rate": {
+       "mean": 0.2107,
+       "std": 0.0146,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1798,
+       0.2698
+      ],
+      "set_size_2": {
+       "mean": 0.2107,
+       "std": 0.0146,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Race Not Available",
+      "n": 26528,
+      "cal_n": 13161,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.2114,
+       "std": 0.003,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9424,
+       "std": 0.0011,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9499,
+       "std": 0.0014,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.1888,
+       "std": 0.0051,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1873,
+       0.1968
+      ],
+      "set_size_2": {
+       "mean": 0.1888,
+       "std": 0.0051,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "White",
+      "n": 112651,
+      "cal_n": 56483,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.1217,
+       "std": 0.0008,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9584,
+       "std": 0.001,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9501,
+       "std": 0.0011,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.1424,
+       "std": 0.0047,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1446,
+       0.1487
+      ],
+      "set_size_2": {
+       "mean": 0.1424,
+       "std": 0.0047,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     }
+    ],
+    "four_fifths_review": {
+     "mean": 0.3413,
+     "std": 0.0158,
+     "n": 5
+    },
+    "marginal_spread": {
+     "mean": 0.0351,
+     "std": 0.0018,
+     "n": 5
+    }
+   },
+   "proxy_group": {
+    "groups": [
+     {
+      "group": "American Indian or Alaska Native",
+      "n": 66,
+      "cal_n": 36,
+      "thin": true,
+      "denial_rate": {
+       "mean": 0.2299,
+       "std": 0.0328,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9556,
+       "std": 0.021,
+       "n": 5
+      },
+      "mondrian_coverage": null,
+      "review_rate": {
+       "mean": 0.2743,
+       "std": 0.0557,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.2448,
+       0.4689
+      ],
+      "set_size_2": {
+       "mean": 0.2743,
+       "std": 0.0557,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Asian",
+      "n": 3336,
+      "cal_n": 1612,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.139,
+       "std": 0.0028,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.942,
+       "std": 0.0018,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9501,
+       "std": 0.0045,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.1068,
+       "std": 0.0077,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1049,
+       0.1266
+      ],
+      "set_size_2": {
+       "mean": 0.1068,
+       "std": 0.0077,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Black or African American",
+      "n": 14017,
+      "cal_n": 6968,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.2429,
+       "std": 0.0025,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9339,
+       "std": 0.002,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9492,
+       "std": 0.0023,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.2399,
+       "std": 0.0069,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.2405,
+       0.2548
+      ],
+      "set_size_2": {
+       "mean": 0.2399,
+       "std": 0.0069,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Hispanic or Latino",
+      "n": 20301,
+      "cal_n": 10143,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.1993,
+       "std": 0.0015,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9371,
+       "std": 0.0016,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9517,
+       "std": 0.0014,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.1963,
+       "std": 0.0071,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1979,
+       0.2091
+      ],
+      "set_size_2": {
+       "mean": 0.1963,
+       "std": 0.0071,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "Native Hawaiian or Other Pacific Islander",
+      "n": 37,
+      "cal_n": 18,
+      "thin": true,
+      "denial_rate": {
+       "mean": 0.2608,
+       "std": 0.0802,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.961,
+       "std": 0.026,
+       "n": 5
+      },
+      "mondrian_coverage": null,
+      "review_rate": {
+       "mean": 0.3095,
+       "std": 0.0308,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1585,
+       0.4399
+      ],
+      "set_size_2": {
+       "mean": 0.3095,
+       "std": 0.0308,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "White",
+      "n": 161781,
+      "cal_n": 80989,
+      "thin": false,
+      "denial_rate": {
+       "mean": 0.1395,
+       "std": 0.0004,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9531,
+       "std": 0.0007,
+       "n": 5
+      },
+      "mondrian_coverage": {
+       "mean": 0.9499,
+       "std": 0.0009,
+       "n": 5
+      },
+      "review_rate": {
+       "mean": 0.1436,
+       "std": 0.0041,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.1457,
+       0.1491
+      ],
+      "set_size_2": {
+       "mean": 0.1436,
+       "std": 0.0041,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     },
+     {
+      "group": "tract not matched",
+      "n": 458,
+      "cal_n": 231,
+      "thin": true,
+      "denial_rate": {
+       "mean": 0.2452,
+       "std": 0.0176,
+       "n": 5
+      },
+      "marginal_coverage": {
+       "mean": 0.9404,
+       "std": 0.0087,
+       "n": 5
+      },
+      "mondrian_coverage": null,
+      "review_rate": {
+       "mean": 0.3036,
+       "std": 0.0261,
+       "n": 5
+      },
+      "review_ci_seed0": [
+       0.2327,
+       0.3151
+      ],
+      "set_size_2": {
+       "mean": 0.3036,
+       "std": 0.0261,
+       "n": 5
+      },
+      "set_size_0": {
+       "mean": 0.0,
+       "std": 0.0,
+       "n": 5
+      }
+     }
+    ],
+    "four_fifths_review": {
+     "mean": 0.4449,
+     "std": 0.0254,
+     "n": 5
+    },
+    "marginal_spread": {
+     "mean": 0.0192,
+     "std": 0.0014,
+     "n": 5
+    }
+   }
+  },
+  "proxy_vs_reported": {
+   "share_in_scope": {
+    "mean": 0.8386,
+    "std": 0.0004,
+    "n": 5
+   },
+   "mismatch_rate": {
+    "mean": 0.2766,
+    "std": 0.0007,
+    "n": 5
+   },
+   "per_group": [
+    {
+     "group": "White",
+     "n_reported": 112651,
+     "n_proxy": 161781,
+     "review_reported": {
+      "mean": 0.1424,
+      "std": 0.0047,
+      "n": 5
+     },
+     "review_proxy": {
+      "mean": 0.1436,
+      "std": 0.0041,
+      "n": 5
+     },
+     "review_delta": {
+      "mean": 0.0012,
+      "std": 0.0006,
+      "n": 5
+     },
+     "coverage_delta": {
+      "mean": -0.0053,
+      "std": 0.0003,
+      "n": 5
+     },
+     "proxy_outside_reported_ci_seeds": 1,
+     "thin": false
+    },
+    {
+     "group": "Black or African American",
+     "n_reported": 16598,
+     "n_proxy": 14017,
+     "review_reported": {
+      "mean": 0.244,
+      "std": 0.0049,
+      "n": 5
+     },
+     "review_proxy": {
+      "mean": 0.2399,
+      "std": 0.0069,
+      "n": 5
+     },
+     "review_delta": {
+      "mean": -0.004,
+      "std": 0.0034,
+      "n": 5
+     },
+     "coverage_delta": {
+      "mean": 0.01,
+      "std": 0.0017,
+      "n": 5
+     },
+     "proxy_outside_reported_ci_seeds": 1,
+     "thin": false
+    },
+    {
+     "group": "Asian",
+     "n_reported": 12761,
+     "n_proxy": 3336,
+     "review_reported": {
+      "mean": 0.0832,
+      "std": 0.0034,
+      "n": 5
+     },
+     "review_proxy": {
+      "mean": 0.1068,
+      "std": 0.0077,
+      "n": 5
+     },
+     "review_delta": {
+      "mean": 0.0236,
+      "std": 0.0048,
+      "n": 5
+     },
+     "coverage_delta": {
+      "mean": -0.0072,
+      "std": 0.0017,
+      "n": 5
+     },
+     "proxy_outside_reported_ci_seeds": 5,
+     "thin": false
+    },
+    {
+     "group": "American Indian or Alaska Native",
+     "n_reported": 854,
+     "n_proxy": 66,
+     "review_reported": {
+      "mean": 0.2216,
+      "std": 0.0168,
+      "n": 5
+     },
+     "review_proxy": {
+      "mean": 0.2743,
+      "std": 0.0557,
+      "n": 5
+     },
+     "review_delta": {
+      "mean": 0.0527,
+      "std": 0.0396,
+      "n": 5
+     },
+     "coverage_delta": {
+      "mean": 0.0119,
+      "std": 0.0148,
+      "n": 5
+     },
+     "proxy_outside_reported_ci_seeds": 4,
+     "thin": true
+    },
+    {
+     "group": "Native Hawaiian or Other Pacific Islander",
+     "n_reported": 325,
+     "n_proxy": 37,
+     "review_reported": {
+      "mean": 0.2107,
+      "std": 0.0146,
+      "n": 5
+     },
+     "review_proxy": {
+      "mean": 0.3095,
+      "std": 0.0308,
+      "n": 5
+     },
+     "review_delta": {
+      "mean": 0.0988,
+      "std": 0.0388,
+      "n": 5
+     },
+     "coverage_delta": {
+      "mean": 0.0145,
+      "std": 0.0289,
+      "n": 5
+     },
+     "proxy_outside_reported_ci_seeds": 5,
+     "thin": true
+    },
+    {
+     "group": "Hispanic or Latino",
+     "n_reported": 24917,
+     "n_proxy": 20301,
+     "review_reported": {
+      "mean": 0.1645,
+      "std": 0.0058,
+      "n": 5
+     },
+     "review_proxy": {
+      "mean": 0.1963,
+      "std": 0.0071,
+      "n": 5
+     },
+     "review_delta": {
+      "mean": 0.0318,
+      "std": 0.0022,
+      "n": 5
+     },
+     "coverage_delta": {
+      "mean": 0.0007,
+      "std": 0.0017,
+      "n": 5
+     },
+     "proxy_outside_reported_ci_seeds": 5,
+     "thin": false
+    }
+   ]
+  },
+  "hypotheses": {
+   "H-C1_mondrian_within_0.01_every_non_thin_group": true,
+   "H-C1_worst_mondrian": 0.9448,
+   "H-C2_marginal_spread_over_0.01_some_attribute": true,
+   "H-C2_max_marginal_spread": 0.0327,
+   "H-C3_proxy_misstates_some_group_beyond_ci": true
+  }
+ },
+ "per_seed": [
+  {
+   "model": {
+    "auc": 0.8625,
+    "accuracy": 0.9055
+   },
+   "marginal_coverage": 0.9503,
+   "review_rate": 0.1599,
+   "attributes": {
+    "derived_race": {
+     "groups": [
+      {
+       "group": "2 or more minority races",
+       "n": 543,
+       "cal_n": 265,
+       "thin": true,
+       "marginal_coverage": 0.9282,
+       "review_rate": 0.1713,
+       "review_ci": [
+        0.1419,
+        0.2052
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8287,
+        "2": 0.1713
+       },
+       "denial_rate": 0.2302
+      },
+      {
+       "group": "American Indian or Alaska Native",
+       "n": 1350,
+       "cal_n": 683,
+       "thin": false,
+       "marginal_coverage": 0.9304,
+       "review_rate": 0.2126,
+       "review_ci": [
+        0.1916,
+        0.2352
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7874,
+        "2": 0.2126
+       },
+       "denial_rate": 0.2481,
+       "mondrian_coverage": 0.9415,
+       "mondrian_qhat": 0.8481
+      },
+      {
+       "group": "Asian",
+       "n": 13112,
+       "cal_n": 6426,
+       "thin": false,
+       "marginal_coverage": 0.9471,
+       "review_rate": 0.0872,
+       "review_ci": [
+        0.0825,
+        0.0922
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.9128,
+        "2": 0.0872
+       },
+       "denial_rate": 0.1296,
+       "mondrian_coverage": 0.9452,
+       "mondrian_qhat": 0.7961
+      },
+      {
+       "group": "Black or African American",
+       "n": 17223,
+       "cal_n": 8641,
+       "thin": false,
+       "marginal_coverage": 0.9256,
+       "review_rate": 0.2445,
+       "review_ci": [
+        0.2381,
+        0.251
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7555,
+        "2": 0.2445
+       },
+       "denial_rate": 0.2514,
+       "mondrian_coverage": 0.9498,
+       "mondrian_qhat": 0.8809
+      },
+      {
+       "group": "Free Form Text Only",
+       "n": 26,
+       "cal_n": 23,
+       "thin": true,
+       "marginal_coverage": 0.9615,
+       "review_rate": 0.1538,
+       "review_ci": [
+        0.0615,
+        0.3353
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8462,
+        "2": 0.1538
+       },
+       "denial_rate": 0.2692
+      },
+      {
+       "group": "Joint",
+       "n": 5152,
+       "cal_n": 2646,
+       "thin": false,
+       "marginal_coverage": 0.9546,
+       "review_rate": 0.1099,
+       "review_ci": [
+        0.1016,
+        0.1187
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8901,
+        "2": 0.1099
+       },
+       "denial_rate": 0.1157,
+       "mondrian_coverage": 0.9361,
+       "mondrian_qhat": 0.6681
+      },
+      {
+       "group": "Native Hawaiian or Other Pacific Islander",
+       "n": 412,
+       "cal_n": 197,
+       "thin": true,
+       "marginal_coverage": 0.9393,
+       "review_rate": 0.216,
+       "review_ci": [
+        0.179,
+        0.2583
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.784,
+        "2": 0.216
+       },
+       "denial_rate": 0.233
+      },
+      {
+       "group": "Race Not Available",
+       "n": 30808,
+       "cal_n": 15312,
+       "thin": false,
+       "marginal_coverage": 0.9408,
+       "review_rate": 0.1909,
+       "review_ci": [
+        0.1865,
+        0.1953
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8091,
+        "2": 0.1909
+       },
+       "denial_rate": 0.2092,
+       "mondrian_coverage": 0.9493,
+       "mondrian_qhat": 0.8475
+      },
+      {
+       "group": "White",
+       "n": 131374,
+       "cal_n": 65807,
+       "thin": false,
+       "marginal_coverage": 0.9563,
+       "review_rate": 0.15,
+       "review_ci": [
+        0.1481,
+        0.1519
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.85,
+        "2": 0.15
+       },
+       "denial_rate": 0.1291,
+       "mondrian_coverage": 0.9522,
+       "mondrian_qhat": 0.7904
+      }
+     ],
+     "four_fifths_review": 0.3566,
+     "worst_marginal": "Black or African American",
+     "marginal_spread": 0.0307
+    },
+    "derived_ethnicity": {
+     "groups": [
+      {
+       "group": "Ethnicity Not Available",
+       "n": 27644,
+       "cal_n": 13602,
+       "thin": false,
+       "marginal_coverage": 0.9413,
+       "review_rate": 0.1863,
+       "review_ci": [
+        0.1818,
+        0.191
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8137,
+        "2": 0.1863
+       },
+       "denial_rate": 0.2083,
+       "mondrian_coverage": 0.9489,
+       "mondrian_qhat": 0.8455
+      },
+      {
+       "group": "Free Form Text Only",
+       "n": 55,
+       "cal_n": 22,
+       "thin": true,
+       "marginal_coverage": 0.9455,
+       "review_rate": 0.2727,
+       "review_ci": [
+        0.1728,
+        0.4023
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7273,
+        "2": 0.2727
+       },
+       "denial_rate": 0.2727
+      },
+      {
+       "group": "Hispanic or Latino",
+       "n": 25034,
+       "cal_n": 12517,
+       "thin": false,
+       "marginal_coverage": 0.9398,
+       "review_rate": 0.1721,
+       "review_ci": [
+        0.1675,
+        0.1769
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8279,
+        "2": 0.1721
+       },
+       "denial_rate": 0.182,
+       "mondrian_coverage": 0.9555,
+       "mondrian_qhat": 0.8779
+      },
+      {
+       "group": "Joint",
+       "n": 5948,
+       "cal_n": 3050,
+       "thin": false,
+       "marginal_coverage": 0.9543,
+       "review_rate": 0.1089,
+       "review_ci": [
+        0.1013,
+        0.1171
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8911,
+        "2": 0.1089
+       },
+       "denial_rate": 0.1217,
+       "mondrian_coverage": 0.9529,
+       "mondrian_qhat": 0.8093
+      },
+      {
+       "group": "Not Hispanic or Latino",
+       "n": 141319,
+       "cal_n": 70809,
+       "thin": false,
+       "marginal_coverage": 0.9538,
+       "review_rate": 0.1547,
+       "review_ci": [
+        0.1528,
+        0.1565
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8453,
+        "2": 0.1547
+       },
+       "denial_rate": 0.1383,
+       "mondrian_coverage": 0.9497,
+       "mondrian_qhat": 0.7915
+      }
+     ],
+     "four_fifths_review": 0.5845,
+     "worst_marginal": "Hispanic or Latino",
+     "marginal_spread": 0.0145
+    },
+    "derived_sex": {
+     "groups": [
+      {
+       "group": "Female",
+       "n": 43747,
+       "cal_n": 21938,
+       "thin": false,
+       "marginal_coverage": 0.9468,
+       "review_rate": 0.193,
+       "review_ci": [
+        0.1893,
+        0.1967
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.807,
+        "2": 0.193
+       },
+       "denial_rate": 0.1741,
+       "mondrian_coverage": 0.9502,
+       "mondrian_qhat": 0.8307
+      },
+      {
+       "group": "Joint",
+       "n": 74908,
+       "cal_n": 37475,
+       "thin": false,
+       "marginal_coverage": 0.9584,
+       "review_rate": 0.115,
+       "review_ci": [
+        0.1127,
+        0.1173
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.885,
+        "2": 0.115
+       },
+       "denial_rate": 0.1103,
+       "mondrian_coverage": 0.9523,
+       "mondrian_qhat": 0.7746
+      },
+      {
+       "group": "Male",
+       "n": 68479,
+       "cal_n": 34203,
+       "thin": false,
+       "marginal_coverage": 0.947,
+       "review_rate": 0.1775,
+       "review_ci": [
+        0.1746,
+        0.1804
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8225,
+        "2": 0.1775
+       },
+       "denial_rate": 0.1675,
+       "mondrian_coverage": 0.9494,
+       "mondrian_qhat": 0.8283
+      },
+      {
+       "group": "Sex Not Available",
+       "n": 12866,
+       "cal_n": 6384,
+       "thin": false,
+       "marginal_coverage": 0.9331,
+       "review_rate": 0.2151,
+       "review_ci": [
+        0.2081,
+        0.2223
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7849,
+        "2": 0.2151
+       },
+       "denial_rate": 0.2525,
+       "mondrian_coverage": 0.9468,
+       "mondrian_qhat": 0.8569
+      }
+     ],
+     "four_fifths_review": 0.5346,
+     "worst_marginal": "Sex Not Available",
+     "marginal_spread": 0.0253
+    },
+    "combined_group": {
+     "groups": [
+      {
+       "group": "2 or more minority races",
+       "n": 445,
+       "cal_n": 211,
+       "thin": true,
+       "marginal_coverage": 0.9258,
+       "review_rate": 0.1685,
+       "review_ci": [
+        0.1366,
+        0.2061
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8315,
+        "2": 0.1685
+       },
+       "denial_rate": 0.2247
+      },
+      {
+       "group": "American Indian or Alaska Native",
+       "n": 836,
+       "cal_n": 416,
+       "thin": true,
+       "marginal_coverage": 0.9342,
+       "review_rate": 0.238,
+       "review_ci": [
+        0.2104,
+        0.2681
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.762,
+        "2": 0.238
+       },
+       "denial_rate": 0.2344
+      },
+      {
+       "group": "Asian",
+       "n": 12776,
+       "cal_n": 6260,
+       "thin": false,
+       "marginal_coverage": 0.9476,
+       "review_rate": 0.0864,
+       "review_ci": [
+        0.0817,
+        0.0914
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.9136,
+        "2": 0.0864
+       },
+       "denial_rate": 0.1282,
+       "mondrian_coverage": 0.9456,
+       "mondrian_qhat": 0.7961
+      },
+      {
+       "group": "Black or African American",
+       "n": 16475,
+       "cal_n": 8261,
+       "thin": false,
+       "marginal_coverage": 0.9255,
+       "review_rate": 0.2466,
+       "review_ci": [
+        0.2401,
+        0.2533
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7534,
+        "2": 0.2466
+       },
+       "denial_rate": 0.2526,
+       "mondrian_coverage": 0.9501,
+       "mondrian_qhat": 0.8813
+      },
+      {
+       "group": "Free Form Text Only",
+       "n": 14,
+       "cal_n": 7,
+       "thin": true,
+       "marginal_coverage": 1.0,
+       "review_rate": 0.1429,
+       "review_ci": [
+        0.0401,
+        0.3994
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8571,
+        "2": 0.1429
+       },
+       "denial_rate": 0.2857
+      },
+      {
+       "group": "Hispanic or Latino",
+       "n": 25034,
+       "cal_n": 12517,
+       "thin": false,
+       "marginal_coverage": 0.9398,
+       "review_rate": 0.1721,
+       "review_ci": [
+        0.1675,
+        0.1769
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8279,
+        "2": 0.1721
+       },
+       "denial_rate": 0.182,
+       "mondrian_coverage": 0.9555,
+       "mondrian_qhat": 0.8779
+      },
+      {
+       "group": "Joint",
+       "n": 4856,
+       "cal_n": 2501,
+       "thin": false,
+       "marginal_coverage": 0.9568,
+       "review_rate": 0.1102,
+       "review_ci": [
+        0.1017,
+        0.1193
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8898,
+        "2": 0.1102
+       },
+       "denial_rate": 0.112,
+       "mondrian_coverage": 0.9384,
+       "mondrian_qhat": 0.6611
+      },
+      {
+       "group": "Native Hawaiian or Other Pacific Islander",
+       "n": 325,
+       "cal_n": 154,
+       "thin": true,
+       "marginal_coverage": 0.9415,
+       "review_rate": 0.2215,
+       "review_ci": [
+        0.1798,
+        0.2698
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7785,
+        "2": 0.2215
+       },
+       "denial_rate": 0.2308
+      },
+      {
+       "group": "Race Not Available",
+       "n": 26488,
+       "cal_n": 13143,
+       "thin": false,
+       "marginal_coverage": 0.9412,
+       "review_rate": 0.192,
+       "review_ci": [
+        0.1873,
+        0.1968
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.808,
+        "2": 0.192
+       },
+       "denial_rate": 0.2098,
+       "mondrian_coverage": 0.9485,
+       "mondrian_qhat": 0.8432
+      },
+      {
+       "group": "White",
+       "n": 112751,
+       "cal_n": 56530,
+       "thin": false,
+       "marginal_coverage": 0.9587,
+       "review_rate": 0.1466,
+       "review_ci": [
+        0.1446,
+        0.1487
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8534,
+        "2": 0.1466
+       },
+       "denial_rate": 0.122,
+       "mondrian_coverage": 0.9516,
+       "mondrian_qhat": 0.7689
+      }
+     ],
+     "four_fifths_review": 0.3504,
+     "worst_marginal": "Black or African American",
+     "marginal_spread": 0.0332
+    },
+    "proxy_group": {
+     "groups": [
+      {
+       "group": "American Indian or Alaska Native",
+       "n": 66,
+       "cal_n": 30,
+       "thin": true,
+       "marginal_coverage": 0.9394,
+       "review_rate": 0.3485,
+       "review_ci": [
+        0.2448,
+        0.4689
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.6515,
+        "2": 0.3485
+       },
+       "denial_rate": 0.2727
+      },
+      {
+       "group": "Asian",
+       "n": 3331,
+       "cal_n": 1602,
+       "thin": false,
+       "marginal_coverage": 0.9403,
+       "review_rate": 0.1153,
+       "review_ci": [
+        0.1049,
+        0.1266
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8847,
+        "2": 0.1153
+       },
+       "denial_rate": 0.1336,
+       "mondrian_coverage": 0.9457,
+       "mondrian_qhat": 0.8517
+      },
+      {
+       "group": "Black or African American",
+       "n": 14016,
+       "cal_n": 6985,
+       "thin": false,
+       "marginal_coverage": 0.9344,
+       "review_rate": 0.2476,
+       "review_ci": [
+        0.2405,
+        0.2548
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7524,
+        "2": 0.2476
+       },
+       "denial_rate": 0.2439,
+       "mondrian_coverage": 0.9496,
+       "mondrian_qhat": 0.8617
+      },
+      {
+       "group": "Hispanic or Latino",
+       "n": 20139,
+       "cal_n": 10202,
+       "thin": false,
+       "marginal_coverage": 0.9375,
+       "review_rate": 0.2034,
+       "review_ci": [
+        0.1979,
+        0.2091
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7966,
+        "2": 0.2034
+       },
+       "denial_rate": 0.1994,
+       "mondrian_coverage": 0.9517,
+       "mondrian_qhat": 0.8658
+      },
+      {
+       "group": "Native Hawaiian or Other Pacific Islander",
+       "n": 36,
+       "cal_n": 22,
+       "thin": true,
+       "marginal_coverage": 0.9722,
+       "review_rate": 0.2778,
+       "review_ci": [
+        0.1585,
+        0.4399
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7222,
+        "2": 0.2778
+       },
+       "denial_rate": 0.2222
+      },
+      {
+       "group": "White",
+       "n": 161967,
+       "cal_n": 80921,
+       "thin": false,
+       "marginal_coverage": 0.9535,
+       "review_rate": 0.1474,
+       "review_ci": [
+        0.1457,
+        0.1491
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8526,
+        "2": 0.1474
+       },
+       "denial_rate": 0.1395,
+       "mondrian_coverage": 0.9507,
+       "mondrian_qhat": 0.7984
+      },
+      {
+       "group": "tract not matched",
+       "n": 445,
+       "cal_n": 238,
+       "thin": true,
+       "marginal_coverage": 0.9438,
+       "review_rate": 0.2719,
+       "review_ci": [
+        0.2327,
+        0.3151
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7281,
+        "2": 0.2719
+       },
+       "denial_rate": 0.2135
+      }
+     ],
+     "four_fifths_review": 0.4657,
+     "worst_marginal": "Black or African American",
+     "marginal_spread": 0.0191
+    }
+   },
+   "seconds": 10,
+   "proxy_vs_reported": {
+    "test_rows_in_scope": 167817,
+    "share_in_scope": 0.8391,
+    "mismatch_rate": 0.2766,
+    "per_group": [
+     {
+      "group": "White",
+      "n_reported": 112751,
+      "n_proxy": 161967,
+      "review_reported": 0.1466,
+      "review_proxy": 0.1474,
+      "review_delta": 0.0008,
+      "proxy_outside_reported_ci": false,
+      "coverage_reported": 0.9587,
+      "coverage_proxy": 0.9535,
+      "thin": false
+     },
+     {
+      "group": "Black or African American",
+      "n_reported": 16475,
+      "n_proxy": 14016,
+      "review_reported": 0.2466,
+      "review_proxy": 0.2476,
+      "review_delta": 0.001,
+      "proxy_outside_reported_ci": false,
+      "coverage_reported": 0.9255,
+      "coverage_proxy": 0.9344,
+      "thin": false
+     },
+     {
+      "group": "Asian",
+      "n_reported": 12776,
+      "n_proxy": 3331,
+      "review_reported": 0.0864,
+      "review_proxy": 0.1153,
+      "review_delta": 0.0289,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.9476,
+      "coverage_proxy": 0.9403,
+      "thin": false
+     },
+     {
+      "group": "American Indian or Alaska Native",
+      "n_reported": 836,
+      "n_proxy": 66,
+      "review_reported": 0.238,
+      "review_proxy": 0.3485,
+      "review_delta": 0.1105,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.9342,
+      "coverage_proxy": 0.9394,
+      "thin": true
+     },
+     {
+      "group": "Native Hawaiian or Other Pacific Islander",
+      "n_reported": 325,
+      "n_proxy": 36,
+      "review_reported": 0.2215,
+      "review_proxy": 0.2778,
+      "review_delta": 0.0563,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.9415,
+      "coverage_proxy": 0.9722,
+      "thin": true
+     },
+     {
+      "group": "Hispanic or Latino",
+      "n_reported": 25034,
+      "n_proxy": 20139,
+      "review_reported": 0.1721,
+      "review_proxy": 0.2034,
+      "review_delta": 0.0313,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.9398,
+      "coverage_proxy": 0.9375,
+      "thin": false
+     }
+    ]
+   }
+  },
+  {
+   "model": {
+    "auc": 0.8651,
+    "accuracy": 0.906
+   },
+   "marginal_coverage": 0.9498,
+   "review_rate": 0.1545,
+   "attributes": {
+    "derived_race": {
+     "groups": [
+      {
+       "group": "2 or more minority races",
+       "n": 482,
+       "cal_n": 247,
+       "thin": true,
+       "marginal_coverage": 0.971,
+       "review_rate": 0.1784,
+       "review_ci": [
+        0.1468,
+        0.2151
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8216,
+        "2": 0.1784
+       },
+       "denial_rate": 0.168
+      },
+      {
+       "group": "American Indian or Alaska Native",
+       "n": 1379,
+       "cal_n": 704,
+       "thin": false,
+       "marginal_coverage": 0.9529,
+       "review_rate": 0.1965,
+       "review_ci": [
+        0.1764,
+        0.2183
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8035,
+        "2": 0.1965
+       },
+       "denial_rate": 0.2241,
+       "mondrian_coverage": 0.9637,
+       "mondrian_qhat": 0.8642
+      },
+      {
+       "group": "Asian",
+       "n": 13142,
+       "cal_n": 6607,
+       "thin": false,
+       "marginal_coverage": 0.9495,
+       "review_rate": 0.0796,
+       "review_ci": [
+        0.0751,
+        0.0843
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.9204,
+        "2": 0.0796
+       },
+       "denial_rate": 0.1252,
+       "mondrian_coverage": 0.9559,
+       "mondrian_qhat": 0.8577
+      },
+      {
+       "group": "Black or African American",
+       "n": 17602,
+       "cal_n": 8535,
+       "thin": false,
+       "marginal_coverage": 0.9247,
+       "review_rate": 0.2442,
+       "review_ci": [
+        0.2379,
+        0.2506
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7558,
+        "2": 0.2442
+       },
+       "denial_rate": 0.2559,
+       "mondrian_coverage": 0.9522,
+       "mondrian_qhat": 0.8896
+      },
+      {
+       "group": "Free Form Text Only",
+       "n": 28,
+       "cal_n": 17,
+       "thin": true,
+       "marginal_coverage": 0.8929,
+       "review_rate": 0.3214,
+       "review_ci": [
+        0.1793,
+        0.5066
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.6786,
+        "2": 0.3214
+       },
+       "denial_rate": 0.2857
+      },
+      {
+       "group": "Joint",
+       "n": 5291,
+       "cal_n": 2634,
+       "thin": false,
+       "marginal_coverage": 0.9543,
+       "review_rate": 0.1053,
+       "review_ci": [
+        0.0973,
+        0.1138
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8947,
+        "2": 0.1053
+       },
+       "denial_rate": 0.1094,
+       "mondrian_coverage": 0.9435,
+       "mondrian_qhat": 0.7376
+      },
+      {
+       "group": "Native Hawaiian or Other Pacific Islander",
+       "n": 423,
+       "cal_n": 224,
+       "thin": true,
+       "marginal_coverage": 0.948,
+       "review_rate": 0.2104,
+       "review_ci": [
+        0.1743,
+        0.2518
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7896,
+        "2": 0.2104
+       },
+       "denial_rate": 0.2199
+      },
+      {
+       "group": "Race Not Available",
+       "n": 30647,
+       "cal_n": 15131,
+       "thin": false,
+       "marginal_coverage": 0.9409,
+       "review_rate": 0.182,
+       "review_ci": [
+        0.1777,
+        0.1864
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.818,
+        "2": 0.182
+       },
+       "denial_rate": 0.2122,
+       "mondrian_coverage": 0.9506,
+       "mondrian_qhat": 0.8493
+      },
+      {
+       "group": "White",
+       "n": 131006,
+       "cal_n": 65901,
+       "thin": false,
+       "marginal_coverage": 0.9549,
+       "review_rate": 0.1448,
+       "review_ci": [
+        0.1429,
+        0.1467
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8552,
+        "2": 0.1448
+       },
+       "denial_rate": 0.1297,
+       "mondrian_coverage": 0.9487,
+       "mondrian_qhat": 0.7767
+      }
+     ],
+     "four_fifths_review": 0.326,
+     "worst_marginal": "Black or African American",
+     "marginal_spread": 0.0302
+    },
+    "derived_ethnicity": {
+     "groups": [
+      {
+       "group": "Ethnicity Not Available",
+       "n": 27512,
+       "cal_n": 13608,
+       "thin": false,
+       "marginal_coverage": 0.9405,
+       "review_rate": 0.1783,
+       "review_ci": [
+        0.1738,
+        0.1829
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8217,
+        "2": 0.1783
+       },
+       "denial_rate": 0.2124,
+       "mondrian_coverage": 0.9486,
+       "mondrian_qhat": 0.8421
+      },
+      {
+       "group": "Free Form Text Only",
+       "n": 56,
+       "cal_n": 27,
+       "thin": true,
+       "marginal_coverage": 0.9464,
+       "review_rate": 0.1607,
+       "review_ci": [
+        0.0869,
+        0.2781
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8393,
+        "2": 0.1607
+       },
+       "denial_rate": 0.1964
+      },
+      {
+       "group": "Hispanic or Latino",
+       "n": 24979,
+       "cal_n": 12429,
+       "thin": false,
+       "marginal_coverage": 0.9385,
+       "review_rate": 0.1659,
+       "review_ci": [
+        0.1613,
+        0.1706
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8341,
+        "2": 0.1659
+       },
+       "denial_rate": 0.1824,
+       "mondrian_coverage": 0.953,
+       "mondrian_qhat": 0.8726
+      },
+      {
+       "group": "Joint",
+       "n": 6063,
+       "cal_n": 3024,
+       "thin": false,
+       "marginal_coverage": 0.9532,
+       "review_rate": 0.1057,
+       "review_ci": [
+        0.0982,
+        0.1137
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8943,
+        "2": 0.1057
+       },
+       "denial_rate": 0.1159,
+       "mondrian_coverage": 0.9408,
+       "mondrian_qhat": 0.7184
+      },
+      {
+       "group": "Not Hispanic or Latino",
+       "n": 141390,
+       "cal_n": 70912,
+       "thin": false,
+       "marginal_coverage": 0.9534,
+       "review_rate": 0.15,
+       "review_ci": [
+        0.1482,
+        0.1519
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.85,
+        "2": 0.15
+       },
+       "denial_rate": 0.1386,
+       "mondrian_coverage": 0.9501,
+       "mondrian_qhat": 0.7944
+      }
+     ],
+     "four_fifths_review": 0.5928,
+     "worst_marginal": "Hispanic or Latino",
+     "marginal_spread": 0.0149
+    },
+    "derived_sex": {
+     "groups": [
+      {
+       "group": "Female",
+       "n": 43707,
+       "cal_n": 21918,
+       "thin": false,
+       "marginal_coverage": 0.9483,
+       "review_rate": 0.1888,
+       "review_ci": [
+        0.1852,
+        0.1925
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8112,
+        "2": 0.1888
+       },
+       "denial_rate": 0.1733,
+       "mondrian_coverage": 0.9519,
+       "mondrian_qhat": 0.8334
+      },
+      {
+       "group": "Joint",
+       "n": 75007,
+       "cal_n": 37382,
+       "thin": false,
+       "marginal_coverage": 0.9564,
+       "review_rate": 0.1075,
+       "review_ci": [
+        0.1053,
+        0.1097
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8925,
+        "2": 0.1075
+       },
+       "denial_rate": 0.1108,
+       "mondrian_coverage": 0.9488,
+       "mondrian_qhat": 0.7583
+      },
+      {
+       "group": "Male",
+       "n": 68399,
+       "cal_n": 34304,
+       "thin": false,
+       "marginal_coverage": 0.9458,
+       "review_rate": 0.1741,
+       "review_ci": [
+        0.1713,
+        0.177
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8259,
+        "2": 0.1741
+       },
+       "denial_rate": 0.1685,
+       "mondrian_coverage": 0.9488,
+       "mondrian_qhat": 0.8292
+      },
+      {
+       "group": "Sex Not Available",
+       "n": 12887,
+       "cal_n": 6396,
+       "thin": false,
+       "marginal_coverage": 0.9368,
+       "review_rate": 0.2081,
+       "review_ci": [
+        0.2012,
+        0.2152
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7919,
+        "2": 0.2081
+       },
+       "denial_rate": 0.2565,
+       "mondrian_coverage": 0.9519,
+       "mondrian_qhat": 0.8633
+      }
+     ],
+     "four_fifths_review": 0.5166,
+     "worst_marginal": "Sex Not Available",
+     "marginal_spread": 0.0196
+    },
+    "combined_group": {
+     "groups": [
+      {
+       "group": "2 or more minority races",
+       "n": 401,
+       "cal_n": 196,
+       "thin": true,
+       "marginal_coverage": 0.9701,
+       "review_rate": 0.1746,
+       "review_ci": [
+        0.1405,
+        0.2148
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8254,
+        "2": 0.1746
+       },
+       "denial_rate": 0.1596
+      },
+      {
+       "group": "American Indian or Alaska Native",
+       "n": 855,
+       "cal_n": 448,
+       "thin": true,
+       "marginal_coverage": 0.9556,
+       "review_rate": 0.2164,
+       "review_ci": [
+        0.1901,
+        0.2452
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7836,
+        "2": 0.2164
+       },
+       "denial_rate": 0.2152
+      },
+      {
+       "group": "Asian",
+       "n": 12783,
+       "cal_n": 6431,
+       "thin": false,
+       "marginal_coverage": 0.9492,
+       "review_rate": 0.0785,
+       "review_ci": [
+        0.074,
+        0.0833
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.9215,
+        "2": 0.0785
+       },
+       "denial_rate": 0.1245,
+       "mondrian_coverage": 0.955,
+       "mondrian_qhat": 0.8542
+      },
+      {
+       "group": "Black or African American",
+       "n": 16866,
+       "cal_n": 8169,
+       "thin": false,
+       "marginal_coverage": 0.9247,
+       "review_rate": 0.2461,
+       "review_ci": [
+        0.2396,
+        0.2526
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7539,
+        "2": 0.2461
+       },
+       "denial_rate": 0.2573,
+       "mondrian_coverage": 0.9523,
+       "mondrian_qhat": 0.8893
+      },
+      {
+       "group": "Free Form Text Only",
+       "n": 14,
+       "cal_n": 5,
+       "thin": true,
+       "marginal_coverage": 0.9286,
+       "review_rate": 0.2857,
+       "review_ci": [
+        0.1172,
+        0.5465
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7143,
+        "2": 0.2857
+       },
+       "denial_rate": 0.2857
+      },
+      {
+       "group": "Hispanic or Latino",
+       "n": 24979,
+       "cal_n": 12429,
+       "thin": false,
+       "marginal_coverage": 0.9385,
+       "review_rate": 0.1659,
+       "review_ci": [
+        0.1613,
+        0.1706
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8341,
+        "2": 0.1659
+       },
+       "denial_rate": 0.1824,
+       "mondrian_coverage": 0.953,
+       "mondrian_qhat": 0.8726
+      },
+      {
+       "group": "Joint",
+       "n": 5016,
+       "cal_n": 2475,
+       "thin": false,
+       "marginal_coverage": 0.9575,
+       "review_rate": 0.1045,
+       "review_ci": [
+        0.0963,
+        0.1132
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8955,
+        "2": 0.1045
+       },
+       "denial_rate": 0.1043,
+       "mondrian_coverage": 0.9422,
+       "mondrian_qhat": 0.6906
+      },
+      {
+       "group": "Native Hawaiian or Other Pacific Islander",
+       "n": 335,
+       "cal_n": 178,
+       "thin": true,
+       "marginal_coverage": 0.9522,
+       "review_rate": 0.2299,
+       "review_ci": [
+        0.188,
+        0.2778
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7701,
+        "2": 0.2299
+       },
+       "denial_rate": 0.2149
+      },
+      {
+       "group": "Race Not Available",
+       "n": 26417,
+       "cal_n": 12984,
+       "thin": false,
+       "marginal_coverage": 0.9412,
+       "review_rate": 0.1842,
+       "review_ci": [
+        0.1795,
+        0.1889
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8158,
+        "2": 0.1842
+       },
+       "denial_rate": 0.2135,
+       "mondrian_coverage": 0.9498,
+       "mondrian_qhat": 0.8446
+      },
+      {
+       "group": "White",
+       "n": 112334,
+       "cal_n": 56685,
+       "thin": false,
+       "marginal_coverage": 0.9576,
+       "review_rate": 0.1414,
+       "review_ci": [
+        0.1394,
+        0.1435
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8586,
+        "2": 0.1414
+       },
+       "denial_rate": 0.1223,
+       "mondrian_coverage": 0.9485,
+       "mondrian_qhat": 0.7548
+      }
+     ],
+     "four_fifths_review": 0.319,
+     "worst_marginal": "Black or African American",
+     "marginal_spread": 0.0329
+    },
+    "proxy_group": {
+     "groups": [
+      {
+       "group": "American Indian or Alaska Native",
+       "n": 81,
+       "cal_n": 46,
+       "thin": true,
+       "marginal_coverage": 0.963,
+       "review_rate": 0.2469,
+       "review_ci": [
+        0.1659,
+        0.3508
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7531,
+        "2": 0.2469
+       },
+       "denial_rate": 0.2346
+      },
+      {
+       "group": "Asian",
+       "n": 3355,
+       "cal_n": 1650,
+       "thin": false,
+       "marginal_coverage": 0.9422,
+       "review_rate": 0.0978,
+       "review_ci": [
+        0.0882,
+        0.1083
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.9022,
+        "2": 0.0978
+       },
+       "denial_rate": 0.1398,
+       "mondrian_coverage": 0.9508,
+       "mondrian_qhat": 0.86
+      },
+      {
+       "group": "Black or African American",
+       "n": 14213,
+       "cal_n": 6940,
+       "thin": false,
+       "marginal_coverage": 0.9322,
+       "review_rate": 0.2403,
+       "review_ci": [
+        0.2334,
+        0.2474
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7597,
+        "2": 0.2403
+       },
+       "denial_rate": 0.244,
+       "mondrian_coverage": 0.9471,
+       "mondrian_qhat": 0.8584
+      },
+      {
+       "group": "Hispanic or Latino",
+       "n": 20367,
+       "cal_n": 10022,
+       "thin": false,
+       "marginal_coverage": 0.9392,
+       "review_rate": 0.1971,
+       "review_ci": [
+        0.1917,
+        0.2027
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8029,
+        "2": 0.1971
+       },
+       "denial_rate": 0.1971,
+       "mondrian_coverage": 0.9543,
+       "mondrian_qhat": 0.8705
+      },
+      {
+       "group": "Native Hawaiian or Other Pacific Islander",
+       "n": 33,
+       "cal_n": 17,
+       "thin": true,
+       "marginal_coverage": 0.9091,
+       "review_rate": 0.3333,
+       "review_ci": [
+        0.1975,
+        0.5039
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.6667,
+        "2": 0.3333
+       },
+       "denial_rate": 0.3333
+      },
+      {
+       "group": "White",
+       "n": 161489,
+       "cal_n": 81091,
+       "thin": false,
+       "marginal_coverage": 0.9528,
+       "review_rate": 0.1422,
+       "review_ci": [
+        0.1405,
+        0.1439
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8578,
+        "2": 0.1422
+       },
+       "denial_rate": 0.14,
+       "mondrian_coverage": 0.9498,
+       "mondrian_qhat": 0.7968
+      },
+      {
+       "group": "tract not matched",
+       "n": 462,
+       "cal_n": 234,
+       "thin": true,
+       "marginal_coverage": 0.9459,
+       "review_rate": 0.3333,
+       "review_ci": [
+        0.2919,
+        0.3775
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.6667,
+        "2": 0.3333
+       },
+       "denial_rate": 0.2641
+      }
+     ],
+     "four_fifths_review": 0.407,
+     "worst_marginal": "Black or African American",
+     "marginal_spread": 0.0206
+    }
+   },
+   "seconds": 17,
+   "proxy_vs_reported": {
+    "test_rows_in_scope": 167773,
+    "share_in_scope": 0.8389,
+    "mismatch_rate": 0.2771,
+    "per_group": [
+     {
+      "group": "White",
+      "n_reported": 112334,
+      "n_proxy": 161489,
+      "review_reported": 0.1414,
+      "review_proxy": 0.1422,
+      "review_delta": 0.0008,
+      "proxy_outside_reported_ci": false,
+      "coverage_reported": 0.9576,
+      "coverage_proxy": 0.9528,
+      "thin": false
+     },
+     {
+      "group": "Black or African American",
+      "n_reported": 16866,
+      "n_proxy": 14213,
+      "review_reported": 0.2461,
+      "review_proxy": 0.2403,
+      "review_delta": -0.0058,
+      "proxy_outside_reported_ci": false,
+      "coverage_reported": 0.9247,
+      "coverage_proxy": 0.9322,
+      "thin": false
+     },
+     {
+      "group": "Asian",
+      "n_reported": 12783,
+      "n_proxy": 3355,
+      "review_reported": 0.0785,
+      "review_proxy": 0.0978,
+      "review_delta": 0.0193,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.9492,
+      "coverage_proxy": 0.9422,
+      "thin": false
+     },
+     {
+      "group": "American Indian or Alaska Native",
+      "n_reported": 855,
+      "n_proxy": 81,
+      "review_reported": 0.2164,
+      "review_proxy": 0.2469,
+      "review_delta": 0.0305,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.9556,
+      "coverage_proxy": 0.963,
+      "thin": true
+     },
+     {
+      "group": "Native Hawaiian or Other Pacific Islander",
+      "n_reported": 335,
+      "n_proxy": 33,
+      "review_reported": 0.2299,
+      "review_proxy": 0.3333,
+      "review_delta": 0.1034,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.9522,
+      "coverage_proxy": 0.9091,
+      "thin": true
+     },
+     {
+      "group": "Hispanic or Latino",
+      "n_reported": 24979,
+      "n_proxy": 20367,
+      "review_reported": 0.1659,
+      "review_proxy": 0.1971,
+      "review_delta": 0.0312,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.9385,
+      "coverage_proxy": 0.9392,
+      "thin": false
+     }
+    ]
+   }
+  },
+  {
+   "model": {
+    "auc": 0.864,
+    "accuracy": 0.906
+   },
+   "marginal_coverage": 0.9483,
+   "review_rate": 0.1476,
+   "attributes": {
+    "derived_race": {
+     "groups": [
+      {
+       "group": "2 or more minority races",
+       "n": 533,
+       "cal_n": 249,
+       "thin": true,
+       "marginal_coverage": 0.94,
+       "review_rate": 0.1707,
+       "review_ci": [
+        0.1412,
+        0.205
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8293,
+        "2": 0.1707
+       },
+       "denial_rate": 0.212
+      },
+      {
+       "group": "American Indian or Alaska Native",
+       "n": 1347,
+       "cal_n": 706,
+       "thin": false,
+       "marginal_coverage": 0.9458,
+       "review_rate": 0.1945,
+       "review_ci": [
+        0.1742,
+        0.2165
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8055,
+        "2": 0.1945
+       },
+       "denial_rate": 0.2324,
+       "mondrian_coverage": 0.9465,
+       "mondrian_qhat": 0.8124
+      },
+      {
+       "group": "Asian",
+       "n": 13096,
+       "cal_n": 6623,
+       "thin": false,
+       "marginal_coverage": 0.9488,
+       "review_rate": 0.082,
+       "review_ci": [
+        0.0774,
+        0.0868
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.918,
+        "2": 0.082
+       },
+       "denial_rate": 0.1267,
+       "mondrian_coverage": 0.9536,
+       "mondrian_qhat": 0.8471
+      },
+      {
+       "group": "Black or African American",
+       "n": 17315,
+       "cal_n": 8661,
+       "thin": false,
+       "marginal_coverage": 0.9191,
+       "review_rate": 0.2336,
+       "review_ci": [
+        0.2273,
+        0.2399
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7664,
+        "2": 0.2336
+       },
+       "denial_rate": 0.2563,
+       "mondrian_coverage": 0.9458,
+       "mondrian_qhat": 0.8807
+      },
+      {
+       "group": "Free Form Text Only",
+       "n": 30,
+       "cal_n": 7,
+       "thin": true,
+       "marginal_coverage": 0.8,
+       "review_rate": 0.0667,
+       "review_ci": [
+        0.0185,
+        0.2132
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.9333,
+        "2": 0.0667
+       },
+       "denial_rate": 0.3667
+      },
+      {
+       "group": "Joint",
+       "n": 5172,
+       "cal_n": 2560,
+       "thin": false,
+       "marginal_coverage": 0.9513,
+       "review_rate": 0.0936,
+       "review_ci": [
+        0.0859,
+        0.1018
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.9064,
+        "2": 0.0936
+       },
+       "denial_rate": 0.1156,
+       "mondrian_coverage": 0.9459,
+       "mondrian_qhat": 0.7535
+      },
+      {
+       "group": "Native Hawaiian or Other Pacific Islander",
+       "n": 420,
+       "cal_n": 193,
+       "thin": true,
+       "marginal_coverage": 0.9429,
+       "review_rate": 0.2048,
+       "review_ci": [
+        0.1689,
+        0.2459
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7952,
+        "2": 0.2048
+       },
+       "denial_rate": 0.219
+      },
+      {
+       "group": "Race Not Available",
+       "n": 30888,
+       "cal_n": 15260,
+       "thin": false,
+       "marginal_coverage": 0.9409,
+       "review_rate": 0.1776,
+       "review_ci": [
+        0.1734,
+        0.1819
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8224,
+        "2": 0.1776
+       },
+       "denial_rate": 0.2054,
+       "mondrian_coverage": 0.9496,
+       "mondrian_qhat": 0.8404
+      },
+      {
+       "group": "White",
+       "n": 131199,
+       "cal_n": 65741,
+       "thin": false,
+       "marginal_coverage": 0.9539,
+       "review_rate": 0.1372,
+       "review_ci": [
+        0.1353,
+        0.1391
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8628,
+        "2": 0.1372
+       },
+       "denial_rate": 0.1299,
+       "mondrian_coverage": 0.9487,
+       "mondrian_qhat": 0.7702
+      }
+     ],
+     "four_fifths_review": 0.351,
+     "worst_marginal": "Black or African American",
+     "marginal_spread": 0.0348
+    },
+    "derived_ethnicity": {
+     "groups": [
+      {
+       "group": "Ethnicity Not Available",
+       "n": 27551,
+       "cal_n": 13642,
+       "thin": false,
+       "marginal_coverage": 0.9424,
+       "review_rate": 0.1778,
+       "review_ci": [
+        0.1733,
+        0.1823
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8222,
+        "2": 0.1778
+       },
+       "denial_rate": 0.2071,
+       "mondrian_coverage": 0.9486,
+       "mondrian_qhat": 0.8311
+      },
+      {
+       "group": "Free Form Text Only",
+       "n": 45,
+       "cal_n": 22,
+       "thin": true,
+       "marginal_coverage": 0.8889,
+       "review_rate": 0.1556,
+       "review_ci": [
+        0.0775,
+        0.2878
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8444,
+        "2": 0.1556
+       },
+       "denial_rate": 0.2889
+      },
+      {
+       "group": "Hispanic or Latino",
+       "n": 24596,
+       "cal_n": 12403,
+       "thin": false,
+       "marginal_coverage": 0.9336,
+       "review_rate": 0.1543,
+       "review_ci": [
+        0.1498,
+        0.1589
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8457,
+        "2": 0.1543
+       },
+       "denial_rate": 0.1847,
+       "mondrian_coverage": 0.9499,
+       "mondrian_qhat": 0.8698
+      },
+      {
+       "group": "Joint",
+       "n": 6002,
+       "cal_n": 3041,
+       "thin": false,
+       "marginal_coverage": 0.951,
+       "review_rate": 0.0976,
+       "review_ci": [
+        0.0904,
+        0.1054
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.9024,
+        "2": 0.0976
+       },
+       "denial_rate": 0.1185,
+       "mondrian_coverage": 0.953,
+       "mondrian_qhat": 0.8145
+      },
+      {
+       "group": "Not Hispanic or Latino",
+       "n": 141806,
+       "cal_n": 70892,
+       "thin": false,
+       "marginal_coverage": 0.952,
+       "review_rate": 0.1428,
+       "review_ci": [
+        0.1409,
+        0.1446
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8572,
+        "2": 0.1428
+       },
+       "denial_rate": 0.1385,
+       "mondrian_coverage": 0.9482,
+       "mondrian_qhat": 0.7815
+      }
+     ],
+     "four_fifths_review": 0.5489,
+     "worst_marginal": "Hispanic or Latino",
+     "marginal_spread": 0.0184
+    },
+    "derived_sex": {
+     "groups": [
+      {
+       "group": "Female",
+       "n": 43711,
+       "cal_n": 21756,
+       "thin": false,
+       "marginal_coverage": 0.9451,
+       "review_rate": 0.1829,
+       "review_ci": [
+        0.1793,
+        0.1865
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8171,
+        "2": 0.1829
+       },
+       "denial_rate": 0.1746,
+       "mondrian_coverage": 0.9478,
+       "mondrian_qhat": 0.8162
+      },
+      {
+       "group": "Joint",
+       "n": 75071,
+       "cal_n": 37619,
+       "thin": false,
+       "marginal_coverage": 0.9549,
+       "review_rate": 0.1008,
+       "review_ci": [
+        0.0987,
+        0.103
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8992,
+        "2": 0.1008
+       },
+       "denial_rate": 0.1117,
+       "mondrian_coverage": 0.9486,
+       "mondrian_qhat": 0.7524
+      },
+      {
+       "group": "Male",
+       "n": 68213,
+       "cal_n": 34201,
+       "thin": false,
+       "marginal_coverage": 0.9456,
+       "review_rate": 0.1662,
+       "review_ci": [
+        0.1634,
+        0.169
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8338,
+        "2": 0.1662
+       },
+       "denial_rate": 0.1658,
+       "mondrian_coverage": 0.9496,
+       "mondrian_qhat": 0.8255
+      },
+      {
+       "group": "Sex Not Available",
+       "n": 13005,
+       "cal_n": 6424,
+       "thin": false,
+       "marginal_coverage": 0.9359,
+       "review_rate": 0.2022,
+       "review_ci": [
+        0.1953,
+        0.2091
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7978,
+        "2": 0.2022
+       },
+       "denial_rate": 0.253,
+       "mondrian_coverage": 0.9448,
+       "mondrian_qhat": 0.8348
+      }
+     ],
+     "four_fifths_review": 0.4985,
+     "worst_marginal": "Sex Not Available",
+     "marginal_spread": 0.019
+    },
+    "combined_group": {
+     "groups": [
+      {
+       "group": "2 or more minority races",
+       "n": 443,
+       "cal_n": 197,
+       "thin": true,
+       "marginal_coverage": 0.9391,
+       "review_rate": 0.1648,
+       "review_ci": [
+        0.1331,
+        0.2022
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8352,
+        "2": 0.1648
+       },
+       "denial_rate": 0.2167
+      },
+      {
+       "group": "American Indian or Alaska Native",
+       "n": 872,
+       "cal_n": 415,
+       "thin": true,
+       "marginal_coverage": 0.9507,
+       "review_rate": 0.1938,
+       "review_ci": [
+        0.1689,
+        0.2214
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8062,
+        "2": 0.1938
+       },
+       "denial_rate": 0.2282
+      },
+      {
+       "group": "Asian",
+       "n": 12769,
+       "cal_n": 6452,
+       "thin": false,
+       "marginal_coverage": 0.9492,
+       "review_rate": 0.0812,
+       "review_ci": [
+        0.0766,
+        0.0861
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.9188,
+        "2": 0.0812
+       },
+       "denial_rate": 0.1258,
+       "mondrian_coverage": 0.9532,
+       "mondrian_qhat": 0.8446
+      },
+      {
+       "group": "Black or African American",
+       "n": 16594,
+       "cal_n": 8241,
+       "thin": false,
+       "marginal_coverage": 0.9195,
+       "review_rate": 0.2364,
+       "review_ci": [
+        0.2299,
+        0.2429
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7636,
+        "2": 0.2364
+       },
+       "denial_rate": 0.2571,
+       "mondrian_coverage": 0.9458,
+       "mondrian_qhat": 0.8795
+      },
+      {
+       "group": "Free Form Text Only",
+       "n": 11,
+       "cal_n": 1,
+       "thin": true,
+       "marginal_coverage": 0.8182,
+       "review_rate": 0.0909,
+       "review_ci": [
+        0.0162,
+        0.3774
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.9091,
+        "2": 0.0909
+       },
+       "denial_rate": 0.3636
+      },
+      {
+       "group": "Hispanic or Latino",
+       "n": 24596,
+       "cal_n": 12403,
+       "thin": false,
+       "marginal_coverage": 0.9336,
+       "review_rate": 0.1543,
+       "review_ci": [
+        0.1498,
+        0.1589
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8457,
+        "2": 0.1543
+       },
+       "denial_rate": 0.1847,
+       "mondrian_coverage": 0.9499,
+       "mondrian_qhat": 0.8698
+      },
+      {
+       "group": "Joint",
+       "n": 4880,
+       "cal_n": 2414,
+       "thin": false,
+       "marginal_coverage": 0.9533,
+       "review_rate": 0.0943,
+       "review_ci": [
+        0.0864,
+        0.1028
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.9057,
+        "2": 0.0943
+       },
+       "denial_rate": 0.1111,
+       "mondrian_coverage": 0.9459,
+       "mondrian_qhat": 0.7347
+      },
+      {
+       "group": "Native Hawaiian or Other Pacific Islander",
+       "n": 329,
+       "cal_n": 151,
+       "thin": true,
+       "marginal_coverage": 0.9422,
+       "review_rate": 0.2006,
+       "review_ci": [
+        0.1609,
+        0.2472
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7994,
+        "2": 0.2006
+       },
+       "denial_rate": 0.2128
+      },
+      {
+       "group": "Race Not Available",
+       "n": 26705,
+       "cal_n": 13141,
+       "thin": false,
+       "marginal_coverage": 0.9422,
+       "review_rate": 0.1814,
+       "review_ci": [
+        0.1768,
+        0.186
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8186,
+        "2": 0.1814
+       },
+       "denial_rate": 0.2069,
+       "mondrian_coverage": 0.9484,
+       "mondrian_qhat": 0.8311
+      },
+      {
+       "group": "White",
+       "n": 112801,
+       "cal_n": 56585,
+       "thin": false,
+       "marginal_coverage": 0.957,
+       "review_rate": 0.1344,
+       "review_ci": [
+        0.1324,
+        0.1364
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8656,
+        "2": 0.1344
+       },
+       "denial_rate": 0.122,
+       "mondrian_coverage": 0.9495,
+       "mondrian_qhat": 0.7521
+      }
+     ],
+     "four_fifths_review": 0.3435,
+     "worst_marginal": "Black or African American",
+     "marginal_spread": 0.0375
+    },
+    "proxy_group": {
+     "groups": [
+      {
+       "group": "American Indian or Alaska Native",
+       "n": 64,
+       "cal_n": 30,
+       "thin": true,
+       "marginal_coverage": 0.9688,
+       "review_rate": 0.1875,
+       "review_ci": [
+        0.1106,
+        0.2997
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8125,
+        "2": 0.1875
+       },
+       "denial_rate": 0.1719
+      },
+      {
+       "group": "Asian",
+       "n": 3353,
+       "cal_n": 1560,
+       "thin": false,
+       "marginal_coverage": 0.9398,
+       "review_rate": 0.0978,
+       "review_ci": [
+        0.0882,
+        0.1083
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.9022,
+        "2": 0.0978
+       },
+       "denial_rate": 0.1399,
+       "mondrian_coverage": 0.9574,
+       "mondrian_qhat": 0.8884
+      },
+      {
+       "group": "Black or African American",
+       "n": 13964,
+       "cal_n": 6873,
+       "thin": false,
+       "marginal_coverage": 0.9311,
+       "review_rate": 0.2277,
+       "review_ci": [
+        0.2208,
+        0.2347
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7723,
+        "2": 0.2277
+       },
+       "denial_rate": 0.2426,
+       "mondrian_coverage": 0.9484,
+       "mondrian_qhat": 0.8617
+      },
+      {
+       "group": "Hispanic or Latino",
+       "n": 20341,
+       "cal_n": 10140,
+       "thin": false,
+       "marginal_coverage": 0.9342,
+       "review_rate": 0.1827,
+       "review_ci": [
+        0.1775,
+        0.1881
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8173,
+        "2": 0.1827
+       },
+       "denial_rate": 0.2017,
+       "mondrian_coverage": 0.9517,
+       "mondrian_qhat": 0.8711
+      },
+      {
+       "group": "Native Hawaiian or Other Pacific Islander",
+       "n": 37,
+       "cal_n": 17,
+       "thin": true,
+       "marginal_coverage": 0.973,
+       "review_rate": 0.2973,
+       "review_ci": [
+        0.1749,
+        0.4578
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7027,
+        "2": 0.2973
+       },
+       "denial_rate": 0.3784
+      },
+      {
+       "group": "White",
+       "n": 161797,
+       "cal_n": 81144,
+       "thin": false,
+       "marginal_coverage": 0.9518,
+       "review_rate": 0.1368,
+       "review_ci": [
+        0.1352,
+        0.1385
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8632,
+        "2": 0.1368
+       },
+       "denial_rate": 0.1392,
+       "mondrian_coverage": 0.9484,
+       "mondrian_qhat": 0.7835
+      },
+      {
+       "group": "tract not matched",
+       "n": 444,
+       "cal_n": 236,
+       "thin": true,
+       "marginal_coverage": 0.9257,
+       "review_rate": 0.3198,
+       "review_ci": [
+        0.2781,
+        0.3646
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.6802,
+        "2": 0.3198
+       },
+       "denial_rate": 0.2568
+      }
+     ],
+     "four_fifths_review": 0.4295,
+     "worst_marginal": "Black or African American",
+     "marginal_spread": 0.0207
+    }
+   },
+   "seconds": 14,
+   "proxy_vs_reported": {
+    "test_rows_in_scope": 167598,
+    "share_in_scope": 0.838,
+    "mismatch_rate": 0.2763,
+    "per_group": [
+     {
+      "group": "White",
+      "n_reported": 112801,
+      "n_proxy": 161797,
+      "review_reported": 0.1344,
+      "review_proxy": 0.1368,
+      "review_delta": 0.0024,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.957,
+      "coverage_proxy": 0.9518,
+      "thin": false
+     },
+     {
+      "group": "Black or African American",
+      "n_reported": 16594,
+      "n_proxy": 13964,
+      "review_reported": 0.2364,
+      "review_proxy": 0.2277,
+      "review_delta": -0.0087,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.9195,
+      "coverage_proxy": 0.9311,
+      "thin": false
+     },
+     {
+      "group": "Asian",
+      "n_reported": 12769,
+      "n_proxy": 3353,
+      "review_reported": 0.0812,
+      "review_proxy": 0.0978,
+      "review_delta": 0.0166,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.9492,
+      "coverage_proxy": 0.9398,
+      "thin": false
+     },
+     {
+      "group": "American Indian or Alaska Native",
+      "n_reported": 872,
+      "n_proxy": 64,
+      "review_reported": 0.1938,
+      "review_proxy": 0.1875,
+      "review_delta": -0.0063,
+      "proxy_outside_reported_ci": false,
+      "coverage_reported": 0.9507,
+      "coverage_proxy": 0.9688,
+      "thin": true
+     },
+     {
+      "group": "Native Hawaiian or Other Pacific Islander",
+      "n_reported": 329,
+      "n_proxy": 37,
+      "review_reported": 0.2006,
+      "review_proxy": 0.2973,
+      "review_delta": 0.0967,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.9422,
+      "coverage_proxy": 0.973,
+      "thin": true
+     },
+     {
+      "group": "Hispanic or Latino",
+      "n_reported": 24596,
+      "n_proxy": 20341,
+      "review_reported": 0.1543,
+      "review_proxy": 0.1827,
+      "review_delta": 0.0284,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.9336,
+      "coverage_proxy": 0.9342,
+      "thin": false
+     }
+    ]
+   }
+  },
+  {
+   "model": {
+    "auc": 0.8659,
+    "accuracy": 0.907
+   },
+   "marginal_coverage": 0.9507,
+   "review_rate": 0.1556,
+   "attributes": {
+    "derived_race": {
+     "groups": [
+      {
+       "group": "2 or more minority races",
+       "n": 545,
+       "cal_n": 286,
+       "thin": true,
+       "marginal_coverage": 0.9376,
+       "review_rate": 0.2055,
+       "review_ci": [
+        0.1737,
+        0.2414
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7945,
+        "2": 0.2055
+       },
+       "denial_rate": 0.244
+      },
+      {
+       "group": "American Indian or Alaska Native",
+       "n": 1405,
+       "cal_n": 689,
+       "thin": false,
+       "marginal_coverage": 0.9445,
+       "review_rate": 0.2206,
+       "review_ci": [
+        0.1997,
+        0.2431
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7794,
+        "2": 0.2206
+       },
+       "denial_rate": 0.21,
+       "mondrian_coverage": 0.9495,
+       "mondrian_qhat": 0.8507
+      },
+      {
+       "group": "Asian",
+       "n": 13150,
+       "cal_n": 6496,
+       "thin": false,
+       "marginal_coverage": 0.9508,
+       "review_rate": 0.0881,
+       "review_ci": [
+        0.0834,
+        0.0931
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.9119,
+        "2": 0.0881
+       },
+       "denial_rate": 0.1303,
+       "mondrian_coverage": 0.9508,
+       "mondrian_qhat": 0.816
+      },
+      {
+       "group": "Black or African American",
+       "n": 17239,
+       "cal_n": 8669,
+       "thin": false,
+       "marginal_coverage": 0.9228,
+       "review_rate": 0.2395,
+       "review_ci": [
+        0.2331,
+        0.2459
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7605,
+        "2": 0.2395
+       },
+       "denial_rate": 0.2579,
+       "mondrian_coverage": 0.9485,
+       "mondrian_qhat": 0.8896
+      },
+      {
+       "group": "Free Form Text Only",
+       "n": 35,
+       "cal_n": 17,
+       "thin": true,
+       "marginal_coverage": 0.9143,
+       "review_rate": 0.2571,
+       "review_ci": [
+        0.1416,
+        0.4207
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7429,
+        "2": 0.2571
+       },
+       "denial_rate": 0.2571
+      },
+      {
+       "group": "Joint",
+       "n": 5202,
+       "cal_n": 2566,
+       "thin": false,
+       "marginal_coverage": 0.9544,
+       "review_rate": 0.1003,
+       "review_ci": [
+        0.0925,
+        0.1088
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8997,
+        "2": 0.1003
+       },
+       "denial_rate": 0.104,
+       "mondrian_coverage": 0.9429,
+       "mondrian_qhat": 0.6979
+      },
+      {
+       "group": "Native Hawaiian or Other Pacific Islander",
+       "n": 392,
+       "cal_n": 215,
+       "thin": true,
+       "marginal_coverage": 0.9388,
+       "review_rate": 0.2041,
+       "review_ci": [
+        0.1671,
+        0.2468
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7959,
+        "2": 0.2041
+       },
+       "denial_rate": 0.2143
+      },
+      {
+       "group": "Race Not Available",
+       "n": 30689,
+       "cal_n": 15335,
+       "thin": false,
+       "marginal_coverage": 0.9421,
+       "review_rate": 0.1893,
+       "review_ci": [
+        0.185,
+        0.1937
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8107,
+        "2": 0.1893
+       },
+       "denial_rate": 0.2116,
+       "mondrian_coverage": 0.9509,
+       "mondrian_qhat": 0.8501
+      },
+      {
+       "group": "White",
+       "n": 131343,
+       "cal_n": 65727,
+       "thin": false,
+       "marginal_coverage": 0.9564,
+       "review_rate": 0.1446,
+       "review_ci": [
+        0.1427,
+        0.1465
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8554,
+        "2": 0.1446
+       },
+       "denial_rate": 0.1275,
+       "mondrian_coverage": 0.9502,
+       "mondrian_qhat": 0.7769
+      }
+     ],
+     "four_fifths_review": 0.3678,
+     "worst_marginal": "Black or African American",
+     "marginal_spread": 0.0336
+    },
+    "derived_ethnicity": {
+     "groups": [
+      {
+       "group": "Ethnicity Not Available",
+       "n": 27461,
+       "cal_n": 13829,
+       "thin": false,
+       "marginal_coverage": 0.9444,
+       "review_rate": 0.1871,
+       "review_ci": [
+        0.1825,
+        0.1917
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8129,
+        "2": 0.1871
+       },
+       "denial_rate": 0.2076,
+       "mondrian_coverage": 0.9524,
+       "mondrian_qhat": 0.8494
+      },
+      {
+       "group": "Free Form Text Only",
+       "n": 61,
+       "cal_n": 23,
+       "thin": true,
+       "marginal_coverage": 0.9508,
+       "review_rate": 0.0984,
+       "review_ci": [
+        0.0459,
+        0.1984
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.9016,
+        "2": 0.0984
+       },
+       "denial_rate": 0.1639
+      },
+      {
+       "group": "Hispanic or Latino",
+       "n": 25101,
+       "cal_n": 12586,
+       "thin": false,
+       "marginal_coverage": 0.9353,
+       "review_rate": 0.1633,
+       "review_ci": [
+        0.1588,
+        0.168
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8367,
+        "2": 0.1633
+       },
+       "denial_rate": 0.1826,
+       "mondrian_coverage": 0.9518,
+       "mondrian_qhat": 0.8769
+      },
+      {
+       "group": "Joint",
+       "n": 5797,
+       "cal_n": 2954,
+       "thin": false,
+       "marginal_coverage": 0.9527,
+       "review_rate": 0.1113,
+       "review_ci": [
+        0.1034,
+        0.1196
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8887,
+        "2": 0.1113
+       },
+       "denial_rate": 0.119,
+       "mondrian_coverage": 0.9417,
+       "mondrian_qhat": 0.729
+      },
+      {
+       "group": "Not Hispanic or Latino",
+       "n": 141580,
+       "cal_n": 70608,
+       "thin": false,
+       "marginal_coverage": 0.9545,
+       "review_rate": 0.15,
+       "review_ci": [
+        0.1482,
+        0.1519
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.85,
+        "2": 0.15
+       },
+       "denial_rate": 0.1375,
+       "mondrian_coverage": 0.951,
+       "mondrian_qhat": 0.7945
+      }
+     ],
+     "four_fifths_review": 0.5949,
+     "worst_marginal": "Hispanic or Latino",
+     "marginal_spread": 0.0192
+    },
+    "derived_sex": {
+     "groups": [
+      {
+       "group": "Female",
+       "n": 43907,
+       "cal_n": 21887,
+       "thin": false,
+       "marginal_coverage": 0.948,
+       "review_rate": 0.1919,
+       "review_ci": [
+        0.1883,
+        0.1956
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8081,
+        "2": 0.1919
+       },
+       "denial_rate": 0.174,
+       "mondrian_coverage": 0.9493,
+       "mondrian_qhat": 0.8223
+      },
+      {
+       "group": "Joint",
+       "n": 75148,
+       "cal_n": 37890,
+       "thin": false,
+       "marginal_coverage": 0.957,
+       "review_rate": 0.1036,
+       "review_ci": [
+        0.1014,
+        0.1058
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8964,
+        "2": 0.1036
+       },
+       "denial_rate": 0.108,
+       "mondrian_coverage": 0.9489,
+       "mondrian_qhat": 0.7464
+      },
+      {
+       "group": "Male",
+       "n": 68082,
+       "cal_n": 33881,
+       "thin": false,
+       "marginal_coverage": 0.9474,
+       "review_rate": 0.1769,
+       "review_ci": [
+        0.1741,
+        0.1798
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8231,
+        "2": 0.1769
+       },
+       "denial_rate": 0.1677,
+       "mondrian_coverage": 0.9526,
+       "mondrian_qhat": 0.8407
+      },
+      {
+       "group": "Sex Not Available",
+       "n": 12863,
+       "cal_n": 6342,
+       "thin": false,
+       "marginal_coverage": 0.9401,
+       "review_rate": 0.2234,
+       "review_ci": [
+        0.2162,
+        0.2306
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7766,
+        "2": 0.2234
+       },
+       "denial_rate": 0.2553,
+       "mondrian_coverage": 0.9562,
+       "mondrian_qhat": 0.8699
+      }
+     ],
+     "four_fifths_review": 0.4637,
+     "worst_marginal": "Sex Not Available",
+     "marginal_spread": 0.0169
+    },
+    "combined_group": {
+     "groups": [
+      {
+       "group": "2 or more minority races",
+       "n": 444,
+       "cal_n": 233,
+       "thin": true,
+       "marginal_coverage": 0.9437,
+       "review_rate": 0.2072,
+       "review_ci": [
+        0.1721,
+        0.2473
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7928,
+        "2": 0.2072
+       },
+       "denial_rate": 0.2455
+      },
+      {
+       "group": "American Indian or Alaska Native",
+       "n": 870,
+       "cal_n": 429,
+       "thin": true,
+       "marginal_coverage": 0.946,
+       "review_rate": 0.2402,
+       "review_ci": [
+        0.213,
+        0.2697
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7598,
+        "2": 0.2402
+       },
+       "denial_rate": 0.2115
+      },
+      {
+       "group": "Asian",
+       "n": 12760,
+       "cal_n": 6335,
+       "thin": false,
+       "marginal_coverage": 0.9509,
+       "review_rate": 0.0876,
+       "review_ci": [
+        0.0828,
+        0.0926
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.9124,
+        "2": 0.0876
+       },
+       "denial_rate": 0.1292,
+       "mondrian_coverage": 0.9507,
+       "mondrian_qhat": 0.8143
+      },
+      {
+       "group": "Black or African American",
+       "n": 16481,
+       "cal_n": 8273,
+       "thin": false,
+       "marginal_coverage": 0.923,
+       "review_rate": 0.2406,
+       "review_ci": [
+        0.2342,
+        0.2472
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7594,
+        "2": 0.2406
+       },
+       "denial_rate": 0.2584,
+       "mondrian_coverage": 0.9489,
+       "mondrian_qhat": 0.8895
+      },
+      {
+       "group": "Free Form Text Only",
+       "n": 15,
+       "cal_n": 4,
+       "thin": true,
+       "marginal_coverage": 1.0,
+       "review_rate": 0.3333,
+       "review_ci": [
+        0.1518,
+        0.5829
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.6667,
+        "2": 0.3333
+       },
+       "denial_rate": 0.2
+      },
+      {
+       "group": "Hispanic or Latino",
+       "n": 25101,
+       "cal_n": 12586,
+       "thin": false,
+       "marginal_coverage": 0.9353,
+       "review_rate": 0.1633,
+       "review_ci": [
+        0.1588,
+        0.168
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8367,
+        "2": 0.1633
+       },
+       "denial_rate": 0.1826,
+       "mondrian_coverage": 0.9518,
+       "mondrian_qhat": 0.8769
+      },
+      {
+       "group": "Joint",
+       "n": 4878,
+       "cal_n": 2421,
+       "thin": false,
+       "marginal_coverage": 0.9569,
+       "review_rate": 0.0988,
+       "review_ci": [
+        0.0907,
+        0.1075
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.9012,
+        "2": 0.0988
+       },
+       "denial_rate": 0.0994,
+       "mondrian_coverage": 0.9453,
+       "mondrian_qhat": 0.6963
+      },
+      {
+       "group": "Native Hawaiian or Other Pacific Islander",
+       "n": 323,
+       "cal_n": 173,
+       "thin": true,
+       "marginal_coverage": 0.9474,
+       "review_rate": 0.1889,
+       "review_ci": [
+        0.1499,
+        0.2351
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8111,
+        "2": 0.1889
+       },
+       "denial_rate": 0.2012
+      },
+      {
+       "group": "Race Not Available",
+       "n": 26489,
+       "cal_n": 13262,
+       "thin": false,
+       "marginal_coverage": 0.9441,
+       "review_rate": 0.1919,
+       "review_ci": [
+        0.1872,
+        0.1966
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8081,
+        "2": 0.1919
+       },
+       "denial_rate": 0.2109,
+       "mondrian_coverage": 0.952,
+       "mondrian_qhat": 0.8476
+      },
+      {
+       "group": "White",
+       "n": 112639,
+       "cal_n": 56284,
+       "thin": false,
+       "marginal_coverage": 0.9595,
+       "review_rate": 0.1421,
+       "review_ci": [
+        0.1401,
+        0.1442
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8579,
+        "2": 0.1421
+       },
+       "denial_rate": 0.1202,
+       "mondrian_coverage": 0.9511,
+       "mondrian_qhat": 0.7606
+      }
+     ],
+     "four_fifths_review": 0.3641,
+     "worst_marginal": "Black or African American",
+     "marginal_spread": 0.0365
+    },
+    "proxy_group": {
+     "groups": [
+      {
+       "group": "American Indian or Alaska Native",
+       "n": 57,
+       "cal_n": 30,
+       "thin": true,
+       "marginal_coverage": 0.9825,
+       "review_rate": 0.3158,
+       "review_ci": [
+        0.21,
+        0.4448
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.6842,
+        "2": 0.3158
+       },
+       "denial_rate": 0.2281
+      },
+      {
+       "group": "Asian",
+       "n": 3326,
+       "cal_n": 1577,
+       "thin": false,
+       "marginal_coverage": 0.9429,
+       "review_rate": 0.1143,
+       "review_ci": [
+        0.1039,
+        0.1255
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8857,
+        "2": 0.1143
+       },
+       "denial_rate": 0.1419,
+       "mondrian_coverage": 0.9513,
+       "mondrian_qhat": 0.8681
+      },
+      {
+       "group": "Black or African American",
+       "n": 14014,
+       "cal_n": 7061,
+       "thin": false,
+       "marginal_coverage": 0.9351,
+       "review_rate": 0.239,
+       "review_ci": [
+        0.2321,
+        0.2462
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.761,
+        "2": 0.239
+       },
+       "denial_rate": 0.2382,
+       "mondrian_coverage": 0.9476,
+       "mondrian_qhat": 0.8557
+      },
+      {
+       "group": "Hispanic or Latino",
+       "n": 20473,
+       "cal_n": 10230,
+       "thin": false,
+       "marginal_coverage": 0.9378,
+       "review_rate": 0.1981,
+       "review_ci": [
+        0.1927,
+        0.2036
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8019,
+        "2": 0.1981
+       },
+       "denial_rate": 0.1987,
+       "mondrian_coverage": 0.9502,
+       "mondrian_qhat": 0.8622
+      },
+      {
+       "group": "Native Hawaiian or Other Pacific Islander",
+       "n": 42,
+       "cal_n": 16,
+       "thin": true,
+       "marginal_coverage": 0.9762,
+       "review_rate": 0.3571,
+       "review_ci": [
+        0.2299,
+        0.5083
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.6429,
+        "2": 0.3571
+       },
+       "denial_rate": 0.1905
+      },
+      {
+       "group": "White",
+       "n": 161644,
+       "cal_n": 80847,
+       "thin": false,
+       "marginal_coverage": 0.9538,
+       "review_rate": 0.1434,
+       "review_ci": [
+        0.1417,
+        0.1452
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8566,
+        "2": 0.1434
+       },
+       "denial_rate": 0.1389,
+       "mondrian_coverage": 0.951,
+       "mondrian_qhat": 0.8002
+      },
+      {
+       "group": "tract not matched",
+       "n": 444,
+       "cal_n": 239,
+       "thin": true,
+       "marginal_coverage": 0.9505,
+       "review_rate": 0.2725,
+       "review_ci": [
+        0.2332,
+        0.3158
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7275,
+        "2": 0.2725
+       },
+       "denial_rate": 0.241
+      }
+     ],
+     "four_fifths_review": 0.4782,
+     "worst_marginal": "Black or African American",
+     "marginal_spread": 0.0187
+    }
+   },
+   "seconds": 25,
+   "proxy_vs_reported": {
+    "test_rows_in_scope": 167792,
+    "share_in_scope": 0.839,
+    "mismatch_rate": 0.2774,
+    "per_group": [
+     {
+      "group": "White",
+      "n_reported": 112639,
+      "n_proxy": 161644,
+      "review_reported": 0.1421,
+      "review_proxy": 0.1434,
+      "review_delta": 0.0013,
+      "proxy_outside_reported_ci": false,
+      "coverage_reported": 0.9595,
+      "coverage_proxy": 0.9538,
+      "thin": false
+     },
+     {
+      "group": "Black or African American",
+      "n_reported": 16481,
+      "n_proxy": 14014,
+      "review_reported": 0.2406,
+      "review_proxy": 0.239,
+      "review_delta": -0.0016,
+      "proxy_outside_reported_ci": false,
+      "coverage_reported": 0.923,
+      "coverage_proxy": 0.9351,
+      "thin": false
+     },
+     {
+      "group": "Asian",
+      "n_reported": 12760,
+      "n_proxy": 3326,
+      "review_reported": 0.0876,
+      "review_proxy": 0.1143,
+      "review_delta": 0.0267,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.9509,
+      "coverage_proxy": 0.9429,
+      "thin": false
+     },
+     {
+      "group": "American Indian or Alaska Native",
+      "n_reported": 870,
+      "n_proxy": 57,
+      "review_reported": 0.2402,
+      "review_proxy": 0.3158,
+      "review_delta": 0.0756,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.946,
+      "coverage_proxy": 0.9825,
+      "thin": true
+     },
+     {
+      "group": "Native Hawaiian or Other Pacific Islander",
+      "n_reported": 323,
+      "n_proxy": 42,
+      "review_reported": 0.1889,
+      "review_proxy": 0.3571,
+      "review_delta": 0.1682,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.9474,
+      "coverage_proxy": 0.9762,
+      "thin": true
+     },
+     {
+      "group": "Hispanic or Latino",
+      "n_reported": 25101,
+      "n_proxy": 20473,
+      "review_reported": 0.1633,
+      "review_proxy": 0.1981,
+      "review_delta": 0.0348,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.9353,
+      "coverage_proxy": 0.9378,
+      "thin": false
+     }
+    ]
+   }
+  },
+  {
+   "model": {
+    "auc": 0.864,
+    "accuracy": 0.9049
+   },
+   "marginal_coverage": 0.9506,
+   "review_rate": 0.16,
+   "attributes": {
+    "derived_race": {
+     "groups": [
+      {
+       "group": "2 or more minority races",
+       "n": 506,
+       "cal_n": 280,
+       "thin": true,
+       "marginal_coverage": 0.9289,
+       "review_rate": 0.1957,
+       "review_ci": [
+        0.1634,
+        0.2325
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8043,
+        "2": 0.1957
+       },
+       "denial_rate": 0.2391
+      },
+      {
+       "group": "American Indian or Alaska Native",
+       "n": 1359,
+       "cal_n": 718,
+       "thin": false,
+       "marginal_coverage": 0.9323,
+       "review_rate": 0.1943,
+       "review_ci": [
+        0.1741,
+        0.2161
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8057,
+        "2": 0.1943
+       },
+       "denial_rate": 0.223,
+       "mondrian_coverage": 0.9536,
+       "mondrian_qhat": 0.8855
+      },
+      {
+       "group": "Asian",
+       "n": 13084,
+       "cal_n": 6547,
+       "thin": false,
+       "marginal_coverage": 0.949,
+       "review_rate": 0.0833,
+       "review_ci": [
+        0.0787,
+        0.0882
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.9167,
+        "2": 0.0833
+       },
+       "denial_rate": 0.1244,
+       "mondrian_coverage": 0.9528,
+       "mondrian_qhat": 0.8484
+      },
+      {
+       "group": "Black or African American",
+       "n": 17333,
+       "cal_n": 8585,
+       "thin": false,
+       "marginal_coverage": 0.9262,
+       "review_rate": 0.2479,
+       "review_ci": [
+        0.2415,
+        0.2543
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7521,
+        "2": 0.2479
+       },
+       "denial_rate": 0.2521,
+       "mondrian_coverage": 0.9504,
+       "mondrian_qhat": 0.8844
+      },
+      {
+       "group": "Free Form Text Only",
+       "n": 27,
+       "cal_n": 9,
+       "thin": true,
+       "marginal_coverage": 0.963,
+       "review_rate": 0.2593,
+       "review_ci": [
+        0.1317,
+        0.4468
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7407,
+        "2": 0.2593
+       },
+       "denial_rate": 0.2963
+      },
+      {
+       "group": "Joint",
+       "n": 5286,
+       "cal_n": 2684,
+       "thin": false,
+       "marginal_coverage": 0.9603,
+       "review_rate": 0.1076,
+       "review_ci": [
+        0.0996,
+        0.1163
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8924,
+        "2": 0.1076
+       },
+       "denial_rate": 0.1048,
+       "mondrian_coverage": 0.9554,
+       "mondrian_qhat": 0.78
+      },
+      {
+       "group": "Native Hawaiian or Other Pacific Islander",
+       "n": 400,
+       "cal_n": 188,
+       "thin": true,
+       "marginal_coverage": 0.9425,
+       "review_rate": 0.2225,
+       "review_ci": [
+        0.1845,
+        0.2658
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7775,
+        "2": 0.2225
+       },
+       "denial_rate": 0.1925
+      },
+      {
+       "group": "Race Not Available",
+       "n": 30744,
+       "cal_n": 15321,
+       "thin": false,
+       "marginal_coverage": 0.942,
+       "review_rate": 0.1924,
+       "review_ci": [
+        0.1881,
+        0.1969
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8076,
+        "2": 0.1924
+       },
+       "denial_rate": 0.2145,
+       "mondrian_coverage": 0.9502,
+       "mondrian_qhat": 0.8448
+      },
+      {
+       "group": "White",
+       "n": 131261,
+       "cal_n": 65668,
+       "thin": false,
+       "marginal_coverage": 0.9559,
+       "review_rate": 0.1499,
+       "review_ci": [
+        0.148,
+        0.1518
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8501,
+        "2": 0.1499
+       },
+       "denial_rate": 0.1301,
+       "mondrian_coverage": 0.9495,
+       "mondrian_qhat": 0.7803
+      }
+     ],
+     "four_fifths_review": 0.336,
+     "worst_marginal": "Black or African American",
+     "marginal_spread": 0.0341
+    },
+    "derived_ethnicity": {
+     "groups": [
+      {
+       "group": "Ethnicity Not Available",
+       "n": 27483,
+       "cal_n": 13839,
+       "thin": false,
+       "marginal_coverage": 0.9424,
+       "review_rate": 0.1883,
+       "review_ci": [
+        0.1837,
+        0.1929
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8117,
+        "2": 0.1883
+       },
+       "denial_rate": 0.214,
+       "mondrian_coverage": 0.9522,
+       "mondrian_qhat": 0.8493
+      },
+      {
+       "group": "Free Form Text Only",
+       "n": 52,
+       "cal_n": 20,
+       "thin": true,
+       "marginal_coverage": 0.9231,
+       "review_rate": 0.2115,
+       "review_ci": [
+        0.1224,
+        0.3403
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7885,
+        "2": 0.2115
+       },
+       "denial_rate": 0.2692
+      },
+      {
+       "group": "Hispanic or Latino",
+       "n": 24875,
+       "cal_n": 12474,
+       "thin": false,
+       "marginal_coverage": 0.9348,
+       "review_rate": 0.1668,
+       "review_ci": [
+        0.1622,
+        0.1715
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8332,
+        "2": 0.1668
+       },
+       "denial_rate": 0.1848,
+       "mondrian_coverage": 0.9481,
+       "mondrian_qhat": 0.8694
+      },
+      {
+       "group": "Joint",
+       "n": 5874,
+       "cal_n": 2975,
+       "thin": false,
+       "marginal_coverage": 0.9573,
+       "review_rate": 0.1137,
+       "review_ci": [
+        0.1059,
+        0.1221
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8863,
+        "2": 0.1137
+       },
+       "denial_rate": 0.112,
+       "mondrian_coverage": 0.9562,
+       "mondrian_qhat": 0.8089
+      },
+      {
+       "group": "Not Hispanic or Latino",
+       "n": 141716,
+       "cal_n": 70692,
+       "thin": false,
+       "marginal_coverage": 0.9547,
+       "review_rate": 0.1553,
+       "review_ci": [
+        0.1534,
+        0.1572
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8447,
+        "2": 0.1553
+       },
+       "denial_rate": 0.1382,
+       "mondrian_coverage": 0.9503,
+       "mondrian_qhat": 0.7922
+      }
+     ],
+     "four_fifths_review": 0.6038,
+     "worst_marginal": "Hispanic or Latino",
+     "marginal_spread": 0.0225
+    },
+    "derived_sex": {
+     "groups": [
+      {
+       "group": "Female",
+       "n": 43321,
+       "cal_n": 21980,
+       "thin": false,
+       "marginal_coverage": 0.9463,
+       "review_rate": 0.1925,
+       "review_ci": [
+        0.1889,
+        0.1963
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8075,
+        "2": 0.1925
+       },
+       "denial_rate": 0.1765,
+       "mondrian_coverage": 0.9484,
+       "mondrian_qhat": 0.8274
+      },
+      {
+       "group": "Joint",
+       "n": 75233,
+       "cal_n": 37432,
+       "thin": false,
+       "marginal_coverage": 0.9583,
+       "review_rate": 0.1131,
+       "review_ci": [
+        0.1108,
+        0.1154
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8869,
+        "2": 0.1131
+       },
+       "denial_rate": 0.1097,
+       "mondrian_coverage": 0.9495,
+       "mondrian_qhat": 0.7521
+      },
+      {
+       "group": "Male",
+       "n": 68521,
+       "cal_n": 34080,
+       "thin": false,
+       "marginal_coverage": 0.9467,
+       "review_rate": 0.1792,
+       "review_ci": [
+        0.1763,
+        0.182
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8208,
+        "2": 0.1792
+       },
+       "denial_rate": 0.1683,
+       "mondrian_coverage": 0.9514,
+       "mondrian_qhat": 0.8393
+      },
+      {
+       "group": "Sex Not Available",
+       "n": 12925,
+       "cal_n": 6508,
+       "thin": false,
+       "marginal_coverage": 0.9403,
+       "review_rate": 0.2229,
+       "review_ci": [
+        0.2158,
+        0.2302
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7771,
+        "2": 0.2229
+       },
+       "denial_rate": 0.256,
+       "mondrian_coverage": 0.9535,
+       "mondrian_qhat": 0.8556
+      }
+     ],
+     "four_fifths_review": 0.5074,
+     "worst_marginal": "Sex Not Available",
+     "marginal_spread": 0.018
+    },
+    "combined_group": {
+     "groups": [
+      {
+       "group": "2 or more minority races",
+       "n": 410,
+       "cal_n": 231,
+       "thin": true,
+       "marginal_coverage": 0.9317,
+       "review_rate": 0.2049,
+       "review_ci": [
+        0.1686,
+        0.2466
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7951,
+        "2": 0.2049
+       },
+       "denial_rate": 0.239
+      },
+      {
+       "group": "American Indian or Alaska Native",
+       "n": 838,
+       "cal_n": 430,
+       "thin": true,
+       "marginal_coverage": 0.932,
+       "review_rate": 0.2196,
+       "review_ci": [
+        0.1929,
+        0.2488
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7804,
+        "2": 0.2196
+       },
+       "denial_rate": 0.2339
+      },
+      {
+       "group": "Asian",
+       "n": 12720,
+       "cal_n": 6355,
+       "thin": false,
+       "marginal_coverage": 0.949,
+       "review_rate": 0.0824,
+       "review_ci": [
+        0.0777,
+        0.0873
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.9176,
+        "2": 0.0824
+       },
+       "denial_rate": 0.1231,
+       "mondrian_coverage": 0.9519,
+       "mondrian_qhat": 0.843
+      },
+      {
+       "group": "Black or African American",
+       "n": 16578,
+       "cal_n": 8210,
+       "thin": false,
+       "marginal_coverage": 0.9266,
+       "review_rate": 0.2501,
+       "review_ci": [
+        0.2436,
+        0.2567
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7499,
+        "2": 0.2501
+       },
+       "denial_rate": 0.2538,
+       "mondrian_coverage": 0.95,
+       "mondrian_qhat": 0.883
+      },
+      {
+       "group": "Free Form Text Only",
+       "n": 10,
+       "cal_n": 1,
+       "thin": true,
+       "marginal_coverage": 1.0,
+       "review_rate": 0.4,
+       "review_ci": [
+        0.1682,
+        0.6873
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.6,
+        "2": 0.4
+       },
+       "denial_rate": 0.3
+      },
+      {
+       "group": "Hispanic or Latino",
+       "n": 24875,
+       "cal_n": 12474,
+       "thin": false,
+       "marginal_coverage": 0.9348,
+       "review_rate": 0.1668,
+       "review_ci": [
+        0.1622,
+        0.1715
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8332,
+        "2": 0.1668
+       },
+       "denial_rate": 0.1848,
+       "mondrian_coverage": 0.9481,
+       "mondrian_qhat": 0.8694
+      },
+      {
+       "group": "Joint",
+       "n": 4976,
+       "cal_n": 2528,
+       "thin": false,
+       "marginal_coverage": 0.9618,
+       "review_rate": 0.1065,
+       "review_ci": [
+        0.0982,
+        0.1154
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8935,
+        "2": 0.1065
+       },
+       "denial_rate": 0.1033,
+       "mondrian_coverage": 0.9564,
+       "mondrian_qhat": 0.7793
+      },
+      {
+       "group": "Native Hawaiian or Other Pacific Islander",
+       "n": 315,
+       "cal_n": 161,
+       "thin": true,
+       "marginal_coverage": 0.9492,
+       "review_rate": 0.2127,
+       "review_ci": [
+        0.1711,
+        0.2612
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7873,
+        "2": 0.2127
+       },
+       "denial_rate": 0.1937
+      },
+      {
+       "group": "Race Not Available",
+       "n": 26545,
+       "cal_n": 13278,
+       "thin": false,
+       "marginal_coverage": 0.9432,
+       "review_rate": 0.1946,
+       "review_ci": [
+        0.1899,
+        0.1994
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8054,
+        "2": 0.1946
+       },
+       "denial_rate": 0.2157,
+       "mondrian_coverage": 0.951,
+       "mondrian_qhat": 0.8425
+      },
+      {
+       "group": "White",
+       "n": 112733,
+       "cal_n": 56332,
+       "thin": false,
+       "marginal_coverage": 0.9592,
+       "review_rate": 0.1475,
+       "review_ci": [
+        0.1454,
+        0.1496
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8525,
+        "2": 0.1475
+       },
+       "denial_rate": 0.1221,
+       "mondrian_coverage": 0.9497,
+       "mondrian_qhat": 0.7579
+      }
+     ],
+     "four_fifths_review": 0.3295,
+     "worst_marginal": "Black or African American",
+     "marginal_spread": 0.0352
+    },
+    "proxy_group": {
+     "groups": [
+      {
+       "group": "American Indian or Alaska Native",
+       "n": 66,
+       "cal_n": 47,
+       "thin": true,
+       "marginal_coverage": 0.9242,
+       "review_rate": 0.2727,
+       "review_ci": [
+        0.18,
+        0.3904
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7273,
+        "2": 0.2727
+       },
+       "denial_rate": 0.2424
+      },
+      {
+       "group": "Asian",
+       "n": 3318,
+       "cal_n": 1674,
+       "thin": false,
+       "marginal_coverage": 0.9448,
+       "review_rate": 0.1088,
+       "review_ci": [
+        0.0987,
+        0.1199
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8912,
+        "2": 0.1088
+       },
+       "denial_rate": 0.1398,
+       "mondrian_coverage": 0.9451,
+       "mondrian_qhat": 0.8229
+      },
+      {
+       "group": "Black or African American",
+       "n": 13882,
+       "cal_n": 6981,
+       "thin": false,
+       "marginal_coverage": 0.9367,
+       "review_rate": 0.2451,
+       "review_ci": [
+        0.2381,
+        0.2524
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7549,
+        "2": 0.2451
+       },
+       "denial_rate": 0.2456,
+       "mondrian_coverage": 0.9535,
+       "mondrian_qhat": 0.8702
+      },
+      {
+       "group": "Hispanic or Latino",
+       "n": 20187,
+       "cal_n": 10124,
+       "thin": false,
+       "marginal_coverage": 0.937,
+       "review_rate": 0.2003,
+       "review_ci": [
+        0.1949,
+        0.2059
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7997,
+        "2": 0.2003
+       },
+       "denial_rate": 0.1994,
+       "mondrian_coverage": 0.9508,
+       "mondrian_qhat": 0.8661
+      },
+      {
+       "group": "Native Hawaiian or Other Pacific Islander",
+       "n": 39,
+       "cal_n": 21,
+       "thin": true,
+       "marginal_coverage": 0.9744,
+       "review_rate": 0.2821,
+       "review_ci": [
+        0.1654,
+        0.4378
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.7179,
+        "2": 0.2821
+       },
+       "denial_rate": 0.1795
+      },
+      {
+       "group": "White",
+       "n": 162009,
+       "cal_n": 80944,
+       "thin": false,
+       "marginal_coverage": 0.9536,
+       "review_rate": 0.1482,
+       "review_ci": [
+        0.1465,
+        0.1499
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.8518,
+        "2": 0.1482
+       },
+       "denial_rate": 0.14,
+       "mondrian_coverage": 0.9497,
+       "mondrian_qhat": 0.7948
+      },
+      {
+       "group": "tract not matched",
+       "n": 499,
+       "cal_n": 209,
+       "thin": true,
+       "marginal_coverage": 0.9359,
+       "review_rate": 0.3206,
+       "review_ci": [
+        0.2812,
+        0.3628
+       ],
+       "set_size_dist": {
+        "0": 0.0,
+        "1": 0.6794,
+        "2": 0.3206
+       },
+       "denial_rate": 0.2505
+      }
+     ],
+     "four_fifths_review": 0.4439,
+     "worst_marginal": "Black or African American",
+     "marginal_spread": 0.0169
+    }
+   },
+   "seconds": 18,
+   "proxy_vs_reported": {
+    "test_rows_in_scope": 167641,
+    "share_in_scope": 0.8382,
+    "mismatch_rate": 0.2754,
+    "per_group": [
+     {
+      "group": "White",
+      "n_reported": 112733,
+      "n_proxy": 162009,
+      "review_reported": 0.1475,
+      "review_proxy": 0.1482,
+      "review_delta": 0.0007,
+      "proxy_outside_reported_ci": false,
+      "coverage_reported": 0.9592,
+      "coverage_proxy": 0.9536,
+      "thin": false
+     },
+     {
+      "group": "Black or African American",
+      "n_reported": 16578,
+      "n_proxy": 13882,
+      "review_reported": 0.2501,
+      "review_proxy": 0.2451,
+      "review_delta": -0.005,
+      "proxy_outside_reported_ci": false,
+      "coverage_reported": 0.9266,
+      "coverage_proxy": 0.9367,
+      "thin": false
+     },
+     {
+      "group": "Asian",
+      "n_reported": 12720,
+      "n_proxy": 3318,
+      "review_reported": 0.0824,
+      "review_proxy": 0.1088,
+      "review_delta": 0.0264,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.949,
+      "coverage_proxy": 0.9448,
+      "thin": false
+     },
+     {
+      "group": "American Indian or Alaska Native",
+      "n_reported": 838,
+      "n_proxy": 66,
+      "review_reported": 0.2196,
+      "review_proxy": 0.2727,
+      "review_delta": 0.0531,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.932,
+      "coverage_proxy": 0.9242,
+      "thin": true
+     },
+     {
+      "group": "Native Hawaiian or Other Pacific Islander",
+      "n_reported": 315,
+      "n_proxy": 39,
+      "review_reported": 0.2127,
+      "review_proxy": 0.2821,
+      "review_delta": 0.0694,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.9492,
+      "coverage_proxy": 0.9744,
+      "thin": true
+     },
+     {
+      "group": "Hispanic or Latino",
+      "n_reported": 24875,
+      "n_proxy": 20187,
+      "review_reported": 0.1668,
+      "review_proxy": 0.2003,
+      "review_delta": 0.0335,
+      "proxy_outside_reported_ci": true,
+      "coverage_reported": 0.9348,
+      "coverage_proxy": 0.937,
+      "thin": false
+     }
+    ]
+   }
+  }
+ ]
+}
