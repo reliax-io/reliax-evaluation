@@ -68,17 +68,25 @@ class ConformalMartingale:
             self.history = self.history[-HISTORY:]
         return state
 
-    def _wealth(self) -> float:
-        # mixture = mean of exp(log_wealth); logsumexp for numerical safety
+    LOG_WEALTH_CAP = 600.0   # natural log; wealth is reported saturated above exp(600)
+
+    def _log_wealth(self) -> float:
+        # log of the mixture = logsumexp(log_wealth) - log(n): overflow-safe
         m = float(np.max(self.log_wealth_eps))
-        return math.exp(m) * float(np.mean(np.exp(self.log_wealth_eps - m)))
+        lw = m + math.log(float(np.mean(np.exp(self.log_wealth_eps - m))))
+        return min(lw, self.LOG_WEALTH_CAP)
+
+    def _wealth(self) -> float:
+        return math.exp(self._log_wealth())
 
     def state(self) -> dict:
-        w = self._wealth() if self.steps else 1.0
+        lw = self._log_wealth() if self.steps else 0.0
+        w = math.exp(lw)
         label = "ALARM" if w >= ALARM_THRESHOLD else "WATCH" if w >= WATCH_THRESHOLD else "OK"
         return {
             "martingale": round(w, 4) if w < 1e6 else float(f"{w:.3e}"),
-            "log10_martingale": round(math.log10(max(w, 1e-12)), 3),
+            "log10_martingale": round(lw / math.log(10.0), 3),
+            "saturated": lw >= self.LOG_WEALTH_CAP,
             "state": label,
             "steps": self.steps,
             "thresholds": {"watch": WATCH_THRESHOLD, "alarm": ALARM_THRESHOLD},

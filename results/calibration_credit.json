@@ -1,0 +1,1229 @@
+{
+ "meta": {
+  "W": 2.0,
+  "debias": "l2",
+  "clusterings": {
+   "chapter: fixed bins, midpoint": "{'M': 10, 'binning': 'fixed', 'representative': 'mid'}",
+   "quantile bins, mean rep": "{'M': 10, 'binning': 'quantile', 'representative': 'mean'}",
+   "isotonic blocks, mean rep": "{'binning': 'isotonic', 'representative': 'mean'}"
+  }
+ },
+ "taiwan": {
+  "n_seeds": 5,
+  "scorers": {
+   "raw": {
+    "chapter: fixed bins, midpoint": {
+     "claimed_d": {
+      "mean": 0.011,
+      "std": 0.0026
+     },
+     "realized_d": {
+      "mean": 0.0111,
+      "std": 0.002
+     },
+     "gap_d": {
+      "mean": 0.0001,
+      "std": 0.004
+     },
+     "ece_cal": {
+      "mean": 0.0174,
+      "std": 0.0028
+     },
+     "ece_test": {
+      "mean": 0.0165,
+      "std": 0.002
+     },
+     "envelope_half_width": {
+      "mean": 0.1243,
+      "std": 0.0009
+     },
+     "cell_mae": {
+      "mean": 0.0128,
+      "std": 0.0029
+     },
+     "cell_spearman": {
+      "mean": 0.2667,
+      "std": 0.19
+     },
+     "n_cells": {
+      "mean": 9.0,
+      "std": 0.0
+     },
+     "thin_cells": {
+      "mean": 0.6,
+      "std": 0.4899
+     },
+     "envelope_held": "5/5",
+     "worst_cell_hit": "3/5"
+    },
+    "quantile bins, mean rep": {
+     "claimed_d": {
+      "mean": 0.0038,
+      "std": 0.0016
+     },
+     "realized_d": {
+      "mean": 0.0046,
+      "std": 0.0022
+     },
+     "gap_d": {
+      "mean": 0.0007,
+      "std": 0.0024
+     },
+     "ece_cal": {
+      "mean": 0.0117,
+      "std": 0.0013
+     },
+     "ece_test": {
+      "mean": 0.0109,
+      "std": 0.0015
+     },
+     "envelope_half_width": {
+      "mean": 0.1526,
+      "std": 0.0
+     },
+     "cell_mae": {
+      "mean": 0.0159,
+      "std": 0.0031
+     },
+     "cell_spearman": {
+      "mean": 0.103,
+      "std": 0.2137
+     },
+     "n_cells": {
+      "mean": 10.0,
+      "std": 0.0
+     },
+     "thin_cells": {
+      "mean": 0.0,
+      "std": 0.0
+     },
+     "envelope_held": "5/5",
+     "worst_cell_hit": "2/5"
+    },
+    "isotonic blocks, mean rep": {
+     "claimed_d": {
+      "mean": 0.0039,
+      "std": 0.0026
+     },
+     "realized_d": {
+      "mean": 0.0074,
+      "std": 0.0016
+     },
+     "gap_d": {
+      "mean": 0.0035,
+      "std": 0.0037
+     },
+     "ece_cal": {
+      "mean": 0.0139,
+      "std": 0.0036
+     },
+     "ece_test": {
+      "mean": 0.0163,
+      "std": 0.0015
+     },
+     "envelope_half_width": {
+      "mean": 0.2303,
+      "std": 0.0159
+     },
+     "cell_mae": {
+      "mean": 0.0216,
+      "std": 0.0029
+     },
+     "cell_spearman": {
+      "mean": 0.3656,
+      "std": 0.1082
+     },
+     "n_cells": {
+      "mean": 26.2,
+      "std": 2.3152
+     },
+     "thin_cells": {
+      "mean": 6.8,
+      "std": 1.1662
+     },
+     "envelope_held": "5/5",
+     "worst_cell_hit": "1/5"
+    }
+   },
+   "temperature-scaled": {
+    "chapter: fixed bins, midpoint": {
+     "claimed_d": {
+      "mean": 0.0116,
+      "std": 0.0022
+     },
+     "realized_d": {
+      "mean": 0.0112,
+      "std": 0.0024
+     },
+     "gap_d": {
+      "mean": -0.0004,
+      "std": 0.004
+     },
+     "ece_cal": {
+      "mean": 0.0184,
+      "std": 0.0022
+     },
+     "ece_test": {
+      "mean": 0.0165,
+      "std": 0.0021
+     },
+     "envelope_half_width": {
+      "mean": 0.1243,
+      "std": 0.0011
+     },
+     "cell_mae": {
+      "mean": 0.0138,
+      "std": 0.0032
+     },
+     "cell_spearman": {
+      "mean": 0.16,
+      "std": 0.1778
+     },
+     "n_cells": {
+      "mean": 9.0,
+      "std": 0.0
+     },
+     "thin_cells": {
+      "mean": 0.6,
+      "std": 0.4899
+     },
+     "envelope_held": "5/5",
+     "worst_cell_hit": "4/5"
+    },
+    "quantile bins, mean rep": {
+     "claimed_d": {
+      "mean": 0.0047,
+      "std": 0.0009
+     },
+     "realized_d": {
+      "mean": 0.004,
+      "std": 0.0022
+     },
+     "gap_d": {
+      "mean": -0.0007,
+      "std": 0.0018
+     },
+     "ece_cal": {
+      "mean": 0.0122,
+      "std": 0.0014
+     },
+     "ece_test": {
+      "mean": 0.0105,
+      "std": 0.0016
+     },
+     "envelope_half_width": {
+      "mean": 0.1526,
+      "std": 0.0
+     },
+     "cell_mae": {
+      "mean": 0.0159,
+      "std": 0.0031
+     },
+     "cell_spearman": {
+      "mean": -0.0497,
+      "std": 0.3144
+     },
+     "n_cells": {
+      "mean": 10.0,
+      "std": 0.0
+     },
+     "thin_cells": {
+      "mean": 0.0,
+      "std": 0.0
+     },
+     "envelope_held": "5/5",
+     "worst_cell_hit": "1/5"
+    },
+    "isotonic blocks, mean rep": {
+     "claimed_d": {
+      "mean": 0.0042,
+      "std": 0.0024
+     },
+     "realized_d": {
+      "mean": 0.0072,
+      "std": 0.0017
+     },
+     "gap_d": {
+      "mean": 0.003,
+      "std": 0.0039
+     },
+     "ece_cal": {
+      "mean": 0.0146,
+      "std": 0.0038
+     },
+     "ece_test": {
+      "mean": 0.0161,
+      "std": 0.0015
+     },
+     "envelope_half_width": {
+      "mean": 0.2303,
+      "std": 0.0159
+     },
+     "cell_mae": {
+      "mean": 0.0216,
+      "std": 0.0029
+     },
+     "cell_spearman": {
+      "mean": 0.3457,
+      "std": 0.0876
+     },
+     "n_cells": {
+      "mean": 26.2,
+      "std": 2.3152
+     },
+     "thin_cells": {
+      "mean": 6.8,
+      "std": 1.1662
+     },
+     "envelope_held": "5/5",
+     "worst_cell_hit": "1/5"
+    }
+   },
+   "venn-abers": {
+    "chapter: fixed bins, midpoint": {
+     "claimed_d": {
+      "mean": 0.0106,
+      "std": 0.0059
+     },
+     "realized_d": {
+      "mean": 0.0137,
+      "std": 0.0018
+     },
+     "gap_d": {
+      "mean": 0.0032,
+      "std": 0.0043
+     },
+     "ece_cal": {
+      "mean": 0.0179,
+      "std": 0.0046
+     },
+     "ece_test": {
+      "mean": 0.0179,
+      "std": 0.0011
+     },
+     "envelope_half_width": {
+      "mean": 0.1235,
+      "std": 0.0017
+     },
+     "cell_mae": {
+      "mean": 0.014,
+      "std": 0.0035
+     },
+     "cell_spearman": {
+      "mean": 0.2839,
+      "std": 0.2954
+     },
+     "n_cells": {
+      "mean": 9.4,
+      "std": 0.4899
+     },
+     "thin_cells": {
+      "mean": 1.2,
+      "std": 0.7483
+     },
+     "envelope_held": "5/5",
+     "worst_cell_hit": "3/5"
+    },
+    "quantile bins, mean rep": {
+     "claimed_d": {
+      "mean": 0.0081,
+      "std": 0.004
+     },
+     "realized_d": {
+      "mean": 0.0074,
+      "std": 0.0043
+     },
+     "gap_d": {
+      "mean": -0.0007,
+      "std": 0.0071
+     },
+     "ece_cal": {
+      "mean": 0.0153,
+      "std": 0.0035
+     },
+     "ece_test": {
+      "mean": 0.013,
+      "std": 0.0045
+     },
+     "envelope_half_width": {
+      "mean": 0.1408,
+      "std": 0.0083
+     },
+     "cell_mae": {
+      "mean": 0.0144,
+      "std": 0.0014
+     },
+     "cell_spearman": {
+      "mean": 0.4354,
+      "std": 0.2968
+     },
+     "n_cells": {
+      "mean": 9.0,
+      "std": 0.8944
+     },
+     "thin_cells": {
+      "mean": 0.0,
+      "std": 0.0
+     },
+     "envelope_held": "5/5",
+     "worst_cell_hit": "4/5"
+    },
+    "isotonic blocks, mean rep": {
+     "claimed_d": {
+      "mean": 0.0078,
+      "std": 0.0038
+     },
+     "realized_d": {
+      "mean": 0.0093,
+      "std": 0.0032
+     },
+     "gap_d": {
+      "mean": 0.0014,
+      "std": 0.0058
+     },
+     "ece_cal": {
+      "mean": 0.0173,
+      "std": 0.005
+     },
+     "ece_test": {
+      "mean": 0.017,
+      "std": 0.0024
+     },
+     "envelope_half_width": {
+      "mean": 0.193,
+      "std": 0.009
+     },
+     "cell_mae": {
+      "mean": 0.0199,
+      "std": 0.0023
+     },
+     "cell_spearman": {
+      "mean": 0.2973,
+      "std": 0.1593
+     },
+     "n_cells": {
+      "mean": 19.2,
+      "std": 1.7205
+     },
+     "thin_cells": {
+      "mean": 3.8,
+      "std": 0.7483
+     },
+     "envelope_held": "5/5",
+     "worst_cell_hit": "1/5"
+    }
+   }
+  },
+  "segments": {
+   "raw": {
+    "21-30": {
+     "claimed_d": {
+      "mean": 0.0076,
+      "std": 0.0064
+     },
+     "realized_d": {
+      "mean": 0.0093,
+      "std": 0.0047
+     }
+    },
+    "31-45": {
+     "claimed_d": {
+      "mean": 0.0066,
+      "std": 0.0044
+     },
+     "realized_d": {
+      "mean": 0.0071,
+      "std": 0.0035
+     }
+    },
+    "46+": {
+     "claimed_d": {
+      "mean": 0.011,
+      "std": 0.0062
+     },
+     "realized_d": {
+      "mean": 0.0167,
+      "std": 0.0096
+     }
+    }
+   },
+   "temperature-scaled": {
+    "21-30": {
+     "claimed_d": {
+      "mean": 0.0077,
+      "std": 0.0064
+     },
+     "realized_d": {
+      "mean": 0.0092,
+      "std": 0.0048
+     }
+    },
+    "31-45": {
+     "claimed_d": {
+      "mean": 0.0066,
+      "std": 0.0039
+     },
+     "realized_d": {
+      "mean": 0.0073,
+      "std": 0.004
+     }
+    },
+    "46+": {
+     "claimed_d": {
+      "mean": 0.0122,
+      "std": 0.007
+     },
+     "realized_d": {
+      "mean": 0.0168,
+      "std": 0.0095
+     }
+    }
+   },
+   "venn-abers": {
+    "21-30": {
+     "claimed_d": {
+      "mean": 0.0107,
+      "std": 0.0062
+     },
+     "realized_d": {
+      "mean": 0.012,
+      "std": 0.0034
+     }
+    },
+    "31-45": {
+     "claimed_d": {
+      "mean": 0.0077,
+      "std": 0.0047
+     },
+     "realized_d": {
+      "mean": 0.01,
+      "std": 0.0043
+     }
+    },
+    "46+": {
+     "claimed_d": {
+      "mean": 0.0182,
+      "std": 0.0073
+     },
+     "realized_d": {
+      "mean": 0.015,
+      "std": 0.0069
+     }
+    }
+   }
+  },
+  "scatter_seed0_venn_abers": {
+   "chapter: fixed bins, midpoint": {
+    "claimed": [
+     0.0,
+     -0.0073913043478261164,
+     -0.03036175710594316,
+     -0.03224299065420566,
+     -0.0012820512820512775,
+     -0.011538461538461608,
+     0.04841269841269824,
+     -0.25,
+     -0.12710843373493985
+    ],
+    "realised": [
+     0.011126373626373622,
+     -0.011788617886178882,
+     -0.022672309552599745,
+     -0.01997518610421839,
+     -0.017088607594936744,
+     0.0916184971098265,
+     0.029775280898876266,
+     -0.16666666666666663,
+     -0.08577235772357727
+    ],
+    "n": [
+     1456.0,
+     3567.0,
+     827.0,
+     403.0,
+     395.0,
+     173.0,
+     534.0,
+     12.0,
+     123.0
+    ]
+   },
+   "quantile bins, mean rep": {
+    "claimed": [
+     0.003004904632152597,
+     -0.045653947368421044,
+     -0.020412748344370846,
+     -0.0011415178571428791,
+     -0.01041176470588237,
+     -0.0007715277777777252,
+     0.03645839694656486,
+     0.0016913606911447276,
+     -0.011220430107526935,
+     -0.0063267990074442615
+    ],
+    "realised": [
+     0.012697838120593684,
+     -0.02196973684210525,
+     -0.01570077116784936,
+     0.00024171160914028544,
+     0.013029190623617848,
+     0.010401596848002792,
+     -0.041034085126069875,
+     0.005992978983393238,
+     -0.005215467328370582,
+     0.0033156068748191325
+    ],
+    "n": [
+     698.0,
+     140.0,
+     1286.0,
+     894.0,
+     665.0,
+     866.0,
+     528.0,
+     958.0,
+     650.0,
+     815.0
+    ]
+   },
+   "isotonic blocks, mean rep": {
+    "claimed": [
+     -0.03579166666666667,
+     -0.008773770491803272,
+     -0.005271568627450991,
+     -0.03192915531335147,
+     0.0005616666666666964,
+     0.0006333333333333191,
+     -0.010258904109589018,
+     -0.01041176470588237,
+     -0.010159736842105221,
+     0.014657169117647056,
+     0.014442063492063562,
+     0.0013309090909091048,
+     -0.0009518518518519814,
+     -0.0006771028037383386,
+     -0.0027804347826088094,
+     0.010795454545454497,
+     -0.029352631578947297,
+     -0.01003084415584421,
+     -0.019166666666666554,
+     0.125
+    ],
+    "realised": [
+     -0.03579166666666667,
+     0.007988893811844637,
+     0.008527159692399866,
+     -0.022483197093551288,
+     -0.009180117370892,
+     0.00662439678284181,
+     -0.032195223991114366,
+     0.013029190623617848,
+     0.011530957784369217,
+     -0.017904019693541745,
+     0.0326379597367403,
+     -0.00659169039795543,
+     0.058973241781106855,
+     -0.0008359548330730271,
+     -0.036113768115942135,
+     0.12133033353670941,
+     -0.05016046511627903,
+     -0.02034406035141334,
+     0.0475000000000001,
+     0.01388888888888884
+    ],
+    "n": [
+     25.0,
+     222.0,
+     589.0,
+     720.0,
+     568.0,
+     746.0,
+     148.0,
+     665.0,
+     763.0,
+     1144.0,
+     246.0,
+     332.0,
+     89.0,
+     353.0,
+     75.0,
+     149.0,
+     43.0,
+     595.0,
+     10.0,
+     18.0
+    ]
+   }
+  }
+ },
+ "german": {
+  "n_seeds": 10,
+  "scorers": {
+   "raw": {
+    "chapter: fixed bins, midpoint": {
+     "claimed_d": {
+      "mean": 0.1373,
+      "std": 0.0469
+     },
+     "realized_d": {
+      "mean": 0.132,
+      "std": 0.0198
+     },
+     "gap_d": {
+      "mean": -0.0053,
+      "std": 0.0437
+     },
+     "ece_cal": {
+      "mean": 0.172,
+      "std": 0.0443
+     },
+     "ece_test": {
+      "mean": 0.1565,
+      "std": 0.0171
+     },
+     "envelope_half_width": {
+      "mean": 0.6706,
+      "std": 0.022
+     },
+     "cell_mae": {
+      "mean": 0.1072,
+      "std": 0.0249
+     },
+     "cell_spearman": {
+      "mean": 0.1011,
+      "std": 0.3789
+     },
+     "n_cells": {
+      "mean": 9.7,
+      "std": 0.4583
+     },
+     "thin_cells": {
+      "mean": 8.7,
+      "std": 0.4583
+     },
+     "envelope_held": "10/10",
+     "worst_cell_hit": "4/10"
+    },
+    "quantile bins, mean rep": {
+     "claimed_d": {
+      "mean": 0.1247,
+      "std": 0.0478
+     },
+     "realized_d": {
+      "mean": 0.1405,
+      "std": 0.0218
+     },
+     "gap_d": {
+      "mean": 0.0159,
+      "std": 0.0499
+     },
+     "ece_cal": {
+      "mean": 0.1762,
+      "std": 0.043
+     },
+     "ece_test": {
+      "mean": 0.1694,
+      "std": 0.0207
+     },
+     "envelope_half_width": {
+      "mean": 0.8309,
+      "std": 0.0021
+     },
+     "cell_mae": {
+      "mean": 0.098,
+      "std": 0.0209
+     },
+     "cell_spearman": {
+      "mean": 0.4945,
+      "std": 0.2052
+     },
+     "n_cells": {
+      "mean": 10.0,
+      "std": 0.0
+     },
+     "thin_cells": {
+      "mean": 10.0,
+      "std": 0.0
+     },
+     "envelope_held": "10/10",
+     "worst_cell_hit": "4/10"
+    },
+    "isotonic blocks, mean rep": {
+     "claimed_d": {
+      "mean": 0.1091,
+      "std": 0.0343
+     },
+     "realized_d": {
+      "mean": 0.1455,
+      "std": 0.0188
+     },
+     "gap_d": {
+      "mean": 0.0364,
+      "std": 0.0398
+     },
+     "ece_cal": {
+      "mean": 0.1463,
+      "std": 0.0323
+     },
+     "ece_test": {
+      "mean": 0.1684,
+      "std": 0.0163
+     },
+     "envelope_half_width": {
+      "mean": 0.7015,
+      "std": 0.0628
+     },
+     "cell_mae": {
+      "mean": 0.0784,
+      "std": 0.0279
+     },
+     "cell_spearman": {
+      "mean": 0.5821,
+      "std": 0.1951
+     },
+     "n_cells": {
+      "mean": 8.4,
+      "std": 1.3565
+     },
+     "thin_cells": {
+      "mean": 7.4,
+      "std": 1.6852
+     },
+     "envelope_held": "10/10",
+     "worst_cell_hit": "6/10"
+    }
+   },
+   "temperature-scaled": {
+    "chapter: fixed bins, midpoint": {
+     "claimed_d": {
+      "mean": 0.0654,
+      "std": 0.0292
+     },
+     "realized_d": {
+      "mean": 0.0383,
+      "std": 0.0245
+     },
+     "gap_d": {
+      "mean": -0.0272,
+      "std": 0.0317
+     },
+     "ece_cal": {
+      "mean": 0.106,
+      "std": 0.0297
+     },
+     "ece_test": {
+      "mean": 0.0753,
+      "std": 0.0212
+     },
+     "envelope_half_width": {
+      "mean": 0.751,
+      "std": 0.0255
+     },
+     "cell_mae": {
+      "mean": 0.1012,
+      "std": 0.0352
+     },
+     "cell_spearman": {
+      "mean": 0.0403,
+      "std": 0.1707
+     },
+     "n_cells": {
+      "mean": 9.2,
+      "std": 0.6
+     },
+     "thin_cells": {
+      "mean": 8.6,
+      "std": 0.9165
+     },
+     "envelope_held": "10/10",
+     "worst_cell_hit": "2/10"
+    },
+    "quantile bins, mean rep": {
+     "claimed_d": {
+      "mean": 0.0513,
+      "std": 0.0194
+     },
+     "realized_d": {
+      "mean": 0.0356,
+      "std": 0.0188
+     },
+     "gap_d": {
+      "mean": -0.0157,
+      "std": 0.0109
+     },
+     "ece_cal": {
+      "mean": 0.1011,
+      "std": 0.0287
+     },
+     "ece_test": {
+      "mean": 0.0685,
+      "std": 0.0203
+     },
+     "envelope_half_width": {
+      "mean": 0.8308,
+      "std": 0.0021
+     },
+     "cell_mae": {
+      "mean": 0.0971,
+      "std": 0.0214
+     },
+     "cell_spearman": {
+      "mean": 0.1721,
+      "std": 0.3877
+     },
+     "n_cells": {
+      "mean": 10.0,
+      "std": 0.0
+     },
+     "thin_cells": {
+      "mean": 10.0,
+      "std": 0.0
+     },
+     "envelope_held": "10/10",
+     "worst_cell_hit": "5/10"
+    },
+    "isotonic blocks, mean rep": {
+     "claimed_d": {
+      "mean": 0.0376,
+      "std": 0.0252
+     },
+     "realized_d": {
+      "mean": 0.0386,
+      "std": 0.0237
+     },
+     "gap_d": {
+      "mean": 0.001,
+      "std": 0.026
+     },
+     "ece_cal": {
+      "mean": 0.0747,
+      "std": 0.0277
+     },
+     "ece_test": {
+      "mean": 0.0719,
+      "std": 0.0191
+     },
+     "envelope_half_width": {
+      "mean": 0.6995,
+      "std": 0.0635
+     },
+     "cell_mae": {
+      "mean": 0.0773,
+      "std": 0.0285
+     },
+     "cell_spearman": {
+      "mean": 0.1167,
+      "std": 0.5345
+     },
+     "n_cells": {
+      "mean": 8.3,
+      "std": 1.4177
+     },
+     "thin_cells": {
+      "mean": 7.4,
+      "std": 1.6852
+     },
+     "envelope_held": "10/10",
+     "worst_cell_hit": "4/10"
+    }
+   },
+   "venn-abers": {
+    "chapter: fixed bins, midpoint": {
+     "claimed_d": {
+      "mean": 0.0611,
+      "std": 0.0369
+     },
+     "realized_d": {
+      "mean": 0.0405,
+      "std": 0.0273
+     },
+     "gap_d": {
+      "mean": -0.0206,
+      "std": 0.0261
+     },
+     "ece_cal": {
+      "mean": 0.0984,
+      "std": 0.0319
+     },
+     "ece_test": {
+      "mean": 0.0667,
+      "std": 0.0276
+     },
+     "envelope_half_width": {
+      "mean": 0.6368,
+      "std": 0.0493
+     },
+     "cell_mae": {
+      "mean": 0.0825,
+      "std": 0.0246
+     },
+     "cell_spearman": {
+      "mean": 0.1268,
+      "std": 0.2604
+     },
+     "n_cells": {
+      "mean": 7.6,
+      "std": 0.6633
+     },
+     "thin_cells": {
+      "mean": 6.3,
+      "std": 0.9
+     },
+     "envelope_held": "10/10",
+     "worst_cell_hit": "5/10"
+    },
+    "quantile bins, mean rep": {
+     "claimed_d": {
+      "mean": 0.0506,
+      "std": 0.0282
+     },
+     "realized_d": {
+      "mean": 0.0404,
+      "std": 0.0235
+     },
+     "gap_d": {
+      "mean": -0.0103,
+      "std": 0.0303
+     },
+     "ece_cal": {
+      "mean": 0.0926,
+      "std": 0.0325
+     },
+     "ece_test": {
+      "mean": 0.0678,
+      "std": 0.0229
+     },
+     "envelope_half_width": {
+      "mean": 0.6915,
+      "std": 0.0677
+     },
+     "cell_mae": {
+      "mean": 0.0852,
+      "std": 0.0252
+     },
+     "cell_spearman": {
+      "mean": 0.4475,
+      "std": 0.273
+     },
+     "n_cells": {
+      "mean": 7.8,
+      "std": 1.077
+     },
+     "thin_cells": {
+      "mean": 7.2,
+      "std": 1.4697
+     },
+     "envelope_held": "10/10",
+     "worst_cell_hit": "8/10"
+    },
+    "isotonic blocks, mean rep": {
+     "claimed_d": {
+      "mean": 0.0322,
+      "std": 0.0198
+     },
+     "realized_d": {
+      "mean": 0.0376,
+      "std": 0.027
+     },
+     "gap_d": {
+      "mean": 0.0054,
+      "std": 0.0235
+     },
+     "ece_cal": {
+      "mean": 0.0699,
+      "std": 0.0211
+     },
+     "ece_test": {
+      "mean": 0.0614,
+      "std": 0.0272
+     },
+     "envelope_half_width": {
+      "mean": 0.6415,
+      "std": 0.0861
+     },
+     "cell_mae": {
+      "mean": 0.0691,
+      "std": 0.0202
+     },
+     "cell_spearman": {
+      "mean": 0.1625,
+      "std": 0.3687
+     },
+     "n_cells": {
+      "mean": 7.3,
+      "std": 1.7916
+     },
+     "thin_cells": {
+      "mean": 6.5,
+      "std": 2.0616
+     },
+     "envelope_held": "10/10",
+     "worst_cell_hit": "7/10"
+    }
+   }
+  },
+  "segments": {
+   "raw": {
+    "<=35": {
+     "claimed_d": {
+      "mean": 0.1141,
+      "std": 0.0442
+     },
+     "realized_d": {
+      "mean": 0.1517,
+      "std": 0.0272
+     }
+    },
+    ">35": {
+     "claimed_d": {
+      "mean": 0.0936,
+      "std": 0.0572
+     },
+     "realized_d": {
+      "mean": 0.0905,
+      "std": 0.0302
+     }
+    }
+   },
+   "temperature-scaled": {
+    "<=35": {
+     "claimed_d": {
+      "mean": 0.0509,
+      "std": 0.0195
+     },
+     "realized_d": {
+      "mean": 0.033,
+      "std": 0.0135
+     }
+    },
+    ">35": {
+     "claimed_d": {
+      "mean": 0.0928,
+      "std": 0.0396
+     },
+     "realized_d": {
+      "mean": 0.0658,
+      "std": 0.0216
+     }
+    }
+   },
+   "venn-abers": {
+    "<=35": {
+     "claimed_d": {
+      "mean": 0.049,
+      "std": 0.0285
+     },
+     "realized_d": {
+      "mean": 0.0361,
+      "std": 0.018
+     }
+    },
+    ">35": {
+     "claimed_d": {
+      "mean": 0.0778,
+      "std": 0.0223
+     },
+     "realized_d": {
+      "mean": 0.0655,
+      "std": 0.0333
+     }
+    }
+   }
+  },
+  "scatter_seed0_venn_abers": {
+   "chapter: fixed bins, midpoint": {
+    "claimed": [
+     0.03,
+     0.04999999999999999,
+     0.75,
+     0.09444444444444439,
+     -0.25,
+     -0.050000000000000044,
+     -0.3166666666666668,
+     -0.3500000000000001
+    ],
+    "realised": [
+     0.042592592592592585,
+     0.08999999999999997,
+     -0.04999999999999999,
+     -0.23888888888888893,
+     -0.033333333333333326,
+     -0.06351351351351353,
+     0.016666666666666496,
+     -0.2500000000000001
+    ],
+    "n": [
+     54.0,
+     75.0,
+     10.0,
+     18.0,
+     24.0,
+     37.0,
+     15.0,
+     15.0
+    ]
+   },
+   "quantile bins, mean rep": {
+    "claimed": [
+     0.056162500000000004,
+     -0.021176470588235297,
+     -0.048649999999999985,
+     0.140928,
+     0.15459,
+     -0.20000000000000012,
+     -0.020147826086956422,
+     -0.3197999999999999
+    ],
+    "realised": [
+     -0.0688375,
+     0.05513513513513514,
+     0.05849285714285715,
+     0.0751652881355932,
+     -0.21497521739130435,
+     0.016666666666666552,
+     -0.041886956521739016,
+     -0.09835477855477848
+    ],
+    "n": [
+     17.0,
+     37.0,
+     21.0,
+     59.0,
+     23.0,
+     24.0,
+     36.0,
+     33.0
+    ]
+   },
+   "isotonic blocks, mean rep": {
+    "claimed": [
+     -0.06559999999999999,
+     0.0007083333333333386,
+     -0.0276777777777778,
+     -0.05051764705882353,
+     0.08872424242424243,
+     -0.10369090909090911,
+     -0.2511200000000001
+    ],
+    "realised": [
+     -0.06559999999999999,
+     0.017375000000000015,
+     0.0834333333333333,
+     0.040168627450980404,
+     -0.02517335423197492,
+     -0.018236363636363606,
+     -0.27217263157894744
+    ],
+    "n": [
+     7.0,
+     50.0,
+     18.0,
+     48.0,
+     58.0,
+     50.0,
+     19.0
+    ]
+   }
+  }
+ }
+}

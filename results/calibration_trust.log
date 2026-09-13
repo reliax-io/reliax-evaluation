@@ -1,0 +1,32 @@
+S1 M sweep (synthetic, known ECE)
+  S1 calibrated: ece_true=0.0000 l1_limit=0.3332
+  S1 over-confident: ece_true=0.0825 l1_limit=0.2887
+  S1 under-confident: ece_true=0.0924 l1_limit=0.3894
+S2 consistency
+  S2 N=1000 M=10: quantile bins, mea=0.1097, quantile, mean, l2=0.0976, chapter (fixed bin=0.1127
+  S2 N=10000 M=22: quantile bins, mea=0.0935, quantile, mean, l2=0.0904, chapter (fixed bin=0.0936
+  S2 N=100000 M=46: quantile bins, mea=0.0926, quantile, mean, l2=0.0919, chapter (fixed bin=0.0925
+  S2 N=1000000 M=100: quantile bins, mea=0.0924, quantile, mean, l2=0.0922, chapter (fixed bin=0.0924
+S3 finite-sample bound
+  S3 bound holds in 500/500; mean bound 0.0728, mean error 0.0058
+S4 real credit models
+  S4 taiwan seed 0: raw: d=0.005 ece15=0.013, temperature-scaled: d=0.005 ece15=0.011, venn-abers: d=0.005 ece15=0.008
+  S4 taiwan seed 1: raw: d=0.006 ece15=0.015, temperature-scaled: d=0.006 ece15=0.015, venn-abers: d=0.004 ece15=0.025
+  S4 taiwan seed 2: raw: d=0.002 ece15=0.016, temperature-scaled: d=0.004 ece15=0.016, venn-abers: d=0.011 ece15=0.013
+  S4 taiwan seed 3: raw: d=0.004 ece15=0.009, temperature-scaled: d=0.004 ece15=0.009, venn-abers: d=0.015 ece15=0.011
+  S4 taiwan seed 4: raw: d=0.002 ece15=0.013, temperature-scaled: d=0.005 ece15=0.014, venn-abers: d=0.006 ece15=0.012
+  S4 german seed 0: raw: d=0.173 ece15=0.208, temperature-scaled: d=0.070 ece15=0.105, venn-abers: d=0.070 ece15=0.081
+  S4 german seed 1: raw: d=0.135 ece15=0.176, temperature-scaled: d=0.079 ece15=0.102, venn-abers: d=0.054 ece15=0.106
+  S4 german seed 2: raw: d=0.081 ece15=0.180, temperature-scaled: d=0.056 ece15=0.069, venn-abers: d=0.081 ece15=0.068
+  S4 german seed 3: raw: d=0.147 ece15=0.168, temperature-scaled: d=0.022 ece15=0.064, venn-abers: d=0.036 ece15=0.057
+  S4 german seed 4: raw: d=0.069 ece15=0.202, temperature-scaled: d=0.042 ece15=0.068, venn-abers: d=0.050 ece15=0.064
+  S4 german seed 5: raw: d=0.148 ece15=0.158, temperature-scaled: d=0.049 ece15=0.093, venn-abers: d=0.052 ece15=0.089
+  S4 german seed 6: raw: d=0.043 ece15=0.171, temperature-scaled: d=0.042 ece15=0.066, venn-abers: d=0.020 ece15=0.059
+  S4 german seed 7: raw: d=0.209 ece15=0.208, temperature-scaled: d=0.072 ece15=0.116, venn-abers: d=0.108 ece15=0.116
+  S4 german seed 8: raw: d=0.104 ece15=0.189, temperature-scaled: d=0.019 ece15=0.058, venn-abers: d=0.009 ece15=0.064
+  S4 german seed 9: raw: d=0.139 ece15=0.201, temperature-scaled: d=0.062 ece15=0.100, venn-abers: d=0.027 ece15=0.059
+S5 shift (Taiwan)
+  S5 iid: claimed d=0.055 realized d=0.055
+  S5 pay0: claimed d=0.061 realized d=0.225
+  S5 util: claimed d=0.054 realized d=0.111
+wrote results/calibration_trust.json in 170.4 s

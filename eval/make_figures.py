@@ -11,11 +11,11 @@ BASE = pathlib.Path(__file__).resolve().parent.parent
 R = json.load(open(BASE / "results" / "results.json"))
 OUT = BASE / "results"
 
-INK, SLATE, AMBER, ROSE, GREEN, MUTED = "#2a2e31", "#5d7f9b", "#b08a3a", "#8f4b45", "#5f9b7c", "#9a9c98"
+INK, SLATE, AMBER, ROSE, GREEN, MUTED = "#123f52", "#3f8ab0", "#c8862c", "#a8443a", "#2f7f86", "#93a7b5"
 plt.rcParams.update({"font.family": "monospace", "font.size": 9, "axes.edgecolor": MUTED,
                      "axes.labelcolor": INK, "text.color": INK, "xtick.color": INK,
-                     "ytick.color": INK, "figure.facecolor": "white", "axes.grid": True,
-                     "grid.color": "#eae7dc", "grid.linewidth": 0.7})
+                     "ytick.color": INK, "figure.facecolor": "#ffffff", "axes.facecolor": "#ffffff", "savefig.facecolor": "#ffffff", "axes.grid": True,
+                     "grid.color": "#e4edf3", "grid.linewidth": 0.7})
 
 LABELS = {"msp_tscaled": "max-softmax (T-scaled)", "conformal_pvalue": "conformal p-value",
           "va_width": "Venn-Abers width", "auditor": "error auditor", "composite": "composite score (v1)",

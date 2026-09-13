@@ -1,0 +1,542 @@
+{
+ "meta": {
+  "alphas": [
+   0.05,
+   0.1,
+   0.2
+  ],
+  "dataset": "taiwan",
+  "seeds": 5
+ },
+ "iid": {
+  "description": "random split (control)",
+  "0.05": {
+   "coverage": {
+    "mean": 0.9519,
+    "std": 0.0058
+   },
+   "review_rate": {
+    "mean": 0.5371,
+    "std": 0.0114
+   },
+   "error_rate_all": {
+    "mean": 0.1872,
+    "std": 0.0072
+   },
+   "error_rate_auto": {
+    "mean": 0.1037,
+    "std": 0.0102
+   },
+   "bad_approval_rate_all_approvals": {
+    "mean": 0.1583,
+    "std": 0.0103
+   },
+   "bad_approval_rate_auto_approvals": {
+    "mean": 0.0947,
+    "std": 0.0099
+   },
+   "errors_caught_review": {
+    "mean": 0.7436,
+    "std": 0.0231
+   },
+   "errors_caught_random": {
+    "mean": 0.5411,
+    "std": 0.0139
+   },
+   "errors_caught_confidence": {
+    "mean": 0.7436,
+    "std": 0.0231
+   },
+   "bad_caught_review": {
+    "mean": 0.7006,
+    "std": 0.0148
+   },
+   "bad_caught_random": {
+    "mean": 0.543,
+    "std": 0.0153
+   },
+   "bad_caught_confidence": {
+    "mean": 0.7006,
+    "std": 0.0148
+   },
+   "bad_per_1000_all": {
+    "mean": 137.8,
+    "std": 9.9252
+   },
+   "bad_per_1000_auto": {
+    "mean": 41.4,
+    "std": 4.9056
+   }
+  },
+  "0.1": {
+   "coverage": {
+    "mean": 0.9013,
+    "std": 0.0109
+   },
+   "review_rate": {
+    "mean": 0.258,
+    "std": 0.0215
+   },
+   "error_rate_all": {
+    "mean": 0.1872,
+    "std": 0.0072
+   },
+   "error_rate_auto": {
+    "mean": 0.1327,
+    "std": 0.0111
+   },
+   "bad_approval_rate_all_approvals": {
+    "mean": 0.1583,
+    "std": 0.0103
+   },
+   "bad_approval_rate_auto_approvals": {
+    "mean": 0.121,
+    "std": 0.0123
+   },
+   "errors_caught_review": {
+    "mean": 0.4744,
+    "std": 0.0391
+   },
+   "errors_caught_random": {
+    "mean": 0.253,
+    "std": 0.018
+   },
+   "errors_caught_confidence": {
+    "mean": 0.4744,
+    "std": 0.0391
+   },
+   "bad_caught_review": {
+    "mean": 0.4001,
+    "std": 0.0361
+   },
+   "bad_caught_random": {
+    "mean": 0.2514,
+    "std": 0.0131
+   },
+   "bad_caught_confidence": {
+    "mean": 0.4001,
+    "std": 0.0361
+   },
+   "bad_per_1000_all": {
+    "mean": 137.8,
+    "std": 9.9252
+   },
+   "bad_per_1000_auto": {
+    "mean": 82.95,
+    "std": 10.4324
+   }
+  },
+  "0.2": {
+   "coverage": {
+    "mean": 0.8053,
+    "std": 0.0106
+   },
+   "review_rate": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "error_rate_all": {
+    "mean": 0.1872,
+    "std": 0.0072
+   },
+   "error_rate_auto": {
+    "mean": 0.1872,
+    "std": 0.0072
+   },
+   "bad_approval_rate_all_approvals": {
+    "mean": 0.1583,
+    "std": 0.0103
+   },
+   "bad_approval_rate_auto_approvals": {
+    "mean": 0.1583,
+    "std": 0.0103
+   },
+   "errors_caught_review": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "errors_caught_random": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "errors_caught_confidence": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "bad_caught_review": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "bad_caught_random": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "bad_caught_confidence": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "bad_per_1000_all": {
+    "mean": 137.8,
+    "std": 9.9252
+   },
+   "bad_per_1000_auto": {
+    "mean": 137.8,
+    "std": 9.9252
+   }
+  }
+ },
+ "util": {
+  "description": "low utilisation -> high utilisation",
+  "0.05": {
+   "coverage": {
+    "mean": 0.9031,
+    "std": 0.0032
+   },
+   "review_rate": {
+    "mean": 0.3191,
+    "std": 0.0127
+   },
+   "error_rate_all": {
+    "mean": 0.2079,
+    "std": 0.0061
+   },
+   "error_rate_auto": {
+    "mean": 0.1424,
+    "std": 0.0049
+   },
+   "bad_approval_rate_all_approvals": {
+    "mean": 0.1773,
+    "std": 0.0106
+   },
+   "bad_approval_rate_auto_approvals": {
+    "mean": 0.1337,
+    "std": 0.007
+   },
+   "errors_caught_review": {
+    "mean": 0.5333,
+    "std": 0.0186
+   },
+   "errors_caught_random": {
+    "mean": 0.3194,
+    "std": 0.0061
+   },
+   "errors_caught_confidence": {
+    "mean": 0.5333,
+    "std": 0.0186
+   },
+   "bad_caught_review": {
+    "mean": 0.4238,
+    "std": 0.0154
+   },
+   "bad_caught_random": {
+    "mean": 0.3255,
+    "std": 0.008
+   },
+   "bad_caught_confidence": {
+    "mean": 0.4238,
+    "std": 0.0154
+   },
+   "bad_per_1000_all": {
+    "mean": 147.8,
+    "std": 11.9157
+   },
+   "bad_per_1000_auto": {
+    "mean": 85.0,
+    "std": 5.121
+   }
+  },
+  "0.1": {
+   "coverage": {
+    "mean": 0.8564,
+    "std": 0.0053
+   },
+   "review_rate": {
+    "mean": 0.1563,
+    "std": 0.0066
+   },
+   "error_rate_all": {
+    "mean": 0.2079,
+    "std": 0.0061
+   },
+   "error_rate_auto": {
+    "mean": 0.1701,
+    "std": 0.0062
+   },
+   "bad_approval_rate_all_approvals": {
+    "mean": 0.1773,
+    "std": 0.0106
+   },
+   "bad_approval_rate_auto_approvals": {
+    "mean": 0.1536,
+    "std": 0.0093
+   },
+   "errors_caught_review": {
+    "mean": 0.3097,
+    "std": 0.0077
+   },
+   "errors_caught_random": {
+    "mean": 0.1642,
+    "std": 0.0073
+   },
+   "errors_caught_confidence": {
+    "mean": 0.3097,
+    "std": 0.0077
+   },
+   "bad_caught_review": {
+    "mean": 0.225,
+    "std": 0.0035
+   },
+   "bad_caught_random": {
+    "mean": 0.1665,
+    "std": 0.0148
+   },
+   "bad_caught_confidence": {
+    "mean": 0.225,
+    "std": 0.0035
+   },
+   "bad_per_1000_all": {
+    "mean": 147.8,
+    "std": 11.9157
+   },
+   "bad_per_1000_auto": {
+    "mean": 114.5,
+    "std": 8.7507
+   }
+  },
+  "0.2": {
+   "coverage": {
+    "mean": 0.7703,
+    "std": 0.0072
+   },
+   "review_rate": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "error_rate_all": {
+    "mean": 0.2079,
+    "std": 0.0061
+   },
+   "error_rate_auto": {
+    "mean": 0.2079,
+    "std": 0.0061
+   },
+   "bad_approval_rate_all_approvals": {
+    "mean": 0.1773,
+    "std": 0.0106
+   },
+   "bad_approval_rate_auto_approvals": {
+    "mean": 0.1773,
+    "std": 0.0106
+   },
+   "errors_caught_review": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "errors_caught_random": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "errors_caught_confidence": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "bad_caught_review": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "bad_caught_random": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "bad_caught_confidence": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "bad_per_1000_all": {
+    "mean": 147.8,
+    "std": 11.9157
+   },
+   "bad_per_1000_auto": {
+    "mean": 147.8,
+    "std": 11.9157
+   }
+  }
+ },
+ "pay0": {
+  "description": "PAY_0<=0 -> PAY_0>=1 (payment delay)",
+  "0.05": {
+   "coverage": {
+    "mean": 0.9113,
+    "std": 0.0111
+   },
+   "review_rate": {
+    "mean": 0.7818,
+    "std": 0.0284
+   },
+   "error_rate_all": {
+    "mean": 0.462,
+    "std": 0.0127
+   },
+   "error_rate_auto": {
+    "mean": 0.4071,
+    "std": 0.0206
+   },
+   "bad_approval_rate_all_approvals": {
+    "mean": 0.4769,
+    "std": 0.0085
+   },
+   "bad_approval_rate_auto_approvals": {
+    "mean": 0.4064,
+    "std": 0.0212
+   },
+   "errors_caught_review": {
+    "mean": 0.8077,
+    "std": 0.0262
+   },
+   "errors_caught_random": {
+    "mean": 0.7817,
+    "std": 0.0312
+   },
+   "errors_caught_confidence": {
+    "mean": 0.8077,
+    "std": 0.0262
+   },
+   "bad_caught_review": {
+    "mean": 0.7755,
+    "std": 0.03
+   },
+   "bad_caught_random": {
+    "mean": 0.7814,
+    "std": 0.0297
+   },
+   "bad_caught_confidence": {
+    "mean": 0.7755,
+    "std": 0.03
+   },
+   "bad_per_1000_all": {
+    "mean": 389.0,
+    "std": 22.1681
+   },
+   "bad_per_1000_auto": {
+    "mean": 87.3,
+    "std": 11.9472
+   }
+  },
+  "0.1": {
+   "coverage": {
+    "mean": 0.7737,
+    "std": 0.0228
+   },
+   "review_rate": {
+    "mean": 0.4775,
+    "std": 0.0542
+   },
+   "error_rate_all": {
+    "mean": 0.462,
+    "std": 0.0127
+   },
+   "error_rate_auto": {
+    "mean": 0.4333,
+    "std": 0.0096
+   },
+   "bad_approval_rate_all_approvals": {
+    "mean": 0.4769,
+    "std": 0.0085
+   },
+   "bad_approval_rate_auto_approvals": {
+    "mean": 0.4404,
+    "std": 0.0071
+   },
+   "errors_caught_review": {
+    "mean": 0.5092,
+    "std": 0.0577
+   },
+   "errors_caught_random": {
+    "mean": 0.478,
+    "std": 0.0565
+   },
+   "errors_caught_confidence": {
+    "mean": 0.5092,
+    "std": 0.0577
+   },
+   "bad_caught_review": {
+    "mean": 0.4451,
+    "std": 0.0628
+   },
+   "bad_caught_random": {
+    "mean": 0.477,
+    "std": 0.0571
+   },
+   "bad_caught_confidence": {
+    "mean": 0.4451,
+    "std": 0.0628
+   },
+   "bad_per_1000_all": {
+    "mean": 389.0,
+    "std": 22.1681
+   },
+   "bad_per_1000_auto": {
+    "mean": 215.45,
+    "std": 22.7982
+   }
+  },
+  "0.2": {
+   "coverage": {
+    "mean": 0.3819,
+    "std": 0.0178
+   },
+   "review_rate": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "error_rate_all": {
+    "mean": 0.462,
+    "std": 0.0127
+   },
+   "error_rate_auto": {
+    "mean": 0.462,
+    "std": 0.0127
+   },
+   "bad_approval_rate_all_approvals": {
+    "mean": 0.4769,
+    "std": 0.0085
+   },
+   "bad_approval_rate_auto_approvals": {
+    "mean": 0.4769,
+    "std": 0.0085
+   },
+   "errors_caught_review": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "errors_caught_random": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "errors_caught_confidence": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "bad_caught_review": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "bad_caught_random": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "bad_caught_confidence": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "bad_per_1000_all": {
+    "mean": 389.0,
+    "std": 22.1681
+   },
+   "bad_per_1000_auto": {
+    "mean": 389.0,
+    "std": 22.1681
+   }
+  }
+ }
+}

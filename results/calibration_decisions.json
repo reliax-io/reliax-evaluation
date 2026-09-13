@@ -1,0 +1,295 @@
+{
+ "meta": {
+  "taus": [
+   0.3,
+   0.5
+  ],
+  "d_max": 0.05,
+  "min_cell_n": 30,
+  "opinion": "quantile M=10, mean rep, rate evidence, l2, age-band cells"
+ },
+ "taiwan": {
+  "0.3": {
+   "P0_bad_per_1000": {
+    "mean": 102.9067,
+    "std": 2.6337
+   },
+   "P0_approvals_per_1000": {
+    "mean": 782.16,
+    "std": 7.6498
+   },
+   "P1_bad_per_1000": {
+    "mean": 99.8933,
+    "std": 3.3129
+   },
+   "P1_approvals_per_1000": {
+    "mean": 772.6133,
+    "std": 8.1364
+   },
+   "P2_bad_per_1000": {
+    "mean": 100.8,
+    "std": 3.89
+   },
+   "P2_auto_approvals_per_1000": {
+    "mean": 763.7867,
+    "std": 25.7466
+   },
+   "P2_referral_rate": {
+    "mean": 0.0235,
+    "std": 0.03
+   },
+   "P2_referred_per_1000": {
+    "mean": 18.3733,
+    "std": 23.2636
+   },
+   "P2_bad_caught": {
+    "mean": 15.8,
+    "std": 16.8095
+   },
+   "random_bad_caught": {
+    "mean": 17.914,
+    "std": 22.7145
+   },
+   "confidence_bad_caught": {
+    "mean": 38.2,
+    "std": 42.0685
+   },
+   "P2_vs_random": {
+    "mean": 1.0356,
+    "std": 0.2049
+   },
+   "P2_vs_confidence": {
+    "mean": 0.4251,
+    "std": 0.0322
+   },
+   "P3_bad_per_1000": {
+    "mean": 97.7867,
+    "std": 4.1497
+   },
+   "P3_auto_approvals_per_1000": {
+    "mean": 754.24,
+    "std": 21.4157
+   },
+   "bad_rate_among_P0_approvals": {
+    "mean": 0.1316,
+    "std": 0.0023
+   },
+   "bad_rate_among_P3_approvals": {
+    "mean": 0.1296,
+    "std": 0.0037
+   }
+  },
+  "0.5": {
+   "P0_bad_per_1000": {
+    "mean": 141.5733,
+    "std": 1.12
+   },
+   "P0_approvals_per_1000": {
+    "mean": 882.5067,
+    "std": 2.4461
+   },
+   "P1_bad_per_1000": {
+    "mean": 138.7733,
+    "std": 8.2466
+   },
+   "P1_approvals_per_1000": {
+    "mean": 874.88,
+    "std": 16.627
+   },
+   "P2_bad_per_1000": {
+    "mean": 139.4667,
+    "std": 2.7351
+   },
+   "P2_auto_approvals_per_1000": {
+    "mean": 864.1333,
+    "std": 24.1796
+   },
+   "P2_referral_rate": {
+    "mean": 0.0208,
+    "std": 0.0264
+   },
+   "P2_referred_per_1000": {
+    "mean": 18.3733,
+    "std": 23.2636
+   },
+   "P2_bad_caught": {
+    "mean": 15.8,
+    "std": 16.8095
+   },
+   "random_bad_caught": {
+    "mean": 22.1,
+    "std": 28.2862
+   },
+   "confidence_bad_caught": {
+    "mean": 60.4,
+    "std": 74.7385
+   },
+   "P2_vs_random": {
+    "mean": 0.8494,
+    "std": 0.1762
+   },
+   "P2_vs_confidence": {
+    "mean": 0.2998,
+    "std": 0.0563
+   },
+   "P3_bad_per_1000": {
+    "mean": 136.5333,
+    "std": 6.9538
+   },
+   "P3_auto_approvals_per_1000": {
+    "mean": 856.3733,
+    "std": 17.3975
+   },
+   "bad_rate_among_P0_approvals": {
+    "mean": 0.1604,
+    "std": 0.0009
+   },
+   "bad_rate_among_P3_approvals": {
+    "mean": 0.1595,
+    "std": 0.008
+   }
+  }
+ },
+ "german": {
+  "0.3": {
+   "P0_bad_per_1000": {
+    "mean": 132.0,
+    "std": 16.5892
+   },
+   "P0_approvals_per_1000": {
+    "mean": 700.0,
+    "std": 29.6648
+   },
+   "P1_bad_per_1000": {
+    "mean": 71.2,
+    "std": 24.7095
+   },
+   "P1_approvals_per_1000": {
+    "mean": 486.8,
+    "std": 123.6259
+   },
+   "P2_bad_per_1000": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "P2_auto_approvals_per_1000": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "P2_referral_rate": {
+    "mean": 1.0,
+    "std": 0.0
+   },
+   "P2_referred_per_1000": {
+    "mean": 700.0,
+    "std": 29.6648
+   },
+   "P2_bad_caught": {
+    "mean": 33.0,
+    "std": 4.1473
+   },
+   "random_bad_caught": {
+    "mean": 33.0,
+    "std": 4.1473
+   },
+   "confidence_bad_caught": {
+    "mean": 33.0,
+    "std": 4.1473
+   },
+   "P2_vs_random": {
+    "mean": 1.0,
+    "std": 0.0
+   },
+   "P2_vs_confidence": {
+    "mean": 1.0,
+    "std": 0.0
+   },
+   "P3_bad_per_1000": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "P3_auto_approvals_per_1000": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "bad_rate_among_P0_approvals": {
+    "mean": 0.1881,
+    "std": 0.0179
+   },
+   "bad_rate_among_P3_approvals": {
+    "mean": 0.0,
+    "std": 0.0
+   }
+  },
+  "0.5": {
+   "P0_bad_per_1000": {
+    "mean": 156.8,
+    "std": 19.8232
+   },
+   "P0_approvals_per_1000": {
+    "mean": 762.8,
+    "std": 28.1737
+   },
+   "P1_bad_per_1000": {
+    "mean": 176.8,
+    "std": 29.4374
+   },
+   "P1_approvals_per_1000": {
+    "mean": 800.4,
+    "std": 53.679
+   },
+   "P2_bad_per_1000": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "P2_auto_approvals_per_1000": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "P2_referral_rate": {
+    "mean": 1.0,
+    "std": 0.0
+   },
+   "P2_referred_per_1000": {
+    "mean": 762.8,
+    "std": 28.1737
+   },
+   "P2_bad_caught": {
+    "mean": 39.2,
+    "std": 4.9558
+   },
+   "random_bad_caught": {
+    "mean": 39.2,
+    "std": 4.9558
+   },
+   "confidence_bad_caught": {
+    "mean": 39.2,
+    "std": 4.9558
+   },
+   "P2_vs_random": {
+    "mean": 1.0,
+    "std": 0.0
+   },
+   "P2_vs_confidence": {
+    "mean": 1.0,
+    "std": 0.0
+   },
+   "P3_bad_per_1000": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "P3_auto_approvals_per_1000": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "bad_rate_among_P0_approvals": {
+    "mean": 0.205,
+    "std": 0.0204
+   },
+   "bad_rate_among_P3_approvals": {
+    "mean": 0.0,
+    "std": 0.0
+   }
+  }
+ }
+}

@@ -1,0 +1,3820 @@
+{
+ "meta": {
+  "dataset": "taiwan",
+  "seeds": [
+   0,
+   1,
+   2
+  ],
+  "n_train": 8000,
+  "n_cal": 4000,
+  "n_test": 4000,
+  "referral": 0.1,
+  "alpha": 0.05,
+  "lambdas": [
+   0.0,
+   0.25,
+   0.5,
+   0.75,
+   1.0
+  ],
+  "noise": {
+   "unit_error_0.10": [
+    "unit",
+    0.1
+   ],
+   "missing_0.10": [
+    "missing",
+    0.1
+   ],
+   "gaussian_0.10": [
+    "gauss",
+    0.1
+   ],
+   "unit_error_0.05": [
+    "unit",
+    0.05
+   ],
+   "unit_error_0.20": [
+    "unit",
+    0.2
+   ]
+  },
+  "status": "exploratory, not pre-registered",
+  "seconds": 294.4
+ },
+ "mix": {
+  "0.0": {
+   "auc": {
+    "mean": 0.6427,
+    "std": 0.0054
+   },
+   "accuracy": {
+    "mean": 0.8552,
+    "std": 0.0028
+   },
+   "default_rate": {
+    "mean": 0.1346,
+    "std": 0.0019
+   },
+   "bad_approval_rate": {
+    "mean": 0.1255,
+    "std": 0.0035
+   },
+   "coverage_at_95": {
+    "mean": 0.9523,
+    "std": 0.0024
+   },
+   "review_rate": {
+    "mean": 0.4703,
+    "std": 0.0248
+   },
+   "ood_flag_rate": {
+    "mean": 0.047,
+    "std": 0.0028
+   },
+   "martingale_watch_or_alarm_share": {
+    "mean": 0.0,
+    "std": 0.0
+   },
+   "martingale_final": [
+    "OK",
+    "OK",
+    "OK"
+   ],
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.1524,
+      "std": 0.015
+     },
+     "err_capture": {
+      "mean": 0.2403,
+      "std": 0.0146
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 1.4345,
+      "std": 0.1936
+     },
+     "aurc": {
+      "mean": 0.0865,
+      "std": 0.001
+     }
+    },
+    "ensemble_conf": {
+     "bad_capture": {
+      "mean": 0.1563,
+      "std": 0.0137
+     },
+     "err_capture": {
+      "mean": 0.2454,
+      "std": 0.0131
+     },
+     "vs_confidence": {
+      "mean": 1.0284,
+      "std": 0.0571
+     },
+     "vs_random": {
+      "mean": 1.477,
+      "std": 0.2289
+     },
+     "aurc": {
+      "mean": 0.0847,
+      "std": 0.0016
+     }
+    },
+    "ensemble_disagreement": {
+     "bad_capture": {
+      "mean": 0.1409,
+      "std": 0.0067
+     },
+     "err_capture": {
+      "mean": 0.2001,
+      "std": 0.0074
+     },
+     "vs_confidence": {
+      "mean": 0.9363,
+      "std": 0.124
+     },
+     "vs_random": {
+      "mean": 1.3197,
+      "std": 0.0481
+     },
+     "aurc": {
+      "mean": 0.0882,
+      "std": 0.0024
+     }
+    },
+    "conformal_pvalue": {
+     "bad_capture": {
+      "mean": 0.1524,
+      "std": 0.015
+     },
+     "err_capture": {
+      "mean": 0.2403,
+      "std": 0.0146
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 1.4345,
+      "std": 0.1936
+     },
+     "aurc": {
+      "mean": 0.0865,
+      "std": 0.001
+     }
+    },
+    "va_width": {
+     "bad_capture": {
+      "mean": 0.1018,
+      "std": 0.0359
+     },
+     "err_capture": {
+      "mean": 0.1884,
+      "std": 0.0373
+     },
+     "vs_confidence": {
+      "mean": 0.6751,
+      "std": 0.2444
+     },
+     "vs_random": {
+      "mean": 0.983,
+      "std": 0.4308
+     },
+     "aurc": {
+      "mean": 0.1115,
+      "std": 0.0133
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.089,
+      "std": 0.0024
+     },
+     "err_capture": {
+      "mean": 0.0899,
+      "std": 0.0066
+     },
+     "vs_confidence": {
+      "mean": 0.5914,
+      "std": 0.0724
+     },
+     "vs_random": {
+      "mean": 0.8367,
+      "std": 0.0722
+     },
+     "aurc": {
+      "mean": 0.146,
+      "std": 0.0029
+     }
+    },
+    "auditor": {
+     "bad_capture": {
+      "mean": 0.1442,
+      "std": 0.0209
+     },
+     "err_capture": {
+      "mean": 0.2571,
+      "std": 0.0052
+     },
+     "vs_confidence": {
+      "mean": 0.9468,
+      "std": 0.1112
+     },
+     "vs_random": {
+      "mean": 1.3699,
+      "std": 0.3
+     },
+     "aurc": {
+      "mean": 0.0824,
+      "std": 0.0011
+     }
+    },
+    "composite": {
+     "bad_capture": {
+      "mean": 0.1405,
+      "std": 0.0089
+     },
+     "err_capture": {
+      "mean": 0.2501,
+      "std": 0.0178
+     },
+     "vs_confidence": {
+      "mean": 0.9256,
+      "std": 0.0359
+     },
+     "vs_random": {
+      "mean": 1.324,
+      "std": 0.1603
+     },
+     "aurc": {
+      "mean": 0.09,
+      "std": 0.0027
+     }
+    },
+    "sl_fusion": {
+     "bad_capture": {
+      "mean": 0.149,
+      "std": 0.0179
+     },
+     "err_capture": {
+      "mean": 0.2629,
+      "std": 0.0048
+     },
+     "vs_confidence": {
+      "mean": 0.983,
+      "std": 0.1204
+     },
+     "vs_random": {
+      "mean": 1.4141,
+      "std": 0.2861
+     },
+     "aurc": {
+      "mean": 0.0819,
+      "std": 0.0003
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.1087,
+      "std": 0.0117
+     },
+     "err_capture": {
+      "mean": 0.1764,
+      "std": 0.0108
+     },
+     "vs_confidence": {
+      "mean": 0.7129,
+      "std": 0.0175
+     },
+     "vs_random": {
+      "mean": 1.0213,
+      "std": 0.1311
+     },
+     "aurc": {
+      "mean": 0.0921,
+      "std": 0.0018
+     }
+    },
+    "min_rank": {
+     "bad_capture": {
+      "mean": 0.1061,
+      "std": 0.0092
+     },
+     "err_capture": {
+      "mean": 0.1702,
+      "std": 0.0053
+     },
+     "vs_confidence": {
+      "mean": 0.6972,
+      "std": 0.0197
+     },
+     "vs_random": {
+      "mean": 0.9966,
+      "std": 0.1118
+     },
+     "aurc": {
+      "mean": 0.1024,
+      "std": 0.0011
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.1524,
+      "std": 0.015
+     },
+     "err_capture": {
+      "mean": 0.2403,
+      "std": 0.0146
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 1.4345,
+      "std": 0.1936
+     },
+     "aurc": {
+      "mean": 0.0865,
+      "std": 0.001
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.1071,
+      "std": 0.0084
+     },
+     "err_capture": {
+      "mean": 0.1012,
+      "std": 0.009
+     },
+     "vs_confidence": {
+      "mean": 0.7114,
+      "std": 0.1061
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "aurc": {
+      "mean": 0.1434,
+      "std": 0.0065
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 0.7975,
+      "std": 0.023
+     },
+     "err_capture": {
+      "mean": 0.6907,
+      "std": 0.0133
+     },
+     "vs_confidence": {
+      "mean": 5.298,
+      "std": 0.6607
+     },
+     "vs_random": {
+      "mean": 7.483,
+      "std": 0.481
+     },
+     "aurc": {
+      "mean": 0.0294,
+      "std": 0.0034
+     }
+    }
+   }
+  },
+  "0.25": {
+   "auc": {
+    "mean": 0.6868,
+    "std": 0.0113
+   },
+   "accuracy": {
+    "mean": 0.7737,
+    "std": 0.0072
+   },
+   "default_rate": {
+    "mean": 0.2267,
+    "std": 0.0034
+   },
+   "bad_approval_rate": {
+    "mean": 0.1927,
+    "std": 0.0123
+   },
+   "coverage_at_95": {
+    "mean": 0.9414,
+    "std": 0.0053
+   },
+   "review_rate": {
+    "mean": 0.5483,
+    "std": 0.0219
+   },
+   "ood_flag_rate": {
+    "mean": 0.1417,
+    "std": 0.0118
+   },
+   "martingale_watch_or_alarm_share": {
+    "mean": 0.9875,
+    "std": 0.0028
+   },
+   "martingale_final": [
+    "ALARM",
+    "ALARM",
+    "ALARM"
+   ],
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.1365,
+      "std": 0.0033
+     },
+     "err_capture": {
+      "mean": 0.2021,
+      "std": 0.0017
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 1.3431,
+      "std": 0.024
+     },
+     "aurc": {
+      "mean": 0.1335,
+      "std": 0.0047
+     }
+    },
+    "ensemble_conf": {
+     "bad_capture": {
+      "mean": 0.1432,
+      "std": 0.0079
+     },
+     "err_capture": {
+      "mean": 0.207,
+      "std": 0.0048
+     },
+     "vs_confidence": {
+      "mean": 1.0508,
+      "std": 0.0789
+     },
+     "vs_random": {
+      "mean": 1.4095,
+      "std": 0.0796
+     },
+     "aurc": {
+      "mean": 0.1274,
+      "std": 0.0062
+     }
+    },
+    "ensemble_disagreement": {
+     "bad_capture": {
+      "mean": 0.1497,
+      "std": 0.0089
+     },
+     "err_capture": {
+      "mean": 0.1924,
+      "std": 0.0097
+     },
+     "vs_confidence": {
+      "mean": 1.0991,
+      "std": 0.0922
+     },
+     "vs_random": {
+      "mean": 1.4742,
+      "std": 0.0992
+     },
+     "aurc": {
+      "mean": 0.1326,
+      "std": 0.0078
+     }
+    },
+    "conformal_pvalue": {
+     "bad_capture": {
+      "mean": 0.1361,
+      "std": 0.0033
+     },
+     "err_capture": {
+      "mean": 0.2017,
+      "std": 0.0012
+     },
+     "vs_confidence": {
+      "mean": 0.997,
+      "std": 0.0042
+     },
+     "vs_random": {
+      "mean": 1.3391,
+      "std": 0.0206
+     },
+     "aurc": {
+      "mean": 0.1335,
+      "std": 0.0048
+     }
+    },
+    "va_width": {
+     "bad_capture": {
+      "mean": 0.0833,
+      "std": 0.0477
+     },
+     "err_capture": {
+      "mean": 0.1616,
+      "std": 0.0182
+     },
+     "vs_confidence": {
+      "mean": 0.6043,
+      "std": 0.3332
+     },
+     "vs_random": {
+      "mean": 0.8132,
+      "std": 0.4534
+     },
+     "aurc": {
+      "mean": 0.1752,
+      "std": 0.0117
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.1924,
+      "std": 0.0126
+     },
+     "err_capture": {
+      "mean": 0.1948,
+      "std": 0.0104
+     },
+     "vs_confidence": {
+      "mean": 1.4078,
+      "std": 0.0591
+     },
+     "vs_random": {
+      "mean": 1.8917,
+      "std": 0.103
+     },
+     "aurc": {
+      "mean": 0.1551,
+      "std": 0.0076
+     }
+    },
+    "auditor": {
+     "bad_capture": {
+      "mean": 0.1018,
+      "std": 0.0428
+     },
+     "err_capture": {
+      "mean": 0.225,
+      "std": 0.0104
+     },
+     "vs_confidence": {
+      "mean": 0.7385,
+      "std": 0.2999
+     },
+     "vs_random": {
+      "mean": 0.9986,
+      "std": 0.4141
+     },
+     "aurc": {
+      "mean": 0.1232,
+      "std": 0.0029
+     }
+    },
+    "composite": {
+     "bad_capture": {
+      "mean": 0.1302,
+      "std": 0.0206
+     },
+     "err_capture": {
+      "mean": 0.2193,
+      "std": 0.0083
+     },
+     "vs_confidence": {
+      "mean": 0.9507,
+      "std": 0.1278
+     },
+     "vs_random": {
+      "mean": 1.2789,
+      "std": 0.1863
+     },
+     "aurc": {
+      "mean": 0.121,
+      "std": 0.0018
+     }
+    },
+    "sl_fusion": {
+     "bad_capture": {
+      "mean": 0.0955,
+      "std": 0.04
+     },
+     "err_capture": {
+      "mean": 0.225,
+      "std": 0.0064
+     },
+     "vs_confidence": {
+      "mean": 0.6931,
+      "std": 0.2793
+     },
+     "vs_random": {
+      "mean": 0.937,
+      "std": 0.3855
+     },
+     "aurc": {
+      "mean": 0.1237,
+      "std": 0.0013
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.2188,
+      "std": 0.0114
+     },
+     "err_capture": {
+      "mean": 0.2299,
+      "std": 0.0066
+     },
+     "vs_confidence": {
+      "mean": 1.6021,
+      "std": 0.0465
+     },
+     "vs_random": {
+      "mean": 2.1523,
+      "std": 0.0874
+     },
+     "aurc": {
+      "mean": 0.129,
+      "std": 0.0021
+     }
+    },
+    "min_rank": {
+     "bad_capture": {
+      "mean": 0.1475,
+      "std": 0.0067
+     },
+     "err_capture": {
+      "mean": 0.1916,
+      "std": 0.011
+     },
+     "vs_confidence": {
+      "mean": 1.0801,
+      "std": 0.0298
+     },
+     "vs_random": {
+      "mean": 1.4513,
+      "std": 0.0651
+     },
+     "aurc": {
+      "mean": 0.125,
+      "std": 0.003
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.1911,
+      "std": 0.0133
+     },
+     "err_capture": {
+      "mean": 0.1938,
+      "std": 0.0112
+     },
+     "vs_confidence": {
+      "mean": 1.3983,
+      "std": 0.0647
+     },
+     "vs_random": {
+      "mean": 1.8789,
+      "std": 0.1085
+     },
+     "aurc": {
+      "mean": 0.157,
+      "std": 0.0101
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.1016,
+      "std": 0.0015
+     },
+     "err_capture": {
+      "mean": 0.1023,
+      "std": 0.0022
+     },
+     "vs_confidence": {
+      "mean": 0.7448,
+      "std": 0.0135
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "aurc": {
+      "mean": 0.2157,
+      "std": 0.0055
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 0.5212,
+      "std": 0.0345
+     },
+     "err_capture": {
+      "mean": 0.4423,
+      "std": 0.0139
+     },
+     "vs_confidence": {
+      "mean": 3.8254,
+      "std": 0.3366
+     },
+     "vs_random": {
+      "mean": 5.13,
+      "std": 0.3563
+     },
+     "aurc": {
+      "mean": 0.0585,
+      "std": 0.0051
+     }
+    }
+   }
+  },
+  "0.5": {
+   "auc": {
+    "mean": 0.6775,
+    "std": 0.0144
+   },
+   "accuracy": {
+    "mean": 0.6917,
+    "std": 0.01
+   },
+   "default_rate": {
+    "mean": 0.3188,
+    "std": 0.0043
+   },
+   "bad_approval_rate": {
+    "mean": 0.2596,
+    "std": 0.0179
+   },
+   "coverage_at_95": {
+    "mean": 0.9313,
+    "std": 0.0059
+   },
+   "review_rate": {
+    "mean": 0.6318,
+    "std": 0.0239
+   },
+   "ood_flag_rate": {
+    "mean": 0.2324,
+    "std": 0.0145
+   },
+   "martingale_watch_or_alarm_share": {
+    "mean": 0.9973,
+    "std": 0.001
+   },
+   "martingale_final": [
+    "ALARM",
+    "ALARM",
+    "ALARM"
+   ],
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.1148,
+      "std": 0.0126
+     },
+     "err_capture": {
+      "mean": 0.1645,
+      "std": 0.0044
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 1.1724,
+      "std": 0.0289
+     },
+     "aurc": {
+      "mean": 0.2005,
+      "std": 0.0113
+     }
+    },
+    "ensemble_conf": {
+     "bad_capture": {
+      "mean": 0.1167,
+      "std": 0.0201
+     },
+     "err_capture": {
+      "mean": 0.1623,
+      "std": 0.0095
+     },
+     "vs_confidence": {
+      "mean": 1.0205,
+      "std": 0.1526
+     },
+     "vs_random": {
+      "mean": 1.1979,
+      "std": 0.1938
+     },
+     "aurc": {
+      "mean": 0.191,
+      "std": 0.011
+     }
+    },
+    "ensemble_disagreement": {
+     "bad_capture": {
+      "mean": 0.1318,
+      "std": 0.0076
+     },
+     "err_capture": {
+      "mean": 0.1633,
+      "std": 0.0039
+     },
+     "vs_confidence": {
+      "mean": 1.1564,
+      "std": 0.0777
+     },
+     "vs_random": {
+      "mean": 1.3544,
+      "std": 0.0754
+     },
+     "aurc": {
+      "mean": 0.1958,
+      "std": 0.012
+     }
+    },
+    "conformal_pvalue": {
+     "bad_capture": {
+      "mean": 0.1129,
+      "std": 0.0118
+     },
+     "err_capture": {
+      "mean": 0.1632,
+      "std": 0.0037
+     },
+     "vs_confidence": {
+      "mean": 0.9845,
+      "std": 0.0088
+     },
+     "vs_random": {
+      "mean": 1.1542,
+      "std": 0.0285
+     },
+     "aurc": {
+      "mean": 0.2005,
+      "std": 0.0113
+     }
+    },
+    "va_width": {
+     "bad_capture": {
+      "mean": 0.059,
+      "std": 0.0631
+     },
+     "err_capture": {
+      "mean": 0.1329,
+      "std": 0.0037
+     },
+     "vs_confidence": {
+      "mean": 0.582,
+      "std": 0.6603
+     },
+     "vs_random": {
+      "mean": 0.6637,
+      "std": 0.7459
+     },
+     "aurc": {
+      "mean": 0.2447,
+      "std": 0.0133
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.1438,
+      "std": 0.0031
+     },
+     "err_capture": {
+      "mean": 0.1463,
+      "std": 0.003
+     },
+     "vs_confidence": {
+      "mean": 1.2659,
+      "std": 0.1194
+     },
+     "vs_random": {
+      "mean": 1.4811,
+      "std": 0.1069
+     },
+     "aurc": {
+      "mean": 0.1904,
+      "std": 0.0076
+     }
+    },
+    "auditor": {
+     "bad_capture": {
+      "mean": 0.0597,
+      "std": 0.0395
+     },
+     "err_capture": {
+      "mean": 0.1567,
+      "std": 0.0022
+     },
+     "vs_confidence": {
+      "mean": 0.5353,
+      "std": 0.3566
+     },
+     "vs_random": {
+      "mean": 0.6192,
+      "std": 0.4096
+     },
+     "aurc": {
+      "mean": 0.1869,
+      "std": 0.0078
+     }
+    },
+    "composite": {
+     "bad_capture": {
+      "mean": 0.0962,
+      "std": 0.0207
+     },
+     "err_capture": {
+      "mean": 0.1699,
+      "std": 0.0052
+     },
+     "vs_confidence": {
+      "mean": 0.8513,
+      "std": 0.213
+     },
+     "vs_random": {
+      "mean": 0.9925,
+      "std": 0.2285
+     },
+     "aurc": {
+      "mean": 0.1777,
+      "std": 0.0039
+     }
+    },
+    "sl_fusion": {
+     "bad_capture": {
+      "mean": 0.0496,
+      "std": 0.0329
+     },
+     "err_capture": {
+      "mean": 0.1584,
+      "std": 0.0043
+     },
+     "vs_confidence": {
+      "mean": 0.4455,
+      "std": 0.3004
+     },
+     "vs_random": {
+      "mean": 0.5152,
+      "std": 0.3446
+     },
+     "aurc": {
+      "mean": 0.1882,
+      "std": 0.0059
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.1564,
+      "std": 0.0059
+     },
+     "err_capture": {
+      "mean": 0.1765,
+      "std": 0.0068
+     },
+     "vs_confidence": {
+      "mean": 1.3751,
+      "std": 0.1104
+     },
+     "vs_random": {
+      "mean": 1.6097,
+      "std": 0.1
+     },
+     "aurc": {
+      "mean": 0.1879,
+      "std": 0.0062
+     }
+    },
+    "min_rank": {
+     "bad_capture": {
+      "mean": 0.1129,
+      "std": 0.0112
+     },
+     "err_capture": {
+      "mean": 0.1491,
+      "std": 0.0043
+     },
+     "vs_confidence": {
+      "mean": 0.9848,
+      "std": 0.0116
+     },
+     "vs_random": {
+      "mean": 1.1543,
+      "std": 0.0198
+     },
+     "aurc": {
+      "mean": 0.1763,
+      "std": 0.0058
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.1441,
+      "std": 0.0033
+     },
+     "err_capture": {
+      "mean": 0.1466,
+      "std": 0.0033
+     },
+     "vs_confidence": {
+      "mean": 1.2688,
+      "std": 0.1182
+     },
+     "vs_random": {
+      "mean": 1.4846,
+      "std": 0.1062
+     },
+     "aurc": {
+      "mean": 0.1916,
+      "std": 0.0082
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.0977,
+      "std": 0.009
+     },
+     "err_capture": {
+      "mean": 0.0972,
+      "std": 0.0054
+     },
+     "vs_confidence": {
+      "mean": 0.8535,
+      "std": 0.0213
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "aurc": {
+      "mean": 0.2965,
+      "std": 0.0113
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 0.3871,
+      "std": 0.0271
+     },
+     "err_capture": {
+      "mean": 0.3247,
+      "std": 0.0104
+     },
+     "vs_confidence": {
+      "mean": 3.4195,
+      "std": 0.4668
+     },
+     "vs_random": {
+      "mean": 4.0018,
+      "std": 0.4982
+     },
+     "aurc": {
+      "mean": 0.0974,
+      "std": 0.0085
+     }
+    }
+   }
+  },
+  "0.75": {
+   "auc": {
+    "mean": 0.6456,
+    "std": 0.0116
+   },
+   "accuracy": {
+    "mean": 0.6136,
+    "std": 0.0078
+   },
+   "default_rate": {
+    "mean": 0.4096,
+    "std": 0.0008
+   },
+   "bad_approval_rate": {
+    "mean": 0.3252,
+    "std": 0.0195
+   },
+   "coverage_at_95": {
+    "mean": 0.9245,
+    "std": 0.0096
+   },
+   "review_rate": {
+    "mean": 0.712,
+    "std": 0.0276
+   },
+   "ood_flag_rate": {
+    "mean": 0.3257,
+    "std": 0.0164
+   },
+   "martingale_watch_or_alarm_share": {
+    "mean": 0.9992,
+    "std": 0.0002
+   },
+   "martingale_final": [
+    "ALARM",
+    "ALARM",
+    "ALARM"
+   ],
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.096,
+      "std": 0.0147
+     },
+     "err_capture": {
+      "mean": 0.133,
+      "std": 0.0071
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 0.9333,
+      "std": 0.1337
+     },
+     "aurc": {
+      "mean": 0.2851,
+      "std": 0.0115
+     }
+    },
+    "ensemble_conf": {
+     "bad_capture": {
+      "mean": 0.098,
+      "std": 0.0141
+     },
+     "err_capture": {
+      "mean": 0.1302,
+      "std": 0.0078
+     },
+     "vs_confidence": {
+      "mean": 1.0237,
+      "std": 0.0409
+     },
+     "vs_random": {
+      "mean": 0.9518,
+      "std": 0.116
+     },
+     "aurc": {
+      "mean": 0.2775,
+      "std": 0.0098
+     }
+    },
+    "ensemble_disagreement": {
+     "bad_capture": {
+      "mean": 0.1057,
+      "std": 0.0104
+     },
+     "err_capture": {
+      "mean": 0.1331,
+      "std": 0.0037
+     },
+     "vs_confidence": {
+      "mean": 1.1123,
+      "std": 0.0709
+     },
+     "vs_random": {
+      "mean": 1.0287,
+      "std": 0.0892
+     },
+     "aurc": {
+      "mean": 0.282,
+      "std": 0.0107
+     }
+    },
+    "conformal_pvalue": {
+     "bad_capture": {
+      "mean": 0.0962,
+      "std": 0.0149
+     },
+     "err_capture": {
+      "mean": 0.1332,
+      "std": 0.0073
+     },
+     "vs_confidence": {
+      "mean": 1.0023,
+      "std": 0.0032
+     },
+     "vs_random": {
+      "mean": 0.9357,
+      "std": 0.1361
+     },
+     "aurc": {
+      "mean": 0.2851,
+      "std": 0.0115
+     }
+    },
+    "va_width": {
+     "bad_capture": {
+      "mean": 0.0623,
+      "std": 0.0627
+     },
+     "err_capture": {
+      "mean": 0.1119,
+      "std": 0.0147
+     },
+     "vs_confidence": {
+      "mean": 0.781,
+      "std": 0.8614
+     },
+     "vs_random": {
+      "mean": 0.6216,
+      "std": 0.6263
+     },
+     "aurc": {
+      "mean": 0.3317,
+      "std": 0.0197
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.1222,
+      "std": 0.0094
+     },
+     "err_capture": {
+      "mean": 0.1243,
+      "std": 0.0067
+     },
+     "vs_confidence": {
+      "mean": 1.2947,
+      "std": 0.155
+     },
+     "vs_random": {
+      "mean": 1.1921,
+      "std": 0.1156
+     },
+     "aurc": {
+      "mean": 0.2504,
+      "std": 0.0051
+     }
+    },
+    "auditor": {
+     "bad_capture": {
+      "mean": 0.0407,
+      "std": 0.0272
+     },
+     "err_capture": {
+      "mean": 0.1199,
+      "std": 0.0036
+     },
+     "vs_confidence": {
+      "mean": 0.4565,
+      "std": 0.3122
+     },
+     "vs_random": {
+      "mean": 0.4071,
+      "std": 0.2734
+     },
+     "aurc": {
+      "mean": 0.2773,
+      "std": 0.0132
+     }
+    },
+    "composite": {
+     "bad_capture": {
+      "mean": 0.0712,
+      "std": 0.0138
+     },
+     "err_capture": {
+      "mean": 0.1322,
+      "std": 0.0009
+     },
+     "vs_confidence": {
+      "mean": 0.7735,
+      "std": 0.2352
+     },
+     "vs_random": {
+      "mean": 0.6995,
+      "std": 0.1579
+     },
+     "aurc": {
+      "mean": 0.262,
+      "std": 0.0035
+     }
+    },
+    "sl_fusion": {
+     "bad_capture": {
+      "mean": 0.0384,
+      "std": 0.0243
+     },
+     "err_capture": {
+      "mean": 0.1225,
+      "std": 0.0017
+     },
+     "vs_confidence": {
+      "mean": 0.4378,
+      "std": 0.3044
+     },
+     "vs_random": {
+      "mean": 0.3836,
+      "std": 0.2451
+     },
+     "aurc": {
+      "mean": 0.2759,
+      "std": 0.008
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.1228,
+      "std": 0.0068
+     },
+     "err_capture": {
+      "mean": 0.1382,
+      "std": 0.0064
+     },
+     "vs_confidence": {
+      "mean": 1.3015,
+      "std": 0.144
+     },
+     "vs_random": {
+      "mean": 1.1961,
+      "std": 0.0642
+     },
+     "aurc": {
+      "mean": 0.2662,
+      "std": 0.0028
+     }
+    },
+    "min_rank": {
+     "bad_capture": {
+      "mean": 0.1015,
+      "std": 0.0156
+     },
+     "err_capture": {
+      "mean": 0.1236,
+      "std": 0.0091
+     },
+     "vs_confidence": {
+      "mean": 1.0575,
+      "std": 0.0266
+     },
+     "vs_random": {
+      "mean": 0.9875,
+      "std": 0.1493
+     },
+     "aurc": {
+      "mean": 0.2553,
+      "std": 0.0016
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.1222,
+      "std": 0.0094
+     },
+     "err_capture": {
+      "mean": 0.1243,
+      "std": 0.0067
+     },
+     "vs_confidence": {
+      "mean": 1.2947,
+      "std": 0.155
+     },
+     "vs_random": {
+      "mean": 1.1921,
+      "std": 0.1156
+     },
+     "aurc": {
+      "mean": 0.2508,
+      "std": 0.0046
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.1027,
+      "std": 0.0041
+     },
+     "err_capture": {
+      "mean": 0.1038,
+      "std": 0.0037
+     },
+     "vs_confidence": {
+      "mean": 1.0959,
+      "std": 0.1708
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "aurc": {
+      "mean": 0.3655,
+      "std": 0.0051
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 0.3087,
+      "std": 0.0189
+     },
+     "err_capture": {
+      "mean": 0.2589,
+      "std": 0.0052
+     },
+     "vs_confidence": {
+      "mean": 3.2955,
+      "std": 0.5519
+     },
+     "vs_random": {
+      "mean": 3.0019,
+      "std": 0.0755
+     },
+     "aurc": {
+      "mean": 0.1385,
+      "std": 0.0101
+     }
+    }
+   }
+  },
+  "1.0": {
+   "auc": {
+    "mean": 0.5834,
+    "std": 0.0112
+   },
+   "accuracy": {
+    "mean": 0.5356,
+    "std": 0.01
+   },
+   "default_rate": {
+    "mean": 0.501,
+    "std": 0.0011
+   },
+   "bad_approval_rate": {
+    "mean": 0.3922,
+    "std": 0.0234
+   },
+   "coverage_at_95": {
+    "mean": 0.9148,
+    "std": 0.0127
+   },
+   "review_rate": {
+    "mean": 0.7901,
+    "std": 0.0332
+   },
+   "ood_flag_rate": {
+    "mean": 0.413,
+    "std": 0.0148
+   },
+   "martingale_watch_or_alarm_share": {
+    "mean": 0.9991,
+    "std": 0.0002
+   },
+   "martingale_final": [
+    "ALARM",
+    "ALARM",
+    "ALARM"
+   ],
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.0791,
+      "std": 0.0125
+     },
+     "err_capture": {
+      "mean": 0.1106,
+      "std": 0.0047
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 0.796,
+      "std": 0.1184
+     },
+     "aurc": {
+      "mean": 0.4059,
+      "std": 0.0149
+     }
+    },
+    "ensemble_conf": {
+     "bad_capture": {
+      "mean": 0.0833,
+      "std": 0.0126
+     },
+     "err_capture": {
+      "mean": 0.1101,
+      "std": 0.0055
+     },
+     "vs_confidence": {
+      "mean": 1.0576,
+      "std": 0.0746
+     },
+     "vs_random": {
+      "mean": 0.8352,
+      "std": 0.0901
+     },
+     "aurc": {
+      "mean": 0.4023,
+      "std": 0.013
+     }
+    },
+    "ensemble_disagreement": {
+     "bad_capture": {
+      "mean": 0.0874,
+      "std": 0.0084
+     },
+     "err_capture": {
+      "mean": 0.1143,
+      "std": 0.005
+     },
+     "vs_confidence": {
+      "mean": 1.1186,
+      "std": 0.0888
+     },
+     "vs_random": {
+      "mean": 0.8827,
+      "std": 0.0977
+     },
+     "aurc": {
+      "mean": 0.4044,
+      "std": 0.015
+     }
+    },
+    "conformal_pvalue": {
+     "bad_capture": {
+      "mean": 0.0781,
+      "std": 0.0135
+     },
+     "err_capture": {
+      "mean": 0.1097,
+      "std": 0.0056
+     },
+     "vs_confidence": {
+      "mean": 0.984,
+      "std": 0.0181
+     },
+     "vs_random": {
+      "mean": 0.7851,
+      "std": 0.1276
+     },
+     "aurc": {
+      "mean": 0.4059,
+      "std": 0.0149
+     }
+    },
+    "va_width": {
+     "bad_capture": {
+      "mean": 0.0563,
+      "std": 0.0542
+     },
+     "err_capture": {
+      "mean": 0.0947,
+      "std": 0.0141
+     },
+     "vs_confidence": {
+      "mean": 0.8543,
+      "std": 0.9143
+     },
+     "vs_random": {
+      "mean": 0.5878,
+      "std": 0.5674
+     },
+     "aurc": {
+      "mean": 0.4328,
+      "std": 0.0121
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.1009,
+      "std": 0.0112
+     },
+     "err_capture": {
+      "mean": 0.1057,
+      "std": 0.0082
+     },
+     "vs_confidence": {
+      "mean": 1.289,
+      "std": 0.1084
+     },
+     "vs_random": {
+      "mean": 1.0196,
+      "std": 0.1388
+     },
+     "aurc": {
+      "mean": 0.367,
+      "std": 0.0068
+     }
+    },
+    "auditor": {
+     "bad_capture": {
+      "mean": 0.0335,
+      "std": 0.0232
+     },
+     "err_capture": {
+      "mean": 0.097,
+      "std": 0.0045
+     },
+     "vs_confidence": {
+      "mean": 0.4532,
+      "std": 0.3111
+     },
+     "vs_random": {
+      "mean": 0.3528,
+      "std": 0.2464
+     },
+     "aurc": {
+      "mean": 0.4081,
+      "std": 0.0125
+     }
+    },
+    "composite": {
+     "bad_capture": {
+      "mean": 0.0528,
+      "std": 0.011
+     },
+     "err_capture": {
+      "mean": 0.1042,
+      "std": 0.0004
+     },
+     "vs_confidence": {
+      "mean": 0.7007,
+      "std": 0.2365
+     },
+     "vs_random": {
+      "mean": 0.5397,
+      "std": 0.1385
+     },
+     "aurc": {
+      "mean": 0.4014,
+      "std": 0.0078
+     }
+    },
+    "sl_fusion": {
+     "bad_capture": {
+      "mean": 0.031,
+      "std": 0.0214
+     },
+     "err_capture": {
+      "mean": 0.0984,
+      "std": 0.0032
+     },
+     "vs_confidence": {
+      "mean": 0.4304,
+      "std": 0.3175
+     },
+     "vs_random": {
+      "mean": 0.3259,
+      "std": 0.2261
+     },
+     "aurc": {
+      "mean": 0.4052,
+      "std": 0.0113
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.102,
+      "std": 0.0123
+     },
+     "err_capture": {
+      "mean": 0.1155,
+      "std": 0.0071
+     },
+     "vs_confidence": {
+      "mean": 1.3002,
+      "std": 0.0767
+     },
+     "vs_random": {
+      "mean": 1.026,
+      "std": 0.0961
+     },
+     "aurc": {
+      "mean": 0.384,
+      "std": 0.0075
+     }
+    },
+    "min_rank": {
+     "bad_capture": {
+      "mean": 0.0871,
+      "std": 0.0141
+     },
+     "err_capture": {
+      "mean": 0.1075,
+      "std": 0.0079
+     },
+     "vs_confidence": {
+      "mean": 1.1007,
+      "std": 0.0106
+     },
+     "vs_random": {
+      "mean": 0.8772,
+      "std": 0.1375
+     },
+     "aurc": {
+      "mean": 0.3857,
+      "std": 0.0061
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.102,
+      "std": 0.0114
+     },
+     "err_capture": {
+      "mean": 0.1064,
+      "std": 0.0083
+     },
+     "vs_confidence": {
+      "mean": 1.302,
+      "std": 0.0918
+     },
+     "vs_random": {
+      "mean": 1.0302,
+      "std": 0.1331
+     },
+     "aurc": {
+      "mean": 0.3677,
+      "std": 0.0063
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.0994,
+      "std": 0.0063
+     },
+     "err_capture": {
+      "mean": 0.0991,
+      "std": 0.0078
+     },
+     "vs_confidence": {
+      "mean": 1.286,
+      "std": 0.2012
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "aurc": {
+      "mean": 0.442,
+      "std": 0.0127
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 0.2559,
+      "std": 0.0155
+     },
+     "err_capture": {
+      "mean": 0.2154,
+      "std": 0.0046
+     },
+     "vs_confidence": {
+      "mean": 3.3233,
+      "std": 0.5895
+     },
+     "vs_random": {
+      "mean": 2.5761,
+      "std": 0.0519
+     },
+     "aurc": {
+      "mean": 0.1904,
+      "std": 0.0108
+     }
+    }
+   }
+  }
+ },
+ "noise": {
+  "unit_error_0.10": {
+   "auc": {
+    "mean": 0.6276,
+    "std": 0.0048
+   },
+   "accuracy": {
+    "mean": 0.8553,
+    "std": 0.0024
+   },
+   "default_rate": {
+    "mean": 0.1346,
+    "std": 0.0019
+   },
+   "bad_approval_rate": {
+    "mean": 0.1263,
+    "std": 0.0029
+   },
+   "coverage_at_95": {
+    "mean": 0.9452,
+    "std": 0.0013
+   },
+   "review_rate": {
+    "mean": 0.4297,
+    "std": 0.0167
+   },
+   "ood_flag_rate": {
+    "mean": 0.1423,
+    "std": 0.0024
+   },
+   "martingale_watch_or_alarm_share": {
+    "mean": 0.9947,
+    "std": 0.0017
+   },
+   "martingale_final": [
+    "ALARM",
+    "ALARM",
+    "ALARM"
+   ],
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.1549,
+      "std": 0.0087
+     },
+     "err_capture": {
+      "mean": 0.2424,
+      "std": 0.0156
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 1.7279,
+      "std": 0.32
+     },
+     "aurc": {
+      "mean": 0.093,
+      "std": 0.0006
+     },
+     "corrupted_caught": {
+      "mean": 0.0192,
+      "std": 0.0148
+     }
+    },
+    "ensemble_conf": {
+     "bad_capture": {
+      "mean": 0.1588,
+      "std": 0.0068
+     },
+     "err_capture": {
+      "mean": 0.247,
+      "std": 0.0097
+     },
+     "vs_confidence": {
+      "mean": 1.0272,
+      "std": 0.0475
+     },
+     "vs_random": {
+      "mean": 1.7859,
+      "std": 0.4024
+     },
+     "aurc": {
+      "mean": 0.0895,
+      "std": 0.0026
+     },
+     "corrupted_caught": {
+      "mean": 0.0167,
+      "std": 0.0082
+     }
+    },
+    "ensemble_disagreement": {
+     "bad_capture": {
+      "mean": 0.1421,
+      "std": 0.0109
+     },
+     "err_capture": {
+      "mean": 0.1999,
+      "std": 0.0055
+     },
+     "vs_confidence": {
+      "mean": 0.9226,
+      "std": 0.1107
+     },
+     "vs_random": {
+      "mean": 1.5741,
+      "std": 0.2456
+     },
+     "aurc": {
+      "mean": 0.0918,
+      "std": 0.0032
+     },
+     "corrupted_caught": {
+      "mean": 0.0233,
+      "std": 0.0077
+     }
+    },
+    "conformal_pvalue": {
+     "bad_capture": {
+      "mean": 0.1549,
+      "std": 0.0087
+     },
+     "err_capture": {
+      "mean": 0.2424,
+      "std": 0.0156
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 1.7279,
+      "std": 0.32
+     },
+     "aurc": {
+      "mean": 0.0931,
+      "std": 0.0007
+     },
+     "corrupted_caught": {
+      "mean": 0.0192,
+      "std": 0.0148
+     }
+    },
+    "va_width": {
+     "bad_capture": {
+      "mean": 0.1013,
+      "std": 0.032
+     },
+     "err_capture": {
+      "mean": 0.1812,
+      "std": 0.0362
+     },
+     "vs_confidence": {
+      "mean": 0.661,
+      "std": 0.2252
+     },
+     "vs_random": {
+      "mean": 1.2009,
+      "std": 0.624
+     },
+     "aurc": {
+      "mean": 0.1148,
+      "std": 0.0122
+     },
+     "corrupted_caught": {
+      "mean": 0.1217,
+      "std": 0.0112
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.1039,
+      "std": 0.0135
+     },
+     "err_capture": {
+      "mean": 0.0934,
+      "std": 0.0105
+     },
+     "vs_confidence": {
+      "mean": 0.675,
+      "std": 0.1126
+     },
+     "vs_random": {
+      "mean": 1.1393,
+      "std": 0.1328
+     },
+     "aurc": {
+      "mean": 0.1457,
+      "std": 0.0052
+     },
+     "corrupted_caught": {
+      "mean": 0.9958,
+      "std": 0.0012
+     }
+    },
+    "auditor": {
+     "bad_capture": {
+      "mean": 0.1428,
+      "std": 0.0169
+     },
+     "err_capture": {
+      "mean": 0.2482,
+      "std": 0.0022
+     },
+     "vs_confidence": {
+      "mean": 0.9244,
+      "std": 0.1179
+     },
+     "vs_random": {
+      "mean": 1.6323,
+      "std": 0.5106
+     },
+     "aurc": {
+      "mean": 0.0912,
+      "std": 0.003
+     },
+     "corrupted_caught": {
+      "mean": 0.025,
+      "std": 0.0071
+     }
+    },
+    "composite": {
+     "bad_capture": {
+      "mean": 0.1043,
+      "std": 0.0107
+     },
+     "err_capture": {
+      "mean": 0.1811,
+      "std": 0.0197
+     },
+     "vs_confidence": {
+      "mean": 0.6794,
+      "std": 0.1022
+     },
+     "vs_random": {
+      "mean": 1.1773,
+      "std": 0.3104
+     },
+     "aurc": {
+      "mean": 0.0932,
+      "std": 0.0021
+     },
+     "corrupted_caught": {
+      "mean": 0.6108,
+      "std": 0.0292
+     }
+    },
+    "sl_fusion": {
+     "bad_capture": {
+      "mean": 0.1526,
+      "std": 0.017
+     },
+     "err_capture": {
+      "mean": 0.259,
+      "std": 0.012
+     },
+     "vs_confidence": {
+      "mean": 0.9843,
+      "std": 0.0836
+     },
+     "vs_random": {
+      "mean": 1.7268,
+      "std": 0.4569
+     },
+     "aurc": {
+      "mean": 0.0879,
+      "std": 0.0012
+     },
+     "corrupted_caught": {
+      "mean": 0.01,
+      "std": 0.0035
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.0999,
+      "std": 0.0135
+     },
+     "err_capture": {
+      "mean": 0.0923,
+      "std": 0.0131
+     },
+     "vs_confidence": {
+      "mean": 0.6507,
+      "std": 0.1169
+     },
+     "vs_random": {
+      "mean": 1.1033,
+      "std": 0.1842
+     },
+     "aurc": {
+      "mean": 0.0965,
+      "std": 0.0024
+     },
+     "corrupted_caught": {
+      "mean": 0.845,
+      "std": 0.0195
+     }
+    },
+    "min_rank": {
+     "bad_capture": {
+      "mean": 0.1287,
+      "std": 0.0049
+     },
+     "err_capture": {
+      "mean": 0.1918,
+      "std": 0.0076
+     },
+     "vs_confidence": {
+      "mean": 0.8341,
+      "std": 0.062
+     },
+     "vs_random": {
+      "mean": 1.4298,
+      "std": 0.2273
+     },
+     "aurc": {
+      "mean": 0.1,
+      "std": 0.0022
+     },
+     "corrupted_caught": {
+      "mean": 0.5075,
+      "std": 0.0061
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.1032,
+      "std": 0.0141
+     },
+     "err_capture": {
+      "mean": 0.0928,
+      "std": 0.0109
+     },
+     "vs_confidence": {
+      "mean": 0.6707,
+      "std": 0.1152
+     },
+     "vs_random": {
+      "mean": 1.1301,
+      "std": 0.1214
+     },
+     "aurc": {
+      "mean": 0.1454,
+      "std": 0.004
+     },
+     "corrupted_caught": {
+      "mean": 0.9942,
+      "std": 0.0012
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.0926,
+      "std": 0.0162
+     },
+     "err_capture": {
+      "mean": 0.0937,
+      "std": 0.0133
+     },
+     "vs_confidence": {
+      "mean": 0.5989,
+      "std": 0.1097
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "aurc": {
+      "mean": 0.1371,
+      "std": 0.0034
+     },
+     "corrupted_caught": {
+      "mean": 0.0983,
+      "std": 0.0031
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 0.792,
+      "std": 0.0185
+     },
+     "err_capture": {
+      "mean": 0.6914,
+      "std": 0.0112
+     },
+     "vs_confidence": {
+      "mean": 5.1338,
+      "std": 0.3717
+     },
+     "vs_random": {
+      "mean": 8.8338,
+      "std": 1.6148
+     },
+     "aurc": {
+      "mean": 0.0286,
+      "std": 0.0023
+     },
+     "corrupted_caught": {
+      "mean": 0.1008,
+      "std": 0.0136
+     }
+    }
+   }
+  },
+  "missing_0.10": {
+   "auc": {
+    "mean": 0.6355,
+    "std": 0.0058
+   },
+   "accuracy": {
+    "mean": 0.8498,
+    "std": 0.0048
+   },
+   "default_rate": {
+    "mean": 0.1346,
+    "std": 0.0019
+   },
+   "bad_approval_rate": {
+    "mean": 0.1243,
+    "std": 0.003
+   },
+   "coverage_at_95": {
+    "mean": 0.9535,
+    "std": 0.0027
+   },
+   "review_rate": {
+    "mean": 0.4877,
+    "std": 0.03
+   },
+   "ood_flag_rate": {
+    "mean": 0.049,
+    "std": 0.0031
+   },
+   "martingale_watch_or_alarm_share": {
+    "mean": 0.3035,
+    "std": 0.3459
+   },
+   "martingale_final": [
+    "WATCH",
+    "OK",
+    "ALARM"
+   ],
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.1374,
+      "std": 0.0014
+     },
+     "err_capture": {
+      "mean": 0.2484,
+      "std": 0.0183
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 1.5258,
+      "std": 0.3191
+     },
+     "aurc": {
+      "mean": 0.0883,
+      "std": 0.0014
+     },
+     "corrupted_caught": {
+      "mean": 0.205,
+      "std": 0.0319
+     }
+    },
+    "ensemble_conf": {
+     "bad_capture": {
+      "mean": 0.1404,
+      "std": 0.0131
+     },
+     "err_capture": {
+      "mean": 0.2531,
+      "std": 0.0171
+     },
+     "vs_confidence": {
+      "mean": 1.0218,
+      "std": 0.089
+     },
+     "vs_random": {
+      "mean": 1.5848,
+      "std": 0.4638
+     },
+     "aurc": {
+      "mean": 0.086,
+      "std": 0.0028
+     },
+     "corrupted_caught": {
+      "mean": 0.2233,
+      "std": 0.0148
+     }
+    },
+    "ensemble_disagreement": {
+     "bad_capture": {
+      "mean": 0.1215,
+      "std": 0.0071
+     },
+     "err_capture": {
+      "mean": 0.1973,
+      "std": 0.0095
+     },
+     "vs_confidence": {
+      "mean": 0.884,
+      "std": 0.0506
+     },
+     "vs_random": {
+      "mean": 1.341,
+      "std": 0.2507
+     },
+     "aurc": {
+      "mean": 0.0905,
+      "std": 0.0033
+     },
+     "corrupted_caught": {
+      "mean": 0.2833,
+      "std": 0.0112
+     }
+    },
+    "conformal_pvalue": {
+     "bad_capture": {
+      "mean": 0.1367,
+      "std": 0.0023
+     },
+     "err_capture": {
+      "mean": 0.2479,
+      "std": 0.0181
+     },
+     "vs_confidence": {
+      "mean": 0.9951,
+      "std": 0.0069
+     },
+     "vs_random": {
+      "mean": 1.5192,
+      "std": 0.3227
+     },
+     "aurc": {
+      "mean": 0.0883,
+      "std": 0.0014
+     },
+     "corrupted_caught": {
+      "mean": 0.2042,
+      "std": 0.0307
+     }
+    },
+    "va_width": {
+     "bad_capture": {
+      "mean": 0.0954,
+      "std": 0.0377
+     },
+     "err_capture": {
+      "mean": 0.2083,
+      "std": 0.0581
+     },
+     "vs_confidence": {
+      "mean": 0.6919,
+      "std": 0.2663
+     },
+     "vs_random": {
+      "mean": 1.1293,
+      "std": 0.663
+     },
+     "aurc": {
+      "mean": 0.1134,
+      "std": 0.0134
+     },
+     "corrupted_caught": {
+      "mean": 0.165,
+      "std": 0.027
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.0839,
+      "std": 0.0074
+     },
+     "err_capture": {
+      "mean": 0.0858,
+      "std": 0.0111
+     },
+     "vs_confidence": {
+      "mean": 0.6102,
+      "std": 0.0505
+     },
+     "vs_random": {
+      "mean": 0.9308,
+      "std": 0.2093
+     },
+     "aurc": {
+      "mean": 0.1482,
+      "std": 0.0061
+     },
+     "corrupted_caught": {
+      "mean": 0.1658,
+      "std": 0.0166
+     }
+    },
+    "auditor": {
+     "bad_capture": {
+      "mean": 0.1112,
+      "std": 0.0089
+     },
+     "err_capture": {
+      "mean": 0.26,
+      "std": 0.0173
+     },
+     "vs_confidence": {
+      "mean": 0.8089,
+      "std": 0.0567
+     },
+     "vs_random": {
+      "mean": 1.247,
+      "std": 0.3361
+     },
+     "aurc": {
+      "mean": 0.0846,
+      "std": 0.0022
+     },
+     "corrupted_caught": {
+      "mean": 0.2833,
+      "std": 0.045
+     }
+    },
+    "composite": {
+     "bad_capture": {
+      "mean": 0.114,
+      "std": 0.013
+     },
+     "err_capture": {
+      "mean": 0.2551,
+      "std": 0.0192
+     },
+     "vs_confidence": {
+      "mean": 0.8294,
+      "std": 0.0886
+     },
+     "vs_random": {
+      "mean": 1.2714,
+      "std": 0.3264
+     },
+     "aurc": {
+      "mean": 0.0915,
+      "std": 0.0026
+     },
+     "corrupted_caught": {
+      "mean": 0.2583,
+      "std": 0.0399
+     }
+    },
+    "sl_fusion": {
+     "bad_capture": {
+      "mean": 0.1186,
+      "std": 0.0146
+     },
+     "err_capture": {
+      "mean": 0.2689,
+      "std": 0.0152
+     },
+     "vs_confidence": {
+      "mean": 0.862,
+      "std": 0.0973
+     },
+     "vs_random": {
+      "mean": 1.337,
+      "std": 0.4117
+     },
+     "aurc": {
+      "mean": 0.0837,
+      "std": 0.0014
+     },
+     "corrupted_caught": {
+      "mean": 0.2942,
+      "std": 0.0571
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.0979,
+      "std": 0.0031
+     },
+     "err_capture": {
+      "mean": 0.1756,
+      "std": 0.0099
+     },
+     "vs_confidence": {
+      "mean": 0.7127,
+      "std": 0.0302
+     },
+     "vs_random": {
+      "mean": 1.08,
+      "std": 0.1872
+     },
+     "aurc": {
+      "mean": 0.0936,
+      "std": 0.0027
+     },
+     "corrupted_caught": {
+      "mean": 0.18,
+      "std": 0.0162
+     }
+    },
+    "min_rank": {
+     "bad_capture": {
+      "mean": 0.0966,
+      "std": 0.0045
+     },
+     "err_capture": {
+      "mean": 0.1746,
+      "std": 0.0077
+     },
+     "vs_confidence": {
+      "mean": 0.7035,
+      "std": 0.0394
+     },
+     "vs_random": {
+      "mean": 1.0611,
+      "std": 0.1579
+     },
+     "aurc": {
+      "mean": 0.104,
+      "std": 0.0024
+     },
+     "corrupted_caught": {
+      "mean": 0.1792,
+      "std": 0.012
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.1102,
+      "std": 0.0205
+     },
+     "err_capture": {
+      "mean": 0.1456,
+      "std": 0.0553
+     },
+     "vs_confidence": {
+      "mean": 0.801,
+      "std": 0.1408
+     },
+     "vs_random": {
+      "mean": 1.2667,
+      "std": 0.5003
+     },
+     "aurc": {
+      "mean": 0.1048,
+      "std": 0.0177
+     },
+     "corrupted_caught": {
+      "mean": 0.18,
+      "std": 0.0227
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.0935,
+      "std": 0.0168
+     },
+     "err_capture": {
+      "mean": 0.093,
+      "std": 0.0127
+     },
+     "vs_confidence": {
+      "mean": 0.6818,
+      "std": 0.1266
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "aurc": {
+      "mean": 0.143,
+      "std": 0.0029
+     },
+     "corrupted_caught": {
+      "mean": 0.0983,
+      "std": 0.0031
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 0.8048,
+      "std": 0.0198
+     },
+     "err_capture": {
+      "mean": 0.6666,
+      "std": 0.021
+     },
+     "vs_confidence": {
+      "mean": 5.8589,
+      "std": 0.175
+     },
+     "vs_random": {
+      "mean": 8.8861,
+      "std": 1.5841
+     },
+     "aurc": {
+      "mean": 0.0364,
+      "std": 0.0041
+     },
+     "corrupted_caught": {
+      "mean": 0.0892,
+      "std": 0.0183
+     }
+    }
+   }
+  },
+  "gaussian_0.10": {
+   "auc": {
+    "mean": 0.6302,
+    "std": 0.0085
+   },
+   "accuracy": {
+    "mean": 0.8521,
+    "std": 0.0014
+   },
+   "default_rate": {
+    "mean": 0.1346,
+    "std": 0.0019
+   },
+   "bad_approval_rate": {
+    "mean": 0.1265,
+    "std": 0.0028
+   },
+   "coverage_at_95": {
+    "mean": 0.9482,
+    "std": 0.0027
+   },
+   "review_rate": {
+    "mean": 0.4552,
+    "std": 0.0248
+   },
+   "ood_flag_rate": {
+    "mean": 0.1186,
+    "std": 0.0087
+   },
+   "martingale_watch_or_alarm_share": {
+    "mean": 0.9457,
+    "std": 0.0245
+   },
+   "martingale_final": [
+    "ALARM",
+    "ALARM",
+    "ALARM"
+   ],
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.1507,
+      "std": 0.0099
+     },
+     "err_capture": {
+      "mean": 0.2467,
+      "std": 0.0112
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 1.6897,
+      "std": 0.3507
+     },
+     "aurc": {
+      "mean": 0.0901,
+      "std": 0.0025
+     },
+     "corrupted_caught": {
+      "mean": 0.0875,
+      "std": 0.0108
+     }
+    },
+    "ensemble_conf": {
+     "bad_capture": {
+      "mean": 0.1507,
+      "std": 0.0085
+     },
+     "err_capture": {
+      "mean": 0.2461,
+      "std": 0.0078
+     },
+     "vs_confidence": {
+      "mean": 1.0014,
+      "std": 0.0407
+     },
+     "vs_random": {
+      "mean": 1.7005,
+      "std": 0.4056
+     },
+     "aurc": {
+      "mean": 0.0881,
+      "std": 0.0013
+     },
+     "corrupted_caught": {
+      "mean": 0.0942,
+      "std": 0.0062
+     }
+    },
+    "ensemble_disagreement": {
+     "bad_capture": {
+      "mean": 0.1353,
+      "std": 0.0117
+     },
+     "err_capture": {
+      "mean": 0.2012,
+      "std": 0.0091
+     },
+     "vs_confidence": {
+      "mean": 0.9053,
+      "std": 0.1294
+     },
+     "vs_random": {
+      "mean": 1.4932,
+      "std": 0.1834
+     },
+     "aurc": {
+      "mean": 0.0907,
+      "std": 0.0017
+     },
+     "corrupted_caught": {
+      "mean": 0.1992,
+      "std": 0.0112
+     }
+    },
+    "conformal_pvalue": {
+     "bad_capture": {
+      "mean": 0.1507,
+      "std": 0.0099
+     },
+     "err_capture": {
+      "mean": 0.2461,
+      "std": 0.012
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 1.6897,
+      "std": 0.3507
+     },
+     "aurc": {
+      "mean": 0.0901,
+      "std": 0.0025
+     },
+     "corrupted_caught": {
+      "mean": 0.0875,
+      "std": 0.0108
+     }
+    },
+    "va_width": {
+     "bad_capture": {
+      "mean": 0.0973,
+      "std": 0.0395
+     },
+     "err_capture": {
+      "mean": 0.1875,
+      "std": 0.0413
+     },
+     "vs_confidence": {
+      "mean": 0.6519,
+      "std": 0.2687
+     },
+     "vs_random": {
+      "mean": 1.1701,
+      "std": 0.7066
+     },
+     "aurc": {
+      "mean": 0.113,
+      "std": 0.0134
+     },
+     "corrupted_caught": {
+      "mean": 0.11,
+      "std": 0.0041
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.093,
+      "std": 0.0064
+     },
+     "err_capture": {
+      "mean": 0.0969,
+      "std": 0.0108
+     },
+     "vs_confidence": {
+      "mean": 0.6224,
+      "std": 0.0812
+     },
+     "vs_random": {
+      "mean": 1.0318,
+      "std": 0.1552
+     },
+     "aurc": {
+      "mean": 0.1461,
+      "std": 0.0051
+     },
+     "corrupted_caught": {
+      "mean": 0.6475,
+      "std": 0.0174
+     }
+    },
+    "auditor": {
+     "bad_capture": {
+      "mean": 0.1211,
+      "std": 0.0124
+     },
+     "err_capture": {
+      "mean": 0.2457,
+      "std": 0.0084
+     },
+     "vs_confidence": {
+      "mean": 0.8062,
+      "std": 0.0901
+     },
+     "vs_random": {
+      "mean": 1.3827,
+      "std": 0.4207
+     },
+     "aurc": {
+      "mean": 0.0882,
+      "std": 0.0013
+     },
+     "corrupted_caught": {
+      "mean": 0.2167,
+      "std": 0.0428
+     }
+    },
+    "composite": {
+     "bad_capture": {
+      "mean": 0.1396,
+      "std": 0.0035
+     },
+     "err_capture": {
+      "mean": 0.2591,
+      "std": 0.0139
+     },
+     "vs_confidence": {
+      "mean": 0.9292,
+      "std": 0.0435
+     },
+     "vs_random": {
+      "mean": 1.5681,
+      "std": 0.3338
+     },
+     "aurc": {
+      "mean": 0.0919,
+      "std": 0.0019
+     },
+     "corrupted_caught": {
+      "mean": 0.1567,
+      "std": 0.0103
+     }
+    },
+    "sl_fusion": {
+     "bad_capture": {
+      "mean": 0.1379,
+      "std": 0.0199
+     },
+     "err_capture": {
+      "mean": 0.2625,
+      "std": 0.0033
+     },
+     "vs_confidence": {
+      "mean": 0.9126,
+      "std": 0.1001
+     },
+     "vs_random": {
+      "mean": 1.5771,
+      "std": 0.4951
+     },
+     "aurc": {
+      "mean": 0.0859,
+      "std": 0.0017
+     },
+     "corrupted_caught": {
+      "mean": 0.1375,
+      "std": 0.0288
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.099,
+      "std": 0.0092
+     },
+     "err_capture": {
+      "mean": 0.1054,
+      "std": 0.0118
+     },
+     "vs_confidence": {
+      "mean": 0.6619,
+      "std": 0.094
+     },
+     "vs_random": {
+      "mean": 1.0896,
+      "std": 0.1137
+     },
+     "aurc": {
+      "mean": 0.0972,
+      "std": 0.0017
+     },
+     "corrupted_caught": {
+      "mean": 0.6525,
+      "std": 0.0267
+     }
+    },
+    "min_rank": {
+     "bad_capture": {
+      "mean": 0.1225,
+      "std": 0.0014
+     },
+     "err_capture": {
+      "mean": 0.1949,
+      "std": 0.0096
+     },
+     "vs_confidence": {
+      "mean": 0.8165,
+      "std": 0.0498
+     },
+     "vs_random": {
+      "mean": 1.3697,
+      "std": 0.2542
+     },
+     "aurc": {
+      "mean": 0.1015,
+      "std": 0.0021
+     },
+     "corrupted_caught": {
+      "mean": 0.3167,
+      "std": 0.0148
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.093,
+      "std": 0.0052
+     },
+     "err_capture": {
+      "mean": 0.0987,
+      "std": 0.0103
+     },
+     "vs_confidence": {
+      "mean": 0.6222,
+      "std": 0.0759
+     },
+     "vs_random": {
+      "mean": 1.0375,
+      "std": 0.1903
+     },
+     "aurc": {
+      "mean": 0.1401,
+      "std": 0.0074
+     },
+     "corrupted_caught": {
+      "mean": 0.6458,
+      "std": 0.0143
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.0925,
+      "std": 0.0162
+     },
+     "err_capture": {
+      "mean": 0.0957,
+      "std": 0.0134
+     },
+     "vs_confidence": {
+      "mean": 0.618,
+      "std": 0.1276
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "aurc": {
+      "mean": 0.14,
+      "std": 0.0042
+     },
+     "corrupted_caught": {
+      "mean": 0.0983,
+      "std": 0.0031
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 0.7909,
+      "std": 0.018
+     },
+     "err_capture": {
+      "mean": 0.6761,
+      "std": 0.0062
+     },
+     "vs_confidence": {
+      "mean": 5.2797,
+      "std": 0.4613
+     },
+     "vs_random": {
+      "mean": 8.8338,
+      "std": 1.6148
+     },
+     "aurc": {
+      "mean": 0.0318,
+      "std": 0.002
+     },
+     "corrupted_caught": {
+      "mean": 0.1008,
+      "std": 0.0155
+     }
+    }
+   }
+  },
+  "unit_error_0.05": {
+   "auc": {
+    "mean": 0.632,
+    "std": 0.0062
+   },
+   "accuracy": {
+    "mean": 0.8552,
+    "std": 0.0024
+   },
+   "default_rate": {
+    "mean": 0.1346,
+    "std": 0.0019
+   },
+   "bad_approval_rate": {
+    "mean": 0.1258,
+    "std": 0.0034
+   },
+   "coverage_at_95": {
+    "mean": 0.9487,
+    "std": 0.0023
+   },
+   "review_rate": {
+    "mean": 0.4536,
+    "std": 0.0225
+   },
+   "ood_flag_rate": {
+    "mean": 0.0941,
+    "std": 0.0026
+   },
+   "martingale_watch_or_alarm_share": {
+    "mean": 0.9859,
+    "std": 0.0072
+   },
+   "martingale_final": [
+    "ALARM",
+    "ALARM",
+    "ALARM"
+   ],
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.1545,
+      "std": 0.0193
+     },
+     "err_capture": {
+      "mean": 0.2433,
+      "std": 0.0174
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 1.726,
+      "std": 0.3954
+     },
+     "aurc": {
+      "mean": 0.0913,
+      "std": 0.0007
+     },
+     "corrupted_caught": {
+      "mean": 0.0117,
+      "std": 0.0062
+     }
+    },
+    "ensemble_conf": {
+     "bad_capture": {
+      "mean": 0.1539,
+      "std": 0.0139
+     },
+     "err_capture": {
+      "mean": 0.2445,
+      "std": 0.0124
+     },
+     "vs_confidence": {
+      "mean": 1.0019,
+      "std": 0.0676
+     },
+     "vs_random": {
+      "mean": 1.7356,
+      "std": 0.4562
+     },
+     "aurc": {
+      "mean": 0.0886,
+      "std": 0.0015
+     },
+     "corrupted_caught": {
+      "mean": 0.01,
+      "std": 0.0082
+     }
+    },
+    "ensemble_disagreement": {
+     "bad_capture": {
+      "mean": 0.1392,
+      "std": 0.0039
+     },
+     "err_capture": {
+      "mean": 0.1985,
+      "std": 0.0055
+     },
+     "vs_confidence": {
+      "mean": 0.9174,
+      "std": 0.1366
+     },
+     "vs_random": {
+      "mean": 1.5459,
+      "std": 0.2826
+     },
+     "aurc": {
+      "mean": 0.0915,
+      "std": 0.0026
+     },
+     "corrupted_caught": {
+      "mean": 0.0167,
+      "std": 0.0094
+     }
+    },
+    "conformal_pvalue": {
+     "bad_capture": {
+      "mean": 0.1552,
+      "std": 0.0201
+     },
+     "err_capture": {
+      "mean": 0.2439,
+      "std": 0.018
+     },
+     "vs_confidence": {
+      "mean": 1.0036,
+      "std": 0.0051
+     },
+     "vs_random": {
+      "mean": 1.7326,
+      "std": 0.3968
+     },
+     "aurc": {
+      "mean": 0.0913,
+      "std": 0.0007
+     },
+     "corrupted_caught": {
+      "mean": 0.0117,
+      "std": 0.0062
+     }
+    },
+    "va_width": {
+     "bad_capture": {
+      "mean": 0.1014,
+      "std": 0.0372
+     },
+     "err_capture": {
+      "mean": 0.1862,
+      "std": 0.0345
+     },
+     "vs_confidence": {
+      "mean": 0.6648,
+      "std": 0.2503
+     },
+     "vs_random": {
+      "mean": 1.213,
+      "std": 0.6958
+     },
+     "aurc": {
+      "mean": 0.1146,
+      "std": 0.013
+     },
+     "corrupted_caught": {
+      "mean": 0.13,
+      "std": 0.0147
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.083,
+      "std": 0.0072
+     },
+     "err_capture": {
+      "mean": 0.0772,
+      "std": 0.0065
+     },
+     "vs_confidence": {
+      "mean": 0.5496,
+      "std": 0.1108
+     },
+     "vs_random": {
+      "mean": 0.9121,
+      "std": 0.1225
+     },
+     "aurc": {
+      "mean": 0.1465,
+      "std": 0.0026
+     },
+     "corrupted_caught": {
+      "mean": 1.0,
+      "std": 0.0
+     }
+    },
+    "auditor": {
+     "bad_capture": {
+      "mean": 0.1419,
+      "std": 0.022
+     },
+     "err_capture": {
+      "mean": 0.2522,
+      "std": 0.0013
+     },
+     "vs_confidence": {
+      "mean": 0.9243,
+      "std": 0.1403
+     },
+     "vs_random": {
+      "mean": 1.6283,
+      "std": 0.576
+     },
+     "aurc": {
+      "mean": 0.0875,
+      "std": 0.0019
+     },
+     "corrupted_caught": {
+      "mean": 0.03,
+      "std": 0.0041
+     }
+    },
+    "composite": {
+     "bad_capture": {
+      "mean": 0.1038,
+      "std": 0.0062
+     },
+     "err_capture": {
+      "mean": 0.1893,
+      "std": 0.014
+     },
+     "vs_confidence": {
+      "mean": 0.6775,
+      "std": 0.049
+     },
+     "vs_random": {
+      "mean": 1.1646,
+      "std": 0.2735
+     },
+     "aurc": {
+      "mean": 0.0932,
+      "std": 0.0021
+     },
+     "corrupted_caught": {
+      "mean": 1.0,
+      "std": 0.0
+     }
+    },
+    "sl_fusion": {
+     "bad_capture": {
+      "mean": 0.1517,
+      "std": 0.0228
+     },
+     "err_capture": {
+      "mean": 0.2624,
+      "std": 0.0093
+     },
+     "vs_confidence": {
+      "mean": 0.9825,
+      "std": 0.1031
+     },
+     "vs_random": {
+      "mean": 1.7286,
+      "std": 0.5542
+     },
+     "aurc": {
+      "mean": 0.0863,
+      "std": 0.0009
+     },
+     "corrupted_caught": {
+      "mean": 0.01,
+      "std": 0.0
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.0921,
+      "std": 0.0022
+     },
+     "err_capture": {
+      "mean": 0.0932,
+      "std": 0.0052
+     },
+     "vs_confidence": {
+      "mean": 0.6065,
+      "std": 0.0857
+     },
+     "vs_random": {
+      "mean": 1.0224,
+      "std": 0.1819
+     },
+     "aurc": {
+      "mean": 0.0955,
+      "std": 0.0012
+     },
+     "corrupted_caught": {
+      "mean": 1.0,
+      "std": 0.0
+     }
+    },
+    "min_rank": {
+     "bad_capture": {
+      "mean": 0.1223,
+      "std": 0.0096
+     },
+     "err_capture": {
+      "mean": 0.1864,
+      "std": 0.0068
+     },
+     "vs_confidence": {
+      "mean": 0.7959,
+      "std": 0.0403
+     },
+     "vs_random": {
+      "mean": 1.3704,
+      "std": 0.3186
+     },
+     "aurc": {
+      "mean": 0.1027,
+      "std": 0.0012
+     },
+     "corrupted_caught": {
+      "mean": 0.9883,
+      "std": 0.0062
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.0829,
+      "std": 0.0069
+     },
+     "err_capture": {
+      "mean": 0.0772,
+      "std": 0.0046
+     },
+     "vs_confidence": {
+      "mean": 0.5474,
+      "std": 0.0994
+     },
+     "vs_random": {
+      "mean": 0.9096,
+      "std": 0.1033
+     },
+     "aurc": {
+      "mean": 0.1449,
+      "std": 0.0014
+     },
+     "corrupted_caught": {
+      "mean": 0.9917,
+      "std": 0.0047
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.093,
+      "std": 0.0167
+     },
+     "err_capture": {
+      "mean": 0.0937,
+      "std": 0.0132
+     },
+     "vs_confidence": {
+      "mean": 0.6147,
+      "std": 0.1556
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "aurc": {
+      "mean": 0.1378,
+      "std": 0.0031
+     },
+     "corrupted_caught": {
+      "mean": 0.085,
+      "std": 0.0147
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 0.7953,
+      "std": 0.022
+     },
+     "err_capture": {
+      "mean": 0.691,
+      "std": 0.0111
+     },
+     "vs_confidence": {
+      "mean": 5.242,
+      "std": 0.7807
+     },
+     "vs_random": {
+      "mean": 8.8338,
+      "std": 1.6148
+     },
+     "aurc": {
+      "mean": 0.0289,
+      "std": 0.0027
+     },
+     "corrupted_caught": {
+      "mean": 0.0983,
+      "std": 0.0085
+     }
+    }
+   }
+  },
+  "unit_error_0.20": {
+   "auc": {
+    "mean": 0.6127,
+    "std": 0.0047
+   },
+   "accuracy": {
+    "mean": 0.8582,
+    "std": 0.0019
+   },
+   "default_rate": {
+    "mean": 0.1346,
+    "std": 0.0019
+   },
+   "bad_approval_rate": {
+    "mean": 0.1265,
+    "std": 0.0032
+   },
+   "coverage_at_95": {
+    "mean": 0.9383,
+    "std": 0.0028
+   },
+   "review_rate": {
+    "mean": 0.3928,
+    "std": 0.0111
+   },
+   "ood_flag_rate": {
+    "mean": 0.2377,
+    "std": 0.0027
+   },
+   "martingale_watch_or_alarm_share": {
+    "mean": 0.9977,
+    "std": 0.0017
+   },
+   "martingale_final": [
+    "ALARM",
+    "ALARM",
+    "ALARM"
+   ],
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.1546,
+      "std": 0.0112
+     },
+     "err_capture": {
+      "mean": 0.2338,
+      "std": 0.0108
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 1.7284,
+      "std": 0.334
+     },
+     "aurc": {
+      "mean": 0.0995,
+      "std": 0.0015
+     },
+     "corrupted_caught": {
+      "mean": 0.0158,
+      "std": 0.0086
+     }
+    },
+    "ensemble_conf": {
+     "bad_capture": {
+      "mean": 0.1627,
+      "std": 0.0056
+     },
+     "err_capture": {
+      "mean": 0.2397,
+      "std": 0.0141
+     },
+     "vs_confidence": {
+      "mean": 1.0558,
+      "std": 0.0538
+     },
+     "vs_random": {
+      "mean": 1.8128,
+      "std": 0.305
+     },
+     "aurc": {
+      "mean": 0.0968,
+      "std": 0.0025
+     },
+     "corrupted_caught": {
+      "mean": 0.0142,
+      "std": 0.0065
+     }
+    },
+    "ensemble_disagreement": {
+     "bad_capture": {
+      "mean": 0.1523,
+      "std": 0.0084
+     },
+     "err_capture": {
+      "mean": 0.2014,
+      "std": 0.0085
+     },
+     "vs_confidence": {
+      "mean": 0.9899,
+      "std": 0.0881
+     },
+     "vs_random": {
+      "mean": 1.6866,
+      "std": 0.2266
+     },
+     "aurc": {
+      "mean": 0.098,
+      "std": 0.0028
+     },
+     "corrupted_caught": {
+      "mean": 0.0233,
+      "std": 0.0109
+     }
+    },
+    "conformal_pvalue": {
+     "bad_capture": {
+      "mean": 0.1546,
+      "std": 0.0112
+     },
+     "err_capture": {
+      "mean": 0.2338,
+      "std": 0.0108
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 1.7284,
+      "std": 0.334
+     },
+     "aurc": {
+      "mean": 0.0995,
+      "std": 0.0016
+     },
+     "corrupted_caught": {
+      "mean": 0.0158,
+      "std": 0.0086
+     }
+    },
+    "va_width": {
+     "bad_capture": {
+      "mean": 0.0939,
+      "std": 0.0303
+     },
+     "err_capture": {
+      "mean": 0.1627,
+      "std": 0.0287
+     },
+     "vs_confidence": {
+      "mean": 0.6136,
+      "std": 0.2108
+     },
+     "vs_random": {
+      "mean": 1.1166,
+      "std": 0.5864
+     },
+     "aurc": {
+      "mean": 0.1175,
+      "std": 0.0091
+     },
+     "corrupted_caught": {
+      "mean": 0.1233,
+      "std": 0.0133
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.0885,
+      "std": 0.0084
+     },
+     "err_capture": {
+      "mean": 0.0835,
+      "std": 0.0068
+     },
+     "vs_confidence": {
+      "mean": 0.578,
+      "std": 0.0893
+     },
+     "vs_random": {
+      "mean": 0.9781,
+      "std": 0.1374
+     },
+     "aurc": {
+      "mean": 0.1438,
+      "std": 0.0029
+     },
+     "corrupted_caught": {
+      "mean": 0.5,
+      "std": 0.0
+     }
+    },
+    "auditor": {
+     "bad_capture": {
+      "mean": 0.1487,
+      "std": 0.0103
+     },
+     "err_capture": {
+      "mean": 0.2397,
+      "std": 0.0054
+     },
+     "vs_confidence": {
+      "mean": 0.9647,
+      "std": 0.0745
+     },
+     "vs_random": {
+      "mean": 1.6842,
+      "std": 0.4355
+     },
+     "aurc": {
+      "mean": 0.0966,
+      "std": 0.0009
+     },
+     "corrupted_caught": {
+      "mean": 0.0258,
+      "std": 0.0174
+     }
+    },
+    "composite": {
+     "bad_capture": {
+      "mean": 0.0948,
+      "std": 0.01
+     },
+     "err_capture": {
+      "mean": 0.1628,
+      "std": 0.0175
+     },
+     "vs_confidence": {
+      "mean": 0.6126,
+      "std": 0.0384
+     },
+     "vs_random": {
+      "mean": 1.0472,
+      "std": 0.1455
+     },
+     "aurc": {
+      "mean": 0.0985,
+      "std": 0.0029
+     },
+     "corrupted_caught": {
+      "mean": 0.3471,
+      "std": 0.0109
+     }
+    },
+    "sl_fusion": {
+     "bad_capture": {
+      "mean": 0.1597,
+      "std": 0.0192
+     },
+     "err_capture": {
+      "mean": 0.2501,
+      "std": 0.0165
+     },
+     "vs_confidence": {
+      "mean": 1.0294,
+      "std": 0.0488
+     },
+     "vs_random": {
+      "mean": 1.7866,
+      "std": 0.3782
+     },
+     "aurc": {
+      "mean": 0.0953,
+      "std": 0.0018
+     },
+     "corrupted_caught": {
+      "mean": 0.01,
+      "std": 0.0044
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.0988,
+      "std": 0.0135
+     },
+     "err_capture": {
+      "mean": 0.0948,
+      "std": 0.0181
+     },
+     "vs_confidence": {
+      "mean": 0.6455,
+      "std": 0.1143
+     },
+     "vs_random": {
+      "mean": 1.1324,
+      "std": 0.3778
+     },
+     "aurc": {
+      "mean": 0.1032,
+      "std": 0.0006
+     },
+     "corrupted_caught": {
+      "mean": 0.4508,
+      "std": 0.0062
+     }
+    },
+    "min_rank": {
+     "bad_capture": {
+      "mean": 0.11,
+      "std": 0.0139
+     },
+     "err_capture": {
+      "mean": 0.1692,
+      "std": 0.0105
+     },
+     "vs_confidence": {
+      "mean": 0.7116,
+      "std": 0.0741
+     },
+     "vs_random": {
+      "mean": 1.2059,
+      "std": 0.1196
+     },
+     "aurc": {
+      "mean": 0.1002,
+      "std": 0.0025
+     },
+     "corrupted_caught": {
+      "mean": 0.2604,
+      "std": 0.0058
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.0885,
+      "std": 0.0084
+     },
+     "err_capture": {
+      "mean": 0.0835,
+      "std": 0.0068
+     },
+     "vs_confidence": {
+      "mean": 0.578,
+      "std": 0.0893
+     },
+     "vs_random": {
+      "mean": 0.9781,
+      "std": 0.1374
+     },
+     "aurc": {
+      "mean": 0.1433,
+      "std": 0.0029
+     },
+     "corrupted_caught": {
+      "mean": 0.5,
+      "std": 0.0
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.0925,
+      "std": 0.0162
+     },
+     "err_capture": {
+      "mean": 0.0922,
+      "std": 0.0111
+     },
+     "vs_confidence": {
+      "mean": 0.6014,
+      "std": 0.1192
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "aurc": {
+      "mean": 0.1367,
+      "std": 0.0043
+     },
+     "corrupted_caught": {
+      "mean": 0.0925,
+      "std": 0.0107
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 0.791,
+      "std": 0.0206
+     },
+     "err_capture": {
+      "mean": 0.7052,
+      "std": 0.0093
+     },
+     "vs_confidence": {
+      "mean": 5.1515,
+      "std": 0.4782
+     },
+     "vs_random": {
+      "mean": 8.8338,
+      "std": 1.6148
+     },
+     "aurc": {
+      "mean": 0.0257,
+      "std": 0.002
+     },
+     "corrupted_caught": {
+      "mean": 0.1038,
+      "std": 0.0027
+     }
+    }
+   }
+  }
+ }
+}

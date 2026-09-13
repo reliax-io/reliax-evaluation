@@ -1,0 +1,31 @@
+  seed 0 mix 0.0: auc 0.650 review 50% mart OK | vs random: msp 1.57 ood 0.79 gated 1.14 minrank 1.09 switch 1.57 sl 1.34
+  seed 0 mix 0.25: auc 0.680 review 58% mart ALARM | vs random: msp 1.37 ood 1.90 gated 2.16 minrank 1.52 switch 1.88 sl 1.09
+  seed 0 mix 0.5: auc 0.660 review 66% mart ALARM | vs random: msp 1.18 ood 1.36 gated 1.48 minrank 1.15 switch 1.36 sl 0.70
+  seed 0 mix 0.75: auc 0.630 review 73% mart ALARM | vs random: msp 1.07 ood 1.36 gated 1.28 minrank 1.16 switch 1.36 sl 0.53
+  seed 0 mix 1.0: auc 0.568 review 80% mart ALARM | vs random: msp 0.93 ood 1.22 gated 1.12 minrank 1.04 switch 1.22 sl 0.47
+  seed 0 noise unit_error_0.10: auc 0.633 review 45% mart ALARM | vs random: msp 1.69 ood 0.98 gated 0.88 minrank 1.29 switch 0.98 | corrupted caught: msp 0.01 ood 0.99
+  seed 0 noise missing_0.10: auc 0.642 review 53% mart WATCH | vs random: msp 1.36 ood 0.74 gated 1.02 minrank 1.00 switch 0.96 | corrupted caught: msp 0.25 ood 0.18
+  seed 0 noise gaussian_0.10: auc 0.641 review 49% mart ALARM | vs random: msp 1.65 ood 0.90 gated 1.00 minrank 1.25 switch 0.88 | corrupted caught: msp 0.08 ood 0.67
+  seed 0 noise unit_error_0.05: auc 0.640 review 48% mart ALARM | vs random: msp 1.80 ood 0.80 gated 0.92 minrank 1.33 switch 0.84 | corrupted caught: msp 0.01 ood 1.00
+  seed 0 noise unit_error_0.20: auc 0.618 review 41% mart ALARM | vs random: msp 1.73 ood 0.84 gated 0.86 minrank 1.27 switch 0.84 | corrupted caught: msp 0.00 ood 0.50
+  seed 1 mix 0.0: auc 0.639 review 46% mart OK | vs random: msp 1.57 ood 0.94 gated 1.08 minrank 1.06 switch 1.57 sl 1.80
+  seed 1 mix 0.25: auc 0.678 review 53% mart ALARM | vs random: msp 1.35 ood 2.01 gated 2.26 minrank 1.46 switch 2.01 sl 1.32
+  seed 1 mix 0.5: auc 0.677 review 60% mart ALARM | vs random: msp 1.13 ood 1.62 gated 1.72 minrank 1.13 switch 1.62 sl 0.81
+  seed 1 mix 0.75: auc 0.651 review 67% mart ALARM | vs random: msp 0.75 ood 1.12 gated 1.13 minrank 0.80 switch 1.12 sl 0.58
+  seed 1 mix 1.0: auc 0.594 review 74% mart ALARM | vs random: msp 0.64 ood 0.91 gated 0.89 minrank 0.70 switch 0.91 sl 0.50
+  seed 1 noise unit_error_0.10: auc 0.628 review 42% mart ALARM | vs random: msp 2.14 ood 1.31 gated 1.33 minrank 1.75 switch 1.28 | corrupted caught: msp 0.01 ood 1.00
+  seed 1 noise missing_0.10: auc 0.628 review 48% mart OK | vs random: msp 1.97 ood 1.22 gated 1.33 minrank 1.28 switch 1.97 | corrupted caught: msp 0.18 ood 0.14
+  seed 1 noise gaussian_0.10: auc 0.629 review 45% mart ALARM | vs random: msp 2.14 ood 1.25 gated 1.25 minrank 1.72 switch 1.31 | corrupted caught: msp 0.10 ood 0.62
+  seed 1 noise unit_error_0.05: auc 0.631 review 44% mart ALARM | vs random: msp 2.17 ood 1.08 gated 1.28 minrank 1.78 switch 1.06 | corrupted caught: msp 0.02 ood 1.00
+  seed 1 noise unit_error_0.20: auc 0.606 review 38% mart ALARM | vs random: msp 2.14 ood 1.17 gated 1.67 minrank 1.31 switch 1.17 | corrupted caught: msp 0.02 ood 0.50
+  seed 2 mix 0.0: auc 0.639 review 44% mart OK | vs random: msp 1.16 ood 0.79 gated 0.84 minrank 0.84 switch 1.16 sl 1.11
+  seed 2 mix 0.25: auc 0.703 review 54% mart ALARM | vs random: msp 1.31 ood 1.76 gated 2.04 minrank 1.37 switch 1.75 sl 0.41
+  seed 2 mix 0.5: auc 0.695 review 64% mart ALARM | vs random: msp 1.20 ood 1.46 gated 1.63 minrank 1.18 switch 1.47 sl 0.03
+  seed 2 mix 0.75: auc 0.657 review 74% mart ALARM | vs random: msp 0.98 ood 1.10 gated 1.18 minrank 1.01 switch 1.10 sl 0.04
+  seed 2 mix 1.0: auc 0.589 review 82% mart ALARM | vs random: msp 0.82 ood 0.94 gated 1.06 minrank 0.89 switch 0.97 sl 0.01
+  seed 2 noise unit_error_0.10: auc 0.621 review 42% mart ALARM | vs random: msp 1.36 ood 1.13 gated 1.09 minrank 1.25 switch 1.13 | corrupted caught: msp 0.04 ood 0.99
+  seed 2 noise missing_0.10: auc 0.636 review 46% mart ALARM | vs random: msp 1.25 ood 0.83 gated 0.89 minrank 0.91 switch 0.87 | corrupted caught: msp 0.18 ood 0.17
+  seed 2 noise gaussian_0.10: auc 0.620 review 43% mart ALARM | vs random: msp 1.28 ood 0.94 gated 1.02 minrank 1.13 switch 0.92 | corrupted caught: msp 0.08 ood 0.65
+  seed 2 noise unit_error_0.05: auc 0.625 review 43% mart ALARM | vs random: msp 1.21 ood 0.85 gated 0.87 minrank 1.00 switch 0.83 | corrupted caught: msp 0.01 ood 1.00
+  seed 2 noise unit_error_0.20: auc 0.614 review 39% mart ALARM | vs random: msp 1.32 ood 0.92 gated 0.87 minrank 1.04 switch 0.92 | corrupted caught: msp 0.02 ood 0.50
+wrote results/shift_bench_v2.json in 294.4 s
