@@ -1,4 +1,8 @@
 .venv/
+.venv-tableshift/
 __pycache__/
 *.pyc
+data_fetch/cache/
+data_gated/cache/
+results/expansion/*.log
 .DS_Store

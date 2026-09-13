@@ -71,6 +71,53 @@ with 0/5 false alarms.
 
 Give Me Some Credit and Home Credit are not run here and remain frozen.
 
+## Calibration-trust stage (FUSION 2025 method, credit adaptation)
+
+`reliax_core/calibration_trust.py` turns the calibration behaviour of the
+scorer into subjective-logic opinions per (segment x score-bin) cell and a
+fused global opinion, with the evidence collection revised for a credit PD
+model (rate evidence, mean representatives, quantile or isotonic bins,
+debiasing, segment cells, delayed-outcome re-evaluation). The theory is in
+[CALIBRATION_TRUST.md](CALIBRATION_TRUST.md): the global opinion is a closed
+form of the binned ECE and the sample size (Proposition 1); as the number of
+bins grows it converges to E|Y - q|, a sharpness-penalised quantity, not to
+calibration (Proposition 2); a Hoeffding finite-sample envelope on the
+disbelief (Proposition 3, holds in 500/500 trials); consistency when M grows
+like N^(1/3) (Proposition 4); and the small-sample bias constants of the two
+corrections (Proposition 5). Experiments: `eval/run_calibration_trust.py`
+(about 3 minutes) writes `results/calibration_trust.json`;
+`eval/make_ct_figures.py` draws `results/fig5_ct_msweep.png` and
+`results/fig6_ct_cells.png`. `eval/run_calibration_credit.py` is the held-out
+credit-risk evaluation (claimed vs realised disbelief per scorer, clustering
+and segment; `results/calibration_credit.json`, `results/fig7_ct_credit.png`).
+`eval/run_calibration_decisions.py` and `eval/run_routing_decisions.py` ask the
+decision-level question (bad approvals avoided per 1,000 at what referral rate,
+against random and confidence referral); both are negative for per-decision
+mistake avoidance and are reported in full in section 9c of the note.
+Tests: `tests/test_calibration_trust.py`.
+
+Honest results included: on Taiwan the model is already calibrated (d about
+0.005); on German the opinion ranks raw, temperature-scaled and Venn-Abers
+scorers the way ECE does but every cell is thin and flagged; as a
+per-decision ranking signal the cell belief does not beat plain confidence;
+under the payment-delay shift the reference-fitted opinion claims d = 0.061
+while the realised value is 0.225, which is what the delayed-outcome verdict
+is for.
+
+## Shift benchmark v2 (exploratory) and the pre-registration amendment
+
+`eval/run_shift_bench_v2.py` asks the routing question in three regimes a
+lender can actually meet: a shift in progress (mixed populations), corrupted
+inputs (unit errors, missing fields, noise) and the severe split. Confidence
+wins when nothing has moved; confidence gated by the OOD distance catches
+2.15x random and 1.60x confidence when a quarter of the book has shifted,
+1.61x and 1.38x at half; nothing ranks once the shift is complete, where the
+tripwire fires in every seed. A currency bug on monetary fields is caught
+100% by distance and 1% by confidence; zeroed fields are caught by neither.
+Write-up: [SHIFT_BENCHMARK_V2.md](SHIFT_BENCHMARK_V2.md). The tiers, signal
+and bar go into [PREREGISTRATION_AMENDMENT.md](PREREGISTRATION_AMENDMENT.md)
+(draft) before the confirmatory datasets are opened.
+
 ## Reproduce
 
 ```bash
@@ -89,9 +136,16 @@ Splits, seeds and every threshold are fixed in `eval/run_eval.py`.
   Venn-Abers, test martingale, kNN OOD, PSI, error auditor, SL fusion).
   Methods only: the Reliax product layer is not part of this release.
 - `eval/` - dataset loaders, baselines/metrics, experiment runners, figures.
-- `data/` - the two real UCI datasets, verbatim, with `PROVENANCE.md`.
+- `data/` - tier 1: the two real UCI datasets, verbatim, with `PROVENANCE.md` (CC BY 4.0, redistributed).
+- `data_fetch/` - tier 2: fetch scripts for public sources that are not redistributed here (TableShift, HMDA, ACS).
+- `data_gated/` - tier 3: instructions only for sources whose terms prohibit redistribution (Fannie Mae, Freddie Mac, Kaggle).
+- `docs/` - the evaluation expansion plan; the binding protocol is `PREREGISTRATION_AMENDMENT.md`.
 - `results/` - `results.json`, `shift_bench.json` and the four paper figures.
 
 ## License
 
-Code: Apache-2.0. Datasets: CC BY 4.0 (UCI), see `data/PROVENANCE.md`.
+Code: Apache-2.0, public for every experiment. Data is redistributed where
+the licence permits (UCI, CC BY 4.0, see `data/PROVENANCE.md`), fetched by
+script where the source is public (TableShift, HMDA, ACS; `data_fetch/`), and
+instructions-only where the provider's terms prohibit redistribution (Fannie
+Mae, Freddie Mac, Kaggle; `data_gated/`).
