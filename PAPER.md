@@ -34,7 +34,7 @@ these results do not show: the pre-registered shifted-data benchmark that
 motivates the uncertainty-aware signals remains future work. Section 7
 (v0.3, exploratory, pre-specified before any download) adds coverage parity
 on reported protected class in 4.7 million HMDA 2025 decisions, latency at
-up to a million calibration rows, and seven non-credit TableShift tasks under
+up to a million calibration rows, and eight non-credit TableShift tasks under
 the benchmark's own shifts, including one where the input-space tripwire
 fails and why.
 
@@ -381,9 +381,9 @@ HNSW.
 
 TableShift (Gardner, Popovic and Schmidt, 2023) pairs each of its tasks with a
 distribution shift that the benchmark authors defined. The ten tasks with a
-domain split were declared in Amendment 2; seven were run (five public, two
-Kaggle-hosted) and three need credentialed access (ANES, MIMIC) that was not
-obtained in the plan window. The five tasks without a domain split were
+domain split were declared in Amendment 2; eight were run (five public, two
+Kaggle-hosted, ANES under its research registration) and two need PhysioNet
+credentials (MIMIC) and were not pursued. The five tasks without a domain split were
 excluded before any data was seen. **None of these tasks is credit.** The
 model is a gradient-boosted classifier trained on TableShift's `train`
 split, calibrated on `validation`, tested on `id_test` and on `ood_test`
@@ -399,8 +399,9 @@ split, calibrated on `validation`, tested on `id_test` and on `ood_test`
 | Hospital readmission (health) · admission source | 4,286 | 0.666 / 0.624 | 0.949 | 0.961 | 0.740 / 0.820 | 100% | 27% / 8% | 0.014 / 0.040 |
 | College Scorecard (education) · institution type | 12,320 | 0.954 / 0.871 | 0.946 | 0.848 | 0.015 / 0.039 | 100% | 4% / 1% | 0.003 / 0.020 |
 | ASSISTments (education) · school | 20,000 | 0.938 / 0.583 | 0.950 | 0.590 | 0.027 / 0.010 | 40% | 1% / 0% | 0.007 / 0.308 |
+| ANES voting (civic) · region | 4,693 | 0.840 / 0.804 | 0.946 | 0.928 | 0.313 / 0.341 | 0% | 3% / 0% | 0.014 / 0.063 |
 
-What holds off credit. (1) In-distribution coverage is within 0.01 of target on all seven tasks, on data nobody at Reliax chose (H-A1 met everywhere). (2) Under the benchmark's shift, coverage falls on six of seven tasks, by 0.6 points (food stamps) to 10 points (College Scorecard) to 36 points (ASSISTments); the exception is hospital readmission, where the model's probabilities become less extreme on the new admission source, the sets widen, and coverage overshoots to 0.961 while the REVIEW rate rises from 74% to 82%. (3) The REVIEW rate rises under shift on six of seven tasks: set-size routing self-adjusts when the model becomes less certain. (4) The realised calibration disbelief exceeds the claimed value on all seven tasks under shift, by 1.5x (unemployment) to 44x (ASSISTments), which is what the delayed-outcome verdict is for. (5) The input-space martingale reaches ALARM within 600 rows on every OOD stream of five tasks and on 60% of ACS income's, with 0 to 4% false alarms at WATCH on six tasks.
+What holds off credit. (1) In-distribution coverage is within 0.01 of target on all eight tasks, on data nobody at Reliax chose (H-A1 met everywhere). (2) Under the benchmark's shift, coverage falls on seven of eight tasks, by 0.6 points (food stamps) to 10 points (College Scorecard) to 36 points (ASSISTments); the exception is hospital readmission, where the model's probabilities become less extreme on the new admission source, the sets widen, and coverage overshoots to 0.961 while the REVIEW rate rises from 74% to 82%. (3) The REVIEW rate rises under shift on seven of eight tasks: set-size routing self-adjusts when the model becomes less certain. (4) The realised calibration disbelief exceeds the claimed value on all eight tasks under shift, by 1.5x (unemployment) to 44x (ASSISTments), which is what the delayed-outcome verdict is for. (5) The input-space martingale reaches ALARM within 600 rows on every OOD stream of five tasks, on 60% of ACS income's, 40% of ASSISTments' and none of ANES's, with 0 to 4% false alarms at WATCH on seven tasks. ANES is the mild version of the ASSISTments case: a region shift that moves coverage by two points and the REVIEW rate by three, that the 375-column input space does not register, and that the outcome verdict reads at 4.5x its claim.
 
 **ASSISTments is the case that matters most.** The school shift is the largest in the benchmark (baseline accuracy 0.94 to 0.58), and the shipped envelope misses it on the two label-free channels. Coverage collapses from 0.950 to 0.590; the sets do not widen, because the model is confidently wrong on the new school, so the REVIEW rate falls from 2.7% to 1.0% rather than rising (H-A4 not met); and the input-space martingale, which reads distances in a 26-feature space where the shift is a change of school identity, reaches ALARM in 2 of 5 streams (H-A3 not met; 2% over 40 supplementary streams). The one channel that sees it is the outcome verdict: realised disbelief 0.308 against a claimed 0.007. This is the regime slide 08 describes, confident errors under a shift the inputs do not show, and it is why the certificate carries a delayed outcome verdict and why no label-free signal is presented as sufficient.
 
@@ -426,6 +427,7 @@ confidence (`CALIBRATION_TRUST.md`, section 9c).
 | Hospital readmission (health) | 0.016 | 0.033 | 0.041 | 0.042 | 0.014 | 0.016 | 0.040 |
 | College Scorecard (education) | 0.006 | 0.012 | 0.025 | 0.024 | 0.003 | 0.005 | 0.020 |
 | ASSISTments (education) | 0.006 | 0.011 | 0.309 | 0.311 | 0.007 | 0.005 | 0.308 |
+| ANES voting (civic) | 0.013 | 0.026 | 0.063 | 0.075 | 0.014 | 0.011 | 0.063 |
 
 **Why the readmission task breaks the tripwire, and what it means.** A
 supplementary diagnostic (`eval/expansion/diag_martingale_sparse.py`, not
@@ -442,8 +444,9 @@ leave-one-out distances, which the martingale's guarantee requires.
 | Hospital readmission (health) | 4,286 | 173 / 183 | 0.001 | 22% / 8% | 0.229 | 0% / 0% | 85% / 70% |
 | College Scorecard (education) | 12,320 | 1 / 118 | 0.016 | 8% / 5% | 0.011 | 5% / 2% | 100% / 12% |
 | ASSISTments (education) | 20,000 | 15 / 26 | 0.654 | 0% / 0% | 0.526 | 0% / 0% | 2% / 100% |
+| ANES voting (civic) | 4,693 | 369 / 375 | 0.099 | 5% / 0% | 0.295 | 2% / 2% | 0% / 25% |
 
-On five of seven tasks the shipped detector's p-values are uniform and the
+On six of eight tasks the shipped detector's p-values are uniform and the
 false-alarm rate is at or near Ville's bound. On hospital readmission they are not (KS
 p = 0.001, an excess of small p-values: held-out rows sit about 1.5% farther
 from the calibration cloud than calibration rows sit from each other). The
@@ -464,17 +467,18 @@ will be pre-registered and measured, not slipped in.
 
 ### 7.4 Not run, and what section 7 does not show
 
-Pre-specified and not run in this window: Home Credit, Credit Risk Model
-Stability 2024 (native temporal drift and the weighted-conformal
-recalibration recovery number; gated on a read of the Kaggle competition
-terms, which restrict use to non-commercial purposes); Fannie Mae or Freddie
-Mac loan performance (the 2008 macro cycle and the lag between the input
-verdict and the outcome verdict; gated on the provider's terms, which
-prohibit use in support of external commercial purposes without consent);
-and the TableShift tasks `college_scorecard`, `assistments`, `anes`,
-`mimic_extract_mort_hosp`, `mimic_extract_los_3`, which need a Kaggle token,
-ANES registration or PhysioNet credentials. Each stays in the exploratory
-bucket with its hypotheses fixed in Amendment 2.
+Pre-specified and not yet run: Home Credit, Credit Risk Model Stability
+2024 (native temporal drift and the weighted-conformal recalibration recovery
+number) and Fannie Mae loan performance (the 2008 macro cycle and the lag
+between the input verdict and the outcome verdict). Both were gated on a
+licence read; both gates cleared on 14 September 2026 (the competition terms
+do not prohibit publication in a technical whitepaper; counsel's read is that
+a published evaluation of our own software is not use in support of external
+commercial purposes), and the runs follow in the next revision. Not pursued:
+the TableShift tasks `mimic_extract_mort_hosp` and `mimic_extract_los_3`,
+which need PhysioNet credentials and would add two more health tasks to a
+table that already has two. Each stays in the exploratory bucket with its
+hypotheses fixed in Amendment 2.
 
 Section 7 does not show anything about a lender's book, about default
 outcomes outside the two UCI datasets, or about the triage rank, whose bar

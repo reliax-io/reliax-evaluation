@@ -34,10 +34,27 @@ TASKS = [
 ]
 
 
+# ANES: TableShift hard-codes the 16 Sep 2022 release of the Time Series
+# Cumulative Data File. The release used here is the one on disk; the loader's
+# resource path is pointed at it. Variables TableShift reads (VCF0004, VCF0112,
+# VCF0702, VCF0901b) are stable across releases. Recorded in the manifest.
+def _anes_release():
+    hits = sorted(CACHE.glob("anes_timeseries_cdf_csv_*/anes_timeseries_cdf_csv_*.csv"))
+    return hits[-1] if hits else None
+
+
 def export(task: str) -> dict:
     from tableshift import get_dataset
     t0 = time.time()
-    dset = get_dataset(task, cache_dir=str(CACHE))
+    kwargs = {}
+    if task == "anes":
+        csv = _anes_release()
+        if csv is not None:
+            import tableshift.core.data_source as ds
+            ds.ANESDataSource.__init__.__defaults__ = tuple(
+                (str(csv.relative_to(CACHE)),) if d == ("anes_timeseries_cdf_csv_20220916/anes_timeseries_cdf_csv_20220916.csv",) else d
+                for d in ds.ANESDataSource.__init__.__defaults__)
+    dset = get_dataset(task, cache_dir=str(CACHE), **kwargs)
     arrays, meta = {}, {"task": task, "splits": {}}
     columns = None
     for split in SPLITS:
@@ -63,6 +80,8 @@ def export(task: str) -> dict:
     meta["float_columns"] = [c for c, f in zip(columns, is_float) if f]
     meta["n_features"] = len(columns)
     meta["fetched"] = time.strftime("%Y-%m-%d")
+    if task == "anes" and _anes_release() is not None:
+        meta["release_file"] = _anes_release().name
     meta["seconds"] = round(time.time() - t0)
     np.savez_compressed(CACHE / f"{task}.npz", **arrays)
     (CACHE / f"{task}.meta.json").write_text(json.dumps(meta, indent=1))

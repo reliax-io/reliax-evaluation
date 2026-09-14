@@ -16,12 +16,13 @@ E = BASE / "results" / "expansion"
 R = json.load(open(E / "tableshift.json"))
 D = json.load(open(E / "martingale_diag.json"))
 ORDER = ["acsincome", "acsfoodstamps", "acsunemployment", "brfss_diabetes",
-         "diabetes_readmission", "college_scorecard", "assistments"]
+         "diabetes_readmission", "college_scorecard", "assistments", "anes"]
 LABEL = {"acsincome": "ACS income (finance) · region", "acsfoodstamps": "ACS food stamps (public policy) · region",
          "acsunemployment": "ACS unemployment (labour) · education", "brfss_diabetes": "BRFSS diabetes (health) · race",
          "diabetes_readmission": "Hospital readmission (health) · admission source",
          "college_scorecard": "College Scorecard (education) · institution type",
-         "assistments": "ASSISTments (education) · school"}
+         "assistments": "ASSISTments (education) · school",
+         "anes": "ANES voting (civic) · region"}
 TASKS = [t for t in ORDER if t in R["tasks"] and R["tasks"][t].get("seeds_ok")]
 
 
