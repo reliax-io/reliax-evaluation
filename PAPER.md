@@ -241,28 +241,38 @@ inside a 40 ms gate budget.
 
 **What this evaluation shows.** The proven components behave as proven, on real
 data: coverage at target, zero drift false alarms with detection on real
-subpopulation shift, calibration that is never worse and sometimes much better
-than the standard baseline, an auditor that improves capture of exactly the
+subpopulation shift, calibration that is sometimes much better
+than the standard baseline (and, section 7.3 shows, no better on large
+calibrated scorers), an auditor that improves capture of exactly the
 errors that cost money, and a subjective-logic fusion that beats the ad-hoc
 blend it replaced and matches confidence-based ranking on the larger dataset. The full stack runs at single-digit millisecond median
-latency.
+latency at this calibration size (section 7.2 measures it at a hundred and
+a thousand times that).
 
 **What it does not show.** (1) No shifted-data selective-prediction results:
 the motivating regime of the uncertainty-aware signals (v1 composite, SL
 fusion) is untested here; on i.i.d. data the v1 blend trails plain confidence
-and SL fusion roughly matches it on Taiwan while trailing on German. (2) The datasets are one-shot cross-sections; real
+and SL fusion roughly matches it on Taiwan while trailing on German. (2) The datasets of sections 3 to 5 are one-shot cross-sections; real
 credit portfolios have delayed labels and temporal drift that resampling cannot
-fully emulate. (3) German credit is small and its sex attribute conflates
+fully emulate (section 7.4 measures both on 92 weeks of Home Credit 2024
+decisions). (3) German credit is small and its sex attribute conflates
 marital status; its segment results are indicative only. (4) No comparison yet
 against deep-ensemble or MC-dropout baselines. (5) These are the vendor's own
-measurements; the planned benchmark is pre-registered and code-released
-precisely so that this stops being a caveat.
+measurements; the benchmark is pre-registered and code-released
+precisely so that this stops being a caveat. (6) The input-space drift
+tripwire, valid on the dense credit features here, fails as shipped on
+sparse or heavy-tailed inputs (sections 7.3 and 7.4).
 
-**Next steps.** Pre-register the shifted-data benchmark (frozen shift splits on
-Taiwan, Give Me Some Credit and Home Credit; H0: wrong-approval capture at 10%
-referral is less than 2x the T-scaled baseline; abandon threshold stated in
-advance), add ensemble baselines, and evaluate delayed-label coverage
-backtesting on a portfolio with real timestamps.
+**Next steps.** The shifted-data benchmark is pre-registered (Amendment 1,
+with the corrected 1.5x bar; Amendment 2 adds the moderate and corruption
+tiers and the exploratory expansion of section 7); the confirmatory sets
+remain sealed until the bar is run. Delayed-label coverage on a portfolio with
+real timestamps is now section 7.4. Still open: ensemble baselines, the three
+`reliax_core` changes surfaced by section 7 (a precomputed Venn-Abers, a
+distance that is exchangeable by construction on sparse inputs, and a
+tripwire that separates novel rows from a moved population), each to be
+pre-registered with an equivalence test before its number is reported, and a
+shadow replay on a lender's book.
 
 ## 6. Reproducibility
 
