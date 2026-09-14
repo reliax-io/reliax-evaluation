@@ -34,7 +34,7 @@ these results do not show: the pre-registered shifted-data benchmark that
 motivates the uncertainty-aware signals remains future work. Section 7
 (v0.3, exploratory, pre-specified before any download) adds coverage parity
 on reported protected class in 4.7 million HMDA 2025 decisions, latency at
-up to a million calibration rows, and five non-credit TableShift tasks under
+up to a million calibration rows, and seven non-credit TableShift tasks under
 the benchmark's own shifts, including one where the input-space tripwire
 fails and why.
 
@@ -381,9 +381,9 @@ HNSW.
 
 TableShift (Gardner, Popovic and Schmidt, 2023) pairs each of its tasks with a
 distribution shift that the benchmark authors defined. The ten tasks with a
-domain split were declared in Amendment 2; five are public and were run, two
-are Kaggle-hosted and three need credentialed access (ANES, MIMIC) and were
-not obtained in the plan window. The five tasks without a domain split were
+domain split were declared in Amendment 2; seven were run (five public, two
+Kaggle-hosted) and three need credentialed access (ANES, MIMIC) that was not
+obtained in the plan window. The five tasks without a domain split were
 excluded before any data was seen. **None of these tasks is credit.** The
 model is a gradient-boosted classifier trained on TableShift's `train`
 split, calibrated on `validation`, tested on `id_test` and on `ood_test`
@@ -397,32 +397,35 @@ split, calibrated on `validation`, tested on `id_test` and on `ood_test`
 | ACS unemployment (labour) · education | 20,000 | 0.972 / 0.962 | 0.948 | 0.926 | 0.040 / 0.059 | 100% | 2% / 0% | 0.001 / 0.002 |
 | BRFSS diabetes (health) · race | 20,000 | 0.876 / 0.834 | 0.950 | 0.931 | 0.217 / 0.246 | 100% | 2% / 2% | 0.007 / 0.038 |
 | Hospital readmission (health) · admission source | 4,286 | 0.666 / 0.624 | 0.949 | 0.961 | 0.740 / 0.820 | 100% | 27% / 8% | 0.014 / 0.040 |
+| College Scorecard (education) · institution type | 12,320 | 0.954 / 0.871 | 0.946 | 0.848 | 0.015 / 0.039 | 100% | 4% / 1% | 0.003 / 0.020 |
+| ASSISTments (education) · school | 20,000 | 0.938 / 0.583 | 0.950 | 0.590 | 0.027 / 0.010 | 40% | 1% / 0% | 0.007 / 0.308 |
 
-Coverage target 0.95; five seeds per task (std at most 0.003 on every
-coverage cell). The martingale streams are 600 rows; ALARM is wealth 100,
-WATCH is 20, so Ville's bound is 1% and 5%.
+What holds off credit. (1) In-distribution coverage is within 0.01 of target on all seven tasks, on data nobody at Reliax chose (H-A1 met everywhere). (2) Under the benchmark's shift, coverage falls on six of seven tasks, by 0.6 points (food stamps) to 10 points (College Scorecard) to 36 points (ASSISTments); the exception is hospital readmission, where the model's probabilities become less extreme on the new admission source, the sets widen, and coverage overshoots to 0.961 while the REVIEW rate rises from 74% to 82%. (3) The REVIEW rate rises under shift on six of seven tasks: set-size routing self-adjusts when the model becomes less certain. (4) The realised calibration disbelief exceeds the claimed value on all seven tasks under shift, by 1.5x (unemployment) to 44x (ASSISTments), which is what the delayed-outcome verdict is for. (5) The input-space martingale reaches ALARM within 600 rows on every OOD stream of five tasks and on 60% of ACS income's, with 0 to 4% false alarms at WATCH on six tasks.
 
-What holds off credit. (1) In-distribution coverage is within 0.01 of target
-on all five tasks, on data nobody at Reliax chose (H-A1 met everywhere).
-(2) Under the benchmark's shift, coverage falls on four of five tasks, by
-0.6 to 2.2 points; the exception is hospital readmission, where the model's
-probabilities become less extreme on the new admission source, the sets
-widen, and coverage overshoots to 0.961 while the REVIEW rate rises from 74%
-to 82%. (3) The REVIEW rate rises under shift on all five tasks: set-size
-routing self-adjusts. (4) The realised calibration disbelief exceeds the
-claimed value on all five tasks under shift, by up to 8x (ACS income), which
-is what the delayed-outcome verdict is for. (5) The input-space martingale
-reaches ALARM within 600 rows on every OOD stream of four tasks and on 60% of
-ACS income's (the rest at WATCH), with 0 to 2% false alarms at WATCH on four
-tasks.
+**ASSISTments is the case that matters most.** The school shift is the largest in the benchmark (baseline accuracy 0.94 to 0.58), and the shipped envelope misses it on the two label-free channels. Coverage collapses from 0.950 to 0.590; the sets do not widen, because the model is confidently wrong on the new school, so the REVIEW rate falls from 2.7% to 1.0% rather than rising (H-A4 not met); and the input-space martingale, which reads distances in a 26-feature space where the shift is a change of school identity, reaches ALARM in 2 of 5 streams (H-A3 not met; 2% over 40 supplementary streams). The one channel that sees it is the outcome verdict: realised disbelief 0.308 against a claimed 0.007. This is the regime slide 08 describes, confident errors under a shift the inputs do not show, and it is why the certificate carries a delayed outcome verdict and why no label-free signal is presented as sufficient.
 
-Two pre-specifications aged badly and are reported as such. The H-A2 gate
-("shift present" = TableShift baseline accuracy drop of 5 points or more)
-selected exactly the one task where coverage did not fall; the four tasks it
-excluded all show the drop. The gate was a poor proxy for coverage loss, and
-the per-task numbers above are what count. And on hospital readmission the
-false-alarm rate is 60% on the pre-specified five streams and 27% WATCH, 8%
-ALARM on the 100 supplementary streams, against 5% and 1%.
+**What the calibration stage is worth here.** The claimed-vs-realised
+disbelief behaved as an instrument on every task: in distribution the two
+agree to within 0.002; under shift the realised value exceeds the claim on
+every seed of every task. The Venn-Abers bracket did not: on these large,
+already-calibrated gradient-boosted models its ECE is equal or worse than the
+raw model's in distribution and equal under shift. The bracket's value is the
+small, miscalibrated regime of section 4.4 (German credit, ECE 0.186 to
+0.065); on a calibrated scorer it is a cost, and at scale (7.2) a large one.
+The product conclusion is that the calibration opinion is the outcome-drift
+verdict and always runs, and the bracket is an option switched on where the
+scorer needs it; as a per-decision ranking signal neither beats plain
+confidence (`CALIBRATION_TRUST.md`, section 9c).
+
+| task | raw ECE ID | Venn-Abers ECE ID | raw ECE OOD | Venn-Abers ECE OOD | disbelief claimed | realised ID | realised OOD |
+|---|---|---|---|---|---|---|---|
+| ACS income (finance) | 0.009 | 0.021 | 0.063 | 0.062 | 0.008 | 0.009 | 0.063 |
+| ACS food stamps (public policy) | 0.008 | 0.018 | 0.015 | 0.028 | 0.007 | 0.007 | 0.015 |
+| ACS unemployment (labour) | 0.003 | 0.007 | 0.004 | 0.009 | 0.001 | 0.001 | 0.002 |
+| BRFSS diabetes (health) | 0.007 | 0.017 | 0.038 | 0.037 | 0.007 | 0.007 | 0.038 |
+| Hospital readmission (health) | 0.016 | 0.033 | 0.041 | 0.042 | 0.014 | 0.016 | 0.040 |
+| College Scorecard (education) | 0.006 | 0.012 | 0.025 | 0.024 | 0.003 | 0.005 | 0.020 |
+| ASSISTments (education) | 0.006 | 0.011 | 0.309 | 0.311 | 0.007 | 0.005 | 0.308 |
 
 **Why the readmission task breaks the tripwire, and what it means.** A
 supplementary diagnostic (`eval/expansion/diag_martingale_sparse.py`, not
@@ -437,9 +440,11 @@ leave-one-out distances, which the martingale's guarantee requires.
 | ACS unemployment (labour) | 20,000 | 220 / 223 | 0.262 | 0% / 0% | 0.281 | 2% / 0% | 100% / 100% |
 | BRFSS diabetes (health) | 20,000 | 137 / 142 | 0.135 | 0% / 0% | 0.938 | 8% / 2% | 100% / 98% |
 | Hospital readmission (health) | 4,286 | 173 / 183 | 0.001 | 22% / 8% | 0.229 | 0% / 0% | 85% / 70% |
+| College Scorecard (education) | 12,320 | 1 / 118 | 0.016 | 8% / 5% | 0.011 | 5% / 2% | 100% / 12% |
+| ASSISTments (education) | 20,000 | 15 / 26 | 0.654 | 0% / 0% | 0.526 | 0% / 0% | 2% / 100% |
 
-On four tasks the shipped detector's p-values are uniform and the false-alarm
-rate is at or under Ville's bound. On hospital readmission they are not (KS
+On five of seven tasks the shipped detector's p-values are uniform and the
+false-alarm rate is at or near Ville's bound. On hospital readmission they are not (KS
 p = 0.001, an excess of small p-values: held-out rows sit about 1.5% farther
 from the calibration cloud than calibration rows sit from each other). The
 cause is the per-column standardisation: with 4,286 calibration rows and 183
@@ -449,12 +454,11 @@ distances. Dropping the standardisation restores uniformity (KS p = 0.23)
 and 0% false alarms on this task, but costs detection there (OOD ALARM 85%
 to 70%) and much more on ACS food stamps (100% to 22%), where the scaled
 distance is what makes the region shift visible. Fitting the scaler on the
-training split instead does not fix it (KS p = 0.015). The credit datasets of
-sections 4 and 5 have 23 dense numeric features and 7,500 calibration rows
-and do not show this. The conclusion is a stated limitation: the shipped
+training split instead does not fix it (KS p = 0.015). College Scorecard sits at the edge (KS p = 0.016, 8% / 5% false alarms on 40 streams); there, scoring a held-out calibration half the way test rows are scored restores uniformity (KS p = 0.23). On ASSISTments the scaler does the opposite damage: with it the shipped detector sees the school shift in 2% of streams, without it in 100%, because the shift lives in a few identity columns the standardisation flattens. The credit datasets of sections 4 and 5 have 23 dense numeric features and 7,500 calibration rows and do not show any of this. The conclusion is a stated limitation: the shipped
 input-space tripwire is valid on dense numeric inputs and on sparse
-categorical inputs with a large calibration set, and is not valid as shipped
-on sparse categorical inputs with a small one. A distance that is
+categorical inputs with a large calibration set; it is not valid as shipped
+on sparse categorical inputs with a small one, and its per-column
+standardisation can hide a shift carried by a few categorical columns. A distance that is
 exchangeable by construction on such inputs is a change to `reliax_core`; it
 will be pre-registered and measured, not slipped in.
 

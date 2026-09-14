@@ -305,5 +305,125 @@
     }
    }
   }
+ },
+ "college_scorecard": {
+  "n_features": 118,
+  "n_binary_features": 1,
+  "n_cal": 12320,
+  "n_id_test": 12320,
+  "variants": {
+   "frozen": {
+    "ks_p_uniform": 0.016241230792610112,
+    "mean_p": 0.4959420509406443,
+    "p_below_0.05": 0.04875,
+    "id_streams": {
+     "watch": 0.075,
+     "alarm": 0.05
+    },
+    "ood_streams": {
+     "watch": 1.0,
+     "alarm": 1.0
+    }
+   },
+   "scaler_train": {
+    "ks_p_uniform": 0.017683596077974473,
+    "mean_p": 0.4960425703790016,
+    "p_below_0.05": 0.048,
+    "id_streams": {
+     "watch": 0.075,
+     "alarm": 0.05
+    },
+    "ood_streams": {
+     "watch": 1.0,
+     "alarm": 1.0
+    }
+   },
+   "no_scaler": {
+    "ks_p_uniform": 0.010846890801141465,
+    "mean_p": 0.49030797091467243,
+    "p_below_0.05": 0.04575,
+    "id_streams": {
+     "watch": 0.05,
+     "alarm": 0.025
+    },
+    "ood_streams": {
+     "watch": 0.325,
+     "alarm": 0.125
+    }
+   },
+   "split_half": {
+    "ks_p_uniform": 0.22876430341881582,
+    "mean_p": 0.502916432229717,
+    "p_below_0.05": 0.04525,
+    "id_streams": {
+     "watch": 0.075,
+     "alarm": 0.05
+    },
+    "ood_streams": {
+     "watch": 1.0,
+     "alarm": 1.0
+    }
+   }
+  }
+ },
+ "assistments": {
+  "n_features": 26,
+  "n_binary_features": 15,
+  "n_cal": 20000,
+  "n_id_test": 20000,
+  "variants": {
+   "frozen": {
+    "ks_p_uniform": 0.6542065196917306,
+    "mean_p": 0.4989909134363121,
+    "p_below_0.05": 0.056,
+    "id_streams": {
+     "watch": 0.0,
+     "alarm": 0.0
+    },
+    "ood_streams": {
+     "watch": 0.05,
+     "alarm": 0.025
+    }
+   },
+   "scaler_train": {
+    "ks_p_uniform": 0.46176061647726063,
+    "mean_p": 0.4988694320103834,
+    "p_below_0.05": 0.0565,
+    "id_streams": {
+     "watch": 0.0,
+     "alarm": 0.0
+    },
+    "ood_streams": {
+     "watch": 0.25,
+     "alarm": 0.05
+    }
+   },
+   "no_scaler": {
+    "ks_p_uniform": 0.5260393950525339,
+    "mean_p": 0.5017101149762351,
+    "p_below_0.05": 0.052,
+    "id_streams": {
+     "watch": 0.0,
+     "alarm": 0.0
+    },
+    "ood_streams": {
+     "watch": 1.0,
+     "alarm": 1.0
+    }
+   },
+   "split_half": {
+    "ks_p_uniform": 0.27084036280986634,
+    "mean_p": 0.5014827026936985,
+    "p_below_0.05": 0.05825,
+    "id_streams": {
+     "watch": 0.0,
+     "alarm": 0.0
+    },
+    "ood_streams": {
+     "watch": 0.975,
+     "alarm": 0.8
+    }
+   }
+  }
  }
 }
