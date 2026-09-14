@@ -465,16 +465,93 @@ standardisation can hide a shift carried by a few categorical columns. A distanc
 exchangeable by construction on such inputs is a change to `reliax_core`; it
 will be pre-registered and measured, not slipped in.
 
-### 7.4 Not run, and what section 7 does not show
+### 7.4 Native temporal drift and the repair path (Home Credit 2024)
 
-Pre-specified and not yet run: Home Credit, Credit Risk Model Stability
-2024 (native temporal drift and the weighted-conformal recalibration recovery
-number) and Fannie Mae loan performance (the 2008 macro cycle and the lag
-between the input verdict and the outcome verdict). Both were gated on a
-licence read; both gates cleared on 14 September 2026 (the competition terms
-do not prohibit publication in a technical whitepaper; counsel's read is that
-a published evaluation of our own software is not use in support of external
-commercial purposes), and the runs follow in the next revision. Not pursued:
+Source: the Kaggle competition "Home Credit, Credit Risk Model Stability"
+(2024), not the sealed 2018 release; licence gate cleared 14 September 2026;
+data not redistributed. 1,526,659 decisions over 92 weeks (January 2019 to
+October 2020), 3.1% target rate; base table plus the depth-0 static tables
+with the competition's starter preprocessing and nothing else; LightGBM fixed
+in advance. Weeks 0 to 35 train the model, weeks 36 to 45
+calibrate it, and weeks 46 to 91 are evaluated in calendar order; five seeds
+(evaluation AUC 0.767). Coverage over the whole evaluation period is 0.9524.
+
+| month | n | coverage | realised disbelief |
+|---|---|---|---|
+| 201911 | 48,417 | 0.9534 | 0.009 |
+| 201912 | 126,011 | 0.9533 | 0.008 |
+| 202001 | 86,750 | 0.9449 | 0.012 |
+| 202002 | 75,183 | 0.9359 | 0.017 |
+| 202003 | 60,748 | 0.9362 | 0.015 |
+| 202004 | 8,289 | 0.9664 | 0.008 |
+| 202005 | 28,725 | 0.9645 | 0.005 |
+| 202006 | 45,962 | 0.9609 | 0.004 |
+| 202007 | 28,912 | 0.9635 | 0.005 |
+| 202008 | 50,831 | 0.9678 | 0.005 |
+| 202009 | 61,905 | 0.9637 | 0.006 |
+| 202010 | 8,592 | 0.9609 | 0.007 |
+
+Claimed disbelief on the calibration window: 0.010. Coverage holds at
+0.953 through December 2019, falls to 0.945 in January and **0.936 in February
+and March 2020** while the realised disbelief doubles, and then overshoots to
+0.96 and above from April 2020, when the applicant pool changes again and the
+model's errors become rarer. H-D1 (a month below 0.94) is met; this is the
+native, dated drift the dataset was chosen for.
+
+**The input verdict.** The martingale reaches WATCH and ALARM in the first
+evaluation week on every seed, after about 200 rows. That is not the
+February breach announced early; it is a property of the shipped design that
+section 7.3 already met from the other side. The mixture includes betting
+exponents as small as 0.05, so a single row that lies farther from the
+calibration cloud than any calibration row multiplies the wealth by about
+30, and two such rows are an ALARM. Week 46 has 1.6% of rows below p = 0.01
+against 1% under exchangeability, driven by heavy-tailed count columns
+(`clientscnt3m_3712950L` and its siblings); later weeks add columns that are
+empty during calibration and populated afterwards (`applicationcnt_361L`
+from week 52, `responsedate_4917613D` from week 70), which the per-column
+standardisation turns into rows thousands of standard deviations away. Each
+of these is a real change in the inputs, so the verdict is correct in the
+narrow sense; but it reads "novel rows exist", not "the population moved",
+and on inputs like these it will fire in the first week of any deployment.
+H-D2 (WATCH before the first bad month) is therefore met vacuously and is
+not claimed. A tripwire that separates the two readings is the third
+`reliax_core` change queued for Amendment 3.
+
+**The repair path.** Pre-registered trigger: the first ALARM. It fires at
+week 46, where coverage is 0.953; the weighted-conformal quantile moves it to
+0.955. There is no gap to recover and H-D3 cannot be evaluated at that
+trigger; reported as such. The supplementary trigger, added after that run
+and labelled, is the outcome verdict: the first week whose trailing 4-week
+coverage falls below 0.94, week 58 (February 2020) on every seed. Over the 8
+weeks after it:
+
+| arm | coverage | REVIEW rate | gap recovered |
+|---|---|---|---|
+| no repair | 0.9363 | 0.024 | |
+| weighted conformal, label-free (Tibshirani et al. 2019), weights from a domain classifier between the calibration window and the trailing 4 weeks | 0.9394 | 0.020 | 0.22 to 0.24 |
+| recalibration on the trailing 4 weeks' own outcomes (what a recalibration ticket does once labels land) | 0.9492 | 0.007 | 0.91 to 0.96 |
+
+The label-free repair recovers about a quarter of the gap; the
+early-2020 deterioration is mostly not a covariate shift, so re-weighting
+the old calibration rows cannot reach it. Recalibrating on four weeks of
+landed outcomes recovers 94% of it and brings coverage back to 0.949. That
+is the measured version of the repair path slide 16 describes: the weighted
+step is a stopgap, outcomes are the repair, and the delay before outcomes
+land is the cost, which is why the certificate carries a delayed verdict and
+why the credit deployment starts on 30/60/90-day delinquency proxies rather
+than waiting for defaults. In this low-base-rate regime (3.1% positives)
+the REVIEW route is the empty set, "the model says risky and the
+calibration data cannot vouch for it", which is why the REVIEW rate falls
+as the quantile is recalibrated upward.
+
+### 7.5 Not run, and what section 7 does not show
+
+Pre-specified and not yet run: Fannie Mae loan performance (the 2008
+macro cycle and the lag between the input verdict and the outcome verdict).
+Its licence gate cleared on 14 September 2026 (counsel's read is that a
+published evaluation of our own software is not use in support of external
+commercial purposes); the files are being obtained and the run follows in
+the next revision. Not pursued:
 the TableShift tasks `mimic_extract_mort_hosp` and `mimic_extract_los_3`,
 which need PhysioNet credentials and would add two more health tasks to a
 table that already has two. Each stays in the exploratory bucket with its
