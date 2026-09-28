@@ -14,20 +14,18 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 
-# RCWARM: template palette
-plt.rcParams.update({"font.family": "monospace", "figure.facecolor": "#ffffff", "axes.facecolor": "#ffffff",
-                     "savefig.facecolor": "#ffffff", "axes.edgecolor": "#93a7b5", "text.color": "#123f52",
-                     "axes.labelcolor": "#123f52", "xtick.color": "#123f52", "ytick.color": "#123f52",
-                     "grid.color": "#e4edf3"})
+# Design system revision 2 palette, from figure_style.
+from figure_style import INK, ALLOW, REVIEW, SIGNATURE_MAP, SUBJECT, COMPARISON, SURFACE, apply  # noqa: E402
+apply(font_size=10)
 
 BASE = pathlib.Path(__file__).resolve().parent.parent
 R = json.load(open(BASE / "results" / "calibration_trust.json"))
 OUT = BASE / "results"
 STYLE = {
-    "chapter (fixed bins, midpoint)": dict(color="#a8443a", ls="-"),
-    "quantile bins, mean rep": dict(color="#3f8ab0", ls="-"),
-    "quantile, mean, floor-debiased": dict(color="#2f7f86", ls="--"),
-    "quantile, mean, l2-debiased": dict(color="#c8862c", ls="--"),
+    "chapter (fixed bins, midpoint)": dict(color=COMPARISON, ls="-"),
+    "quantile bins, mean rep": dict(color=SUBJECT, ls="-"),
+    "quantile, mean, floor-debiased": dict(color=ALLOW, ls="--"),
+    "quantile, mean, l2-debiased": dict(color=REVIEW, ls="--"),
 }
 
 
@@ -43,8 +41,8 @@ def fig_msweep():
             std = np.array([series[str(m)]["std"] for m in ms])
             ax.plot(ms, mean, label=est, **STYLE[est])
             ax.fill_between(ms, mean - std, mean + std, color=STYLE[est]["color"], alpha=0.12)
-        ax.axhline(reg["ece_true"], color="k", lw=1, ls=":", label="true ECE (L1)")
-        ax.axhline(reg["l1_limit"], color="k", lw=1, ls="-.", label="M -> inf limit  E|Y - q|")
+        ax.axhline(reg["ece_true"], color=INK, lw=1, ls=":", label="true ECE (L1)")
+        ax.axhline(reg["l1_limit"], color=INK, lw=1, ls="-.", label="M -> inf limit  E|Y - q|")
         ax.set_xscale("log")
         ax.set_title(f"{name} (T = {reg['T']}), N = {int(N):,}")
         ax.set_xlabel("number of bins M")
@@ -73,14 +71,14 @@ def fig_cells():
         n[gi, int(i)] = c["n"]
         thin[gi, int(i)] = c["insufficient_evidence"]
     fig, ax = plt.subplots(figsize=(11, 3.4))
-    im = ax.imshow(d, cmap="Blues", aspect="auto", vmin=0, vmax=max(np.nanmax(d), 0.05))
+    im = ax.imshow(d, cmap=SIGNATURE_MAP, aspect="auto", vmin=0, vmax=max(np.nanmax(d), 0.05))
     for gi in range(len(groups)):
         for i in range(M):
             if not np.isnan(d[gi, i]):
                 ax.text(i, gi, f"{d[gi, i]:.2f}\nn={int(n[gi, i])}", ha="center", va="center", fontsize=7,
-                        color="white" if d[gi, i] > 0.6 * np.nanmax(d) else "black")
+                        color=SURFACE if d[gi, i] > 0.6 * np.nanmax(d) else INK)
             if thin[gi, i]:
-                ax.add_patch(plt.Rectangle((i - .5, gi - .5), 1, 1, fill=False, ec="#b08a3a", lw=2))
+                ax.add_patch(plt.Rectangle((i - .5, gi - .5), 1, 1, fill=False, ec=REVIEW, lw=2))
     ax.set_yticks(range(len(groups)))
     ax.set_yticklabels([g if g != "__all__" else "all (marginal)" for g in groups])
     ax.set_xticks(range(M))

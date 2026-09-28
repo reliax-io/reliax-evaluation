@@ -7,17 +7,15 @@ matplotlib.use("Agg")
 import matplotlib.pyplot as plt  # noqa: E402
 import numpy as np  # noqa: E402
 
-# RCWARM: template palette
-plt.rcParams.update({"font.family": "monospace", "figure.facecolor": "#ffffff", "axes.facecolor": "#ffffff",
-                     "savefig.facecolor": "#ffffff", "axes.edgecolor": "#93a7b5", "text.color": "#123f52",
-                     "axes.labelcolor": "#123f52", "xtick.color": "#123f52", "ytick.color": "#123f52",
-                     "grid.color": "#e4edf3"})
+# Design system revision 2 palette, from figure_style.
+from figure_style import (INK, INK_MUTED, QUIET, ALLOW, REVIEW, SUBJECT, COMPARISON, apply)  # noqa: E402
+apply(font_size=10)
 
 BASE = pathlib.Path(__file__).resolve().parent.parent
 R = json.load(open(BASE / "results" / "shift_bench_v2.json"))
-SIG = {"msp": ("model confidence", "#a8443a", "-"), "ood_knn": ("OOD distance (kNN)", "#3f8ab0", "-"),
-       "gated": ("confidence gated by OOD", "#123f52", "--"), "regime_switch": ("regime switch (martingale)", "#2f7f86", "-"),
-       "min_rank": ("rank fusion", "#c8862c", ":"), "sl_fusion": ("SL fusion (v0.2)", "#93a7b5", ":")}
+SIG = {"msp": ("model confidence", COMPARISON, "-"), "ood_knn": ("OOD distance (kNN)", INK, "--"),
+       "gated": ("confidence gated by OOD", SUBJECT, "-"), "regime_switch": ("regime switch (martingale)", ALLOW, "-"),
+       "min_rank": ("rank fusion", REVIEW, ":"), "sl_fusion": ("SL fusion (v0.2)", QUIET, ":")}
 
 
 def main():
@@ -28,10 +26,10 @@ def main():
         m = [R["mix"][str(l)]["signals"][name]["vs_random"]["mean"] for l in lams]
         s = [R["mix"][str(l)]["signals"][name]["vs_random"]["std"] for l in lams]
         ax.errorbar(lams, m, yerr=s, label=label, color=c, ls=ls, marker="o", ms=4, capsize=2)
-    ax.axhline(1.0, color="k", lw=1, ls=":", label="random referral")
+    ax.axhline(1.0, color=INK, lw=1, ls=":", label="random referral")
     auc = [R["mix"][str(l)]["auc"]["mean"] for l in lams]
     for l, a in zip(lams, auc):
-        ax.annotate(f"AUC {a:.2f}", (l, 0.3), ha="center", fontsize=7.5, color="#4a6472")
+        ax.annotate(f"AUC {a:.2f}", (l, 0.3), ha="center", fontsize=7.5, color=INK_MUTED)
     ax.set_xlabel("share of the live population that has shifted (delayed payers)")
     ax.set_ylabel("bad approvals caught at 10% referral, vs random")
     ax.set_title("Mixed populations: who should route to REVIEW?", fontsize=10)
@@ -44,7 +42,7 @@ def main():
     labels = ["unit error 5%", "unit error 10%", "unit error 20%", "missing fields 10%", "noise 10%"]
     x = np.arange(len(keys))
     w = 0.38
-    for i, (name, lab, c) in enumerate((("msp", "model confidence", "#a8443a"), ("ood_knn", "OOD distance (kNN)", "#3f8ab0"))):
+    for i, (name, lab, c) in enumerate((("msp", "model confidence", COMPARISON), ("ood_knn", "OOD distance (kNN)", INK))):
         m = [R["noise"][k]["signals"][name]["corrupted_caught"]["mean"] for k in keys]
         s = [R["noise"][k]["signals"][name]["corrupted_caught"]["std"] for k in keys]
         ax.bar(x + (i - .5) * w, m, w, yerr=s, label=lab, color=c, capsize=2)

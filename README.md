@@ -73,8 +73,8 @@ Give Me Some Credit and Home Credit are not run here and remain frozen.
 
 ## Calibration-trust stage (FUSION 2025 method, credit adaptation)
 
-`reliax_core/calibration_trust.py` turns the calibration behaviour of the
-scorer into subjective-logic opinions per (segment x score-bin) cell and a
+`reliax_core.calibration_trust` (in [reliax-core](https://github.com/reliax-io/reliax-core)) turns the
+calibration behaviour of the scorer into subjective-logic opinions per (segment x score-bin) cell and a
 fused global opinion, with the evidence collection revised for a credit PD
 model (rate evidence, mean representatives, quantile or isotonic bins,
 debiasing, segment cells, delayed-outcome re-evaluation). The theory is in
@@ -94,7 +94,7 @@ and segment; `results/calibration_credit.json`, `results/fig7_ct_credit.png`).
 decision-level question (bad approvals avoided per 1,000 at what referral rate,
 against random and confidence referral); both are negative for per-decision
 mistake avoidance and are reported in full in section 9c of the note.
-Tests: `tests/test_calibration_trust.py`.
+Tests: `tests/test_calibration_trust.py` in reliax-core.
 
 Honest results included: on Taiwan the model is already calibrated (d about
 0.005); on German the opinion ranks raw, temperature-scaled and Venn-Abers
@@ -121,7 +121,7 @@ and bar go into [PREREGISTRATION_AMENDMENT.md](PREREGISTRATION_AMENDMENT.md)
 ## Exploratory expansion (Amendment 2, September 2026)
 
 Pre-specified in `PREREGISTRATION_AMENDMENT.md` (Amendment 2) before any
-download; nothing here touches the confirmatory sets or the triage-rank bar.
+download; nothing here touches the confirmatory sets or the criticality-score bar (the "triage rank" of the pre-registration).
 Runners in `eval/expansion/`, results in `results/expansion/`, write-up in
 PAPER.md section 7.
 
@@ -140,20 +140,27 @@ Reproduce: `data_fetch/README.md` (TableShift environment in
 ## Reproduce
 
 ```bash
-git clone https://github.com/Ouatt-Isma/reliax-evaluation.git && cd reliax-evaluation
+git clone https://github.com/reliax-io/reliax-evaluation.git && cd reliax-evaluation
 python -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python eval/run_eval.py         # ~2 minutes; rewrites results/results.json
 .venv/bin/python eval/make_figures.py     # rewrites results/fig_*.png
 .venv/bin/python eval/run_shift_bench.py  # ~10 minutes; rewrites results/shift_bench.json
 ```
 
-Splits, seeds and every threshold are fixed in `eval/run_eval.py`.
+`requirements.txt` pins the method code, [reliax-core](https://github.com/reliax-io/reliax-core), at a
+tagged release, so a clean clone installs the same code that produced the
+results. Splits, seeds and every threshold are fixed in `eval/run_eval.py`.
 
 ## Layout
 
-- `reliax_core/` - the envelope's method components (conformal, Mondrian,
-  Venn-Abers, test martingale, kNN OOD, PSI, error auditor, SL fusion).
-  Methods only: the Reliax product layer is not part of this release.
+- Method code: [`reliax-core`](https://github.com/reliax-io/reliax-core), a
+  separate Apache-2.0 package pinned in `requirements.txt` (conformal,
+  Mondrian, Venn-Abers, test martingale, kNN OOD, PSI, error auditor, SL
+  fusion, calibration opinion). Until 25 September 2026 it was the
+  `reliax_core/` directory here; the pre-registration names commits of this
+  repository as the frozen method code, and those commits remain in this
+  history. Methods only: the Reliax product layer is not part of either
+  release.
 - `eval/` - dataset loaders, baselines/metrics, experiment runners, figures.
 - `data/` - tier 1: the two real UCI datasets, verbatim, with `PROVENANCE.md` (CC BY 4.0, redistributed).
 - `data_fetch/` - tier 2: fetch scripts for public sources that are not redistributed here (TableShift, HMDA, ACS).
@@ -168,3 +175,8 @@ the licence permits (UCI, CC BY 4.0, see `data/PROVENANCE.md`), fetched by
 script where the source is public (TableShift, HMDA, ACS; `data_fetch/`), and
 instructions-only where the provider's terms prohibit redistribution (Fannie
 Mae, Freddie Mac, Kaggle; `data_gated/`).
+
+## About this documentation
+
+The documentation in this repository was written with the help of AI and
+reviewed by the Reliax team.

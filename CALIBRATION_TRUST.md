@@ -1,6 +1,7 @@
 # Calibration-trust opinions: what the global opinion is, what happens as M grows, and how to collect the evidence
 
-Companion note to `reliax_core/calibration_trust.py`, `tests/test_calibration_trust.py`
+Companion note to `reliax_core.calibration_trust` and `tests/test_calibration_trust.py` in
+[reliax-core](https://github.com/reliax-io/reliax-core) (both in this repository until 25 September 2026)
 and `eval/run_calibration_trust.py` (results in `results/calibration_trust.json`,
 figures `results/fig5_ct_msweep.png`, `results/fig6_ct_cells.png`).
 
@@ -389,6 +390,25 @@ Taiwan, 5 seeds; REVIEW when the set holds both labels):
 | utilisation shift | 0.10 | 0.856 | 16% | 148 -> 114 | 0.23 | 0.17 | 0.23 |
 | payment-delay shift | 0.05 | 0.911 | 78% | 389 -> 87 | 0.78 | 0.78 | 0.78 |
 | payment-delay shift | 0.10 | 0.774 | 48% | 389 -> 215 | 0.45 | 0.48 | 0.45 |
+
+The same run counts the other direction (added 24 Sep 2026, same seeds and
+splits; every earlier number reproduces exactly). "Per 1,000" throughout is per
+1,000 applications processed, not per 1,000 approvals or rejections.
+
+| regime | alpha | REVIEW rate | wrong rejections / 1,000: all -> auto-rejected | caught by REVIEW | by random referral at that rate | by confidence referral at that rate |
+|---|---|---|---|---|---|---|
+| i.i.d. | 0.05 | 54% | 49 -> 7 | 0.86 | 0.54 | 0.86 |
+| i.i.d. | 0.10 | 26% | 49 -> 16 | 0.68 | 0.26 | 0.68 |
+| utilisation shift | 0.05 | 32% | 60 -> 12 | 0.80 | 0.31 | 0.80 |
+| utilisation shift | 0.10 | 16% | 60 -> 29 | 0.52 | 0.16 | 0.52 |
+| payment-delay shift | 0.05 | 78% | 73 -> 1 | 0.98 | 0.78 | 0.98 |
+| payment-delay shift | 0.10 | 48% | 73 -> 11 | 0.86 | 0.49 | 0.86 |
+
+Wrong rejections are caught better than bad approvals (0.86 against 0.70 on
+i.i.d. at alpha 0.05; 0.98 against 0.78 under the payment-delay shift) because
+on a 22% default rate the model rejects near its own decision boundary, where
+the set is ambiguous. As for approvals, the share equals a confidence cut at
+the same referral rate.
 
 Two facts follow. For a binary model, the split-conformal set is ambiguous
 exactly when the top-class probability is below 1 - q_hat, so set-size

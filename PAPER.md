@@ -6,7 +6,7 @@ Working paper v0.3 draft, September 2026 (v0.2 added the subjective-logic fusion
 ## Abstract
 
 Credit-risk models execute high-consequence decisions whose failures are silent:
-a wrong approval looks identical to a right one until the loss materialises. We
+a wrong approval can look identical to a right one until the loss materialises. We
 evaluate the Reliax *reliability envelope*, a per-decision bundle of a conformal
 coverage certificate (marginal and per-segment), a Venn-Abers calibrated
 probability-of-default (PD) interval, an error-auditor signal, and an
@@ -50,8 +50,8 @@ question: *should this specific decision be acted on automatically, right now,
 and can that be evidenced later?*
 
 Reliax answers with a per-decision reliability envelope. This paper is a first
-evaluation of its components on real data. It is deliberately small and
-deliberately honest: every number below is produced by `eval/run_eval.py` and
+evaluation of some of its components on real data. It is deliberately small:
+every number below is produced by `eval/run_eval.py` and
 stored in `results/results.json`; nothing is hand-typed without a source there.
 
 ## 2. The reliability envelope
@@ -282,12 +282,19 @@ regenerates all figures from `paper/results/results.json`. Datasets are stored
 verbatim with provenance and licenses in `paper/data/`. Environment: Python
 3.14, scikit-learn 1.9, numpy 2.5.
 
+The method code is the `reliax-core` package
+(github.com/reliax-io/reliax-core), Apache-2.0, pinned at a tagged release in
+`requirements.txt`; until 25 September 2026 it was the `reliax_core/`
+directory of this repository, where the pre-registered freezes are recorded.
+This paper and the repository documentation were written with the help of AI
+and reviewed by the authors.
+
 ## 7. Exploratory expansion (Amendment 2, September 2026)
 
 Everything in this section is **exploratory**. It was pre-specified in
 `PREREGISTRATION_AMENDMENT.md`, Amendment 2, before any of the datasets
 were downloaded; it does not touch the confirmatory sets (Give Me Some
-Credit, Home Credit Default Risk 2018), the triage-rank bar or any
+Credit, Home Credit Default Risk 2018), the criticality-score bar (the "triage rank" of the pre-registration) or any
 threshold. Every task started is reported. The per-task numbers are in
 `results/expansion/`; the runners are in `eval/expansion/`.
 
@@ -568,7 +575,7 @@ table that already has two. Each stays in the exploratory bucket with its
 hypotheses fixed in Amendment 2.
 
 Section 7 does not show anything about a lender's book, about default
-outcomes outside the two UCI datasets, or about the triage rank, whose bar
+outcomes outside the two UCI datasets, or about the criticality score (the "triage rank" of the pre-registration), whose bar
 is unchanged and whose confirmatory sets remain sealed. The latency figure at
 a million rows is on synthetic rows of credit dimensionality, and the
 sharpest new number in the section, the REVIEW-rate disparity on HMDA, is a
@@ -583,6 +590,7 @@ remove it.
 - Guo, C., Pleiss, G., Sun, Y., Weinberger, K. Q. (2017). On calibration of modern neural networks. *ICML*.
 - Hofmann, H. (1994). Statlog (German Credit Data). UCI Machine Learning Repository.
 - Jøsang, A. (2016). *Subjective Logic: A Formalism for Reasoning Under Uncertainty*. Springer.
+- Tibshirani, R. J., Barber, R. F., Candès, E. J., Ramdas, A. (2019). Conformal prediction under covariate shift. *NeurIPS*.
 - Ville, J. (1939). *Étude critique de la notion de collectif*. Gauthier-Villars.
 - Vovk, V., Gammerman, A., Shafer, G. (2005). *Algorithmic Learning in a Random World*. Springer.
 - Vovk, V., Nouretdinov, I., Gammerman, A. (2003). Testing exchangeability on-line. *ICML*.

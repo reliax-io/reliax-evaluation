@@ -34,9 +34,9 @@ from reliax_core.venn_abers import VennAbersCalibrator           # noqa: E402
 
 import data as D                                                     # noqa: E402
 import methods as M                                                  # noqa: E402
+import models as MODELS                                              # noqa: E402
 
-RESULTS = BASE / "results"
-RESULTS.mkdir(exist_ok=True)
+RESULTS = MODELS.results_dir(BASE)
 ALPHA = 0.05
 REFERRAL_RATES = (0.10, 0.20)
 STREAM_LEN = 600
@@ -57,11 +57,11 @@ def run_seed(ds, seed, do_drift, do_latency):
     X_cal, y_cal = X[idx_cal], y[idx_cal]
     X_te, y_te = X[idx_te], y[idx_te]
 
-    model = HistGradientBoostingClassifier(max_iter=300, random_state=seed).fit(X_tr, y_tr)
+    model = MODELS.make_model(ds["name"], seed).fit(X_tr, y_tr)
     probs_cal = model.predict_proba(X_cal)
     probs_te = model.predict_proba(X_te)
-    logit_cal = model.decision_function(X_cal)
-    logit_te = model.decision_function(X_te)
+    logit_cal = MODELS.logits(model, X_cal, probs_cal)
+    logit_te = MODELS.logits(model, X_te, probs_te)
     pred_te = (probs_te[:, 1] >= 0.5).astype(int)
     wrong = (pred_te != y_te).astype(int)
     bad_approval = ((pred_te == 0) & (y_te == 1)).astype(int)   # approved, then defaulted
@@ -240,7 +240,7 @@ def aggregate(per_seed, keys_scalar):
 def main():
     t_start = time.time()
     results = {"meta": {"alpha": ALPHA, "date": time.strftime("%Y-%m-%d"),
-                        "split": "50/25/25 train/cal/test, stratified"}}
+                        "split": "50/25/25 train/cal/test, stratified", "base_model": MODELS.describe()}}
     datasets = [(D.load_taiwan(), list(range(5)), True),
                 (D.load_german(), list(range(10)), False)]
     for ds, seeds, is_taiwan in datasets:

@@ -3,7 +3,9 @@ REVIEW rule, on real Taiwan data, in the calm and the shifted regimes.
 
 Rule: at miscoverage alpha, an applicant whose prediction set holds both
 labels {repay, default} is routed to REVIEW; a singleton set is auto-acted.
-Mistakes: model errors, and bad approvals (auto-approved, then defaulted).
+Mistakes: model errors, bad approvals (auto-approved, then defaulted) and
+wrong rejections (auto-rejected, then repaid). "Per 1,000" is per 1,000
+applications processed, not per 1,000 approvals or rejections.
 Comparators at the SAME referral rate: random referral, and confidence
 referral (refer the least confident decisions, the lender's default option).
 
@@ -24,8 +26,9 @@ sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 from reliax_core.conformal import ConformalCalibrator  # noqa: E402
 import data as D                                        # noqa: E402
 import run_shift_bench as SB                            # noqa: E402
+import models as MODELS                                 # noqa: E402
 
-RESULTS = BASE / "results"
+RESULTS = MODELS.results_dir(BASE)
 ALPHAS = (0.05, 0.10, 0.20)
 
 
@@ -41,6 +44,8 @@ def evaluate(probs_te, y_te, conf, alpha, seed):
     wrong = pred != y_te
     approve = pred == 0
     bad = approve & (y_te == 1)
+    reject = pred == 1
+    badrej = reject & (y_te == 0)
     review = sizes > 1
     n = len(y_te)
     r = review.mean()
@@ -65,6 +70,11 @@ def evaluate(probs_te, y_te, conf, alpha, seed):
         "bad_caught_review": caught(review, bad), "bad_caught_random": caught(rand_ref, bad),
         "bad_caught_confidence": caught(conf_ref, bad),
         "bad_per_1000_all": 1000 * bad.mean(), "bad_per_1000_auto": 1000 * (bad & ~review).mean(),
+        "bad_rejection_rate_all_rejections": float(badrej.sum() / max(reject.sum(), 1)),
+        "bad_rejection_rate_auto_rejections": float((badrej & ~review).sum() / max((reject & ~review).sum(), 1)),
+        "badrej_caught_review": caught(review, badrej), "badrej_caught_random": caught(rand_ref, badrej),
+        "badrej_caught_confidence": caught(conf_ref, badrej),
+        "badrej_per_1000_all": 1000 * badrej.mean(), "badrej_per_1000_auto": 1000 * (badrej & ~review).mean(),
     }
 
 
@@ -72,14 +82,14 @@ def main():
     ds = D.load_taiwan()
     X, y, names = ds["X"], ds["y"], ds["feature_names"]
     regs = SB.regimes(X, y, names)
-    out = {"meta": {"alphas": ALPHAS, "dataset": "taiwan", "seeds": 5}}
+    out = {"meta": {"alphas": ALPHAS, "dataset": "taiwan", "seeds": 5, "base_model": MODELS.describe()}}
     for reg in ("iid", "util", "pay0"):
         ref_mask, test_mask, desc = regs[reg]
         rows = {str(a): [] for a in ALPHAS}
         for seed in range(5):
             rng = np.random.default_rng(seed)
             idx_tr, idx_cal, idx_te = SB.draw(rng, ref_mask, test_mask, disjoint=(reg != "iid"))
-            model = HistGradientBoostingClassifier(max_iter=300, random_state=seed).fit(X[idx_tr], y[idx_tr])
+            model = MODELS.make_model("taiwan", seed).fit(X[idx_tr], y[idx_tr])
             probs_cal, probs_te = model.predict_proba(X[idx_cal]), model.predict_proba(X[idx_te])
             conf = ConformalCalibrator(probs_cal, y[idx_cal])
             for a in ALPHAS:
@@ -91,7 +101,9 @@ def main():
                   f"err all {v['error_rate_all']['mean']:.3f} auto {v['error_rate_auto']['mean']:.3f} | "
                   f"bad/1000 all {v['bad_per_1000_all']['mean']:.0f} auto {v['bad_per_1000_auto']['mean']:.0f} | "
                   f"errors caught review {v['errors_caught_review']['mean']:.2f} rand {v['errors_caught_random']['mean']:.2f} conf {v['errors_caught_confidence']['mean']:.2f} | "
-                  f"bad caught review {v['bad_caught_review']['mean']:.2f} rand {v['bad_caught_random']['mean']:.2f} conf {v['bad_caught_confidence']['mean']:.2f}")
+                  f"bad caught review {v['bad_caught_review']['mean']:.2f} rand {v['bad_caught_random']['mean']:.2f} conf {v['bad_caught_confidence']['mean']:.2f} | "
+                  f"badrej/1000 all {v['badrej_per_1000_all']['mean']:.0f} auto {v['badrej_per_1000_auto']['mean']:.0f} | "
+                  f"badrej caught review {v['badrej_caught_review']['mean']:.2f} rand {v['badrej_caught_random']['mean']:.2f} conf {v['badrej_caught_confidence']['mean']:.2f}")
     (RESULTS / "routing_decisions.json").write_text(json.dumps(out, indent=1))
     print("wrote results/routing_decisions.json")
 

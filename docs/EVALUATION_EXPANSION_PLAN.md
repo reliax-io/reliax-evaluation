@@ -66,7 +66,7 @@ Update `PREREGISTRATION_AMENDMENT.md` with, at minimum:
 > the triage rank, move the gate bar, or generate a confirmatory claim.
 
 **Definition of done:** amendment committed and pushed to
-`github.com/Ouatt-Isma/reliax-evaluation` before any `wget`.
+`github.com/reliax-io/reliax-evaluation` before any `wget`.
 
 ---
 
@@ -335,7 +335,7 @@ before them.**
 1. **Report every task you ran.** Excluding a dataset because coverage broke there is the one
    thing that would destroy the discipline asset. A broken result stated plainly is worth more
    than five clean ones with a selection process nobody can see.
-2. **Exploratory stays exploratory.** None of this touches the triage-rank gate, moves the
+2. **Exploratory stays exploratory.** None of this touches the criticality-score gate (the "triage rank" of the pre-registration), moves the
    1.5× bar, or opens GMSC.
 3. **State the label.** HMDA is a decision, not a default. TableShift tasks are not credit.
    Fannie is US mortgage, not EU consumer credit. Each of those is fine; each is fatal if the

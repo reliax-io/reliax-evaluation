@@ -6,206 +6,212 @@
    0.2
   ],
   "dataset": "taiwan",
-  "seeds": 5
+  "seeds": 5,
+  "base_model": {
+   "kind": "strong",
+   "taiwan": "average of tuned HistGradientBoosting and 500-tree random forest",
+   "german": "500-tree random forest, min 5 samples per leaf",
+   "selection": "5-fold CV on the training split only, seeds 0 to 2"
+  }
  },
  "iid": {
   "description": "random split (control)",
   "0.05": {
    "coverage": {
-    "mean": 0.9519,
-    "std": 0.0058
-   },
-   "review_rate": {
-    "mean": 0.5371,
-    "std": 0.0114
-   },
-   "error_rate_all": {
-    "mean": 0.1872,
+    "mean": 0.9534,
     "std": 0.0072
    },
+   "review_rate": {
+    "mean": 0.4921,
+    "std": 0.0206
+   },
+   "error_rate_all": {
+    "mean": 0.1764,
+    "std": 0.0066
+   },
    "error_rate_auto": {
-    "mean": 0.1037,
-    "std": 0.0102
+    "mean": 0.0914,
+    "std": 0.0109
    },
    "bad_approval_rate_all_approvals": {
-    "mean": 0.1583,
-    "std": 0.0103
+    "mean": 0.154,
+    "std": 0.0088
    },
    "bad_approval_rate_auto_approvals": {
-    "mean": 0.0947,
-    "std": 0.0099
+    "mean": 0.0911,
+    "std": 0.0108
    },
    "errors_caught_review": {
-    "mean": 0.7436,
-    "std": 0.0231
+    "mean": 0.7369,
+    "std": 0.0307
    },
    "errors_caught_random": {
-    "mean": 0.5411,
-    "std": 0.0139
+    "mean": 0.4933,
+    "std": 0.0342
    },
    "errors_caught_confidence": {
-    "mean": 0.7436,
-    "std": 0.0231
+    "mean": 0.7369,
+    "std": 0.0307
    },
    "bad_caught_review": {
-    "mean": 0.7006,
-    "std": 0.0148
+    "mean": 0.6591,
+    "std": 0.0312
    },
    "bad_caught_random": {
-    "mean": 0.543,
-    "std": 0.0153
+    "mean": 0.4893,
+    "std": 0.0381
    },
    "bad_caught_confidence": {
-    "mean": 0.7006,
-    "std": 0.0148
+    "mean": 0.6591,
+    "std": 0.0312
    },
    "bad_per_1000_all": {
-    "mean": 137.8,
-    "std": 9.9252
+    "mean": 134.65,
+    "std": 8.1311
    },
    "bad_per_1000_auto": {
-    "mean": 41.4,
-    "std": 4.9056
+    "mean": 46.15,
+    "std": 7.0438
    },
    "bad_rejection_rate_all_rejections": {
-    "mean": 0.3796,
-    "std": 0.0284
+    "mean": 0.3331,
+    "std": 0.0227
    },
    "bad_rejection_rate_auto_rejections": {
-    "mean": 0.2544,
-    "std": 0.0531
+    "mean": 0.1106,
+    "std": 0.0643
    },
    "badrej_caught_review": {
-    "mean": 0.862,
-    "std": 0.0388
+    "mean": 0.9891,
+    "std": 0.0089
    },
    "badrej_caught_random": {
-    "mean": 0.5369,
-    "std": 0.0249
+    "mean": 0.5079,
+    "std": 0.0395
    },
    "badrej_caught_confidence": {
-    "mean": 0.862,
-    "std": 0.0388
+    "mean": 0.9891,
+    "std": 0.0089
    },
    "badrej_per_1000_all": {
-    "mean": 49.4,
-    "std": 5.3094
+    "mean": 41.7,
+    "std": 2.0335
    },
    "badrej_per_1000_auto": {
-    "mean": 6.7,
-    "std": 1.5199
+    "mean": 0.45,
+    "std": 0.3674
    }
   },
   "0.1": {
    "coverage": {
-    "mean": 0.9013,
-    "std": 0.0109
+    "mean": 0.9038,
+    "std": 0.0138
    },
    "review_rate": {
-    "mean": 0.258,
-    "std": 0.0215
+    "mean": 0.2256,
+    "std": 0.0265
    },
    "error_rate_all": {
-    "mean": 0.1872,
-    "std": 0.0072
+    "mean": 0.1764,
+    "std": 0.0066
    },
    "error_rate_auto": {
-    "mean": 0.1327,
-    "std": 0.0111
+    "mean": 0.1238,
+    "std": 0.0137
    },
    "bad_approval_rate_all_approvals": {
-    "mean": 0.1583,
-    "std": 0.0103
+    "mean": 0.154,
+    "std": 0.0088
    },
    "bad_approval_rate_auto_approvals": {
-    "mean": 0.121,
-    "std": 0.0123
-   },
-   "errors_caught_review": {
-    "mean": 0.4744,
-    "std": 0.0391
-   },
-   "errors_caught_random": {
-    "mean": 0.253,
-    "std": 0.018
-   },
-   "errors_caught_confidence": {
-    "mean": 0.4744,
-    "std": 0.0391
-   },
-   "bad_caught_review": {
-    "mean": 0.4001,
-    "std": 0.0361
-   },
-   "bad_caught_random": {
-    "mean": 0.2514,
+    "mean": 0.1196,
     "std": 0.0131
    },
+   "errors_caught_review": {
+    "mean": 0.4566,
+    "std": 0.0582
+   },
+   "errors_caught_random": {
+    "mean": 0.2273,
+    "std": 0.0221
+   },
+   "errors_caught_confidence": {
+    "mean": 0.4566,
+    "std": 0.0582
+   },
+   "bad_caught_review": {
+    "mean": 0.3437,
+    "std": 0.0525
+   },
+   "bad_caught_random": {
+    "mean": 0.2249,
+    "std": 0.0221
+   },
    "bad_caught_confidence": {
-    "mean": 0.4001,
-    "std": 0.0361
+    "mean": 0.3437,
+    "std": 0.0525
    },
    "bad_per_1000_all": {
-    "mean": 137.8,
-    "std": 9.9252
+    "mean": 134.65,
+    "std": 8.1311
    },
    "bad_per_1000_auto": {
-    "mean": 82.95,
-    "std": 10.4324
+    "mean": 88.75,
+    "std": 11.9896
    },
    "bad_rejection_rate_all_rejections": {
-    "mean": 0.3796,
-    "std": 0.0284
+    "mean": 0.3331,
+    "std": 0.0227
    },
    "bad_rejection_rate_auto_rejections": {
-    "mean": 0.2697,
-    "std": 0.0336
+    "mean": 0.2192,
+    "std": 0.0481
    },
    "badrej_caught_review": {
-    "mean": 0.6798,
-    "std": 0.0423
+    "mean": 0.8192,
+    "std": 0.063
    },
    "badrej_caught_random": {
-    "mean": 0.2589,
-    "std": 0.0363
+    "mean": 0.2341,
+    "std": 0.0271
    },
    "badrej_caught_confidence": {
-    "mean": 0.6798,
-    "std": 0.0423
+    "mean": 0.8192,
+    "std": 0.063
    },
    "badrej_per_1000_all": {
-    "mean": 49.4,
-    "std": 5.3094
+    "mean": 41.7,
+    "std": 2.0335
    },
    "badrej_per_1000_auto": {
-    "mean": 15.7,
-    "std": 1.7986
+    "mean": 7.45,
+    "std": 2.2439
    }
   },
   "0.2": {
    "coverage": {
-    "mean": 0.8053,
-    "std": 0.0106
+    "mean": 0.8043,
+    "std": 0.0139
    },
    "review_rate": {
     "mean": 0.0,
     "std": 0.0
    },
    "error_rate_all": {
-    "mean": 0.1872,
-    "std": 0.0072
+    "mean": 0.1764,
+    "std": 0.0066
    },
    "error_rate_auto": {
-    "mean": 0.1872,
-    "std": 0.0072
+    "mean": 0.1764,
+    "std": 0.0066
    },
    "bad_approval_rate_all_approvals": {
-    "mean": 0.1583,
-    "std": 0.0103
+    "mean": 0.154,
+    "std": 0.0088
    },
    "bad_approval_rate_auto_approvals": {
-    "mean": 0.1583,
-    "std": 0.0103
+    "mean": 0.154,
+    "std": 0.0088
    },
    "errors_caught_review": {
     "mean": 0.0,
@@ -232,20 +238,20 @@
     "std": 0.0
    },
    "bad_per_1000_all": {
-    "mean": 137.8,
-    "std": 9.9252
+    "mean": 134.65,
+    "std": 8.1311
    },
    "bad_per_1000_auto": {
-    "mean": 137.8,
-    "std": 9.9252
+    "mean": 134.65,
+    "std": 8.1311
    },
    "bad_rejection_rate_all_rejections": {
-    "mean": 0.3796,
-    "std": 0.0284
+    "mean": 0.3331,
+    "std": 0.0227
    },
    "bad_rejection_rate_auto_rejections": {
-    "mean": 0.3796,
-    "std": 0.0284
+    "mean": 0.3331,
+    "std": 0.0227
    },
    "badrej_caught_review": {
     "mean": 0.0,
@@ -260,12 +266,12 @@
     "std": 0.0
    },
    "badrej_per_1000_all": {
-    "mean": 49.4,
-    "std": 5.3094
+    "mean": 41.7,
+    "std": 2.0335
    },
    "badrej_per_1000_auto": {
-    "mean": 49.4,
-    "std": 5.3094
+    "mean": 41.7,
+    "std": 2.0335
    }
   }
  },
@@ -273,200 +279,200 @@
   "description": "low utilisation -> high utilisation",
   "0.05": {
    "coverage": {
-    "mean": 0.9031,
-    "std": 0.0032
+    "mean": 0.9185,
+    "std": 0.0052
    },
    "review_rate": {
-    "mean": 0.3191,
-    "std": 0.0127
+    "mean": 0.3454,
+    "std": 0.0094
    },
    "error_rate_all": {
-    "mean": 0.2079,
-    "std": 0.0061
+    "mean": 0.2006,
+    "std": 0.0063
    },
    "error_rate_auto": {
-    "mean": 0.1424,
-    "std": 0.0049
+    "mean": 0.1245,
+    "std": 0.0074
    },
    "bad_approval_rate_all_approvals": {
-    "mean": 0.1773,
-    "std": 0.0106
+    "mean": 0.1763,
+    "std": 0.0103
    },
    "bad_approval_rate_auto_approvals": {
-    "mean": 0.1337,
-    "std": 0.007
+    "mean": 0.123,
+    "std": 0.0068
    },
    "errors_caught_review": {
-    "mean": 0.5333,
-    "std": 0.0186
+    "mean": 0.594,
+    "std": 0.0161
    },
    "errors_caught_random": {
-    "mean": 0.3194,
-    "std": 0.0061
+    "mean": 0.3366,
+    "std": 0.017
    },
    "errors_caught_confidence": {
-    "mean": 0.5333,
-    "std": 0.0186
+    "mean": 0.594,
+    "std": 0.0161
    },
    "bad_caught_review": {
-    "mean": 0.4238,
-    "std": 0.0154
+    "mean": 0.4637,
+    "std": 0.0225
    },
    "bad_caught_random": {
-    "mean": 0.3255,
-    "std": 0.008
-   },
-   "bad_caught_confidence": {
-    "mean": 0.4238,
-    "std": 0.0154
-   },
-   "bad_per_1000_all": {
-    "mean": 147.8,
-    "std": 11.9157
-   },
-   "bad_per_1000_auto": {
-    "mean": 85.0,
-    "std": 5.121
-   },
-   "bad_rejection_rate_all_rejections": {
-    "mean": 0.3584,
-    "std": 0.0128
-   },
-   "bad_rejection_rate_auto_rejections": {
-    "mean": 0.262,
-    "std": 0.027
-   },
-   "badrej_caught_review": {
-    "mean": 0.8025,
-    "std": 0.0485
-   },
-   "badrej_caught_random": {
-    "mean": 0.3057,
+    "mean": 0.3355,
     "std": 0.0223
    },
+   "bad_caught_confidence": {
+    "mean": 0.4637,
+    "std": 0.0225
+   },
+   "bad_per_1000_all": {
+    "mean": 148.35,
+    "std": 11.0675
+   },
+   "bad_per_1000_auto": {
+    "mean": 79.4,
+    "std": 4.3835
+   },
+   "bad_rejection_rate_all_rejections": {
+    "mean": 0.328,
+    "std": 0.0123
+   },
+   "bad_rejection_rate_auto_rejections": {
+    "mean": 0.2172,
+    "std": 0.0761
+   },
+   "badrej_caught_review": {
+    "mean": 0.9568,
+    "std": 0.0321
+   },
+   "badrej_caught_random": {
+    "mean": 0.3423,
+    "std": 0.0214
+   },
    "badrej_caught_confidence": {
-    "mean": 0.8025,
-    "std": 0.0485
+    "mean": 0.9568,
+    "std": 0.0321
    },
    "badrej_per_1000_all": {
-    "mean": 60.1,
-    "std": 7.4239
+    "mean": 52.25,
+    "std": 5.3339
    },
    "badrej_per_1000_auto": {
-    "mean": 11.95,
-    "std": 3.7563
+    "mean": 2.1,
+    "std": 1.437
    }
   },
   "0.1": {
    "coverage": {
-    "mean": 0.8564,
-    "std": 0.0053
-   },
-   "review_rate": {
-    "mean": 0.1563,
-    "std": 0.0066
-   },
-   "error_rate_all": {
-    "mean": 0.2079,
-    "std": 0.0061
-   },
-   "error_rate_auto": {
-    "mean": 0.1701,
+    "mean": 0.8848,
     "std": 0.0062
    },
+   "review_rate": {
+    "mean": 0.2137,
+    "std": 0.0159
+   },
+   "error_rate_all": {
+    "mean": 0.2006,
+    "std": 0.0063
+   },
+   "error_rate_auto": {
+    "mean": 0.1465,
+    "std": 0.0059
+   },
    "bad_approval_rate_all_approvals": {
-    "mean": 0.1773,
-    "std": 0.0106
+    "mean": 0.1763,
+    "std": 0.0103
    },
    "bad_approval_rate_auto_approvals": {
-    "mean": 0.1536,
-    "std": 0.0093
+    "mean": 0.1385,
+    "std": 0.0079
    },
    "errors_caught_review": {
-    "mean": 0.3097,
-    "std": 0.0077
+    "mean": 0.4253,
+    "std": 0.0287
    },
    "errors_caught_random": {
-    "mean": 0.1642,
-    "std": 0.0073
+    "mean": 0.2183,
+    "std": 0.0192
    },
    "errors_caught_confidence": {
-    "mean": 0.3097,
-    "std": 0.0077
+    "mean": 0.4253,
+    "std": 0.0287
    },
    "bad_caught_review": {
-    "mean": 0.225,
-    "std": 0.0035
+    "mean": 0.3125,
+    "std": 0.0306
    },
    "bad_caught_random": {
-    "mean": 0.1665,
-    "std": 0.0148
+    "mean": 0.2161,
+    "std": 0.0113
    },
    "bad_caught_confidence": {
-    "mean": 0.225,
-    "std": 0.0035
+    "mean": 0.3125,
+    "std": 0.0306
    },
    "bad_per_1000_all": {
-    "mean": 147.8,
-    "std": 11.9157
+    "mean": 148.35,
+    "std": 11.0675
    },
    "bad_per_1000_auto": {
-    "mean": 114.5,
-    "std": 8.7507
+    "mean": 101.85,
+    "std": 6.9221
    },
    "bad_rejection_rate_all_rejections": {
-    "mean": 0.3584,
-    "std": 0.0128
+    "mean": 0.328,
+    "std": 0.0123
    },
    "bad_rejection_rate_auto_rejections": {
-    "mean": 0.2942,
-    "std": 0.012
+    "mean": 0.2581,
+    "std": 0.0263
    },
    "badrej_caught_review": {
-    "mean": 0.5183,
-    "std": 0.0253
+    "mean": 0.7431,
+    "std": 0.0685
    },
    "badrej_caught_random": {
-    "mean": 0.1581,
-    "std": 0.0163
+    "mean": 0.225,
+    "std": 0.0402
    },
    "badrej_caught_confidence": {
-    "mean": 0.5183,
-    "std": 0.0253
+    "mean": 0.7431,
+    "std": 0.0685
    },
    "badrej_per_1000_all": {
-    "mean": 60.1,
-    "std": 7.4239
+    "mean": 52.25,
+    "std": 5.3339
    },
    "badrej_per_1000_auto": {
-    "mean": 29.05,
-    "std": 4.7154
+    "mean": 13.4,
+    "std": 3.9357
    }
   },
   "0.2": {
    "coverage": {
-    "mean": 0.7703,
-    "std": 0.0072
+    "mean": 0.7482,
+    "std": 0.0105
    },
    "review_rate": {
     "mean": 0.0,
     "std": 0.0
    },
    "error_rate_all": {
-    "mean": 0.2079,
-    "std": 0.0061
+    "mean": 0.2006,
+    "std": 0.0063
    },
    "error_rate_auto": {
-    "mean": 0.2079,
-    "std": 0.0061
+    "mean": 0.2006,
+    "std": 0.0063
    },
    "bad_approval_rate_all_approvals": {
-    "mean": 0.1773,
-    "std": 0.0106
+    "mean": 0.1763,
+    "std": 0.0103
    },
    "bad_approval_rate_auto_approvals": {
-    "mean": 0.1773,
-    "std": 0.0106
+    "mean": 0.1763,
+    "std": 0.0103
    },
    "errors_caught_review": {
     "mean": 0.0,
@@ -493,20 +499,20 @@
     "std": 0.0
    },
    "bad_per_1000_all": {
-    "mean": 147.8,
-    "std": 11.9157
+    "mean": 148.35,
+    "std": 11.0675
    },
    "bad_per_1000_auto": {
-    "mean": 147.8,
-    "std": 11.9157
+    "mean": 148.35,
+    "std": 11.0675
    },
    "bad_rejection_rate_all_rejections": {
-    "mean": 0.3584,
-    "std": 0.0128
+    "mean": 0.328,
+    "std": 0.0123
    },
    "bad_rejection_rate_auto_rejections": {
-    "mean": 0.3584,
-    "std": 0.0128
+    "mean": 0.328,
+    "std": 0.0123
    },
    "badrej_caught_review": {
     "mean": 0.0,
@@ -521,12 +527,12 @@
     "std": 0.0
    },
    "badrej_per_1000_all": {
-    "mean": 60.1,
-    "std": 7.4239
+    "mean": 52.25,
+    "std": 5.3339
    },
    "badrej_per_1000_auto": {
-    "mean": 60.1,
-    "std": 7.4239
+    "mean": 52.25,
+    "std": 5.3339
    }
   }
  },
@@ -534,200 +540,200 @@
   "description": "PAY_0<=0 -> PAY_0>=1 (payment delay)",
   "0.05": {
    "coverage": {
-    "mean": 0.9113,
-    "std": 0.0111
+    "mean": 0.9541,
+    "std": 0.0089
    },
    "review_rate": {
-    "mean": 0.7818,
-    "std": 0.0284
+    "mean": 0.8909,
+    "std": 0.0252
    },
    "error_rate_all": {
-    "mean": 0.462,
-    "std": 0.0127
+    "mean": 0.4836,
+    "std": 0.0087
    },
    "error_rate_auto": {
-    "mean": 0.4071,
-    "std": 0.0206
+    "mean": 0.426,
+    "std": 0.0325
    },
    "bad_approval_rate_all_approvals": {
-    "mean": 0.4769,
-    "std": 0.0085
+    "mean": 0.4916,
+    "std": 0.0046
    },
    "bad_approval_rate_auto_approvals": {
-    "mean": 0.4064,
-    "std": 0.0212
+    "mean": 0.426,
+    "std": 0.0325
    },
    "errors_caught_review": {
-    "mean": 0.8077,
-    "std": 0.0262
+    "mean": 0.9052,
+    "std": 0.0177
    },
    "errors_caught_random": {
-    "mean": 0.7817,
-    "std": 0.0312
+    "mean": 0.8898,
+    "std": 0.029
    },
    "errors_caught_confidence": {
-    "mean": 0.8077,
-    "std": 0.0262
+    "mean": 0.9052,
+    "std": 0.0177
    },
    "bad_caught_review": {
-    "mean": 0.7755,
-    "std": 0.03
+    "mean": 0.9018,
+    "std": 0.0173
    },
    "bad_caught_random": {
-    "mean": 0.7814,
-    "std": 0.0297
+    "mean": 0.8897,
+    "std": 0.0292
    },
    "bad_caught_confidence": {
-    "mean": 0.7755,
-    "std": 0.03
+    "mean": 0.9018,
+    "std": 0.0173
    },
    "bad_per_1000_all": {
-    "mean": 389.0,
-    "std": 22.1681
+    "mean": 466.0,
+    "std": 18.1101
    },
    "bad_per_1000_auto": {
-    "mean": 87.3,
-    "std": 11.9472
+    "mean": 45.9,
+    "std": 8.9171
    },
    "bad_rejection_rate_all_rejections": {
-    "mean": 0.3966,
-    "std": 0.0235
+    "mean": 0.3399,
+    "std": 0.0218
    },
    "bad_rejection_rate_auto_rejections": {
-    "mean": 0.3509,
-    "std": 0.1927
+    "mean": 0.0,
+    "std": 0.0
    },
    "badrej_caught_review": {
-    "mean": 0.9833,
-    "std": 0.0158
+    "mean": 1.0,
+    "std": 0.0
    },
    "badrej_caught_random": {
-    "mean": 0.7834,
-    "std": 0.0383
+    "mean": 0.8958,
+    "std": 0.0408
    },
    "badrej_caught_confidence": {
-    "mean": 0.9833,
-    "std": 0.0158
+    "mean": 1.0,
+    "std": 0.0
    },
    "badrej_per_1000_all": {
-    "mean": 73.0,
-    "std": 13.242
+    "mean": 17.6,
+    "std": 9.6496
    },
    "badrej_per_1000_auto": {
-    "mean": 1.4,
-    "std": 1.4714
+    "mean": 0.0,
+    "std": 0.0
    }
   },
   "0.1": {
    "coverage": {
-    "mean": 0.7737,
-    "std": 0.0228
+    "mean": 0.8496,
+    "std": 0.0311
    },
    "review_rate": {
-    "mean": 0.4775,
-    "std": 0.0542
+    "mean": 0.6247,
+    "std": 0.0736
    },
    "error_rate_all": {
-    "mean": 0.462,
-    "std": 0.0127
+    "mean": 0.4836,
+    "std": 0.0087
    },
    "error_rate_auto": {
-    "mean": 0.4333,
-    "std": 0.0096
+    "mean": 0.3997,
+    "std": 0.008
    },
    "bad_approval_rate_all_approvals": {
-    "mean": 0.4769,
-    "std": 0.0085
+    "mean": 0.4916,
+    "std": 0.0046
    },
    "bad_approval_rate_auto_approvals": {
-    "mean": 0.4404,
-    "std": 0.0071
+    "mean": 0.3997,
+    "std": 0.008
    },
    "errors_caught_review": {
-    "mean": 0.5092,
-    "std": 0.0577
+    "mean": 0.6895,
+    "std": 0.0625
    },
    "errors_caught_random": {
-    "mean": 0.478,
-    "std": 0.0565
+    "mean": 0.6252,
+    "std": 0.0691
    },
    "errors_caught_confidence": {
-    "mean": 0.5092,
-    "std": 0.0577
+    "mean": 0.6895,
+    "std": 0.0625
    },
    "bad_caught_review": {
-    "mean": 0.4451,
-    "std": 0.0628
+    "mean": 0.6785,
+    "std": 0.0612
    },
    "bad_caught_random": {
-    "mean": 0.477,
-    "std": 0.0571
+    "mean": 0.6239,
+    "std": 0.0682
    },
    "bad_caught_confidence": {
-    "mean": 0.4451,
-    "std": 0.0628
+    "mean": 0.6785,
+    "std": 0.0612
    },
    "bad_per_1000_all": {
-    "mean": 389.0,
-    "std": 22.1681
+    "mean": 466.0,
+    "std": 18.1101
    },
    "bad_per_1000_auto": {
-    "mean": 215.45,
-    "std": 22.7982
+    "mean": 150.4,
+    "std": 31.0993
    },
    "bad_rejection_rate_all_rejections": {
-    "mean": 0.3966,
-    "std": 0.0235
+    "mean": 0.3399,
+    "std": 0.0218
    },
    "bad_rejection_rate_auto_rejections": {
-    "mean": 0.3134,
-    "std": 0.0407
+    "mean": 0.0,
+    "std": 0.0
    },
    "badrej_caught_review": {
-    "mean": 0.8626,
-    "std": 0.0801
+    "mean": 1.0,
+    "std": 0.0
    },
    "badrej_caught_random": {
-    "mean": 0.4864,
-    "std": 0.0608
+    "mean": 0.6845,
+    "std": 0.1068
    },
    "badrej_caught_confidence": {
-    "mean": 0.8626,
-    "std": 0.0801
+    "mean": 1.0,
+    "std": 0.0
    },
    "badrej_per_1000_all": {
-    "mean": 73.0,
-    "std": 13.242
+    "mean": 17.6,
+    "std": 9.6496
    },
    "badrej_per_1000_auto": {
-    "mean": 10.85,
-    "std": 7.4575
+    "mean": 0.0,
+    "std": 0.0
    }
   },
   "0.2": {
    "coverage": {
-    "mean": 0.3819,
-    "std": 0.0178
+    "mean": 0.2712,
+    "std": 0.0385
    },
    "review_rate": {
     "mean": 0.0,
     "std": 0.0
    },
    "error_rate_all": {
-    "mean": 0.462,
-    "std": 0.0127
+    "mean": 0.4836,
+    "std": 0.0087
    },
    "error_rate_auto": {
-    "mean": 0.462,
-    "std": 0.0127
+    "mean": 0.4836,
+    "std": 0.0087
    },
    "bad_approval_rate_all_approvals": {
-    "mean": 0.4769,
-    "std": 0.0085
+    "mean": 0.4916,
+    "std": 0.0046
    },
    "bad_approval_rate_auto_approvals": {
-    "mean": 0.4769,
-    "std": 0.0085
+    "mean": 0.4916,
+    "std": 0.0046
    },
    "errors_caught_review": {
     "mean": 0.0,
@@ -754,20 +760,20 @@
     "std": 0.0
    },
    "bad_per_1000_all": {
-    "mean": 389.0,
-    "std": 22.1681
+    "mean": 466.0,
+    "std": 18.1101
    },
    "bad_per_1000_auto": {
-    "mean": 389.0,
-    "std": 22.1681
+    "mean": 466.0,
+    "std": 18.1101
    },
    "bad_rejection_rate_all_rejections": {
-    "mean": 0.3966,
-    "std": 0.0235
+    "mean": 0.3399,
+    "std": 0.0218
    },
    "bad_rejection_rate_auto_rejections": {
-    "mean": 0.3966,
-    "std": 0.0235
+    "mean": 0.3399,
+    "std": 0.0218
    },
    "badrej_caught_review": {
     "mean": 0.0,
@@ -782,12 +788,12 @@
     "std": 0.0
    },
    "badrej_per_1000_all": {
-    "mean": 73.0,
-    "std": 13.242
+    "mean": 17.6,
+    "std": 9.6496
    },
    "badrej_per_1000_auto": {
-    "mean": 73.0,
-    "std": 13.242
+    "mean": 17.6,
+    "std": 9.6496
    }
   }
  }

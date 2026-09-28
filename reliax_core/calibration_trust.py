@@ -347,7 +347,7 @@ class CalibrationTrust:
             line += f"; calibrated bracket [{bracket[0]:.3f}, {bracket[1]:.3f}] (theorem)"
         if c["n"] == 0:
             return line + "; no calibration observations at this score level (signal: vacuous)"
-        line += (f"; the stated probability carries disbelief {op['d']:.2f} on {c['n']} calibration "
+        line += (f"; the stated probability carries a calibration error of {op['d']:.2f} on {c['n']} calibration "
                  f"observations in this cell (signal)")
         if c["insufficient_evidence"]:
             line += "; insufficient evidence in this cell"

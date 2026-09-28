@@ -135,7 +135,7 @@ def test_lookup_segments_and_thin_cells():
     u = ct.lookup(0.2, "unknown-segment")
     assert u["segment"] == MARGINAL and u["fallback_to_marginal"]
     line = ct.certificate_line(0.2, "thin", bracket=(0.15, 0.22))
-    assert "insufficient evidence" in line and "disbelief" in line
+    assert "insufficient evidence" in line and "calibration error" in line
 
 
 def test_alpha_beta_knob():
