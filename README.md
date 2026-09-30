@@ -159,7 +159,10 @@ results. Splits, seeds and every threshold are fixed in `eval/run_eval.py`.
   fusion, calibration opinion). Until 25 September 2026 it was the
   `reliax_core/` directory here; the pre-registration names commits of this
   repository as the frozen method code, and those commits remain in this
-  history. Methods only: the Reliax product layer is not part of either
+  history. The directory was removed on 30 September 2026: every runner now
+  imports the installed package, and `run_eval.py`, `run_routing_decisions.py`
+  and `run_calibration_credit.py` reproduce the committed results exactly from
+  reliax-core 0.2.0 (only timings and run dates differ). Methods only: the Reliax product layer is not part of either
   release.
 - `eval/` - dataset loaders, baselines/metrics, experiment runners, figures.
 - `data/` - tier 1: the two real UCI datasets, verbatim, with `PROVENANCE.md` (CC BY 4.0, redistributed).

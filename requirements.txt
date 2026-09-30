@@ -1,4 +1,4 @@
-reliax-core @ git+https://github.com/reliax-io/reliax-core.git@v0.1.0
+reliax-core @ git+https://github.com/reliax-io/reliax-core.git@v0.2.0
 numpy>=1.26
 scikit-learn>=1.4
 pandas>=2.0
