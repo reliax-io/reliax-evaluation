@@ -413,7 +413,7 @@ the same referral rate.
 Two facts follow. For a binary model, the split-conformal set is ambiguous
 exactly when the top-class probability is below 1 - q_hat, so set-size
 routing IS a confidence cut, with the cut chosen to carry a coverage
-guarantee on the calibration cohort; it cannot catch more than confidence
+guarantee on the calibration set; it cannot catch more than confidence
 referral at the same rate, and the table shows it does not. What it adds is
 that the threshold is certified rather than hand-picked, and that under
 shift the REVIEW rate rises on its own (26% to 48% at alpha 0.10 on the
