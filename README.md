@@ -1,142 +1,17 @@
 # Reliax whitepaper evaluation
 
-Reproducibility package for the working paper **"Per-Decision Reliability
-Envelopes for Credit-Risk Models: An Evaluation on Real Data"** (v0.2,
-September 2026). The paper is in [PAPER.md](PAPER.md); a formatted version is
-at [reliax.io](https://reliax.io).
+The reproducibility package for the working paper **"Per-Decision Reliability
+Envelopes for Credit-Risk Models: An Evaluation on Real Data"** (September
+2026). The paper is in [PAPER.md](PAPER.md); a formatted version is at
+[reliax.io](https://reliax.io). Every number in the paper is produced by a
+runner script in this repository and stored under `results/`; nothing is
+hand-typed without a source there. The negative results are reported here in
+full, next to the positive ones. Terms used here are defined in the
+[glossary](https://github.com/reliax-io#terms).
 
-Every number in the paper is produced by `eval/run_eval.py` and stored in
-`results/results.json`. Nothing is hand-typed without a source there.
-
-The shifted-data regime is measured separately by `eval/run_shift_bench.py`,
-which writes `results/shift_bench.json`. It is a negative result and it is
-reported here in full.
-
-## Headline results
-
-| Claim | Measured |
-|---|---|
-| Conformal coverage at a 0.95 target | 0.9515 +/- 0.0040 (Taiwan), 0.9532 +/- 0.0167 (German) |
-| Drift false alarms (5 x 600 i.i.d. real applications) | 0 / 5; real subpopulation shift caught in 4/5 streams |
-| Calibration ECE on a miscalibrated model | 0.065 (Venn-Abers) vs 0.083 (T-scaled) vs 0.186 (raw) |
-| Best selective-prediction AURC, Taiwan | 0.0955 (subjective-logic fusion) |
-| Full envelope latency | 8.0 ms median, 17.5 ms p95 |
-| **Bad-approval capture under severe shift** | **the envelope loses to random referral; see the pilot below** |
-
-Honest negatives are in the paper too: the SL fusion trails plain confidence on
-the small German dataset, and it trails plain confidence in-distribution on
-Taiwan as well.
-
-## Shifted-data pilot: a negative result
-
-`eval/run_shift_bench.py` asks one question. Flag the 10% of predictions ranked
-least reliable; how many bad approvals (approved, then defaulted) does that 10%
-catch, against the model's own confidence, against random referral, and against
-the ceiling a perfect ranking would reach?
-
-Train and calibrate on a reference subpopulation, evaluate on a disjoint one.
-No synthetic noise: every shift is a real split of real applicants. Four
-constructions, five seeds, bootstrap CIs. Only the payment-delay split is
-severe enough to matter (model AUC 0.756 -> 0.584); the other three cost the
-model under 3 AUC points and plain confidence still works there.
-
-On that severe split, bad-approval capture at a 10% referral rate:
-
-| Signal | Capture | vs confidence | vs random |
-|---|---|---|---|
-| oracle (perfect ranking) | 0.258 | 3.32x | 2.68x |
-| kNN OOD distance | 0.102 | 1.32x (CI 1.13 to 1.54) | 1.06x |
-| **random referral** | 0.096 | 1.27x | 1.00x |
-| **model confidence** | 0.078 | 1.00x | 0.81x |
-| composite | 0.055 | 0.72x | 0.57x |
-| SL fusion | 0.023 | 0.32x | 0.24x |
-
-Two things follow, and neither flatters the method.
-
-1. Under severe shift the model's own confidence falls below random referral.
-   Referring at random catches 1.27x what confidence catches. Any threshold
-   expressed as a multiple of confidence is therefore measuring against an
-   anti-informative denominator. The pre-registered target of twice the
-   wrong-approval capture of model confidence (section 4.3 of the paper) has
-   been withdrawn for that reason.
-2. The composite and SL fusion scores are worse than random here. The error
-   auditor is fitted on reference data and collapses precisely under shift,
-   which drags the fusion down with it. kNN distance is the only component that
-   adds information, and the fusion destroys it.
-
-What does survive shift is detection rather than per-decision ranking:
-conformal coverage degrades measurably and in the right direction, from 0.9519
-i.i.d. to 0.9031 to 0.9113 across the three shifted splits against a 0.95
-target, and the test martingale catches real subpopulation shift in 4/5 streams
-with 0/5 false alarms.
-
-Give Me Some Credit and Home Credit are not run here and remain frozen.
-
-## Calibration-trust stage (FUSION 2025 method, credit adaptation)
-
-`reliax_core.calibration_trust` (in [reliax-core](https://github.com/reliax-io/reliax-core)) turns the
-calibration behaviour of the scorer into subjective-logic opinions per (segment x score-bin) cell and a
-fused global opinion, with the evidence collection revised for a credit PD
-model (rate evidence, mean representatives, quantile or isotonic bins,
-debiasing, segment cells, delayed-outcome re-evaluation). The theory is in
-[CALIBRATION_TRUST.md](CALIBRATION_TRUST.md): the global opinion is a closed
-form of the binned ECE and the sample size (Proposition 1); as the number of
-bins grows it converges to E|Y - q|, a sharpness-penalised quantity, not to
-calibration (Proposition 2); a Hoeffding finite-sample envelope on the
-disbelief (Proposition 3, holds in 500/500 trials); consistency when M grows
-like N^(1/3) (Proposition 4); and the small-sample bias constants of the two
-corrections (Proposition 5). Experiments: `eval/run_calibration_trust.py`
-(about 3 minutes) writes `results/calibration_trust.json`;
-`eval/make_ct_figures.py` draws `results/fig5_ct_msweep.png` and
-`results/fig6_ct_cells.png`. `eval/run_calibration_credit.py` is the held-out
-credit-risk evaluation (claimed vs realised disbelief per scorer, clustering
-and segment; `results/calibration_credit.json`, `results/fig7_ct_credit.png`).
-`eval/run_calibration_decisions.py` and `eval/run_routing_decisions.py` ask the
-decision-level question (bad approvals avoided per 1,000 at what referral rate,
-against random and confidence referral); both are negative for per-decision
-mistake avoidance and are reported in full in section 9c of the note.
-Tests: `tests/test_calibration_trust.py` in reliax-core.
-
-Honest results included: on Taiwan the model is already calibrated (d about
-0.005); on German the opinion ranks raw, temperature-scaled and Venn-Abers
-scorers the way ECE does but every cell is thin and flagged; as a
-per-decision ranking signal the cell belief does not beat plain confidence;
-under the payment-delay shift the reference-fitted opinion claims d = 0.061
-while the realised value is 0.225, which is what the delayed-outcome verdict
-is for.
-
-## Shift benchmark v2 (exploratory) and the pre-registration amendment
-
-`eval/run_shift_bench_v2.py` asks the routing question in three regimes a
-lender can actually meet: a shift in progress (mixed populations), corrupted
-inputs (unit errors, missing fields, noise) and the severe split. Confidence
-wins when nothing has moved; confidence gated by the OOD distance catches
-2.15x random and 1.60x confidence when a quarter of the book has shifted,
-1.61x and 1.38x at half; nothing ranks once the shift is complete, where the
-tripwire fires in every seed. A currency bug on monetary fields is caught
-100% by distance and 1% by confidence; zeroed fields are caught by neither.
-Write-up: [SHIFT_BENCHMARK_V2.md](SHIFT_BENCHMARK_V2.md). The tiers, signal
-and bar go into [PREREGISTRATION_AMENDMENT.md](PREREGISTRATION_AMENDMENT.md)
-(draft) before the confirmatory datasets are opened.
-
-## Exploratory expansion (Amendment 2, September 2026)
-
-Pre-specified in `PREREGISTRATION_AMENDMENT.md` (Amendment 2) before any
-download; nothing here touches the confirmatory sets or the criticality-score bar (the "triage rank" of the pre-registration).
-Runners in `eval/expansion/`, results in `results/expansion/`, write-up in
-PAPER.md section 7.
-
-| workstream | source | result |
-|---|---|---|
-| A, cross-domain | TableShift, 8 domain-split tasks (health x2, income, public policy, labour, education x2, civic) | ID coverage within 0.01 of 0.95 on all 8; OOD coverage falls on 7 of 8 (0.6 to 36 points); REVIEW rate rises under shift on 7 of 8; realised disbelief exceeds the claim on 8 of 8 (1.5x to 44x); input martingale ALARM on 100% of OOD streams on 5 tasks, 60% ACS income, 40% ASSISTments, 0% ANES; 0 to 4% false alarms on 7 tasks and 27% on hospital readmission, diagnosed (sparse one-hot inputs, 4,286 calibration rows, per-column scaling); ASSISTments: coverage 0.95 to 0.59, REVIEW rate falls, only the outcome verdict sees it (`TABLESHIFT.md`, `martingale_diag.json`) |
-| C, parity on reported class | HMDA 2025 modified LAR, 4.7M applications, label = denied (not default) | marginal coverage 0.924 Black / 0.936 Hispanic / 0.956 White at target 0.95; Mondrian within 0.01 for every non-thin group; REVIEW rate 24.2% Black vs 14.5% White (four-fifths 0.35); geography-only proxy misassigns 27.7% and misstates two groups' REVIEW rates (`HMDA_PARITY.md`) |
-| B1, latency at scale | bootstrapped rows of Taiwan dimensionality | 8.5 / 41 / 493 ms median at 7.5k / 100k / 1M calibration rows; Venn-Abers is 96% of the 1M figure; kNN 10.5 ms exact, 0.10 ms HNSW (`LATENCY.md`) |
-| D, temporal drift | Home Credit Stability 2024 (1.53M decisions, 92 weeks; not the sealed 2018 release; licence gate cleared 14 Sep 2026) | coverage 0.953 through Dec 2019, 0.936 in Feb-Mar 2020 (realised disbelief doubles), 0.96+ from Apr 2020 (H-D1 met). Input martingale ALARMs in the first evaluation week on every seed: two rows beyond the calibration range are an ALARM under the shipped eps grid, so it reads 'novel rows', not 'population moved' (stated limitation). Repair at the outcome breach (week 58): label-free weighted conformal recovers 23% of the coverage gap; recalibration on 4 weeks of landed outcomes recovers 94% (0.936 to 0.949) (`HOMECREDIT_STABILITY.md`) |
-| B2, macro drift | Fannie Mae / Freddie Mac | not run: gated on the provider's terms |
-
-Reproduce: `data_fetch/README.md` (TableShift environment in
-`data_fetch/TABLESHIFT_ENV.md`), then `eval/expansion/run_tableshift.py`,
-`run_hmda_parity.py`, `run_latency_scale.py`, `diag_martingale_sparse.py`.
+The method code is [reliax-core](https://github.com/reliax-io/reliax-core),
+pinned at a tagged release in `requirements.txt`, so a clean clone installs
+the same code that produced the results.
 
 ## Reproduce
 
@@ -148,37 +23,143 @@ python -m venv .venv && .venv/bin/pip install -r requirements.txt
 .venv/bin/python eval/run_shift_bench.py  # ~10 minutes; rewrites results/shift_bench.json
 ```
 
-`requirements.txt` pins the method code, [reliax-core](https://github.com/reliax-io/reliax-core), at a
-tagged release, so a clean clone installs the same code that produced the
-results. Splits, seeds and every threshold are fixed in `eval/run_eval.py`.
+Splits, seeds and every threshold are fixed in `eval/run_eval.py`. The
+further experiments below each name their own runner.
+
+## Headline results
+
+Two public credit datasets: Default of Credit Card Clients (Taiwan, 30,000
+applicants) and Statlog German Credit (1,000 applicants), both from the UCI
+repository.
+
+| Claim | Measured |
+|---|---|
+| Conformal coverage at a 0.95 target | 0.9515 ± 0.0040 (Taiwan), 0.9532 ± 0.0167 (German) |
+| Drift false alarms, 5 streams of 600 unshifted applicants | 0 of 5; a real subpopulation shift caught in 4 of 5 streams |
+| Calibration error on a miscalibrated model (ECE) | 0.065 (Venn-Abers) vs 0.083 (temperature scaling) vs 0.186 (raw) |
+| Best selective-prediction risk-coverage trade-off (AURC), Taiwan | 0.0955 (subjective-logic fusion) |
+| Full envelope latency | 8.0 ms median, 17.5 ms p95 |
+| **Bad approvals caught under severe shift** | **worse than referring at random; see below** |
+
+Two further negatives are in the paper: the subjective-logic fusion trails
+plain confidence on the small German dataset, and it trails plain confidence
+on unshifted Taiwan data as well.
+
+## The negative result: a severe shift
+
+`eval/run_shift_bench.py` asks one question. Refer the 10% of decisions ranked
+least reliable; how many bad approvals (approved, then defaulted) does that 10%
+contain, against the model's own confidence, against random referral, and
+against the ceiling a perfect ranking would reach?
+
+Train and calibrate on a reference subpopulation, evaluate on a disjoint one.
+No synthetic noise: every shift is a real split of real applicants. Four
+constructions, five seeds, bootstrap confidence intervals. Only the
+payment-delay split is severe enough to matter (model AUC 0.756 to 0.584); the
+other three cost the model under 3 AUC points and plain confidence still works
+there.
+
+On that severe split, the share of bad approvals caught at a 10% referral rate:
+
+| Signal | Caught | vs confidence | vs random |
+|---|---|---|---|
+| oracle (perfect ranking) | 0.258 | 3.32x | 2.68x |
+| kNN OOD distance | 0.102 | 1.32x (CI 1.13 to 1.54) | 1.06x |
+| **random referral** | 0.096 | 1.27x | 1.00x |
+| **model confidence** | 0.078 | 1.00x | 0.81x |
+| composite | 0.055 | 0.72x | 0.57x |
+| SL fusion | 0.023 | 0.32x | 0.24x |
+
+Two things follow, and neither flatters the method.
+
+1. Under severe shift the model's own confidence falls below random referral.
+   Any threshold expressed as a multiple of confidence is therefore measuring
+   against an anti-informative denominator. The pre-registered target of twice
+   the wrong-approval capture of model confidence (section 4.3 of the paper)
+   has been withdrawn for that reason.
+2. The composite and SL fusion scores are worse than random here. The error
+   auditor is fitted on reference data and collapses precisely under shift,
+   which drags the fusion down with it. kNN distance is the only component that
+   adds information, and the fusion destroys it.
+
+What does survive shift is detection rather than per-decision ranking:
+conformal coverage degrades measurably and in the right direction, from 0.9519
+unshifted to between 0.9031 and 0.9113 across the three shifted splits against
+a 0.95 target, and the test martingale catches real subpopulation shift in 4 of
+5 streams with 0 of 5 false alarms.
+
+Give Me Some Credit and Home Credit are not run here and remain frozen for
+the confirmatory study.
+
+## Further experiments
+
+Each has its own write-up and runner; the README keeps one paragraph per
+experiment.
+
+**Calibration trust.** `reliax_core.calibration_trust` turns the calibration
+behaviour of the scorer into a subjective-logic opinion per segment and score
+bin, with five finite-sample propositions in
+[CALIBRATION_TRUST.md](CALIBRATION_TRUST.md). Runners:
+`eval/run_calibration_trust.py` (about 3 minutes), `eval/run_calibration_credit.py`
+(the held-out credit evaluation) and `eval/run_calibration_decisions.py` with
+`eval/run_routing_decisions.py` (bad approvals avoided per 1,000 decisions,
+against random and confidence referral). The decision-level results are
+negative for per-decision mistake avoidance and are reported in full in
+[section 9c of CALIBRATION_TRUST.md](CALIBRATION_TRUST.md#9c-does-it-avoid-mistakes-decision-level-results-evalrun_calibration_decisionspy-evalrun_routing_decisionspy).
+Under the payment-delay shift the reference-fitted opinion claims a
+calibration error of 0.061 while the realised value is 0.225, which is what the
+delayed-outcome verdict is for.
+
+**Shift benchmark v2 (exploratory).** `eval/run_shift_bench_v2.py` asks the
+routing question in three regimes a lender can actually meet: a shift in
+progress (mixed populations), corrupted inputs (unit errors, missing fields,
+noise) and the severe split. Confidence wins when nothing has moved; confidence
+gated by the OOD distance catches 2.15x random and 1.60x confidence when a
+quarter of the book has shifted; nothing ranks once the shift is complete,
+where the drift test fires in every seed. A currency error on monetary fields
+is caught 100% by distance and 1% by confidence; zeroed fields are caught by
+neither. Write-up: [SHIFT_BENCHMARK_V2.md](SHIFT_BENCHMARK_V2.md).
+
+**Exploratory expansion.** Pre-specified in the second pre-registration
+amendment ([PREREGISTRATION_AMENDMENT.md](PREREGISTRATION_AMENDMENT.md))
+before any download; nothing here touches the confirmatory datasets. Runners
+in `eval/expansion/`, results in `results/expansion/`, discussion in section 7
+of the paper.
+
+| Workstream | Source | In one line | Write-up |
+|---|---|---|---|
+| Cross-domain | TableShift, 8 non-credit tasks with the benchmark's own shifts | Coverage holds in-distribution on all 8 and falls under shift on 7 of 8; the input drift test fires on most shifted streams, and the one task where it fails (hospital readmission, sparse one-hot inputs, small calibration set) is diagnosed | [TABLESHIFT.md](results/expansion/TABLESHIFT.md) |
+| Parity on reported class | HMDA 2025, 4.7M mortgage applications, label = denied | Marginal coverage 0.924 Black, 0.936 Hispanic, 0.956 White at a 0.95 target; per-segment calibration brings every non-thin group within 0.01; a geography-only proxy misassigns 27.7% of applicants | [HMDA_PARITY.md](results/expansion/HMDA_PARITY.md) |
+| Latency at scale | Bootstrapped rows of Taiwan dimensionality | 8.5, 41 and 493 ms median at 7,500, 100,000 and 1,000,000 calibration rows; the Venn-Abers fit dominates | [LATENCY.md](results/expansion/LATENCY.md) |
+| Temporal drift | Home Credit Stability 2024, 1.53M decisions over 92 weeks | Coverage 0.953 through December 2019, 0.936 in February and March 2020, 0.96 or more from April 2020. The pre-registered hypothesis that at least one month would fall below 0.94 is confirmed. Recalibration on 4 weeks of landed outcomes recovers 94% of the coverage gap | [HOMECREDIT_STABILITY.md](results/expansion/HOMECREDIT_STABILITY.md) |
+| Macro drift | Fannie Mae and Freddie Mac loan performance data | Not run: gated on the provider's terms | |
+
+To reproduce the expansion: `data_fetch/README.md` (TableShift environment in
+`data_fetch/TABLESHIFT_ENV.md`), then `eval/expansion/run_tableshift.py`,
+`run_hmda_parity.py`, `run_latency_scale.py`, `diag_martingale_sparse.py`.
 
 ## Layout
 
-- Method code: [`reliax-core`](https://github.com/reliax-io/reliax-core), a
-  separate Apache-2.0 package pinned in `requirements.txt` (conformal,
-  Mondrian, Venn-Abers, test martingale, kNN OOD, PSI, error auditor, SL
-  fusion, calibration opinion). Until 25 September 2026 it was the
-  `reliax_core/` directory here; the pre-registration names commits of this
-  repository as the frozen method code, and those commits remain in this
-  history. The directory was removed on 30 September 2026: every runner now
-  imports the installed package, and `run_eval.py`, `run_routing_decisions.py`
-  and `run_calibration_credit.py` reproduce the committed results exactly from
-  reliax-core 0.2.0 (only timings and run dates differ). Methods only: the Reliax product layer is not part of either
-  release.
-- `eval/` - dataset loaders, baselines/metrics, experiment runners, figures.
-- `data/` - tier 1: the two real UCI datasets, verbatim, with `PROVENANCE.md` (CC BY 4.0, redistributed).
-- `data_fetch/` - tier 2: fetch scripts for public sources that are not redistributed here (TableShift, HMDA, ACS).
-- `data_gated/` - tier 3: instructions only for sources whose terms prohibit redistribution (Fannie Mae, Freddie Mac, Kaggle).
+- `eval/` - dataset loaders, baselines and metrics, experiment runners, figures.
+- `data/` - the two UCI datasets, verbatim, with `PROVENANCE.md` (CC BY 4.0, redistributed here).
+- `data_fetch/` - fetch scripts for public sources that are not redistributed here (TableShift, HMDA, ACS).
+- `data_gated/` - instructions only, for sources whose terms prohibit redistribution (Fannie Mae, Freddie Mac, Kaggle).
 - `docs/` - the evaluation expansion plan; the binding protocol is `PREREGISTRATION_AMENDMENT.md`.
-- `results/` - `results.json`, `shift_bench.json` and the four paper figures.
+- `results/` - `results.json`, `shift_bench.json`, the paper figures and `expansion/`.
 
-## License
+The method code lived in a `reliax_core/` directory here until 25 September
+2026; the pre-registration names commits of this repository as the frozen
+method code, and those commits remain in this history. Every runner now
+imports the installed `reliax-core` package and reproduces the committed
+results exactly (only timings and run dates differ).
 
-Code: Apache-2.0, public for every experiment. Data is redistributed where
-the licence permits (UCI, CC BY 4.0, see `data/PROVENANCE.md`), fetched by
-script where the source is public (TableShift, HMDA, ACS; `data_fetch/`), and
-instructions-only where the provider's terms prohibit redistribution (Fannie
-Mae, Freddie Mac, Kaggle; `data_gated/`).
+## Licence
+
+Code: Apache-2.0, see [LICENSE](LICENSE) and [NOTICE](NOTICE). Data is
+redistributed where the licence permits (UCI, CC BY 4.0, see
+`data/PROVENANCE.md`), fetched by script where the source is public
+(TableShift, HMDA, ACS) and instructions-only where the provider's terms
+prohibit redistribution (Fannie Mae, Freddie Mac, Kaggle).
 
 ## About this documentation
 
