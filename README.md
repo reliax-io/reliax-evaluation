@@ -56,7 +56,8 @@ Two things follow, and neither flatters the method.
 1. Under severe shift the model's own confidence falls below random referral.
    Referring at random catches 1.27x what confidence catches. Any threshold
    expressed as a multiple of confidence is therefore measuring against an
-   anti-informative denominator, and the 2x bar stated in earlier material has
+   anti-informative denominator. The pre-registered target of twice the
+   wrong-approval capture of model confidence (section 4.3 of the paper) has
    been withdrawn for that reason.
 2. The composite and SL fusion scores are worse than random here. The error
    auditor is fitted on reference data and collapses precisely under shift,
