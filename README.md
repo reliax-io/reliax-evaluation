@@ -70,7 +70,7 @@ On that severe split, the share of bad approvals caught at a 10% referral rate:
 | composite | 0.055 | 0.72x | 0.57x |
 | SL fusion | 0.023 | 0.32x | 0.24x |
 
-Two things follow, and neither flatters the method.
+Two things follow.
 
 1. Under severe shift the model's own confidence falls below random referral.
    Any threshold expressed as a multiple of confidence is therefore measuring
