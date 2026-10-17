@@ -4,6 +4,10 @@ Status: DRAFT. Not yet published to the repository as the binding protocol.
 Give Me Some Credit and Home Credit remain untouched. Once accepted, this file
 is committed with a date and the confirmatory runs follow it verbatim.
 
+Status update, 17 October 2026: ACCEPTED. See "Acceptance of Amendment 1" at
+the end of this file, which fixes the operational readings and the runner
+before either confirmatory set is downloaded.
+
 ## Why amend
 
 The corrected bar of the first pre-registration asks the reliability ranking
@@ -405,3 +409,99 @@ CRO conversations continue in parallel.
 Nothing in this amendment changes Amendment 1: not the bar, not the referral
 rate, not the seed count, not the bootstrap, not the AUC floor, not the
 declared populations.
+
+---
+
+# Acceptance of Amendment 1 (17 October 2026)
+
+Status: Amendment 1 is accepted as the binding protocol of the confirmatory
+runs. This section, the runner `eval/run_confirmatory.py`, its loaders
+`eval/confirmatory_data.py` and the fetch script
+`data_gated/fetch_confirmatory.py` are committed together, before Give Me Some
+Credit (2011) or Home Credit Default Risk (2018) is downloaded, opened or
+inspected. The confirmatory runs execute that commit's code unchanged, once,
+and every number they produce is reported, whichever way the bar falls.
+
+Method code: `reliax-core` as pinned in `requirements.txt` (v0.2.0); its k = 10,
+flag at the 95th calibration percentile, WATCH 20 and ALARM 100 are the values
+Amendment 1 freezes.
+
+## A.1 Operational readings
+
+Amendment 1 leaves these open. They are fixed here, with the data sealed.
+
+1. **Sizes.** 8,000 training and 4,000 calibration rows from the reference
+   population, as in the v1 and v2 benchmarks; test sets of 4,000 rows; seeds
+   0 to 4. The seed changes the split and the model.
+2. **Model and missing inputs.** `HistGradientBoostingClassifier(max_iter=300,
+   random_state=seed)`. Missing inputs are filled with the training split's
+   medians for every component, since the kNN distance cannot take a missing
+   value; nothing else is cleaned.
+3. **Populations.** Give Me Some Credit: as declared,
+   `NumberOfTime30-59DaysPastDueNotWorse` = 0 against >= 1, on `cs-training.csv`.
+   Home Credit: an applicant is shifted when any of their `bureau.csv` records
+   has `CREDIT_DAY_OVERDUE`, `AMT_CREDIT_MAX_OVERDUE` or `AMT_CREDIT_SUM_OVERDUE`
+   above 0; every other applicant, including one with no bureau record, is
+   reference ("no previous late payment in bureau data", read literally).
+   `bureau_balance.csv` is not used.
+4. **Model inputs.** Attributes kept out of the model and used for audits only,
+   as SEX, AGE and MARRIAGE are on Taiwan: `age` (Give Me Some Credit);
+   `CODE_GENDER`, `DAYS_BIRTH`, `NAME_FAMILY_STATUS` (Home Credit). Home Credit
+   inputs are the numeric columns of `application_train.csv`; its categorical
+   columns are not encoded, because one-hot inputs break the shipped kNN
+   distance (paper, section 7.3). `bureau.csv` defines the populations only.
+5. **Corruption.** A x100 unit error on the declared monetary fields, applied
+   to the raw values of rho of the reference test rows. Give Me Some Credit
+   declares MonthlyIncome and the monthly debt (DebtRatio x MonthlyIncome):
+   both scale, so the model sees MonthlyIncome x100 and DebtRatio unchanged;
+   where MonthlyIncome is missing, DebtRatio holds the debt amount itself and
+   is multiplied by 100. Home Credit: `AMT_INCOME_TOTAL`, `AMT_CREDIT`,
+   `AMT_ANNUITY`, `AMT_GOODS_PRICE` x100.
+6. **The signal's implementation.** "Confidence gated by OOD" is computed by
+   the code of `eval/run_shift_bench_v2.py`, whose Taiwan values Amendment 1
+   quotes: flagged rows first, ordered by their distance percentile, ties at
+   the top percentile broken by the model's confidence; the regime-switching
+   rule likewise. Disclosure: before this was fixed, both this implementation
+   and an ordering of the flagged rows by raw distance alone were run on Taiwan
+   (5 seeds): 2.16x and 1.51x random referral at lambda 0.25 and 0.50 for the
+   v2 code, 1.89x and 1.44x for raw distance. The v2 code is chosen because it
+   is the signal whose values the amendment quotes; the raw-distance ordering
+   is reported as `gated_distance` and does not enter the bar.
+7. **AUC floor.** The moderate tier's AUC loss is measured as in
+   `eval/run_shift_bench.py`: against the i.i.d. control, the same model
+   trained, calibrated and tested on a random split of the whole population
+   (Taiwan: 0.7555, as in `results/shift_bench.json`). Disclosure: measured
+   against the reference-only calm tier instead, the Taiwan moderate tier gains
+   AUC, because the shifted rows are easier to rank; that figure is reported as
+   `auc_loss_vs_calm` and does not decide "mild".
+8. **The bar, computed.** Per seed, bad-approval capture at a 10% referral
+   rate over the capture of one random referral (drawn as in v1 and v2); the
+   mean over the 5 seeds must reach 1.5. Against confidence: the paired
+   bootstrap of `eval/run_shift_bench.py` (seed 0, 2,000 resamples, generator
+   seed 12345); the 95% interval's lower end must exceed 1.0. Both lambdas, not
+   mild, on both confirmatory datasets.
+9. **Severe tier.** The martingale on the kNN distance reaches ALARM at some
+   point of the stream in every seed, and the REVIEW rate (prediction set not a
+   singleton) is above the calm tier's.
+10. **Corruption tier.** The gated referral holds at least 80% of the corrupted
+    rows (mean over seeds), and the martingale reaches ALARM in every seed.
+11. **Taiwan.** Run through the same code, reported alongside, exploratory.
+12. **Licence.** The account that downloads has accepted both competitions'
+    rules; the data is never committed or redistributed, and the SHA-256 of
+    each file read is recorded with the results.
+
+## A.2 Exploratory reference run (Taiwan, this commit)
+
+Through the confirmatory runner, not counted towards the bar:
+
+| tier | Taiwan |
+|---|---|
+| i.i.d. control AUC | 0.7555 |
+| moderate, lambda 0.25 | AUC loss 0.065; gated 2.16x random, 1.57x confidence (seed-0 CI 1.36 to 1.85): passes |
+| moderate, lambda 0.50 | AUC loss 0.075; gated 1.51x random, 1.34x confidence (seed-0 CI 1.14 to 1.47): passes |
+| severe, lambda 0.75 and 1.00 | ALARM in 5 of 5 seeds; REVIEW rate 45% calm, 70% and 78% |
+| corruption, rho 0.05 and 0.10 | gated holds 100% and 84% of the corrupted rows (confidence 1.5% and 1.9%); ALARM in 5 of 5 |
+
+On seeds 0 to 2 the runner reproduces `results/shift_bench_v2.json` exactly
+(2.1523x and 1.6097x random), and the i.i.d. control reproduces
+`results/shift_bench.json`.

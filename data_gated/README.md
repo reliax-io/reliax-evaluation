@@ -34,5 +34,13 @@ Amendment 2, section 2.1.
 ## Sealed confirmatory sets (never placed here)
 
 Give Me Some Credit (2011) and Home Credit Default Risk (2018) are the
-confirmatory sets of Amendment 1 and are not part of any tier until the
-confirmatory runs open.
+confirmatory sets of Amendment 1, accepted 17 October 2026 (see the end of
+PREREGISTRATION_AMENDMENT.md). They are opened only by the confirmatory runs:
+
+1. Accept the rules of both Kaggle competitions (GiveMeSomeCredit,
+   home-credit-default-risk) on the account whose API key is used.
+2. `.venv/bin/pip install kaggle`, with `KAGGLE_USERNAME` and `KAGGLE_KEY` set.
+3. `.venv/bin/python data_gated/fetch_confirmatory.py` writes
+   `cache/gmsc/cs-training.csv`, `cache/homecredit2018/application_train.csv`,
+   `cache/homecredit2018/bureau.csv` and their checksums.
+4. `.venv/bin/python eval/run_confirmatory.py` writes `results/confirmatory/`.
