@@ -505,3 +505,44 @@ Through the confirmatory runner, not counted towards the bar:
 On seeds 0 to 2 the runner reproduces `results/shift_bench_v2.json` exactly
 (2.1523x and 1.6097x random), and the i.i.d. control reproduces
 `results/shift_bench.json`.
+
+---
+
+# Amendment 3: a production-grade model (exploratory, 18 October 2026)
+
+Status: EXPLORATORY. Written after the confirmatory results of Amendment 1
+were seen (Give Me Some Credit and Home Credit Default Risk 2018 opened on
+17 October 2026). It does not change those results, re-run them, or make a
+confirmatory claim. It is committed before any dataset is run through it.
+
+**Question.** The confirmatory runs fix a deliberately plain model (8,000
+training rows, no tuning, numeric application columns only on Home Credit),
+whose AUCs (0.80, 0.68, 0.76) sit below what a credit team would deploy. Do
+the envelope's properties hold on top of a model built the way a lender would
+build it?
+
+**What changes** (`eval/run_production.py`, `eval/production_data.py`):
+
+1. **Data.** All of the declared reference population: 4,000 rows held out for
+   testing, 10,000 for calibration (5,000 on Taiwan), the rest for training.
+   The i.i.d. control splits the whole population the same way.
+2. **Inputs.** Give Me Some Credit and Taiwan: unchanged. Home Credit: every
+   column of `application_train.csv` except identifiers, label and the
+   audit-only attributes; categorical columns as categories; `DAYS_EMPLOYED` =
+   365243 as missing; credit / income, annuity / income, annuity / credit,
+   goods / credit and the mean of EXT_SOURCE_1-3; per-applicant aggregates of
+   `bureau.csv`. The shifted population is defined as before, and the bureau
+   aggregates now let the model and the distance see it.
+3. **Model.** HistGradientBoostingClassifier, learning rate 0.05, up to 2,000
+   iterations with early stopping; max_leaf_nodes in {15, 31, 63} x
+   min_samples_leaf in {20, 200}, chosen once on seed 0 by AUC on a 20%
+   hold-out of the training split, separately for the i.i.d. control and the
+   reference model. Columns with no value in the training split are left out.
+4. **Distance.** The kNN distance reads the non-categorical inputs, missing
+   values filled with training medians. k, the flag percentile, WATCH and ALARM
+   are unchanged.
+5. **Reported.** Model: AUC, PR-AUC, accuracy, precision, recall and F1 at 0.5,
+   at the F1-maximising cut-off chosen on the calibration split, and for the
+   riskiest 10%. Reliax: every tier and signal of Amendment 1, computed the
+   same way. There is no bar: nothing in this track passes or fails, and its
+   numbers are labelled exploratory wherever they appear.
