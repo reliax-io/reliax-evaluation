@@ -90,5 +90,193 @@
    }
   },
   "moderate_pass": true
+ },
+ "gmsc": {
+  "status": "confirmatory",
+  "iid_control_auc": 0.801,
+  "calm": {
+   "coverage": 0.9506,
+   "review_rate": 0.0108,
+   "auc": 0.7577
+  },
+  "moderate": {
+   "0.25": {
+    "auc_loss": 0.0251,
+    "auc_loss_vs_calm": -0.0182,
+    "mild": true,
+    "gated_vs_random": 3.9907,
+    "gated_vs_confidence": 1.3326,
+    "gated_vs_confidence_ci95_seed0": [
+     1.1882,
+     1.7321
+    ],
+    "regime_switch_vs_random": 3.7316,
+    "regime_switch_vs_confidence": 1.2441,
+    "regime_switch_vs_confidence_ci95_seed0": [
+     1.1039,
+     1.6834
+    ],
+    "meets_random_bar": true,
+    "beats_confidence": true,
+    "pass": false
+   },
+   "0.5": {
+    "auc_loss": 0.03,
+    "auc_loss_vs_calm": -0.0133,
+    "mild": false,
+    "gated_vs_random": 2.7689,
+    "gated_vs_confidence": 1.1884,
+    "gated_vs_confidence_ci95_seed0": [
+     1.1212,
+     1.4885
+    ],
+    "regime_switch_vs_random": 2.8721,
+    "regime_switch_vs_confidence": 1.221,
+    "regime_switch_vs_confidence_ci95_seed0": [
+     1.1237,
+     1.6338
+    ],
+    "meets_random_bar": true,
+    "beats_confidence": true,
+    "pass": true
+   }
+  },
+  "severe": {
+   "0.75": {
+    "alarm_seeds": 5,
+    "of": 5,
+    "first_alarm_at": 7.4,
+    "review_rate": 0.0402,
+    "review_rate_calm": 0.0108,
+    "review_rises": true,
+    "coverage": 0.8116,
+    "auc": 0.7456,
+    "holds": true
+   },
+   "1.0": {
+    "alarm_seeds": 5,
+    "of": 5,
+    "first_alarm_at": 5.4,
+    "review_rate": 0.049,
+    "review_rate_calm": 0.0108,
+    "review_rises": true,
+    "coverage": 0.7684,
+    "auc": 0.7184,
+    "holds": true
+   }
+  },
+  "corruption": {
+   "0.05": {
+    "gated_caught": 0.951,
+    "confidence_caught": 0.046,
+    "alarm_seeds": 5,
+    "of": 5,
+    "holds": true
+   },
+   "0.1": {
+    "gated_caught": 0.8225,
+    "confidence_caught": 0.047,
+    "alarm_seeds": 5,
+    "of": 5,
+    "holds": true
+   }
+  },
+  "moderate_pass": false
+ },
+ "homecredit2018": {
+  "status": "confirmatory",
+  "iid_control_auc": 0.6785,
+  "calm": {
+   "coverage": 0.95,
+   "review_rate": 0.1552,
+   "auc": 0.6854
+  },
+  "moderate": {
+   "0.25": {
+    "auc_loss": -0.0055,
+    "auc_loss_vs_calm": 0.0014,
+    "mild": true,
+    "gated_vs_random": 1.6041,
+    "gated_vs_confidence": 0.6579,
+    "gated_vs_confidence_ci95_seed0": [
+     0.5857,
+     0.8696
+    ],
+    "regime_switch_vs_random": 2.4614,
+    "regime_switch_vs_confidence": 1.0,
+    "regime_switch_vs_confidence_ci95_seed0": [
+     1.0,
+     1.0
+    ],
+    "meets_random_bar": true,
+    "beats_confidence": false,
+    "pass": false
+   },
+   "0.5": {
+    "auc_loss": -0.0036,
+    "auc_loss_vs_calm": 0.0033,
+    "mild": true,
+    "gated_vs_random": 1.441,
+    "gated_vs_confidence": 0.6745,
+    "gated_vs_confidence_ci95_seed0": [
+     0.5625,
+     0.8571
+    ],
+    "regime_switch_vs_random": 1.3364,
+    "regime_switch_vs_confidence": 0.6266,
+    "regime_switch_vs_confidence_ci95_seed0": [
+     0.2499,
+     0.5862
+    ],
+    "meets_random_bar": false,
+    "beats_confidence": false,
+    "pass": false
+   }
+  },
+  "severe": {
+   "0.75": {
+    "alarm_seeds": 3,
+    "of": 5,
+    "first_alarm_at": 1398.3333,
+    "review_rate": 0.1776,
+    "review_rate_calm": 0.1552,
+    "review_rises": true,
+    "coverage": 0.9424,
+    "auc": 0.6836,
+    "holds": false
+   },
+   "1.0": {
+    "alarm_seeds": 4,
+    "of": 5,
+    "first_alarm_at": 1419.75,
+    "review_rate": 0.1866,
+    "review_rate_calm": 0.1552,
+    "review_rises": true,
+    "coverage": 0.94,
+    "auc": 0.6799,
+    "holds": false
+   }
+  },
+  "corruption": {
+   "0.05": {
+    "gated_caught": 1.0,
+    "confidence_caught": 0.043,
+    "alarm_seeds": 5,
+    "of": 5,
+    "holds": true
+   },
+   "0.1": {
+    "gated_caught": 0.9505,
+    "confidence_caught": 0.0325,
+    "alarm_seeds": 5,
+    "of": 5,
+    "holds": true
+   }
+  },
+  "moderate_pass": false
+ },
+ "bar": {
+  "pass": false,
+  "rule": "gated passes the moderate tier on both lambdas on both confirmatory datasets"
  }
 }
