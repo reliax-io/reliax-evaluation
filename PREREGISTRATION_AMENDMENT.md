@@ -546,3 +546,50 @@ build it?
    riskiest 10%. Reliax: every tier and signal of Amendment 1, computed the
    same way. There is no bar: nothing in this track passes or fails, and its
    numbers are labelled exploratory wherever they appear.
+
+---
+
+# Amendment 4: Reliax at the lender's cut-off (exploratory, 19 October 2026)
+
+Status: EXPLORATORY. Written after the vision note "Credit cut-offs and
+Reliax" (19 October 2026) and before `eval/run_cutoff.py` is run on any
+dataset. Taiwan, Give Me Some Credit and Home Credit 2018 have all been seen
+before, so nothing here is confirmatory; the protocol is written down first so
+that what is reported is what was planned.
+
+**Questions.** (A) Does routing against the lender's own cut-off PD* = M / (M + L)
+send fewer decisions to a person than the conformal set does, at what default
+rate among automatic approvals, and does calibrating the Venn-Abers bracket
+within reliability classes change who is approved? (B) Does the guaranteed
+cut-off of reliax-core 0.4.0 keep the default rate among approvals under the
+lender's target where a naive cut-off does not, and at what cost in
+approvals? (C) How far do both move under the moderate shift of Amendment 1?
+
+**Fixed here** (`eval/run_cutoff.py`):
+
+1. Model, inputs, splits, sizes and seeds of Amendment 3 (production-grade
+   model; i.i.d. split for A and B; reference model and 25% shifted test rows
+   for C).
+2. Lenders: M = 600, L = 5,000 (PD* = 0.107, the note's worked example) and
+   M = 300, L = 5,000 (PD* = 0.057).
+3. Routings: P0 the lender alone (approve below PD*, decline above); P1 the
+   conformal set at alpha 0.05; P2 the Venn-Abers bracket against PD*
+   (approve if p1 < PD*, decline if p0 > PD*, review if it straddles); P3 P2
+   with the bracket calibrated within three reliability classes, the thirds
+   of the calibration set by kNN distance. Brackets are computed on a 401-point
+   score grid and interpolated.
+4. Guaranteed cut-off: `guaranteed_cutoff` (reliax-core 0.4.0, carried
+   verbatim in `eval/vendor/`), delta 0.05, targets 0.5 and 0.75 times the
+   calibration base rate; against the loosest cut-off whose observed
+   calibration default rate meets the target. 20 re-splits of the calibration
+   and test rows per seed, the model fixed.
+5. Reported: the shares approved, declined and reviewed automatically; the
+   default rate among automatic approvals (overall and per reliability class);
+   the good-customer share among automatic declines; the margin of automatic
+   decisions per 1,000 applications; for B, how often the realised default
+   rate among approvals exceeds the target. No bar.
+
+What would count against the vision note, stated now: P3 approving the same
+share as P2 at the same default rate in every class (the reliability classes
+add nothing), or the guaranteed cut-off exceeding its target on the test rows
+about as often as the naive one.
