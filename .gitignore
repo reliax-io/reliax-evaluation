@@ -9,3 +9,4 @@ results/expansion/*.log
 results/confirmatory_selftest/
 results/production_selftest/
 results/cutoff_selftest/
+results/zones_selftest/

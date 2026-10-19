@@ -1,7 +1,7 @@
-# Verbatim copy of reliax_core/cutoff.py at reliax-core commit 8529118 (0.4.0). The evaluation
-# pins reliax-core v0.2.0 for every other runner; this copy lets eval/run_cutoff.py use the 0.4.0
-# procedure without moving that pin, and run_cutoff.py checks it against the installed package
-# whenever that package has the module.
+# Verbatim copy of reliax_core/cutoff.py at reliax-core commit 90303ee (0.4.0, with three_zones). The
+# evaluation pins reliax-core v0.2.0 for every other runner; this copy lets eval/run_cutoff.py and
+# eval/run_zones.py use the 0.4.0 procedures without moving that pin, and they check it against the
+# installed package whenever that package has the module.
 """The lender's cut-off: its break-even point, a guaranteed cut-off, and the bracket against it.
 
 A lender approves while the expected margin on a good customer covers the
@@ -29,6 +29,24 @@ The sequence starts at the first candidate that approves enough cases to
 reject at all, max(log(delta) / log(1 - target), 5% of the calibration set),
 because the walk ends at the first test that fails; that start depends on the
 scores only, never on the outcomes, so the guarantee is unchanged.
+
+``three_zones`` guarantees both sides of the lender's own cut-off. The
+calibration scores are cut into equal-count slices, 5% of the cases each by
+default (score quantiles: the cut depends on the scores only). From the lowest
+predicted PD up, each slice is tested for "its default rate exceeds PD*" with
+the exact binomial p-value P(Binomial(n, PD*) <= d), and approved while
+p <= delta / 2; from the highest PD down, each slice is tested for "its
+default rate is below PD*" with P(Binomial(n, PD*) >= d), and declined while
+p <= delta / 2. What neither walk reaches is reviewed by a person: the band
+around the cut-off where the data cannot tell which side a case is on. With
+probability at least 1 - delta, every approved slice has a default rate at
+most PD* (an approval there earns the margin on average) and every declined
+slice at least PD* (a decline there avoids an expected loss), for future cases
+exchangeable with the calibration data (two fixed sequences at delta / 2
+each). Slices are tested one by one, never pooled with safer neighbours: a
+pooled window would let its riskiest cases sit above PD*. The guarantee on declines needs
+outcomes for declined applicants, which a lender only has from past periods,
+a random approval sample or bureau data.
 
 ``bracket_route`` compares the Venn-Abers bracket [p0, p1] with PD*: approve
 when even the upper end is below it, decline when even the lower end is above
@@ -64,6 +82,13 @@ def upper_bound(defaults: int, n: int, delta: float = 0.05) -> float:
     if defaults >= n:
         return 1.0
     return float(beta.ppf(1.0 - delta, defaults + 1, n - defaults))
+
+
+def lower_bound(defaults: int, n: int, delta: float = 0.05) -> float:
+    """One-sided Clopper-Pearson lower bound on a default rate, at confidence 1 - delta."""
+    if n <= 0 or defaults <= 0:
+        return 0.0
+    return float(beta.ppf(delta, defaults, n - defaults + 1))
 
 
 def default_grid(scores: np.ndarray, n: int = 41) -> np.ndarray:
@@ -112,5 +137,56 @@ def bracket_route(p0: float, p1: float, pd_star: float) -> str:
     if p1 < pd_star:
         return APPROVE
     if p0 > pd_star:
+        return DECLINE
+    return REVIEW
+
+
+def three_zones(scores, outcomes, pd_star: float, delta: float = 0.05, slices: int = 20) -> dict:
+    """Approve, review and decline zones around the lender's cut-off ``pd_star``, both sides guaranteed
+    (see the module docstring). ``scores`` is the predicted PD, ``outcomes`` 1 for a default; the
+    calibration scores are cut into ``slices`` equal-count slices. A new case is approved when its score
+    is at most ``approve_to``, declined when above ``decline_from``, reviewed otherwise (``zone_of``)."""
+    s = np.asarray(scores, dtype=float)
+    y = np.asarray(outcomes, dtype=int)
+    if s.shape != y.shape or s.ndim != 1 or len(s) < 2 * slices:
+        raise ValueError("scores and outcomes must be 1-d arrays of the same length, at least 2 per slice")
+    if not 0.0 < pd_star < 1.0 or not 0.0 < delta < 1.0 or slices < 2:
+        raise ValueError("pd_star and delta must lie in (0, 1), and slices be at least 2")
+    edges = np.unique(np.quantile(s, np.arange(1, slices) / slices))
+    k = np.searchsorted(edges, s, side="left")                     # slice index: (edge[k-1], edge[k]]
+    S = len(edges) + 1
+    n = np.bincount(k, minlength=S)
+    d = np.bincount(k, weights=y, minlength=S).astype(int)
+    half = delta / 2.0
+    approve = 0                                                    # walk up while a slice is shown to earn the margin
+    while approve < S and n[approve] and binom.cdf(d[approve], n[approve], pd_star) <= half:
+        approve += 1
+    decline = S                                                    # walk down while a slice is shown to lose money
+    while decline > approve and n[decline - 1] and binom.sf(d[decline - 1] - 1, n[decline - 1], pd_star) <= half:
+        decline -= 1
+    lo = np.concatenate([[-np.inf], edges])
+    hi = np.concatenate([edges, [np.inf]])
+    table = [{"from": None if not np.isfinite(lo[i]) else float(lo[i]), "to": None if not np.isfinite(hi[i]) else float(hi[i]),
+              "n": int(n[i]), "defaults": int(d[i]), "default_rate": float(d[i] / n[i]) if n[i] else None,
+              "zone": APPROVE if i < approve else DECLINE if i >= decline else REVIEW} for i in range(S)]
+    a, r = k < approve, k >= decline
+    return {"pd_star": float(pd_star), "delta": float(delta), "slices": int(S),
+            "method": "two fixed sequences of binomial tests on equal-count score slices, delta / 2 each",
+            "approve_to": float(hi[approve - 1]) if approve else None,
+            "decline_from": float(lo[decline]) if decline < S else None,
+            "shares": {APPROVE: float(a.mean()), REVIEW: float((~a & ~r).mean()), DECLINE: float(r.mean())},
+            "approved": {"n": int(a.sum()), "default_rate": float(y[a].mean()) if a.any() else None,
+                         "upper_bound": upper_bound(int(y[a].sum()), int(a.sum()), half)},
+            "declined": {"n": int(r.sum()), "default_rate": float(y[r].mean()) if r.any() else None,
+                         "lower_bound": lower_bound(int(y[r].sum()), int(r.sum()), half)},
+            "slices_table": table}
+
+
+def zone_of(score: float, zones: dict) -> str:
+    """The zone a new case falls in, from ``three_zones``."""
+    a, dcl = zones["approve_to"], zones["decline_from"]
+    if a is not None and score <= a:
+        return APPROVE
+    if dcl is not None and score > dcl:
         return DECLINE
     return REVIEW

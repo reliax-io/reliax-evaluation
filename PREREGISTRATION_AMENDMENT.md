@@ -593,3 +593,41 @@ What would count against the vision note, stated now: P3 approving the same
 share as P2 at the same default rate in every class (the reliability classes
 add nothing), or the guaranteed cut-off exceeding its target on the test rows
 about as often as the naive one.
+
+---
+
+# Amendment 5: approve, review and decline zones, guaranteed on both sides (exploratory, 19 October 2026)
+
+Status: EXPLORATORY. Written after the Taiwan results of Amendment 4 showed
+that routing at the lender's PD* keeps its margin while the conformal set at
+95% loses 44% of it, and before `eval/run_zones.py` runs on any dataset.
+
+**Question.** Can Reliax keep the lender's margin and guarantee both sides of
+its cut-off: approvals that earn the margin and declines that avoid a loss?
+
+**Fixed here.**
+
+1. Procedure: `three_zones` (reliax-core 0.4.0, commit 90303ee, carried
+   verbatim in `eval/vendor/`), delta 0.05. Equal-count slices of the
+   calibration scores, walked from the safest up and from the riskiest down
+   with exact binomial tests at delta / 2 each; with probability at least
+   1 - delta every approved slice defaults at most PD* and every declined slice
+   at least PD*. The rest is reviewed. Primary: 20 slices; secondary: 10.
+2. Lenders, model, splits, sizes and seeds of Amendment 4.
+3. Compared with the lender alone (approve below PD*, decline above) on the
+   same test rows: the shares approved, reviewed and declined; the default
+   rate among approvals, declines and reviews; the good-customer share among
+   declines; the margin of automatic decisions per 1,000 applications; the
+   realised default rate of the riskiest approved and the safest declined
+   slice. Validity: 20 re-splits per seed; how often the realised default rate
+   among approvals exceeds PD*, and among declines falls below it. The same
+   under the moderate shift, where no guarantee is claimed.
+
+What would count against it, stated now: a margin of automatic decisions more
+than 10% below the lender's alone, or approvals realising above PD* (or
+declines below it) in more than 5% of re-splits.
+
+Known limit, stated now: in a lender's own book, declined applicants have no
+outcome. These public datasets have one for everybody; a deployment needs
+outcomes from past periods, a random approval sample or bureau data before
+the guarantee on declines can be offered.
