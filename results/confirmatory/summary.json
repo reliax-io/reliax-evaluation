@@ -1,0 +1,94 @@
+{
+ "taiwan": {
+  "status": "exploratory",
+  "iid_control_auc": 0.7555,
+  "calm": {
+   "coverage": 0.9489,
+   "review_rate": 0.4497,
+   "auc": 0.6429
+  },
+  "moderate": {
+   "0.25": {
+    "auc_loss": 0.0648,
+    "auc_loss_vs_calm": -0.0478,
+    "mild": false,
+    "gated_vs_random": 2.1635,
+    "gated_vs_confidence": 1.573,
+    "gated_vs_confidence_ci95_seed0": [
+     1.3644,
+     1.85
+    ],
+    "regime_switch_vs_random": 1.8894,
+    "regime_switch_vs_confidence": 1.3726,
+    "regime_switch_vs_confidence_ci95_seed0": [
+     1.1484,
+     1.6667
+    ],
+    "meets_random_bar": true,
+    "beats_confidence": true,
+    "pass": true
+   },
+   "0.5": {
+    "auc_loss": 0.0753,
+    "auc_loss_vs_calm": -0.0373,
+    "mild": false,
+    "gated_vs_random": 1.5149,
+    "gated_vs_confidence": 1.3374,
+    "gated_vs_confidence_ci95_seed0": [
+     1.1351,
+     1.4655
+    ],
+    "regime_switch_vs_random": 1.4361,
+    "regime_switch_vs_confidence": 1.2701,
+    "regime_switch_vs_confidence_ci95_seed0": [
+     1.0066,
+     1.3985
+    ],
+    "meets_random_bar": true,
+    "beats_confidence": true,
+    "pass": true
+   }
+  },
+  "severe": {
+   "0.75": {
+    "alarm_seeds": 5,
+    "of": 5,
+    "first_alarm_at": 8.0,
+    "review_rate": 0.6996,
+    "review_rate_calm": 0.4497,
+    "review_rises": true,
+    "coverage": 0.9206,
+    "auc": 0.6464,
+    "holds": true
+   },
+   "1.0": {
+    "alarm_seeds": 5,
+    "of": 5,
+    "first_alarm_at": 6.4,
+    "review_rate": 0.7818,
+    "review_rate_calm": 0.4497,
+    "review_rises": true,
+    "coverage": 0.9113,
+    "auc": 0.584,
+    "holds": true
+   }
+  },
+  "corruption": {
+   "0.05": {
+    "gated_caught": 1.0,
+    "confidence_caught": 0.015,
+    "alarm_seeds": 5,
+    "of": 5,
+    "holds": true
+   },
+   "0.1": {
+    "gated_caught": 0.843,
+    "confidence_caught": 0.0185,
+    "alarm_seeds": 5,
+    "of": 5,
+    "holds": true
+   }
+  },
+  "moderate_pass": true
+ }
+}

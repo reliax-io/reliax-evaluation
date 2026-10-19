@@ -6,3 +6,7 @@ data_fetch/cache/
 data_gated/cache/
 results/expansion/*.log
 .DS_Store
+results/confirmatory_selftest/
+results/production_selftest/
+results/cutoff_selftest/
+results/zones_selftest/

@@ -4,6 +4,10 @@ Status: DRAFT. Not yet published to the repository as the binding protocol.
 Give Me Some Credit and Home Credit remain untouched. Once accepted, this file
 is committed with a date and the confirmatory runs follow it verbatim.
 
+Status update, 17 October 2026: ACCEPTED. See "Acceptance of Amendment 1" at
+the end of this file, which fixes the operational readings and the runner
+before either confirmatory set is downloaded.
+
 ## Why amend
 
 The corrected bar of the first pre-registration asks the reliability ranking
@@ -405,3 +409,225 @@ CRO conversations continue in parallel.
 Nothing in this amendment changes Amendment 1: not the bar, not the referral
 rate, not the seed count, not the bootstrap, not the AUC floor, not the
 declared populations.
+
+---
+
+# Acceptance of Amendment 1 (17 October 2026)
+
+Status: Amendment 1 is accepted as the binding protocol of the confirmatory
+runs. This section, the runner `eval/run_confirmatory.py`, its loaders
+`eval/confirmatory_data.py` and the fetch script
+`data_gated/fetch_confirmatory.py` are committed together, before Give Me Some
+Credit (2011) or Home Credit Default Risk (2018) is downloaded, opened or
+inspected. The confirmatory runs execute that commit's code unchanged, once,
+and every number they produce is reported, whichever way the bar falls.
+
+Method code: `reliax-core` as pinned in `requirements.txt` (v0.2.0); its k = 10,
+flag at the 95th calibration percentile, WATCH 20 and ALARM 100 are the values
+Amendment 1 freezes.
+
+## A.1 Operational readings
+
+Amendment 1 leaves these open. They are fixed here, with the data sealed.
+
+1. **Sizes.** 8,000 training and 4,000 calibration rows from the reference
+   population, as in the v1 and v2 benchmarks; test sets of 4,000 rows; seeds
+   0 to 4. The seed changes the split and the model.
+2. **Model and missing inputs.** `HistGradientBoostingClassifier(max_iter=300,
+   random_state=seed)`. Missing inputs are filled with the training split's
+   medians for every component, since the kNN distance cannot take a missing
+   value; nothing else is cleaned.
+3. **Populations.** Give Me Some Credit: as declared,
+   `NumberOfTime30-59DaysPastDueNotWorse` = 0 against >= 1, on `cs-training.csv`.
+   Home Credit: an applicant is shifted when any of their `bureau.csv` records
+   has `CREDIT_DAY_OVERDUE`, `AMT_CREDIT_MAX_OVERDUE` or `AMT_CREDIT_SUM_OVERDUE`
+   above 0; every other applicant, including one with no bureau record, is
+   reference ("no previous late payment in bureau data", read literally).
+   `bureau_balance.csv` is not used.
+4. **Model inputs.** Attributes kept out of the model and used for audits only,
+   as SEX, AGE and MARRIAGE are on Taiwan: `age` (Give Me Some Credit);
+   `CODE_GENDER`, `DAYS_BIRTH`, `NAME_FAMILY_STATUS` (Home Credit). Home Credit
+   inputs are the numeric columns of `application_train.csv`; its categorical
+   columns are not encoded, because one-hot inputs break the shipped kNN
+   distance (paper, section 7.3). `bureau.csv` defines the populations only.
+5. **Corruption.** A x100 unit error on the declared monetary fields, applied
+   to the raw values of rho of the reference test rows. Give Me Some Credit
+   declares MonthlyIncome and the monthly debt (DebtRatio x MonthlyIncome):
+   both scale, so the model sees MonthlyIncome x100 and DebtRatio unchanged;
+   where MonthlyIncome is missing, DebtRatio holds the debt amount itself and
+   is multiplied by 100. Home Credit: `AMT_INCOME_TOTAL`, `AMT_CREDIT`,
+   `AMT_ANNUITY`, `AMT_GOODS_PRICE` x100.
+6. **The signal's implementation.** "Confidence gated by OOD" is computed by
+   the code of `eval/run_shift_bench_v2.py`, whose Taiwan values Amendment 1
+   quotes: flagged rows first, ordered by their distance percentile, ties at
+   the top percentile broken by the model's confidence; the regime-switching
+   rule likewise. Disclosure: before this was fixed, both this implementation
+   and an ordering of the flagged rows by raw distance alone were run on Taiwan
+   (5 seeds): 2.16x and 1.51x random referral at lambda 0.25 and 0.50 for the
+   v2 code, 1.89x and 1.44x for raw distance. The v2 code is chosen because it
+   is the signal whose values the amendment quotes; the raw-distance ordering
+   is reported as `gated_distance` and does not enter the bar.
+7. **AUC floor.** The moderate tier's AUC loss is measured as in
+   `eval/run_shift_bench.py`: against the i.i.d. control, the same model
+   trained, calibrated and tested on a random split of the whole population
+   (Taiwan: 0.7555, as in `results/shift_bench.json`). Disclosure: measured
+   against the reference-only calm tier instead, the Taiwan moderate tier gains
+   AUC, because the shifted rows are easier to rank; that figure is reported as
+   `auc_loss_vs_calm` and does not decide "mild".
+8. **The bar, computed.** Per seed, bad-approval capture at a 10% referral
+   rate over the capture of one random referral (drawn as in v1 and v2); the
+   mean over the 5 seeds must reach 1.5. Against confidence: the paired
+   bootstrap of `eval/run_shift_bench.py` (seed 0, 2,000 resamples, generator
+   seed 12345); the 95% interval's lower end must exceed 1.0. Both lambdas, not
+   mild, on both confirmatory datasets.
+9. **Severe tier.** The martingale on the kNN distance reaches ALARM at some
+   point of the stream in every seed, and the REVIEW rate (prediction set not a
+   singleton) is above the calm tier's.
+10. **Corruption tier.** The gated referral holds at least 80% of the corrupted
+    rows (mean over seeds), and the martingale reaches ALARM in every seed.
+11. **Taiwan.** Run through the same code, reported alongside, exploratory.
+12. **Licence.** The account that downloads has accepted both competitions'
+    rules; the data is never committed or redistributed, and the SHA-256 of
+    each file read is recorded with the results.
+
+## A.2 Exploratory reference run (Taiwan, this commit)
+
+Through the confirmatory runner, not counted towards the bar:
+
+| tier | Taiwan |
+|---|---|
+| i.i.d. control AUC | 0.7555 |
+| moderate, lambda 0.25 | AUC loss 0.065; gated 2.16x random, 1.57x confidence (seed-0 CI 1.36 to 1.85): passes |
+| moderate, lambda 0.50 | AUC loss 0.075; gated 1.51x random, 1.34x confidence (seed-0 CI 1.14 to 1.47): passes |
+| severe, lambda 0.75 and 1.00 | ALARM in 5 of 5 seeds; REVIEW rate 45% calm, 70% and 78% |
+| corruption, rho 0.05 and 0.10 | gated holds 100% and 84% of the corrupted rows (confidence 1.5% and 1.9%); ALARM in 5 of 5 |
+
+On seeds 0 to 2 the runner reproduces `results/shift_bench_v2.json` exactly
+(2.1523x and 1.6097x random), and the i.i.d. control reproduces
+`results/shift_bench.json`.
+
+---
+
+# Amendment 3: a production-grade model (exploratory, 18 October 2026)
+
+Status: EXPLORATORY. Written after the confirmatory results of Amendment 1
+were seen (Give Me Some Credit and Home Credit Default Risk 2018 opened on
+17 October 2026). It does not change those results, re-run them, or make a
+confirmatory claim. It is committed before any dataset is run through it.
+
+**Question.** The confirmatory runs fix a deliberately plain model (8,000
+training rows, no tuning, numeric application columns only on Home Credit),
+whose AUCs (0.80, 0.68, 0.76) sit below what a credit team would deploy. Do
+the envelope's properties hold on top of a model built the way a lender would
+build it?
+
+**What changes** (`eval/run_production.py`, `eval/production_data.py`):
+
+1. **Data.** All of the declared reference population: 4,000 rows held out for
+   testing, 10,000 for calibration (5,000 on Taiwan), the rest for training.
+   The i.i.d. control splits the whole population the same way.
+2. **Inputs.** Give Me Some Credit and Taiwan: unchanged. Home Credit: every
+   column of `application_train.csv` except identifiers, label and the
+   audit-only attributes; categorical columns as categories; `DAYS_EMPLOYED` =
+   365243 as missing; credit / income, annuity / income, annuity / credit,
+   goods / credit and the mean of EXT_SOURCE_1-3; per-applicant aggregates of
+   `bureau.csv`. The shifted population is defined as before, and the bureau
+   aggregates now let the model and the distance see it.
+3. **Model.** HistGradientBoostingClassifier, learning rate 0.05, up to 2,000
+   iterations with early stopping; max_leaf_nodes in {15, 31, 63} x
+   min_samples_leaf in {20, 200}, chosen once on seed 0 by AUC on a 20%
+   hold-out of the training split, separately for the i.i.d. control and the
+   reference model. Columns with no value in the training split are left out.
+4. **Distance.** The kNN distance reads the non-categorical inputs, missing
+   values filled with training medians. k, the flag percentile, WATCH and ALARM
+   are unchanged.
+5. **Reported.** Model: AUC, PR-AUC, accuracy, precision, recall and F1 at 0.5,
+   at the F1-maximising cut-off chosen on the calibration split, and for the
+   riskiest 10%. Reliax: every tier and signal of Amendment 1, computed the
+   same way. There is no bar: nothing in this track passes or fails, and its
+   numbers are labelled exploratory wherever they appear.
+
+---
+
+# Amendment 4: Reliax at the lender's cut-off (exploratory, 19 October 2026)
+
+Status: EXPLORATORY. Written after the vision note "Credit cut-offs and
+Reliax" (19 October 2026) and before `eval/run_cutoff.py` is run on any
+dataset. Taiwan, Give Me Some Credit and Home Credit 2018 have all been seen
+before, so nothing here is confirmatory; the protocol is written down first so
+that what is reported is what was planned.
+
+**Questions.** (A) Does routing against the lender's own cut-off PD* = M / (M + L)
+send fewer decisions to a person than the conformal set does, at what default
+rate among automatic approvals, and does calibrating the Venn-Abers bracket
+within reliability classes change who is approved? (B) Does the guaranteed
+cut-off of reliax-core 0.4.0 keep the default rate among approvals under the
+lender's target where a naive cut-off does not, and at what cost in
+approvals? (C) How far do both move under the moderate shift of Amendment 1?
+
+**Fixed here** (`eval/run_cutoff.py`):
+
+1. Model, inputs, splits, sizes and seeds of Amendment 3 (production-grade
+   model; i.i.d. split for A and B; reference model and 25% shifted test rows
+   for C).
+2. Lenders: M = 600, L = 5,000 (PD* = 0.107, the note's worked example) and
+   M = 300, L = 5,000 (PD* = 0.057).
+3. Routings: P0 the lender alone (approve below PD*, decline above); P1 the
+   conformal set at alpha 0.05; P2 the Venn-Abers bracket against PD*
+   (approve if p1 < PD*, decline if p0 > PD*, review if it straddles); P3 P2
+   with the bracket calibrated within three reliability classes, the thirds
+   of the calibration set by kNN distance. Brackets are computed on a 401-point
+   score grid and interpolated.
+4. Guaranteed cut-off: `guaranteed_cutoff` (reliax-core 0.4.0, carried
+   verbatim in `eval/vendor/`), delta 0.05, targets 0.5 and 0.75 times the
+   calibration base rate; against the loosest cut-off whose observed
+   calibration default rate meets the target. 20 re-splits of the calibration
+   and test rows per seed, the model fixed.
+5. Reported: the shares approved, declined and reviewed automatically; the
+   default rate among automatic approvals (overall and per reliability class);
+   the good-customer share among automatic declines; the margin of automatic
+   decisions per 1,000 applications; for B, how often the realised default
+   rate among approvals exceeds the target. No bar.
+
+What would count against the vision note, stated now: P3 approving the same
+share as P2 at the same default rate in every class (the reliability classes
+add nothing), or the guaranteed cut-off exceeding its target on the test rows
+about as often as the naive one.
+
+---
+
+# Amendment 5: approve, review and decline zones, guaranteed on both sides (exploratory, 19 October 2026)
+
+Status: EXPLORATORY. Written after the Taiwan results of Amendment 4 showed
+that routing at the lender's PD* keeps its margin while the conformal set at
+95% loses 44% of it, and before `eval/run_zones.py` runs on any dataset.
+
+**Question.** Can Reliax keep the lender's margin and guarantee both sides of
+its cut-off: approvals that earn the margin and declines that avoid a loss?
+
+**Fixed here.**
+
+1. Procedure: `three_zones` (reliax-core 0.4.0, commit 90303ee, carried
+   verbatim in `eval/vendor/`), delta 0.05. Equal-count slices of the
+   calibration scores, walked from the safest up and from the riskiest down
+   with exact binomial tests at delta / 2 each; with probability at least
+   1 - delta every approved slice defaults at most PD* and every declined slice
+   at least PD*. The rest is reviewed. Primary: 20 slices; secondary: 10.
+2. Lenders, model, splits, sizes and seeds of Amendment 4.
+3. Compared with the lender alone (approve below PD*, decline above) on the
+   same test rows: the shares approved, reviewed and declined; the default
+   rate among approvals, declines and reviews; the good-customer share among
+   declines; the margin of automatic decisions per 1,000 applications; the
+   realised default rate of the riskiest approved and the safest declined
+   slice. Validity: 20 re-splits per seed; how often the realised default rate
+   among approvals exceeds PD*, and among declines falls below it. The same
+   under the moderate shift, where no guarantee is claimed.
+
+What would count against it, stated now: a margin of automatic decisions more
+than 10% below the lender's alone, or approvals realising above PD* (or
+declines below it) in more than 5% of re-splits.
+
+Known limit, stated now: in a lender's own book, declined applicants have no
+outcome. These public datasets have one for everybody; a deployment needs
+outcomes from past periods, a random approval sample or bureau data before
+the guarantee on declines can be offered.

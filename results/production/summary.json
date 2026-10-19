@@ -1,0 +1,87 @@
+{
+ "taiwan": {
+  "model_iid": {
+   "auc": 0.7818,
+   "pr_auc": 0.5526,
+   "default_rate": 0.2197,
+   "at_0.5": {
+    "accuracy": 0.8196,
+    "precision": 0.6628,
+    "recall": 0.3647,
+    "f1": 0.47,
+    "flagged_share": 0.1207
+   },
+   "at_f1_cut": {
+    "accuracy": 0.7865,
+    "precision": 0.5143,
+    "recall": 0.5794,
+    "f1": 0.5441,
+    "flagged_share": 0.2484
+   },
+   "riskiest_10pct": {
+    "accuracy": 0.8181,
+    "precision": 0.689,
+    "recall": 0.3138,
+    "f1": 0.4312,
+    "flagged_share": 0.1
+   }
+  },
+  "calm": {
+   "auc": 0.6756,
+   "coverage": 0.9524,
+   "review_rate": 0.4313
+  },
+  "iid_coverage": 0.95,
+  "iid_review_rate": 0.4703,
+  "moderate": {
+   "0.25": {
+    "auc": 0.7428,
+    "coverage": 0.9517,
+    "gated_vs_random": 2.3329,
+    "gated_vs_confidence": 1.1812,
+    "gated_vs_confidence_ci95_seed0": [
+     1.0809,
+     1.302
+    ]
+   },
+   "0.5": {
+    "auc": 0.7385,
+    "coverage": 0.9529,
+    "gated_vs_random": 1.4019,
+    "gated_vs_confidence": 1.1095,
+    "gated_vs_confidence_ci95_seed0": [
+     0.9873,
+     1.2055
+    ]
+   }
+  },
+  "severe": {
+   "0.75": {
+    "alarm_seeds": 5,
+    "first_alarm_at": 8.6,
+    "coverage": 0.9534,
+    "review_rate": 0.7659,
+    "auc": 0.698
+   },
+   "1.0": {
+    "alarm_seeds": 5,
+    "first_alarm_at": 6.2,
+    "coverage": 0.9563,
+    "review_rate": 0.8834,
+    "auc": 0.6264
+   }
+  },
+  "corruption": {
+   "0.05": {
+    "gated_caught": 1.0,
+    "confidence_caught": 0.047,
+    "alarm_seeds": 5
+   },
+   "0.1": {
+    "gated_caught": 0.7965,
+    "confidence_caught": 0.0415,
+    "alarm_seeds": 5
+   }
+  }
+ }
+}
