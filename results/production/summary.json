@@ -83,5 +83,175 @@
     "alarm_seeds": 5
    }
   }
+ },
+ "gmsc": {
+  "model_iid": {
+   "auc": 0.8555,
+   "pr_auc": 0.3722,
+   "default_rate": 0.0651,
+   "at_0.5": {
+    "accuracy": 0.937,
+    "precision": 0.5508,
+    "recall": 0.1778,
+    "f1": 0.2682,
+    "flagged_share": 0.0209
+   },
+   "at_f1_cut": {
+    "accuracy": 0.9181,
+    "precision": 0.39,
+    "recall": 0.4617,
+    "f1": 0.4223,
+    "flagged_share": 0.0767
+   },
+   "riskiest_10pct": {
+    "accuracy": 0.9046,
+    "precision": 0.3485,
+    "recall": 0.5372,
+    "f1": 0.4221,
+    "flagged_share": 0.1
+   }
+  },
+  "calm": {
+   "auc": 0.8414,
+   "coverage": 0.9511,
+   "review_rate": 0.0158
+  },
+  "iid_coverage": 0.9521,
+  "iid_review_rate": 0.0336,
+  "moderate": {
+   "0.25": {
+    "auc": 0.8468,
+    "coverage": 0.8959,
+    "gated_vs_random": 4.5443,
+    "gated_vs_confidence": 0.9546,
+    "gated_vs_confidence_ci95_seed0": [
+     0.8478,
+     1.0488
+    ]
+   },
+   "0.5": {
+    "auc": 0.8337,
+    "coverage": 0.8415,
+    "gated_vs_random": 3.1458,
+    "gated_vs_confidence": 0.9794,
+    "gated_vs_confidence_ci95_seed0": [
+     0.897,
+     1.0301
+    ]
+   }
+  },
+  "severe": {
+   "0.75": {
+    "alarm_seeds": 5,
+    "first_alarm_at": 6.6,
+    "coverage": 0.7899,
+    "review_rate": 0.0987,
+    "auc": 0.8094
+   },
+   "1.0": {
+    "alarm_seeds": 5,
+    "first_alarm_at": 4.4,
+    "coverage": 0.7362,
+    "review_rate": 0.1267,
+    "auc": 0.7754
+   }
+  },
+  "corruption": {
+   "0.05": {
+    "gated_caught": 0.956,
+    "confidence_caught": 0.097,
+    "alarm_seeds": 5
+   },
+   "0.1": {
+    "gated_caught": 0.68,
+    "confidence_caught": 0.099,
+    "alarm_seeds": 5
+   }
+  }
+ },
+ "homecredit2018": {
+  "model_iid": {
+   "auc": 0.7577,
+   "pr_auc": 0.2583,
+   "default_rate": 0.0818,
+   "at_0.5": {
+    "accuracy": 0.9191,
+    "precision": 0.6314,
+    "recall": 0.0272,
+    "f1": 0.0519,
+    "flagged_share": 0.0035
+   },
+   "at_f1_cut": {
+    "accuracy": 0.856,
+    "precision": 0.2544,
+    "recall": 0.3973,
+    "f1": 0.3094,
+    "flagged_share": 0.1268
+   },
+   "riskiest_10pct": {
+    "accuracy": 0.8741,
+    "precision": 0.28,
+    "recall": 0.344,
+    "f1": 0.3084,
+    "flagged_share": 0.1
+   }
+  },
+  "calm": {
+   "auc": 0.7653,
+   "coverage": 0.9477,
+   "review_rate": 0.0944
+  },
+  "iid_coverage": 0.9492,
+  "iid_review_rate": 0.1187,
+  "moderate": {
+   "0.25": {
+    "auc": 0.7654,
+    "coverage": 0.9437,
+    "gated_vs_random": 2.3541,
+    "gated_vs_confidence": 0.7048,
+    "gated_vs_confidence_ci95_seed0": [
+     0.5607,
+     0.8632
+    ]
+   },
+   "0.5": {
+    "auc": 0.756,
+    "coverage": 0.9409,
+    "gated_vs_random": 2.6712,
+    "gated_vs_confidence": 0.8913,
+    "gated_vs_confidence_ci95_seed0": [
+     0.7281,
+     1.0119
+    ]
+   }
+  },
+  "severe": {
+   "0.75": {
+    "alarm_seeds": 5,
+    "first_alarm_at": 2.4,
+    "coverage": 0.9396,
+    "review_rate": 0.1121,
+    "auc": 0.7587
+   },
+   "1.0": {
+    "alarm_seeds": 5,
+    "first_alarm_at": 1.0,
+    "coverage": 0.9372,
+    "review_rate": 0.1192,
+    "auc": 0.7518
+   }
+  },
+  "corruption": {
+   "0.05": {
+    "gated_caught": 1.0,
+    "confidence_caught": 0.092,
+    "alarm_seeds": 5
+   },
+   "0.1": {
+    "gated_caught": 0.8305,
+    "confidence_caught": 0.102,
+    "alarm_seeds": 5
+   }
+  }
  }
 }
