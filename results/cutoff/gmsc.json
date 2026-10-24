@@ -1,0 +1,1986 @@
+{
+ "meta": {
+  "dataset": "gmsc",
+  "title": "Give Me Some Credit (Kaggle, 2011)",
+  "status": "exploratory (Amendment 4)",
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "n_cal": 10000,
+  "n_test": 4000,
+  "lenders": {
+   "worked_example": {
+    "M": 600.0,
+    "L": 5000.0,
+    "pd_star": 0.10714285714285714
+   },
+   "thin_margin": {
+    "M": 300.0,
+    "L": 5000.0,
+    "pd_star": 0.05660377358490566
+   }
+  },
+  "targets_x_base_rate": [
+   0.5,
+   0.75
+  ],
+  "delta": 0.05,
+  "resplits": 20,
+  "params": {
+   "iid": {
+    "max_leaf_nodes": 31,
+    "min_samples_leaf": 200
+   },
+   "reference": {
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 200
+   }
+  },
+  "selftest": false,
+  "seconds": 73.8
+ },
+ "A_routing": {
+  "worked_example": {
+   "pd_star": 0.1071,
+   "P0": {
+    "approve": 0.8425,
+    "decline": 0.1575,
+    "review": 0.0,
+    "default_among_approved": 0.0273,
+    "good_among_declined": 0.7329,
+    "margin_per_1000": 376700.0
+   },
+   "P1": {
+    "approve": 0.9588,
+    "decline": 0.0075,
+    "review": 0.0336,
+    "default_among_approved": 0.0469,
+    "good_among_declined": 0.4033,
+    "margin_per_1000": 323590.0
+   },
+   "P2": {
+    "approve": 0.8313,
+    "decline": 0.1623,
+    "review": 0.0065,
+    "default_among_approved": 0.0268,
+    "good_among_declined": 0.7387,
+    "margin_per_1000": 373590.0,
+    "default_among_approved_by_class": {
+     "near": 0.0199,
+     "middle": 0.0253,
+     "far": 0.0395
+    },
+    "approve_by_class": {
+     "near": 0.9685,
+     "middle": 0.8994,
+     "far": 0.6274
+    }
+   },
+   "P3": {
+    "approve": 0.8223,
+    "decline": 0.1649,
+    "review": 0.0128,
+    "default_among_approved": 0.026,
+    "good_among_declined": 0.7413,
+    "margin_per_1000": 373790.0,
+    "default_among_approved_by_class": {
+     "near": 0.0189,
+     "middle": 0.0252,
+     "far": 0.0376
+    },
+    "approve_by_class": {
+     "near": 0.9516,
+     "middle": 0.9,
+     "far": 0.6163
+    }
+   }
+  },
+  "thin_margin": {
+   "pd_star": 0.0566,
+   "P0": {
+    "approve": 0.7219,
+    "decline": 0.2781,
+    "review": 0.0,
+    "default_among_approved": 0.0189,
+    "good_among_declined": 0.815,
+    "margin_per_1000": 144505.0
+   },
+   "P1": {
+    "approve": 0.9588,
+    "decline": 0.0075,
+    "review": 0.0336,
+    "default_among_approved": 0.0469,
+    "good_among_declined": 0.4033,
+    "margin_per_1000": 49420.0
+   },
+   "P2": {
+    "approve": 0.6784,
+    "decline": 0.3024,
+    "review": 0.0192,
+    "default_among_approved": 0.0161,
+    "good_among_declined": 0.8239,
+    "margin_per_1000": 145485.0,
+    "default_among_approved_by_class": {
+     "near": 0.012,
+     "middle": 0.0167,
+     "far": 0.0228
+    },
+    "approve_by_class": {
+     "near": 0.8278,
+     "middle": 0.7518,
+     "far": 0.4571
+    }
+   },
+   "P3": {
+    "approve": 0.6929,
+    "decline": 0.2868,
+    "review": 0.0203,
+    "default_among_approved": 0.0175,
+    "good_among_declined": 0.8194,
+    "margin_per_1000": 143725.0,
+    "default_among_approved_by_class": {
+     "near": 0.0137,
+     "middle": 0.0189,
+     "far": 0.0218
+    },
+    "approve_by_class": {
+     "near": 0.8553,
+     "middle": 0.7748,
+     "far": 0.4479
+    }
+   }
+  },
+  "class_share_test": {
+   "near": 0.331,
+   "middle": 0.3334,
+   "far": 0.3355
+  },
+  "default_rate_by_class_test": {
+   "near": 0.0241,
+   "middle": 0.0409,
+   "far": 0.1294
+  },
+  "bracket_width_median": {
+   "marginal": 0.0018,
+   "by_class": 0.0035
+  }
+ },
+ "B_cutoff": {
+  "0.5": {
+   "target": 0.034,
+   "guaranteed": {
+    "approve": {
+     "mean": 0.8599,
+     "std": 0.0096
+    },
+    "default_among_approved": {
+     "mean": 0.0294,
+     "std": 0.003
+    },
+    "above_target_share": 0.06,
+    "no_cutoff_share": 0.0
+   },
+   "naive": {
+    "approve": {
+     "mean": 0.8946,
+     "std": 0.0074
+    },
+    "default_among_approved": {
+     "mean": 0.034,
+     "std": 0.0033
+    },
+    "above_target_share": 0.52,
+    "no_cutoff_share": 0.0
+   }
+  },
+  "0.75": {
+   "target": 0.051,
+   "guaranteed": {
+    "approve": {
+     "mean": 0.9444,
+     "std": 0.0048
+    },
+    "default_among_approved": {
+     "mean": 0.0444,
+     "std": 0.0029
+    },
+    "above_target_share": 0.0,
+    "no_cutoff_share": 0.0
+   },
+   "naive": {
+    "approve": {
+     "mean": 0.9657,
+     "std": 0.0035
+    },
+    "default_among_approved": {
+     "mean": 0.0514,
+     "std": 0.004
+    },
+    "above_target_share": 0.54,
+    "no_cutoff_share": 0.0
+   }
+  }
+ },
+ "C_shift": {
+  "routing": {
+   "worked_example": {
+    "pd_star": 0.1071,
+    "P0": {
+     "approve": 0.8653,
+     "decline": 0.1347,
+     "review": 0.0,
+     "default_among_approved": 0.0411,
+     "good_among_declined": 0.6373,
+     "margin_per_1000": 320100.0
+    },
+    "P1": {
+     "approve": 0.952,
+     "decline": 0.004,
+     "review": 0.0441,
+     "default_among_approved": 0.0614,
+     "good_among_declined": 0.29,
+     "margin_per_1000": 243570.0
+    },
+    "P2": {
+     "approve": 0.8403,
+     "decline": 0.1551,
+     "review": 0.0046,
+     "default_among_approved": 0.038,
+     "good_among_declined": 0.6621,
+     "margin_per_1000": 325010.0,
+     "default_among_approved_by_class": {
+      "near": 0.0222,
+      "middle": 0.0241,
+      "far": 0.0576
+     },
+     "approve_by_class": {
+      "near": 0.9634,
+      "middle": 0.9411,
+      "far": 0.7281
+     }
+    },
+    "P3": {
+     "approve": 0.8353,
+     "decline": 0.1477,
+     "review": 0.017,
+     "default_among_approved": 0.0372,
+     "good_among_declined": 0.6542,
+     "margin_per_1000": 327050.0,
+     "default_among_approved_by_class": {
+      "near": 0.0213,
+      "middle": 0.0232,
+      "far": 0.0567
+     },
+     "approve_by_class": {
+      "near": 0.9665,
+      "middle": 0.9312,
+      "far": 0.7215
+     }
+    }
+   },
+   "thin_margin": {
+    "pd_star": 0.0566,
+    "P0": {
+     "approve": 0.7444,
+     "decline": 0.2556,
+     "review": 0.0,
+     "default_among_approved": 0.0281,
+     "good_among_declined": 0.7519,
+     "margin_per_1000": 112285.0
+    },
+    "P1": {
+     "approve": 0.952,
+     "decline": 0.004,
+     "review": 0.0441,
+     "default_among_approved": 0.0614,
+     "good_among_declined": 0.29,
+     "margin_per_1000": -24465.0
+    },
+    "P2": {
+     "approve": 0.7297,
+     "decline": 0.2506,
+     "review": 0.0197,
+     "default_among_approved": 0.027,
+     "good_among_declined": 0.7476,
+     "margin_per_1000": 114220.0,
+     "default_among_approved_by_class": {
+      "near": 0.0158,
+      "middle": 0.0176,
+      "far": 0.0419
+     },
+     "approve_by_class": {
+      "near": 0.8601,
+      "middle": 0.8537,
+      "far": 0.6021
+     }
+    },
+    "P3": {
+     "approve": 0.731,
+     "decline": 0.2445,
+     "review": 0.0244,
+     "default_among_approved": 0.028,
+     "good_among_declined": 0.7491,
+     "margin_per_1000": 110400.0,
+     "default_among_approved_by_class": {
+      "near": 0.0146,
+      "middle": 0.0186,
+      "far": 0.0425
+     },
+     "approve_by_class": {
+      "near": 0.8203,
+      "middle": 0.8437,
+      "far": 0.6294
+     }
+    }
+   },
+   "class_share_test": {
+    "near": 0.2507,
+    "middle": 0.2495,
+    "far": 0.4997
+   },
+   "default_rate_by_class_test": {
+    "near": 0.0244,
+    "middle": 0.0318,
+    "far": 0.1408
+   },
+   "bracket_width_median": {
+    "marginal": 0.0018,
+    "by_class": 0.0033
+   }
+  },
+  "cutoff": {
+   "0.5": {
+    "target": 0.0201,
+    "approve": 0.7217,
+    "default_among_approved": 0.027
+   },
+   "0.75": {
+    "target": 0.0301,
+    "approve": 0.8802,
+    "default_among_approved": 0.0427
+   }
+  }
+ },
+ "per_seed": {
+  "A": [
+   {
+    "worked_example": {
+     "pd_star": 0.10714285714285714,
+     "P0": {
+      "approve": 0.8565,
+      "decline": 0.1435,
+      "review": 0.0,
+      "default_among_approved": 0.023058960887332166,
+      "good_among_declined": 0.7177700348432056,
+      "margin_per_1000": 403300.0
+     },
+     "P1": {
+      "approve": 0.95175,
+      "decline": 0.005,
+      "review": 0.04325,
+      "default_among_approved": 0.039663777252429734,
+      "good_among_declined": 0.55,
+      "margin_per_1000": 359650.0
+     },
+     "P2": {
+      "approve": 0.8065,
+      "decline": 0.1845,
+      "review": 0.009,
+      "default_among_approved": 0.019218846869187848,
+      "good_among_declined": 0.7601626016260162,
+      "margin_per_1000": 397100.0,
+      "default_among_approved_by_class": {
+       "near": 0.021148036253776436,
+       "middle": 0.01456726649528706,
+       "far": 0.02312925170068027
+      },
+      "approve_by_class": {
+       "near": 0.9511494252873564,
+       "middle": 0.8748125937031485,
+       "far": 0.5769230769230769
+      }
+     },
+     "P3": {
+      "approve": 0.816,
+      "decline": 0.1655,
+      "review": 0.0185,
+      "default_among_approved": 0.01991421568627451,
+      "good_among_declined": 0.743202416918429,
+      "margin_per_1000": 398600.0,
+      "default_among_approved_by_class": {
+       "near": 0.020516717325227963,
+       "middle": 0.018018018018018018,
+       "far": 0.02200825309491059
+      },
+      "approve_by_class": {
+       "near": 0.9454022988505747,
+       "middle": 0.9152923538230885,
+       "far": 0.5706436420722135
+      }
+     }
+    },
+    "thin_margin": {
+     "pd_star": 0.05660377358490566,
+     "P0": {
+      "approve": 0.74,
+      "decline": 0.26,
+      "review": 0.0,
+      "default_among_approved": 0.014527027027027028,
+      "good_among_declined": 0.8096153846153846,
+      "margin_per_1000": 165025.0
+     },
+     "P1": {
+      "approve": 0.95175,
+      "decline": 0.005,
+      "review": 0.04325,
+      "default_among_approved": 0.039663777252429734,
+      "good_among_declined": 0.55,
+      "margin_per_1000": 85450.0
+     },
+     "P2": {
+      "approve": 0.73625,
+      "decline": 0.26275,
+      "review": 0.001,
+      "default_among_approved": 0.014261460101867572,
+      "good_among_declined": 0.8106565176022835,
+      "margin_per_1000": 165225.0,
+      "default_among_approved_by_class": {
+       "near": 0.01487603305785124,
+       "middle": 0.010091743119266056,
+       "far": 0.020155038759689922
+      },
+      "approve_by_class": {
+       "near": 0.8692528735632183,
+       "middle": 0.8170914542728636,
+       "far": 0.5062794348508635
+      }
+     },
+     "P3": {
+      "approve": 0.7015,
+      "decline": 0.27725,
+      "review": 0.02125,
+      "default_among_approved": 0.012829650748396294,
+      "good_among_declined": 0.8205590622182146,
+      "margin_per_1000": 162750.0,
+      "default_among_approved_by_class": {
+       "near": 0.013468013468013467,
+       "middle": 0.011732851985559567,
+       "far": 0.013725490196078431
+      },
+      "approve_by_class": {
+       "near": 0.853448275862069,
+       "middle": 0.8305847076461769,
+       "far": 0.4003139717425432
+      }
+     }
+    },
+    "class_share_test": {
+     "near": 0.348,
+     "middle": 0.3335,
+     "far": 0.3185
+    },
+    "default_rate_by_class_test": {
+     "near": 0.02586206896551724,
+     "middle": 0.03223388305847077,
+     "far": 0.1271585557299843
+    },
+    "bracket_width_median": {
+     "marginal": 0.001282047554442584,
+     "by_class": 0.002599999999999991
+    }
+   },
+   {
+    "worked_example": {
+     "pd_star": 0.10714285714285714,
+     "P0": {
+      "approve": 0.8445,
+      "decline": 0.1555,
+      "review": 0.0,
+      "default_among_approved": 0.03078744819419775,
+      "good_among_declined": 0.7395498392282959,
+      "margin_per_1000": 361100.0
+     },
+     "P1": {
+      "approve": 0.964,
+      "decline": 0.00775,
+      "review": 0.02825,
+      "default_among_approved": 0.049273858921161824,
+      "good_among_declined": 0.41935483870967744,
+      "margin_per_1000": 312400.0
+     },
+     "P2": {
+      "approve": 0.8455,
+      "decline": 0.154,
+      "review": 0.0005,
+      "default_among_approved": 0.031046717918391486,
+      "good_among_declined": 0.7386363636363636,
+      "margin_per_1000": 360300.0,
+      "default_among_approved_by_class": {
+       "near": 0.02386634844868735,
+       "middle": 0.026033690658499236,
+       "far": 0.050061050061050064
+      },
+      "approve_by_class": {
+       "near": 0.9759316770186336,
+       "middle": 0.9203664552501761,
+       "far": 0.6334106728538283
+      }
+     },
+     "P3": {
+      "approve": 0.83,
+      "decline": 0.1535,
+      "review": 0.0165,
+      "default_among_approved": 0.029518072289156625,
+      "good_among_declined": 0.7361563517915309,
+      "margin_per_1000": 360800.0,
+      "default_among_approved_by_class": {
+       "near": 0.020781379883624274,
+       "middle": 0.025796661608497723,
+       "far": 0.04881101376720901
+      },
+      "approve_by_class": {
+       "near": 0.9340062111801242,
+       "middle": 0.9288231148696265,
+       "far": 0.6179427687548337
+      }
+     }
+    },
+    "thin_margin": {
+     "pd_star": 0.05660377358490566,
+     "P0": {
+      "approve": 0.7165,
+      "decline": 0.2835,
+      "review": 0.0,
+      "default_among_approved": 0.020586182833217028,
+      "good_among_declined": 0.8174603174603174,
+      "margin_per_1000": 136775.0
+     },
+     "P1": {
+      "approve": 0.964,
+      "decline": 0.00775,
+      "review": 0.02825,
+      "default_among_approved": 0.049273858921161824,
+      "good_among_declined": 0.41935483870967744,
+      "margin_per_1000": 37450.0
+     },
+     "P2": {
+      "approve": 0.62325,
+      "decline": 0.3615,
+      "review": 0.01525,
+      "default_among_approved": 0.014841556357801846,
+      "good_among_declined": 0.8437067773167358,
+      "margin_per_1000": 137950.0,
+      "default_among_approved_by_class": {
+       "near": 0.009823182711198428,
+       "middle": 0.015984015984015984,
+       "far": 0.023206751054852322
+      },
+      "approve_by_class": {
+       "near": 0.7903726708074534,
+       "middle": 0.7054263565891473,
+       "far": 0.3665893271461717
+      }
+     },
+     "P3": {
+      "approve": 0.68575,
+      "decline": 0.3025,
+      "review": 0.01175,
+      "default_among_approved": 0.02041560335399198,
+      "good_among_declined": 0.8297520661157025,
+      "margin_per_1000": 131525.0,
+      "default_among_approved_by_class": {
+       "near": 0.01896551724137931,
+       "middle": 0.02142857142857143,
+       "far": 0.02159827213822894
+      },
+      "approve_by_class": {
+       "near": 0.9006211180124224,
+       "middle": 0.7892882311486963,
+       "far": 0.3580819798917247
+      }
+     }
+    },
+    "class_share_test": {
+     "near": 0.322,
+     "middle": 0.35475,
+     "far": 0.32325
+    },
+    "default_rate_by_class_test": {
+     "near": 0.02717391304347826,
+     "middle": 0.042283298097251586,
+     "far": 0.13225058004640372
+    },
+    "bracket_width_median": {
+     "marginal": 0.001800000000000003,
+     "by_class": 0.0035416372678165123
+    }
+   },
+   {
+    "worked_example": {
+     "pd_star": 0.10714285714285714,
+     "P0": {
+      "approve": 0.8295,
+      "decline": 0.1705,
+      "review": 0.0,
+      "default_among_approved": 0.029837251356238697,
+      "good_among_declined": 0.718475073313783,
+      "margin_per_1000": 359100.0
+     },
+     "P1": {
+      "approve": 0.9655,
+      "decline": 0.01275,
+      "review": 0.02175,
+      "default_among_approved": 0.05515277058518902,
+      "good_among_declined": 0.39215686274509803,
+      "margin_per_1000": 281100.0
+     },
+     "P2": {
+      "approve": 0.83725,
+      "decline": 0.15875,
+      "review": 0.004,
+      "default_among_approved": 0.030755449387876978,
+      "good_among_declined": 0.7070866141732284,
+      "margin_per_1000": 358150.0,
+      "default_among_approved_by_class": {
+       "near": 0.025080906148867314,
+       "middle": 0.031967213114754096,
+       "far": 0.036954087346024636
+      },
+      "approve_by_class": {
+       "near": 0.9747634069400631,
+       "middle": 0.9118086696562033,
+       "far": 0.6406025824964132
+      }
+     },
+     "P3": {
+      "approve": 0.825,
+      "decline": 0.16125,
+      "review": 0.01375,
+      "default_among_approved": 0.03,
+      "good_among_declined": 0.7085271317829457,
+      "margin_per_1000": 356400.0,
+      "default_among_approved_by_class": {
+       "near": 0.024469820554649267,
+       "middle": 0.03048264182895851,
+       "far": 0.036954087346024636
+      },
+      "approve_by_class": {
+       "near": 0.9668769716088328,
+       "middle": 0.882660687593423,
+       "far": 0.6406025824964132
+      }
+     }
+    },
+    "thin_margin": {
+     "pd_star": 0.05660377358490566,
+     "P0": {
+      "approve": 0.714,
+      "decline": 0.286,
+      "review": 0.0,
+      "default_among_approved": 0.02030812324929972,
+      "good_among_declined": 0.7963286713286714,
+      "margin_per_1000": 137350.0
+     },
+     "P1": {
+      "approve": 0.9655,
+      "decline": 0.01275,
+      "review": 0.02175,
+      "default_among_approved": 0.05515277058518902,
+      "good_among_declined": 0.39215686274509803,
+      "margin_per_1000": 7425.0
+     },
+     "P2": {
+      "approve": 0.65125,
+      "decline": 0.3185,
+      "review": 0.03025,
+      "default_among_approved": 0.01689059500959693,
+      "good_among_declined": 0.8131868131868132,
+      "margin_per_1000": 137075.0,
+      "default_among_approved_by_class": {
+       "near": 0.012922465208747515,
+       "middle": 0.018163471241170535,
+       "far": 0.02138157894736842
+      },
+      "approve_by_class": {
+       "near": 0.7933753943217665,
+       "middle": 0.7406576980568012,
+       "far": 0.43615494978479197
+      }
+     },
+     "P3": {
+      "approve": 0.6825,
+      "decline": 0.27725,
+      "review": 0.04025,
+      "default_among_approved": 0.017582417582417582,
+      "good_among_declined": 0.7908025247971145,
+      "margin_per_1000": 141150.0,
+      "default_among_approved_by_class": {
+       "near": 0.012974051896207584,
+       "middle": 0.01820020222446916,
+       "far": 0.023004059539918808
+      },
+      "approve_by_class": {
+       "near": 0.7902208201892744,
+       "middle": 0.7391629297458894,
+       "far": 0.53012912482066
+      }
+     }
+    },
+    "class_share_test": {
+     "near": 0.317,
+     "middle": 0.3345,
+     "far": 0.3485
+    },
+    "default_rate_by_class_test": {
+     "near": 0.028391167192429023,
+     "middle": 0.0515695067264574,
+     "far": 0.133428981348637
+    },
+    "bracket_width_median": {
+     "marginal": 0.0025126297209649116,
+     "by_class": 0.004525285808969496
+    }
+   },
+   {
+    "worked_example": {
+     "pd_star": 0.10714285714285714,
+     "P0": {
+      "approve": 0.84325,
+      "decline": 0.15675,
+      "review": 0.0,
+      "default_among_approved": 0.029054254372961757,
+      "good_among_declined": 0.7272727272727273,
+      "margin_per_1000": 368750.0
+     },
+     "P1": {
+      "approve": 0.953,
+      "decline": 0.006,
+      "review": 0.041,
+      "default_among_approved": 0.04800629590766002,
+      "good_among_declined": 0.375,
+      "margin_per_1000": 315600.0
+     },
+     "P2": {
+      "approve": 0.80825,
+      "decline": 0.1755,
+      "review": 0.01625,
+      "default_among_approved": 0.02721930095886174,
+      "good_among_declined": 0.7492877492877493,
+      "margin_per_1000": 361750.0,
+      "default_among_approved_by_class": {
+       "near": 0.015055467511885896,
+       "middle": 0.0272975432211101,
+       "far": 0.04472477064220184
+      },
+      "approve_by_class": {
+       "near": 0.9626239511823036,
+       "middle": 0.8579234972677595,
+       "far": 0.6193181818181818
+      }
+     },
+     "P3": {
+      "approve": 0.81275,
+      "decline": 0.17825,
+      "review": 0.009,
+      "default_among_approved": 0.02706859427868348,
+      "good_among_declined": 0.7503506311360448,
+      "margin_per_1000": 364450.0,
+      "default_among_approved_by_class": {
+       "near": 0.015091342335186657,
+       "middle": 0.028268551236749116,
+       "far": 0.04302325581395349
+      },
+      "approve_by_class": {
+       "near": 0.9603356216628528,
+       "middle": 0.8836846213895394,
+       "far": 0.6107954545454546
+      }
+     }
+    },
+    "thin_margin": {
+     "pd_star": 0.05660377358490566,
+     "P0": {
+      "approve": 0.714,
+      "decline": 0.286,
+      "review": 0.0,
+      "default_among_approved": 0.02030812324929972,
+      "good_among_declined": 0.8155594405594405,
+      "margin_per_1000": 137350.0
+     },
+     "P1": {
+      "approve": 0.953,
+      "decline": 0.006,
+      "review": 0.041,
+      "default_among_approved": 0.04800629590766002,
+      "good_among_declined": 0.375,
+      "margin_per_1000": 43425.0
+     },
+     "P2": {
+      "approve": 0.69975,
+      "decline": 0.298,
+      "review": 0.00225,
+      "default_among_approved": 0.01786352268667381,
+      "good_among_declined": 0.8179530201342282,
+      "margin_per_1000": 143675.0,
+      "default_among_approved_by_class": {
+       "near": 0.011648745519713262,
+       "middle": 0.02079002079002079,
+       "far": 0.023578363384188627
+      },
+      "approve_by_class": {
+       "near": 0.851258581235698,
+       "middle": 0.750975800156128,
+       "far": 0.5120738636363636
+      }
+     },
+     "P3": {
+      "approve": 0.69925,
+      "decline": 0.29375,
+      "review": 0.007,
+      "default_among_approved": 0.01894887379335002,
+      "good_among_declined": 0.8161702127659575,
+      "margin_per_1000": 139550.0,
+      "default_among_approved_by_class": {
+       "near": 0.011680143755615454,
+       "middle": 0.02354145342886387,
+       "far": 0.024045261669024046
+      },
+      "approve_by_class": {
+       "near": 0.8489702517162472,
+       "middle": 0.7626854020296643,
+       "far": 0.5021306818181818
+      }
+     }
+    },
+    "class_share_test": {
+     "near": 0.32775,
+     "middle": 0.32025,
+     "far": 0.352
+    },
+    "default_rate_by_class_test": {
+     "near": 0.020594965675057208,
+     "middle": 0.0429352068696331,
+     "far": 0.1328125
+    },
+    "bracket_width_median": {
+     "marginal": 0.0010594825733306417,
+     "by_class": 0.0030000000000000027
+    }
+   },
+   {
+    "worked_example": {
+     "pd_star": 0.10714285714285714,
+     "P0": {
+      "approve": 0.83875,
+      "decline": 0.16125,
+      "review": 0.0,
+      "default_among_approved": 0.02384500745156483,
+      "good_among_declined": 0.7612403100775194,
+      "margin_per_1000": 391250.0
+     },
+     "P1": {
+      "approve": 0.96,
+      "decline": 0.00625,
+      "review": 0.03375,
+      "default_among_approved": 0.0421875,
+      "good_among_declined": 0.28,
+      "margin_per_1000": 349200.0
+     },
+     "P2": {
+      "approve": 0.85875,
+      "decline": 0.1385,
+      "review": 0.00275,
+      "default_among_approved": 0.02590975254730713,
+      "good_among_declined": 0.7382671480144405,
+      "margin_per_1000": 390650.0,
+      "default_among_approved_by_class": {
+       "near": 0.014264264264264264,
+       "middle": 0.026468155500413565,
+       "far": 0.042505592841163314
+      },
+      "approve_by_class": {
+       "near": 0.9779735682819384,
+       "middle": 0.9321511179645335,
+       "far": 0.6666666666666666
+      }
+     },
+     "P3": {
+      "approve": 0.8275,
+      "decline": 0.16625,
+      "review": 0.00625,
+      "default_among_approved": 0.02326283987915408,
+      "good_among_declined": 0.7684210526315789,
+      "margin_per_1000": 388700.0,
+      "default_among_approved_by_class": {
+       "near": 0.013888888888888888,
+       "middle": 0.02339688041594454,
+       "far": 0.037209302325581395
+      },
+      "approve_by_class": {
+       "near": 0.9515418502202643,
+       "middle": 0.889745566692367,
+       "far": 0.6413124533929903
+      }
+     }
+    },
+    "thin_margin": {
+     "pd_star": 0.05660377358490566,
+     "P0": {
+      "approve": 0.72525,
+      "decline": 0.27475,
+      "review": 0.0,
+      "default_among_approved": 0.01861427094105481,
+      "good_among_declined": 0.8362147406733395,
+      "margin_per_1000": 146025.0
+     },
+     "P1": {
+      "approve": 0.96,
+      "decline": 0.00625,
+      "review": 0.03375,
+      "default_among_approved": 0.0421875,
+      "good_among_declined": 0.28,
+      "margin_per_1000": 73350.0
+     },
+     "P2": {
+      "approve": 0.6815,
+      "decline": 0.271,
+      "review": 0.0475,
+      "default_among_approved": 0.016874541452677916,
+      "good_among_declined": 0.8339483394833949,
+      "margin_per_1000": 143500.0,
+      "default_among_approved_by_class": {
+       "near": 0.010554089709762533,
+       "middle": 0.018633540372670808,
+       "far": 0.025682182985553772
+      },
+      "approve_by_class": {
+       "near": 0.8348017621145375,
+       "middle": 0.7447956823438705,
+       "far": 0.4645786726323639
+      }
+     },
+     "P3": {
+      "approve": 0.69525,
+      "decline": 0.2835,
+      "review": 0.02125,
+      "default_among_approved": 0.017619561308881697,
+      "good_among_declined": 0.8395061728395061,
+      "margin_per_1000": 143650.0,
+      "default_among_approved_by_class": {
+       "near": 0.011637572734829594,
+       "middle": 0.0194672131147541,
+       "far": 0.026578073089700997
+      },
+      "approve_by_class": {
+       "near": 0.8832599118942731,
+       "middle": 0.7525057825751735,
+       "far": 0.4489187173750932
+      }
+     }
+    },
+    "class_share_test": {
+     "near": 0.3405,
+     "middle": 0.32425,
+     "far": 0.33525
+    },
+    "default_rate_by_class_test": {
+     "near": 0.018355359765051395,
+     "middle": 0.03546646106399383,
+     "far": 0.1215510812826249
+    },
+    "bracket_width_median": {
+     "marginal": 0.0021891064782722314,
+     "by_class": 0.004033705685370863
+    }
+   }
+  ],
+  "B": [
+   {
+    "0.5": {
+     "target": 0.033857142857142856,
+     "guaranteed": {
+      "approve": {
+       "mean": 0.8683,
+       "std": 0.0086
+      },
+      "default_among_approved": {
+       "mean": 0.031,
+       "std": 0.0027
+      },
+      "above_target_share": 0.15,
+      "no_cutoff_share": 0.0
+     },
+     "naive": {
+      "approve": {
+       "mean": 0.8962,
+       "std": 0.0067
+      },
+      "default_among_approved": {
+       "mean": 0.0358,
+       "std": 0.0029
+      },
+      "above_target_share": 0.8,
+      "no_cutoff_share": 0.0
+     }
+    },
+    "0.75": {
+     "target": 0.05078571428571428,
+     "guaranteed": {
+      "approve": {
+       "mean": 0.9445,
+       "std": 0.0035
+      },
+      "default_among_approved": {
+       "mean": 0.0459,
+       "std": 0.0023
+      },
+      "above_target_share": 0.0,
+      "no_cutoff_share": 0.0
+     },
+     "naive": {
+      "approve": {
+       "mean": 0.9658,
+       "std": 0.0035
+      },
+      "default_among_approved": {
+       "mean": 0.0527,
+       "std": 0.004
+      },
+      "above_target_share": 0.65,
+      "no_cutoff_share": 0.0
+     }
+    }
+   },
+   {
+    "0.5": {
+     "target": 0.034428571428571426,
+     "guaranteed": {
+      "approve": {
+       "mean": 0.8588,
+       "std": 0.012
+      },
+      "default_among_approved": {
+       "mean": 0.0288,
+       "std": 0.0037
+      },
+      "above_target_share": 0.05,
+      "no_cutoff_share": 0.0
+     },
+     "naive": {
+      "approve": {
+       "mean": 0.8999,
+       "std": 0.0065
+      },
+      "default_among_approved": {
+       "mean": 0.034,
+       "std": 0.0036
+      },
+      "above_target_share": 0.5,
+      "no_cutoff_share": 0.0
+     }
+    },
+    "0.75": {
+     "target": 0.05164285714285714,
+     "guaranteed": {
+      "approve": {
+       "mean": 0.9452,
+       "std": 0.0042
+      },
+      "default_among_approved": {
+       "mean": 0.0445,
+       "std": 0.0027
+      },
+      "above_target_share": 0.0,
+      "no_cutoff_share": 0.0
+     },
+     "naive": {
+      "approve": {
+       "mean": 0.9673,
+       "std": 0.004
+      },
+      "default_among_approved": {
+       "mean": 0.0516,
+       "std": 0.005
+      },
+      "above_target_share": 0.45,
+      "no_cutoff_share": 0.0
+     }
+    }
+   },
+   {
+    "0.5": {
+     "target": 0.03414285714285714,
+     "guaranteed": {
+      "approve": {
+       "mean": 0.8463,
+       "std": 0.0115
+      },
+      "default_among_approved": {
+       "mean": 0.0286,
+       "std": 0.0037
+      },
+      "above_target_share": 0.1,
+      "no_cutoff_share": 0.0
+     },
+     "naive": {
+      "approve": {
+       "mean": 0.8853,
+       "std": 0.0103
+      },
+      "default_among_approved": {
+       "mean": 0.0333,
+       "std": 0.0038
+      },
+      "above_target_share": 0.4,
+      "no_cutoff_share": 0.0
+     }
+    },
+    "0.75": {
+     "target": 0.05121428571428571,
+     "guaranteed": {
+      "approve": {
+       "mean": 0.944,
+       "std": 0.0051
+      },
+      "default_among_approved": {
+       "mean": 0.0434,
+       "std": 0.003
+      },
+      "above_target_share": 0.0,
+      "no_cutoff_share": 0.0
+     },
+     "naive": {
+      "approve": {
+       "mean": 0.9643,
+       "std": 0.004
+      },
+      "default_among_approved": {
+       "mean": 0.0513,
+       "std": 0.0045
+      },
+      "above_target_share": 0.6,
+      "no_cutoff_share": 0.0
+     }
+    }
+   },
+   {
+    "0.5": {
+     "target": 0.03435714285714286,
+     "guaranteed": {
+      "approve": {
+       "mean": 0.8553,
+       "std": 0.0101
+      },
+      "default_among_approved": {
+       "mean": 0.0294,
+       "std": 0.003
+      },
+      "above_target_share": 0.0,
+      "no_cutoff_share": 0.0
+     },
+     "naive": {
+      "approve": {
+       "mean": 0.8928,
+       "std": 0.0059
+      },
+      "default_among_approved": {
+       "mean": 0.0342,
+       "std": 0.0031
+      },
+      "above_target_share": 0.4,
+      "no_cutoff_share": 0.0
+     }
+    },
+    "0.75": {
+     "target": 0.05153571428571428,
+     "guaranteed": {
+      "approve": {
+       "mean": 0.9433,
+       "std": 0.0075
+      },
+      "default_among_approved": {
+       "mean": 0.0454,
+       "std": 0.004
+      },
+      "above_target_share": 0.0,
+      "no_cutoff_share": 0.0
+     },
+     "naive": {
+      "approve": {
+       "mean": 0.963,
+       "std": 0.0029
+      },
+      "default_among_approved": {
+       "mean": 0.0511,
+       "std": 0.0031
+      },
+      "above_target_share": 0.4,
+      "no_cutoff_share": 0.0
+     }
+    }
+   },
+   {
+    "0.5": {
+     "target": 0.033107142857142856,
+     "guaranteed": {
+      "approve": {
+       "mean": 0.871,
+       "std": 0.006
+      },
+      "default_among_approved": {
+       "mean": 0.029,
+       "std": 0.0018
+      },
+      "above_target_share": 0.0,
+      "no_cutoff_share": 0.0
+     },
+     "naive": {
+      "approve": {
+       "mean": 0.899,
+       "std": 0.0077
+      },
+      "default_among_approved": {
+       "mean": 0.0328,
+       "std": 0.0031
+      },
+      "above_target_share": 0.5,
+      "no_cutoff_share": 0.0
+     }
+    },
+    "0.75": {
+     "target": 0.04966071428571428,
+     "guaranteed": {
+      "approve": {
+       "mean": 0.9451,
+       "std": 0.0038
+      },
+      "default_among_approved": {
+       "mean": 0.0429,
+       "std": 0.0027
+      },
+      "above_target_share": 0.0,
+      "no_cutoff_share": 0.0
+     },
+     "naive": {
+      "approve": {
+       "mean": 0.9682,
+       "std": 0.0033
+      },
+      "default_among_approved": {
+       "mean": 0.0503,
+       "std": 0.0035
+      },
+      "above_target_share": 0.6,
+      "no_cutoff_share": 0.0
+     }
+    }
+   }
+  ],
+  "C": [
+   {
+    "routing": {
+     "worked_example": {
+      "pd_star": 0.10714285714285714,
+      "P0": {
+       "approve": 0.87225,
+       "decline": 0.12775,
+       "review": 0.0,
+       "default_among_approved": 0.04471195184866724,
+       "good_among_declined": 0.6203522504892368,
+       "margin_per_1000": 304950.0
+      },
+      "P1": {
+       "approve": 0.95275,
+       "decline": 0.005,
+       "review": 0.04225,
+       "default_among_approved": 0.06428758855943321,
+       "good_among_declined": 0.55,
+       "margin_per_1000": 228650.0
+      },
+      "P2": {
+       "approve": 0.845,
+       "decline": 0.14925,
+       "review": 0.00575,
+       "default_among_approved": 0.042899408284023666,
+       "good_among_declined": 0.661641541038526,
+       "margin_per_1000": 304000.0,
+       "default_among_approved_by_class": {
+        "near": 0.018480492813141684,
+        "middle": 0.0334075723830735,
+        "far": 0.0643236074270557
+       },
+       "approve_by_class": {
+        "near": 0.9586614173228346,
+        "middle": 0.9482576557550159,
+        "far": 0.7403043691703486
+       }
+      },
+      "P3": {
+       "approve": 0.8605,
+       "decline": 0.129,
+       "review": 0.0105,
+       "default_among_approved": 0.04445090063916328,
+       "good_among_declined": 0.6317829457364341,
+       "margin_per_1000": 302100.0,
+       "default_among_approved_by_class": {
+        "near": 0.01752577319587629,
+        "middle": 0.0335195530726257,
+        "far": 0.06721623335447051
+       },
+       "approve_by_class": {
+        "near": 0.9547244094488189,
+        "middle": 0.9450897571277719,
+        "far": 0.7741777123220422
+       }
+      }
+     },
+     "thin_margin": {
+      "pd_star": 0.05660377358490566,
+      "P0": {
+       "approve": 0.75325,
+       "decline": 0.24675,
+       "review": 0.0,
+       "default_among_approved": 0.035180882841022235,
+       "good_among_declined": 0.7527862208713273,
+       "margin_per_1000": 85525.0
+      },
+      "P1": {
+       "approve": 0.95275,
+       "decline": 0.005,
+       "review": 0.04225,
+       "default_among_approved": 0.06428758855943321,
+       "good_among_declined": 0.55,
+       "margin_per_1000": -38800.0
+      },
+      "P2": {
+       "approve": 0.714,
+       "decline": 0.24025,
+       "review": 0.04575,
+       "default_among_approved": 0.031512605042016806,
+       "good_among_declined": 0.7502601456815817,
+       "margin_per_1000": 94950.0,
+       "default_among_approved_by_class": {
+        "near": 0.010676156583629894,
+        "middle": 0.02493765586034913,
+        "far": 0.05037159372419488
+       },
+       "approve_by_class": {
+        "near": 0.8297244094488189,
+        "middle": 0.8468848996832101,
+        "far": 0.5945017182130584
+       }
+      },
+      "P3": {
+       "approve": 0.75325,
+       "decline": 0.21525,
+       "review": 0.0315,
+       "default_among_approved": 0.039163624294722865,
+       "good_among_declined": 0.7409988385598142,
+       "margin_per_1000": 69625.0,
+       "default_among_approved_by_class": {
+        "near": 0.010050251256281407,
+        "middle": 0.02349869451697128,
+        "far": 0.06340454858718125
+       },
+       "approve_by_class": {
+        "near": 0.7834645669291339,
+        "middle": 0.808870116156283,
+        "far": 0.7123220422189495
+       }
+      }
+     },
+     "class_share_test": {
+      "near": 0.254,
+      "middle": 0.23675,
+      "far": 0.50925
+     },
+     "default_rate_by_class_test": {
+      "near": 0.02066929133858268,
+      "middle": 0.042238648363252376,
+      "far": 0.14187530682376043
+     },
+     "bracket_width_median": {
+      "marginal": 0.001717593394932701,
+      "by_class": 0.003514172273576993
+     }
+    },
+    "cutoff": {
+     "0.5": {
+      "target": 0.0207,
+      "approve": 0.72325,
+      "default_among_approved": 0.03180089872105081
+     },
+     "0.75": {
+      "target": 0.03105,
+      "approve": 0.89225,
+      "default_among_approved": 0.04791258055477725
+     }
+    }
+   },
+   {
+    "routing": {
+     "worked_example": {
+      "pd_star": 0.10714285714285714,
+      "P0": {
+       "approve": 0.86275,
+       "decline": 0.13725,
+       "review": 0.0,
+       "default_among_approved": 0.044045204288612,
+       "good_among_declined": 0.6703096539162113,
+       "margin_per_1000": 304850.0
+      },
+      "P1": {
+       "approve": 0.95825,
+       "decline": 0.008,
+       "review": 0.03375,
+       "default_among_approved": 0.06574484737803288,
+       "good_among_declined": 0.5,
+       "margin_per_1000": 222150.0
+      },
+      "P2": {
+       "approve": 0.81175,
+       "decline": 0.18225,
+       "review": 0.006,
+       "default_among_approved": 0.035417308284570376,
+       "good_among_declined": 0.7050754458161865,
+       "margin_per_1000": 326050.0,
+       "default_among_approved_by_class": {
+        "near": 0.022540983606557378,
+        "middle": 0.01642935377875137,
+        "far": 0.05743740795287187
+       },
+       "approve_by_class": {
+        "near": 0.9503407984420643,
+        "middle": 0.923154701718908,
+        "far": 0.6844758064516129
+       }
+      },
+      "P3": {
+       "approve": 0.79825,
+       "decline": 0.1575,
+       "review": 0.04425,
+       "default_among_approved": 0.03382398997807704,
+       "good_among_declined": 0.6857142857142857,
+       "margin_per_1000": 327750.0,
+       "default_among_approved_by_class": {
+        "near": 0.024096385542168676,
+        "middle": 0.012600229095074456,
+        "far": 0.05513595166163142
+       },
+       "approve_by_class": {
+        "near": 0.9698149951314509,
+        "middle": 0.8827098078867543,
+        "far": 0.6673387096774194
+       }
+      }
+     },
+     "thin_margin": {
+      "pd_star": 0.05660377358490566,
+      "P0": {
+       "approve": 0.7525,
+       "decline": 0.2475,
+       "review": 0.0,
+       "default_among_approved": 0.030897009966777408,
+       "good_among_declined": 0.7575757575757576,
+       "margin_per_1000": 102525.0
+      },
+      "P1": {
+       "approve": 0.95825,
+       "decline": 0.008,
+       "review": 0.03375,
+       "default_among_approved": 0.06574484737803288,
+       "good_among_declined": 0.5,
+       "margin_per_1000": -46425.0
+      },
+      "P2": {
+       "approve": 0.6875,
+       "decline": 0.30575,
+       "review": 0.00675,
+       "default_among_approved": 0.026545454545454546,
+       "good_among_declined": 0.7890433360588717,
+       "margin_per_1000": 109525.0,
+       "default_among_approved_by_class": {
+        "near": 0.018561484918793503,
+        "middle": 0.009828009828009828,
+        "far": 0.04562383612662942
+       },
+       "approve_by_class": {
+        "near": 0.8393378773125608,
+        "middle": 0.8230535894843276,
+        "far": 0.5413306451612904
+       }
+      },
+      "P3": {
+       "approve": 0.726,
+       "decline": 0.26575,
+       "review": 0.00825,
+       "default_among_approved": 0.029614325068870524,
+       "good_among_declined": 0.7732831608654751,
+       "margin_per_1000": 103850.0,
+       "default_among_approved_by_class": {
+        "near": 0.01853997682502897,
+        "middle": 0.012048192771084338,
+        "far": 0.0495458298926507
+       },
+       "approve_by_class": {
+        "near": 0.8403115871470301,
+        "middle": 0.839231547017189,
+        "far": 0.610383064516129
+       }
+      }
+     },
+     "class_share_test": {
+      "near": 0.25675,
+      "middle": 0.24725,
+      "far": 0.496
+     },
+     "default_rate_by_class_test": {
+      "near": 0.027263875365141188,
+      "middle": 0.030333670374115267,
+      "far": 0.13860887096774194
+     },
+     "bracket_width_median": {
+      "marginal": 0.002177906606714153,
+      "by_class": 0.003107432147045619
+     }
+    },
+    "cutoff": {
+     "0.5": {
+      "target": 0.0211,
+      "approve": 0.72325,
+      "default_among_approved": 0.02799861735222952
+     },
+     "0.75": {
+      "target": 0.03165,
+      "approve": 0.8555,
+      "default_among_approved": 0.04208065458796026
+     }
+    }
+   },
+   {
+    "routing": {
+     "worked_example": {
+      "pd_star": 0.10714285714285714,
+      "P0": {
+       "approve": 0.86775,
+       "decline": 0.13225,
+       "review": 0.0,
+       "default_among_approved": 0.04407951598962835,
+       "good_among_declined": 0.6162570888468809,
+       "margin_per_1000": 306450.0
+      },
+      "P1": {
+       "approve": 0.94825,
+       "decline": 0.0025,
+       "review": 0.04925,
+       "default_among_approved": 0.06248352227788031,
+       "good_among_declined": 0.1,
+       "margin_per_1000": 237150.0
+      },
+      "P2": {
+       "approve": 0.868,
+       "decline": 0.12925,
+       "review": 0.00275,
+       "default_among_approved": 0.04406682027649769,
+       "good_among_declined": 0.6112185686653772,
+       "margin_per_1000": 306600.0,
+       "default_among_approved_by_class": {
+        "near": 0.03285420944558522,
+        "middle": 0.028125,
+        "far": 0.0611183355006502
+       },
+       "approve_by_class": {
+        "near": 0.9888324873096447,
+        "middle": 0.9628886659979939,
+        "far": 0.7621407333994054
+       }
+      },
+      "P3": {
+       "approve": 0.84175,
+       "decline": 0.14175,
+       "review": 0.0165,
+       "default_among_approved": 0.041283041283041284,
+       "good_among_declined": 0.6278659611992945,
+       "margin_per_1000": 310450.0,
+       "default_among_approved_by_class": {
+        "near": 0.028169014084507043,
+        "middle": 0.028066528066528068,
+        "far": 0.058029689608636977
+       },
+       "approve_by_class": {
+        "near": 0.9370558375634518,
+        "middle": 0.9648946840521565,
+        "far": 0.734390485629336
+       }
+      }
+     },
+     "thin_margin": {
+      "pd_star": 0.05660377358490566,
+      "P0": {
+       "approve": 0.74375,
+       "decline": 0.25625,
+       "review": 0.0,
+       "default_among_approved": 0.026554621848739496,
+       "good_among_declined": 0.7297560975609756,
+       "margin_per_1000": 118450.0
+      },
+      "P1": {
+       "approve": 0.94825,
+       "decline": 0.0025,
+       "review": 0.04925,
+       "default_among_approved": 0.06248352227788031,
+       "good_among_declined": 0.1,
+       "margin_per_1000": -29550.0
+      },
+      "P2": {
+       "approve": 0.7055,
+       "decline": 0.2715,
+       "review": 0.023,
+       "default_among_approved": 0.02303330970942594,
+       "good_among_declined": 0.7403314917127072,
+       "margin_per_1000": 125525.0,
+       "default_among_approved_by_class": {
+        "near": 0.01701093560145808,
+        "middle": 0.015795868772782502,
+        "far": 0.03231292517006803
+       },
+       "approve_by_class": {
+        "near": 0.8355329949238579,
+        "middle": 0.8254764292878636,
+        "far": 0.5827552031714569
+       }
+      },
+      "P3": {
+       "approve": 0.70775,
+       "decline": 0.27675,
+       "review": 0.0155,
+       "default_among_approved": 0.02260685270222536,
+       "good_among_declined": 0.7434507678410117,
+       "margin_per_1000": 127525.0,
+       "default_among_approved_by_class": {
+        "near": 0.01589242053789731,
+        "middle": 0.021889400921658985,
+        "far": 0.02794759825327511
+       },
+       "approve_by_class": {
+        "near": 0.8304568527918782,
+        "middle": 0.8706118355065195,
+        "far": 0.5673934588701685
+       }
+      }
+     },
+     "class_share_test": {
+      "near": 0.24625,
+      "middle": 0.24925,
+      "far": 0.5045
+     },
+     "default_rate_by_class_test": {
+      "near": 0.03350253807106599,
+      "middle": 0.033099297893681046,
+      "far": 0.14370664023785926
+     },
+     "bracket_width_median": {
+      "marginal": 0.0013329691729321268,
+      "by_class": 0.0030603523454395317
+     }
+    },
+    "cutoff": {
+     "0.5": {
+      "target": 0.0196,
+      "approve": 0.76375,
+      "default_among_approved": 0.03076923076923077
+     },
+     "0.75": {
+      "target": 0.0294,
+      "approve": 0.8835,
+      "default_among_approved": 0.04640633842671194
+     }
+    }
+   },
+   {
+    "routing": {
+     "worked_example": {
+      "pd_star": 0.10714285714285714,
+      "P0": {
+       "approve": 0.8615,
+       "decline": 0.1385,
+       "review": 0.0,
+       "default_among_approved": 0.035403366221706326,
+       "good_among_declined": 0.6462093862815884,
+       "margin_per_1000": 346100.0
+      },
+      "P1": {
+       "approve": 0.95175,
+       "decline": 0.0025,
+       "review": 0.04575,
+       "default_among_approved": 0.05621224060940373,
+       "good_among_declined": 0.3,
+       "margin_per_1000": 271450.0
+      },
+      "P2": {
+       "approve": 0.85125,
+       "decline": 0.14175,
+       "review": 0.007,
+       "default_among_approved": 0.03436123348017621,
+       "good_among_declined": 0.6490299823633157,
+       "margin_per_1000": 346950.0,
+       "default_among_approved_by_class": {
+        "near": 0.015920398009950248,
+        "middle": 0.022411953041622197,
+        "far": 0.05468215994531784
+       },
+       "approve_by_class": {
+        "near": 0.9804878048780488,
+        "middle": 0.9417085427135679,
+        "far": 0.7388888888888889
+       }
+      },
+      "P3": {
+       "approve": 0.848,
+       "decline": 0.146,
+       "review": 0.006,
+       "default_among_approved": 0.033903301886792456,
+       "good_among_declined": 0.6558219178082192,
+       "margin_per_1000": 347800.0,
+       "default_among_approved_by_class": {
+        "near": 0.01582591493570722,
+        "middle": 0.022175290390707498,
+        "far": 0.05439330543933055
+       },
+       "approve_by_class": {
+        "near": 0.9863414634146341,
+        "middle": 0.9517587939698492,
+        "far": 0.7242424242424242
+       }
+      }
+     },
+     "thin_margin": {
+      "pd_star": 0.05660377358490566,
+      "P0": {
+       "approve": 0.73475,
+       "decline": 0.26525,
+       "review": 0.0,
+       "default_among_approved": 0.021776114324600204,
+       "good_among_declined": 0.760603204524034,
+       "margin_per_1000": 135625.0
+      },
+      "P1": {
+       "approve": 0.95175,
+       "decline": 0.0025,
+       "review": 0.04575,
+       "default_among_approved": 0.05621224060940373,
+       "good_among_declined": 0.3,
+       "margin_per_1000": 1975.0
+      },
+      "P2": {
+       "approve": 0.7865,
+       "decline": 0.2125,
+       "review": 0.001,
+       "default_among_approved": 0.02765416401780038,
+       "good_among_declined": 0.7294117647058823,
+       "margin_per_1000": 120675.0,
+       "default_among_approved_by_class": {
+        "near": 0.014752370916754479,
+        "middle": 0.019187358916478554,
+        "far": 0.04271548436308162
+       },
+       "approve_by_class": {
+        "near": 0.9258536585365854,
+        "middle": 0.8904522613065327,
+        "far": 0.6621212121212121
+       }
+      },
+      "P3": {
+       "approve": 0.726,
+       "decline": 0.24025,
+       "review": 0.03375,
+       "default_among_approved": 0.02203856749311295,
+       "good_among_declined": 0.7596253902185224,
+       "margin_per_1000": 133000.0,
+       "default_among_approved_by_class": {
+        "near": 0.009557945041816009,
+        "middle": 0.0171990171990172,
+        "far": 0.0335195530726257
+       },
+       "approve_by_class": {
+        "near": 0.8165853658536585,
+        "middle": 0.8180904522613065,
+        "far": 0.6328282828282829
+       }
+      }
+     },
+     "class_share_test": {
+      "near": 0.25625,
+      "middle": 0.24875,
+      "far": 0.495
+     },
+     "default_rate_by_class_test": {
+      "near": 0.0175609756097561,
+      "middle": 0.02512562814070352,
+      "far": 0.1388888888888889
+     },
+     "bracket_width_median": {
+      "marginal": 0.0013999999999999985,
+      "by_class": 0.0031028899752865696
+     }
+    },
+    "cutoff": {
+     "0.5": {
+      "target": 0.0194,
+      "approve": 0.6885,
+      "default_among_approved": 0.01888162672476398
+     },
+     "0.75": {
+      "target": 0.0291,
+      "approve": 0.88375,
+      "default_among_approved": 0.037057991513437055
+     }
+    }
+   },
+   {
+    "routing": {
+     "worked_example": {
+      "pd_star": 0.10714285714285714,
+      "P0": {
+       "approve": 0.86225,
+       "decline": 0.13775,
+       "review": 0.0,
+       "default_among_approved": 0.0371122064366483,
+       "good_among_declined": 0.6333938294010889,
+       "margin_per_1000": 338150.0
+      },
+      "P1": {
+       "approve": 0.94875,
+       "decline": 0.002,
+       "review": 0.04925,
+       "default_among_approved": 0.05849802371541502,
+       "good_among_declined": 0.0,
+       "margin_per_1000": 258450.0
+      },
+      "P2": {
+       "approve": 0.82575,
+       "decline": 0.173,
+       "review": 0.00125,
+       "default_among_approved": 0.03330305782621859,
+       "good_among_declined": 0.6835260115606936,
+       "margin_per_1000": 341450.0,
+       "default_among_approved_by_class": {
+        "near": 0.021040974529346623,
+        "middle": 0.020242914979757085,
+        "far": 0.05028328611898017
+       },
+       "approve_by_class": {
+        "near": 0.9386694386694386,
+        "middle": 0.929444967074318,
+        "far": 0.7149367088607594
+       }
+      },
+      "P3": {
+       "approve": 0.82825,
+       "decline": 0.16425,
+       "review": 0.0075,
+       "default_among_approved": 0.03229701177180803,
+       "good_among_declined": 0.669710806697108,
+       "margin_per_1000": 347150.0,
+       "default_among_approved_by_class": {
+        "near": 0.021119324181626188,
+        "middle": 0.0196078431372549,
+        "far": 0.048675733715103794
+       },
+       "approve_by_class": {
+        "near": 0.9844074844074844,
+        "middle": 0.9115710253998118,
+        "far": 0.7073417721518988
+       }
+      }
+     },
+     "thin_margin": {
+      "pd_star": 0.05660377358490566,
+      "P0": {
+       "approve": 0.73775,
+       "decline": 0.26225,
+       "review": 0.0,
+       "default_among_approved": 0.026092849881396138,
+       "good_among_declined": 0.7588179218303146,
+       "margin_per_1000": 119300.0
+      },
+      "P1": {
+       "approve": 0.94875,
+       "decline": 0.002,
+       "review": 0.04925,
+       "default_among_approved": 0.05849802371541502,
+       "good_among_declined": 0.0,
+       "margin_per_1000": -9525.0
+      },
+      "P2": {
+       "approve": 0.75475,
+       "decline": 0.22325,
+       "review": 0.022,
+       "default_among_approved": 0.026498840675720437,
+       "good_among_declined": 0.729003359462486,
+       "margin_per_1000": 120425.0,
+       "default_among_approved_by_class": {
+        "near": 0.017921146953405017,
+        "middle": 0.01812366737739872,
+        "far": 0.03858520900321544
+       },
+       "approve_by_class": {
+        "near": 0.8700623700623701,
+        "middle": 0.8824082784571966,
+        "far": 0.629873417721519
+       }
+      },
+      "P3": {
+       "approve": 0.74225,
+       "decline": 0.2245,
+       "review": 0.03325,
+       "default_among_approved": 0.026608285618053215,
+       "good_among_declined": 0.7282850779510023,
+       "margin_per_1000": 118000.0,
+       "default_among_approved_by_class": {
+        "near": 0.01877346683354193,
+        "middle": 0.01814300960512273,
+        "far": 0.038118410381184104
+       },
+       "approve_by_class": {
+        "near": 0.8305613305613305,
+        "middle": 0.8814675446848542,
+        "far": 0.6243037974683544
+       }
+      }
+     },
+     "class_share_test": {
+      "near": 0.2405,
+      "middle": 0.26575,
+      "far": 0.49375
+     },
+     "default_rate_by_class_test": {
+      "near": 0.02286902286902287,
+      "middle": 0.028222013170272814,
+      "far": 0.14075949367088608
+     },
+     "bracket_width_median": {
+      "marginal": 0.0025663695334687178,
+      "by_class": 0.0038302314646817205
+     }
+    },
+    "cutoff": {
+     "0.5": {
+      "target": 0.0197,
+      "approve": 0.70975,
+      "default_among_approved": 0.02536104262064107
+     },
+     "0.75": {
+      "target": 0.02955,
+      "approve": 0.886,
+      "default_among_approved": 0.040067720090293454
+     }
+    }
+   }
+  ]
+ }
+}

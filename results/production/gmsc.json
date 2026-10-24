@@ -1,0 +1,5405 @@
+{
+ "meta": {
+  "dataset": "gmsc",
+  "title": "Give Me Some Credit (Kaggle, 2011)",
+  "track": "production model, exploratory (Amendment 3)",
+  "selftest": false,
+  "n_rows": 150000,
+  "n_features": 9,
+  "n_categorical": 0,
+  "n_distance_inputs": 9,
+  "feature_names": [
+   "RevolvingUtilizationOfUnsecuredLines",
+   "NumberOfTime30-59DaysPastDueNotWorse",
+   "DebtRatio",
+   "MonthlyIncome",
+   "NumberOfOpenCreditLinesAndLoans",
+   "NumberOfTimes90DaysLate",
+   "NumberRealEstateLoansOrLines",
+   "NumberOfTime60-89DaysPastDueNotWorse",
+   "NumberOfDependents"
+  ],
+  "n_reference": 126018,
+  "n_shifted": 23982,
+  "n_train_reference": 112018,
+  "n_train_iid": 136000,
+  "n_cal": 10000,
+  "n_test": 4000,
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "params": {
+   "iid": {
+    "max_leaf_nodes": 31,
+    "min_samples_leaf": 200
+   },
+   "reference": {
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 200
+   },
+   "learning_rate": 0.05,
+   "max_iter": 2000,
+   "early_stopping": true,
+   "validation_fraction": 0.1,
+   "n_iter_no_change": 50,
+   "scoring": "loss"
+  },
+  "tuning": {
+   "iid": [
+    {
+     "params": {
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20
+     },
+     "auc": 0.8635
+    },
+    {
+     "params": {
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 200
+     },
+     "auc": 0.8635
+    },
+    {
+     "params": {
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 20
+     },
+     "auc": 0.8622
+    },
+    {
+     "params": {
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 200
+     },
+     "auc": 0.8636
+    },
+    {
+     "params": {
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 20
+     },
+     "auc": 0.8614
+    },
+    {
+     "params": {
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 200
+     },
+     "auc": 0.8597
+    }
+   ],
+   "reference": [
+    {
+     "params": {
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 20
+     },
+     "auc": 0.8342
+    },
+    {
+     "params": {
+      "max_leaf_nodes": 15,
+      "min_samples_leaf": 200
+     },
+     "auc": 0.8349
+    },
+    {
+     "params": {
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 20
+     },
+     "auc": 0.8343
+    },
+    {
+     "params": {
+      "max_leaf_nodes": 31,
+      "min_samples_leaf": 200
+     },
+     "auc": 0.832
+    },
+    {
+     "params": {
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 20
+     },
+     "auc": 0.8287
+    },
+    {
+     "params": {
+      "max_leaf_nodes": 63,
+      "min_samples_leaf": 200
+     },
+     "auc": 0.8288
+    }
+   ]
+  },
+  "trees": [
+   {
+    "iid": 145,
+    "reference": 173
+   },
+   {
+    "iid": 178,
+    "reference": 217
+   },
+   {
+    "iid": 151,
+    "reference": 147
+   },
+   {
+    "iid": 151,
+    "reference": 160
+   },
+   {
+    "iid": 154,
+    "reference": 243
+   }
+  ],
+  "seconds": 83.0
+ },
+ "iid": {
+  "auc": {
+   "mean": 0.8555,
+   "std": 0.0064
+  },
+  "default_rate": {
+   "mean": 0.0651,
+   "std": 0.0051
+  },
+  "bad_approvals": {
+   "mean": 214.2,
+   "std": 20.4587
+  },
+  "bad_approval_rate": {
+   "mean": 0.0536,
+   "std": 0.0051
+  },
+  "coverage": {
+   "mean": 0.9521,
+   "std": 0.0064
+  },
+  "review_rate": {
+   "mean": 0.0336,
+   "std": 0.008
+  },
+  "ood_flag_rate": {
+   "mean": 0.0508,
+   "std": 0.0065
+  },
+  "first_alarm_at": {
+   "mean": null,
+   "std": null
+  },
+  "max_log10_martingale": {
+   "mean": 0.2628,
+   "std": 0.4588
+  },
+  "alarm_seeds": 0,
+  "watch_or_alarm_seeds": 0,
+  "signals": {
+   "msp": {
+    "bad_capture": {
+     "mean": 0.4373,
+     "std": 0.0158
+    },
+    "vs_confidence": {
+     "mean": 1.0,
+     "std": 0.0
+    },
+    "vs_random": {
+     "mean": 4.9003,
+     "std": 0.9281
+    }
+   },
+   "ood_knn": {
+    "bad_capture": {
+     "mean": 0.1651,
+     "std": 0.0281
+    },
+    "vs_confidence": {
+     "mean": 0.3768,
+     "std": 0.0601
+    },
+    "vs_random": {
+     "mean": 1.8636,
+     "std": 0.5085
+    }
+   },
+   "gated": {
+    "bad_capture": {
+     "mean": 0.3174,
+     "std": 0.0253
+    },
+    "vs_confidence": {
+     "mean": 0.7254,
+     "std": 0.0449
+    },
+    "vs_random": {
+     "mean": 3.5518,
+     "std": 0.7208
+    }
+   },
+   "regime_switch": {
+    "bad_capture": {
+     "mean": 0.4373,
+     "std": 0.0158
+    },
+    "vs_confidence": {
+     "mean": 1.0,
+     "std": 0.0
+    },
+    "vs_random": {
+     "mean": 4.9003,
+     "std": 0.9281
+    }
+   },
+   "gated_distance": {
+    "bad_capture": {
+     "mean": 0.3174,
+     "std": 0.0253
+    },
+    "vs_confidence": {
+     "mean": 0.7254,
+     "std": 0.0449
+    },
+    "vs_random": {
+     "mean": 3.5518,
+     "std": 0.7208
+    }
+   },
+   "random": {
+    "bad_capture": {
+     "mean": 0.0923,
+     "std": 0.0167
+    },
+    "vs_confidence": {
+     "mean": 0.2116,
+     "std": 0.0401
+    },
+    "vs_random": {
+     "mean": 1.0,
+     "std": 0.0
+    }
+   },
+   "oracle": {
+    "bad_capture": {
+     "mean": 1.0,
+     "std": 0.0
+    },
+    "vs_confidence": {
+     "mean": 2.2897,
+     "std": 0.0841
+    },
+    "vs_random": {
+     "mean": 11.1788,
+     "std": 1.8951
+    }
+   }
+  },
+  "ratio_vs_confidence_ci95_seed0": {
+   "gated": [
+    0.6304,
+    0.8637
+   ],
+   "regime_switch": [
+    1.0,
+    1.0
+   ],
+   "gated_distance": [
+    0.6353,
+    0.8605
+   ],
+   "ood_knn": [
+    0.2417,
+    0.4615
+   ]
+  },
+  "model": {
+   "auc": {
+    "mean": 0.8555,
+    "std": 0.0064
+   },
+   "pr_auc": {
+    "mean": 0.3722,
+    "std": 0.0091
+   },
+   "default_rate": {
+    "mean": 0.0651,
+    "std": 0.0051
+   },
+   "at_0.5": {
+    "accuracy": {
+     "mean": 0.937,
+     "std": 0.0053
+    },
+    "precision": {
+     "mean": 0.5508,
+     "std": 0.025
+    },
+    "recall": {
+     "mean": 0.1778,
+     "std": 0.0171
+    },
+    "f1": {
+     "mean": 0.2682,
+     "std": 0.0189
+    },
+    "flagged_share": {
+     "mean": 0.0209,
+     "std": 0.0019
+    }
+   },
+   "at_f1_cut": {
+    "accuracy": {
+     "mean": 0.9181,
+     "std": 0.0036
+    },
+    "precision": {
+     "mean": 0.39,
+     "std": 0.0141
+    },
+    "recall": {
+     "mean": 0.4617,
+     "std": 0.0237
+    },
+    "f1": {
+     "mean": 0.4223,
+     "std": 0.01
+    },
+    "flagged_share": {
+     "mean": 0.0767,
+     "std": 0.0025
+    }
+   },
+   "riskiest_10pct": {
+    "accuracy": {
+     "mean": 0.9046,
+     "std": 0.0022
+    },
+    "precision": {
+     "mean": 0.3485,
+     "std": 0.0158
+    },
+    "recall": {
+     "mean": 0.5372,
+     "std": 0.02
+    },
+    "f1": {
+     "mean": 0.4221,
+     "std": 0.0073
+    },
+    "flagged_share": {
+     "mean": 0.1,
+     "std": 0.0
+    }
+   }
+  }
+ },
+ "mix": {
+  "0.0": {
+   "auc": {
+    "mean": 0.8414,
+    "std": 0.0144
+   },
+   "default_rate": {
+    "mean": 0.0407,
+    "std": 0.0029
+   },
+   "bad_approvals": {
+    "mean": 151.6,
+    "std": 10.9654
+   },
+   "bad_approval_rate": {
+    "mean": 0.0379,
+    "std": 0.0027
+   },
+   "coverage": {
+    "mean": 0.9511,
+    "std": 0.0032
+   },
+   "review_rate": {
+    "mean": 0.0158,
+    "std": 0.0026
+   },
+   "ood_flag_rate": {
+    "mean": 0.0498,
+    "std": 0.006
+   },
+   "first_alarm_at": {
+    "mean": null,
+    "std": null
+   },
+   "max_log10_martingale": {
+    "mean": 0.0036,
+    "std": 0.0072
+   },
+   "alarm_seeds": 0,
+   "watch_or_alarm_seeds": 0,
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.503,
+      "std": 0.0298
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 4.7728,
+      "std": 1.2516
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.2611,
+      "std": 0.0369
+     },
+     "vs_confidence": {
+      "mean": 0.5176,
+      "std": 0.0535
+     },
+     "vs_random": {
+      "mean": 2.4753,
+      "std": 0.7716
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.4538,
+      "std": 0.0379
+     },
+     "vs_confidence": {
+      "mean": 0.9016,
+      "std": 0.0433
+     },
+     "vs_random": {
+      "mean": 4.2883,
+      "std": 1.1092
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.503,
+      "std": 0.0298
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 4.7728,
+      "std": 1.2516
+     }
+    },
+    "gated_distance": {
+     "bad_capture": {
+      "mean": 0.4538,
+      "std": 0.0379
+     },
+     "vs_confidence": {
+      "mean": 0.9016,
+      "std": 0.0433
+     },
+     "vs_random": {
+      "mean": 4.2883,
+      "std": 1.1092
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.1121,
+      "std": 0.028
+     },
+     "vs_confidence": {
+      "mean": 0.2227,
+      "std": 0.0515
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_confidence": {
+      "mean": 1.995,
+      "std": 0.1168
+     },
+     "vs_random": {
+      "mean": 9.4995,
+      "std": 2.3772
+     }
+    }
+   },
+   "ratio_vs_confidence_ci95_seed0": {
+    "gated": [
+     0.8611,
+     1.0175
+    ],
+    "regime_switch": [
+     1.0,
+     1.0
+    ],
+    "gated_distance": [
+     0.8642,
+     1.0164
+    ],
+    "ood_knn": [
+     0.4062,
+     0.6866
+    ]
+   },
+   "model": {
+    "auc": {
+     "mean": 0.8414,
+     "std": 0.0144
+    },
+    "pr_auc": {
+     "mean": 0.2869,
+     "std": 0.0322
+    },
+    "default_rate": {
+     "mean": 0.0407,
+     "std": 0.0029
+    },
+    "at_0.5": {
+     "accuracy": {
+      "mean": 0.9597,
+      "std": 0.0035
+     },
+     "precision": {
+      "mean": 0.556,
+      "std": 0.0975
+     },
+     "recall": {
+      "mean": 0.07,
+      "std": 0.0128
+     },
+     "f1": {
+      "mean": 0.124,
+      "std": 0.0218
+     },
+     "flagged_share": {
+      "mean": 0.0053,
+      "std": 0.0013
+     }
+    },
+    "at_f1_cut": {
+     "accuracy": {
+      "mean": 0.9467,
+      "std": 0.0082
+     },
+     "precision": {
+      "mean": 0.3597,
+      "std": 0.0473
+     },
+     "recall": {
+      "mean": 0.3695,
+      "std": 0.0423
+     },
+     "f1": {
+      "mean": 0.3624,
+      "std": 0.0364
+     },
+     "flagged_share": {
+      "mean": 0.0425,
+      "std": 0.0077
+     }
+    },
+    "riskiest_10pct": {
+     "accuracy": {
+      "mean": 0.903,
+      "std": 0.0022
+     },
+     "precision": {
+      "mean": 0.2185,
+      "std": 0.0115
+     },
+     "recall": {
+      "mean": 0.5377,
+      "std": 0.0306
+     },
+     "f1": {
+      "mean": 0.3104,
+      "std": 0.0131
+     },
+     "flagged_share": {
+      "mean": 0.1,
+      "std": 0.0
+     }
+    }
+   }
+  },
+  "0.25": {
+   "auc": {
+    "mean": 0.8468,
+    "std": 0.0128
+   },
+   "default_rate": {
+    "mean": 0.0844,
+    "std": 0.0035
+   },
+   "bad_approvals": {
+    "mean": 289.6,
+    "std": 13.2
+   },
+   "bad_approval_rate": {
+    "mean": 0.0724,
+    "std": 0.0033
+   },
+   "coverage": {
+    "mean": 0.8959,
+    "std": 0.0033
+   },
+   "review_rate": {
+    "mean": 0.0441,
+    "std": 0.0058
+   },
+   "ood_flag_rate": {
+    "mean": 0.2636,
+    "std": 0.0485
+   },
+   "first_alarm_at": {
+    "mean": 31.4,
+    "std": 14.1082
+   },
+   "max_log10_martingale": {
+    "mean": 260.577,
+    "std": 0.0
+   },
+   "alarm_seeds": 5,
+   "watch_or_alarm_seeds": 5,
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.4224,
+      "std": 0.0363
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 4.7877,
+      "std": 1.0503
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.3217,
+      "std": 0.0262
+     },
+     "vs_confidence": {
+      "mean": 0.7624,
+      "std": 0.0305
+     },
+     "vs_random": {
+      "mean": 3.6423,
+      "std": 0.7573
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.4025,
+      "std": 0.0279
+     },
+     "vs_confidence": {
+      "mean": 0.9546,
+      "std": 0.0266
+     },
+     "vs_random": {
+      "mean": 4.5443,
+      "std": 0.8977
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.321,
+      "std": 0.0268
+     },
+     "vs_confidence": {
+      "mean": 0.7608,
+      "std": 0.0353
+     },
+     "vs_random": {
+      "mean": 3.6321,
+      "std": 0.7506
+     }
+    },
+    "gated_distance": {
+     "bad_capture": {
+      "mean": 0.3238,
+      "std": 0.0279
+     },
+     "vs_confidence": {
+      "mean": 0.7673,
+      "std": 0.0383
+     },
+     "vs_random": {
+      "mean": 3.6621,
+      "std": 0.7508
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.0915,
+      "std": 0.0156
+     },
+     "vs_confidence": {
+      "mean": 0.2204,
+      "std": 0.0533
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_confidence": {
+      "mean": 2.3859,
+      "std": 0.215
+     },
+     "vs_random": {
+      "mean": 11.2397,
+      "std": 1.8089
+     }
+    }
+   },
+   "ratio_vs_confidence_ci95_seed0": {
+    "gated": [
+     0.8478,
+     1.0488
+    ],
+    "regime_switch": [
+     0.6838,
+     0.9324
+    ],
+    "gated_distance": [
+     0.6904,
+     0.9353
+    ],
+    "ood_knn": [
+     0.6928,
+     0.9329
+    ]
+   },
+   "model": {
+    "auc": {
+     "mean": 0.8468,
+     "std": 0.0128
+    },
+    "pr_auc": {
+     "mean": 0.4086,
+     "std": 0.0358
+    },
+    "default_rate": {
+     "mean": 0.0844,
+     "std": 0.0035
+    },
+    "at_0.5": {
+     "accuracy": {
+      "mean": 0.9193,
+      "std": 0.0044
+     },
+     "precision": {
+      "mean": 0.5987,
+      "std": 0.0789
+     },
+     "recall": {
+      "mean": 0.1417,
+      "std": 0.0168
+     },
+     "f1": {
+      "mean": 0.2283,
+      "std": 0.0249
+     },
+     "flagged_share": {
+      "mean": 0.0203,
+      "std": 0.0033
+     }
+    },
+    "at_f1_cut": {
+     "accuracy": {
+      "mean": 0.9019,
+      "std": 0.0093
+     },
+     "precision": {
+      "mean": 0.4327,
+      "std": 0.0353
+     },
+     "recall": {
+      "mean": 0.492,
+      "std": 0.0332
+     },
+     "f1": {
+      "mean": 0.4589,
+      "std": 0.023
+     },
+     "flagged_share": {
+      "mean": 0.0967,
+      "std": 0.0119
+     }
+    },
+    "riskiest_10pct": {
+     "accuracy": {
+      "mean": 0.9006,
+      "std": 0.0051
+     },
+     "precision": {
+      "mean": 0.425,
+      "std": 0.0248
+     },
+     "recall": {
+      "mean": 0.5043,
+      "std": 0.0309
+     },
+     "f1": {
+      "mean": 0.4611,
+      "std": 0.0257
+     },
+     "flagged_share": {
+      "mean": 0.1,
+      "std": 0.0
+     }
+    }
+   }
+  },
+  "0.5": {
+   "auc": {
+    "mean": 0.8337,
+    "std": 0.0124
+   },
+   "default_rate": {
+    "mean": 0.1273,
+    "std": 0.0042
+   },
+   "bad_approvals": {
+    "mean": 422.8,
+    "std": 15.7658
+   },
+   "bad_approval_rate": {
+    "mean": 0.1057,
+    "std": 0.0039
+   },
+   "coverage": {
+    "mean": 0.8415,
+    "std": 0.0044
+   },
+   "review_rate": {
+    "mean": 0.0737,
+    "std": 0.0116
+   },
+   "ood_flag_rate": {
+    "mean": 0.479,
+    "std": 0.0921
+   },
+   "first_alarm_at": {
+    "mean": 11.6,
+    "std": 6.4374
+   },
+   "max_log10_martingale": {
+    "mean": 260.577,
+    "std": 0.0
+   },
+   "alarm_seeds": 5,
+   "watch_or_alarm_seeds": 5,
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.3002,
+      "std": 0.0204
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 3.2151,
+      "std": 0.1663
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.2383,
+      "std": 0.0057
+     },
+     "vs_confidence": {
+      "mean": 0.7964,
+      "std": 0.0419
+     },
+     "vs_random": {
+      "mean": 2.5641,
+      "std": 0.2298
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.2939,
+      "std": 0.0197
+     },
+     "vs_confidence": {
+      "mean": 0.9794,
+      "std": 0.0286
+     },
+     "vs_random": {
+      "mean": 3.1458,
+      "std": 0.127
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.2382,
+      "std": 0.0063
+     },
+     "vs_confidence": {
+      "mean": 0.7964,
+      "std": 0.0445
+     },
+     "vs_random": {
+      "mean": 2.5648,
+      "std": 0.2399
+     }
+    },
+    "gated_distance": {
+     "bad_capture": {
+      "mean": 0.2397,
+      "std": 0.0061
+     },
+     "vs_confidence": {
+      "mean": 0.8013,
+      "std": 0.0439
+     },
+     "vs_random": {
+      "mean": 2.5799,
+      "std": 0.2351
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.0937,
+      "std": 0.0094
+     },
+     "vs_confidence": {
+      "mean": 0.3119,
+      "std": 0.0162
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 0.9464,
+      "std": 0.0343
+     },
+     "vs_confidence": {
+      "mean": 3.1691,
+      "std": 0.2718
+     },
+     "vs_random": {
+      "mean": 10.1864,
+      "std": 0.9766
+     }
+    }
+   },
+   "ratio_vs_confidence_ci95_seed0": {
+    "gated": [
+     0.897,
+     1.0301
+    ],
+    "regime_switch": [
+     0.6734,
+     0.9214
+    ],
+    "gated_distance": [
+     0.6716,
+     0.9203
+    ],
+    "ood_knn": [
+     0.6643,
+     0.9123
+    ]
+   },
+   "model": {
+    "auc": {
+     "mean": 0.8337,
+     "std": 0.0124
+    },
+    "pr_auc": {
+     "mean": 0.4574,
+     "std": 0.0339
+    },
+    "default_rate": {
+     "mean": 0.1273,
+     "std": 0.0042
+    },
+    "at_0.5": {
+     "accuracy": {
+      "mean": 0.8802,
+      "std": 0.0057
+     },
+     "precision": {
+      "mean": 0.6065,
+      "std": 0.06
+     },
+     "recall": {
+      "mean": 0.1695,
+      "std": 0.0217
+     },
+     "f1": {
+      "mean": 0.2644,
+      "std": 0.0299
+     },
+     "flagged_share": {
+      "mean": 0.0358,
+      "std": 0.0046
+     }
+    },
+    "at_f1_cut": {
+     "accuracy": {
+      "mean": 0.8588,
+      "std": 0.0135
+     },
+     "precision": {
+      "mean": 0.4576,
+      "std": 0.0298
+     },
+     "recall": {
+      "mean": 0.5471,
+      "std": 0.0432
+     },
+     "f1": {
+      "mean": 0.4967,
+      "std": 0.022
+     },
+     "flagged_share": {
+      "mean": 0.1534,
+      "std": 0.0204
+     }
+    },
+    "riskiest_10pct": {
+     "accuracy": {
+      "mean": 0.8777,
+      "std": 0.0051
+     },
+     "precision": {
+      "mean": 0.525,
+      "std": 0.0277
+     },
+     "recall": {
+      "mean": 0.4125,
+      "std": 0.0191
+     },
+     "f1": {
+      "mean": 0.4619,
+      "std": 0.0213
+     },
+     "flagged_share": {
+      "mean": 0.1,
+      "std": 0.0
+     }
+    }
+   }
+  },
+  "0.75": {
+   "auc": {
+    "mean": 0.8094,
+    "std": 0.0084
+   },
+   "default_rate": {
+    "mean": 0.1704,
+    "std": 0.0042
+   },
+   "bad_approvals": {
+    "mean": 556.0,
+    "std": 14.9533
+   },
+   "bad_approval_rate": {
+    "mean": 0.139,
+    "std": 0.0037
+   },
+   "coverage": {
+    "mean": 0.7899,
+    "std": 0.0076
+   },
+   "review_rate": {
+    "mean": 0.0987,
+    "std": 0.017
+   },
+   "ood_flag_rate": {
+    "mean": 0.6938,
+    "std": 0.1363
+   },
+   "first_alarm_at": {
+    "mean": 6.6,
+    "std": 1.3565
+   },
+   "max_log10_martingale": {
+    "mean": 260.577,
+    "std": 0.0
+   },
+   "alarm_seeds": 5,
+   "watch_or_alarm_seeds": 5,
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.2222,
+      "std": 0.0174
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 2.2535,
+      "std": 0.4526
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.1814,
+      "std": 0.0109
+     },
+     "vs_confidence": {
+      "mean": 0.8201,
+      "std": 0.0658
+     },
+     "vs_random": {
+      "mean": 1.8262,
+      "std": 0.2572
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.2186,
+      "std": 0.0117
+     },
+     "vs_confidence": {
+      "mean": 0.9857,
+      "std": 0.0249
+     },
+     "vs_random": {
+      "mean": 2.2105,
+      "std": 0.3813
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.1804,
+      "std": 0.0109
+     },
+     "vs_confidence": {
+      "mean": 0.8154,
+      "std": 0.0696
+     },
+     "vs_random": {
+      "mean": 1.8147,
+      "std": 0.2523
+     }
+    },
+    "gated_distance": {
+     "bad_capture": {
+      "mean": 0.1796,
+      "std": 0.0112
+     },
+     "vs_confidence": {
+      "mean": 0.8121,
+      "std": 0.069
+     },
+     "vs_random": {
+      "mean": 1.8079,
+      "std": 0.2554
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.1007,
+      "std": 0.0108
+     },
+     "vs_confidence": {
+      "mean": 0.4586,
+      "std": 0.0748
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 0.72,
+      "std": 0.0201
+     },
+     "vs_confidence": {
+      "mean": 3.2608,
+      "std": 0.2799
+     },
+     "vs_random": {
+      "mean": 7.2463,
+      "std": 0.9107
+     }
+    }
+   },
+   "ratio_vs_confidence_ci95_seed0": {
+    "gated": [
+     0.8824,
+     1.0078
+    ],
+    "regime_switch": [
+     0.6225,
+     0.873
+    ],
+    "gated_distance": [
+     0.6218,
+     0.8684
+    ],
+    "ood_knn": [
+     0.6118,
+     0.8621
+    ]
+   },
+   "model": {
+    "auc": {
+     "mean": 0.8094,
+     "std": 0.0084
+    },
+    "pr_auc": {
+     "mean": 0.4851,
+     "std": 0.0262
+    },
+    "default_rate": {
+     "mean": 0.1704,
+     "std": 0.0042
+    },
+    "at_0.5": {
+     "accuracy": {
+      "mean": 0.843,
+      "std": 0.0052
+     },
+     "precision": {
+      "mean": 0.6367,
+      "std": 0.0453
+     },
+     "recall": {
+      "mean": 0.1839,
+      "std": 0.0195
+     },
+     "f1": {
+      "mean": 0.2848,
+      "std": 0.0258
+     },
+     "flagged_share": {
+      "mean": 0.0493,
+      "std": 0.0055
+     }
+    },
+    "at_f1_cut": {
+     "accuracy": {
+      "mean": 0.8186,
+      "std": 0.0132
+     },
+     "precision": {
+      "mean": 0.4747,
+      "std": 0.0244
+     },
+     "recall": {
+      "mean": 0.5604,
+      "std": 0.0366
+     },
+     "f1": {
+      "mean": 0.5127,
+      "std": 0.0161
+     },
+     "flagged_share": {
+      "mean": 0.2022,
+      "std": 0.023
+     }
+    },
+    "riskiest_10pct": {
+     "accuracy": {
+      "mean": 0.8459,
+      "std": 0.0043
+     },
+     "precision": {
+      "mean": 0.5815,
+      "std": 0.0262
+     },
+     "recall": {
+      "mean": 0.3413,
+      "std": 0.0122
+     },
+     "f1": {
+      "mean": 0.4301,
+      "std": 0.0162
+     },
+     "flagged_share": {
+      "mean": 0.1,
+      "std": 0.0
+     }
+    }
+   }
+  },
+  "1.0": {
+   "auc": {
+    "mean": 0.7754,
+    "std": 0.0082
+   },
+   "default_rate": {
+    "mean": 0.2112,
+    "std": 0.005
+   },
+   "bad_approvals": {
+    "mean": 684.6,
+    "std": 14.9345
+   },
+   "bad_approval_rate": {
+    "mean": 0.1711,
+    "std": 0.0037
+   },
+   "coverage": {
+    "mean": 0.7362,
+    "std": 0.0114
+   },
+   "review_rate": {
+    "mean": 0.1267,
+    "std": 0.0217
+   },
+   "ood_flag_rate": {
+    "mean": 0.9113,
+    "std": 0.1775
+   },
+   "first_alarm_at": {
+    "mean": 4.4,
+    "std": 0.8
+   },
+   "max_log10_martingale": {
+    "mean": 260.577,
+    "std": 0.0
+   },
+   "alarm_seeds": 5,
+   "watch_or_alarm_seeds": 5,
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.1788,
+      "std": 0.0102
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 1.6802,
+      "std": 0.1443
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.1406,
+      "std": 0.0134
+     },
+     "vs_confidence": {
+      "mean": 0.7883,
+      "std": 0.0866
+     },
+     "vs_random": {
+      "mean": 1.3326,
+      "std": 0.2333
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.1744,
+      "std": 0.0095
+     },
+     "vs_confidence": {
+      "mean": 0.9757,
+      "std": 0.0171
+     },
+     "vs_random": {
+      "mean": 1.6381,
+      "std": 0.1279
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.1394,
+      "std": 0.013
+     },
+     "vs_confidence": {
+      "mean": 0.7815,
+      "std": 0.082
+     },
+     "vs_random": {
+      "mean": 1.321,
+      "std": 0.2263
+     }
+    },
+    "gated_distance": {
+     "bad_capture": {
+      "mean": 0.1411,
+      "std": 0.0146
+     },
+     "vs_confidence": {
+      "mean": 0.7915,
+      "std": 0.094
+     },
+     "vs_random": {
+      "mean": 1.3387,
+      "std": 0.2448
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.1071,
+      "std": 0.0094
+     },
+     "vs_confidence": {
+      "mean": 0.5997,
+      "std": 0.0526
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 0.5846,
+      "std": 0.0128
+     },
+     "vs_confidence": {
+      "mean": 3.2782,
+      "std": 0.1794
+     },
+     "vs_random": {
+      "mean": 5.4931,
+      "std": 0.3937
+     }
+    }
+   },
+   "ratio_vs_confidence_ci95_seed0": {
+    "gated": [
+     0.9134,
+     1.0
+    ],
+    "regime_switch": [
+     0.6178,
+     0.8923
+    ],
+    "gated_distance": [
+     0.6164,
+     0.8952
+    ],
+    "ood_knn": [
+     0.6225,
+     0.8871
+    ]
+   },
+   "model": {
+    "auc": {
+     "mean": 0.7754,
+     "std": 0.0082
+    },
+    "pr_auc": {
+     "mean": 0.4903,
+     "std": 0.0197
+    },
+    "default_rate": {
+     "mean": 0.2112,
+     "std": 0.005
+    },
+    "at_0.5": {
+     "accuracy": {
+      "mean": 0.8051,
+      "std": 0.0055
+     },
+     "precision": {
+      "mean": 0.6302,
+      "std": 0.0365
+     },
+     "recall": {
+      "mean": 0.1897,
+      "std": 0.011
+     },
+     "f1": {
+      "mean": 0.2913,
+      "std": 0.0137
+     },
+     "flagged_share": {
+      "mean": 0.0638,
+      "std": 0.0058
+     }
+    },
+    "at_f1_cut": {
+     "accuracy": {
+      "mean": 0.7731,
+      "std": 0.0134
+     },
+     "precision": {
+      "mean": 0.4708,
+      "std": 0.0181
+     },
+     "recall": {
+      "mean": 0.573,
+      "std": 0.0348
+     },
+     "f1": {
+      "mean": 0.516,
+      "std": 0.0144
+     },
+     "flagged_share": {
+      "mean": 0.2581,
+      "std": 0.0263
+     }
+    },
+    "riskiest_10pct": {
+     "accuracy": {
+      "mean": 0.8078,
+      "std": 0.0054
+     },
+     "precision": {
+      "mean": 0.595,
+      "std": 0.0202
+     },
+     "recall": {
+      "mean": 0.2817,
+      "std": 0.0098
+     },
+     "f1": {
+      "mean": 0.3824,
+      "std": 0.0125
+     },
+     "flagged_share": {
+      "mean": 0.1,
+      "std": 0.0
+     }
+    }
+   }
+  }
+ },
+ "corruption": {
+  "0.05": {
+   "auc": {
+    "mean": 0.8411,
+    "std": 0.0147
+   },
+   "default_rate": {
+    "mean": 0.0407,
+    "std": 0.0029
+   },
+   "bad_approvals": {
+    "mean": 151.4,
+    "std": 11.0381
+   },
+   "bad_approval_rate": {
+    "mean": 0.0379,
+    "std": 0.0028
+   },
+   "coverage": {
+    "mean": 0.9511,
+    "std": 0.0032
+   },
+   "review_rate": {
+    "mean": 0.0159,
+    "std": 0.0025
+   },
+   "ood_flag_rate": {
+    "mean": 0.0954,
+    "std": 0.0057
+   },
+   "first_alarm_at": {
+    "mean": 120.8,
+    "std": 99.1512
+   },
+   "max_log10_martingale": {
+    "mean": 91.7284,
+    "std": 15.8525
+   },
+   "alarm_seeds": 5,
+   "watch_or_alarm_seeds": 5,
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.5037,
+      "std": 0.0335
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 5.4167,
+      "std": 1.188
+     },
+     "corrupted_caught": {
+      "mean": 0.097,
+      "std": 0.0093
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.201,
+      "std": 0.0362
+     },
+     "vs_confidence": {
+      "mean": 0.3976,
+      "std": 0.0582
+     },
+     "vs_random": {
+      "mean": 2.1281,
+      "std": 0.43
+     },
+     "corrupted_caught": {
+      "mean": 0.963,
+      "std": 0.0093
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.2654,
+      "std": 0.0215
+     },
+     "vs_confidence": {
+      "mean": 0.5309,
+      "std": 0.0685
+     },
+     "vs_random": {
+      "mean": 2.8788,
+      "std": 0.7957
+     },
+     "corrupted_caught": {
+      "mean": 0.956,
+      "std": 0.0111
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.2027,
+      "std": 0.0403
+     },
+     "vs_confidence": {
+      "mean": 0.4002,
+      "std": 0.0629
+     },
+     "vs_random": {
+      "mean": 2.1444,
+      "std": 0.4754
+     },
+     "corrupted_caught": {
+      "mean": 0.947,
+      "std": 0.0196
+     }
+    },
+    "gated_distance": {
+     "bad_capture": {
+      "mean": 0.2624,
+      "std": 0.0254
+     },
+     "vs_confidence": {
+      "mean": 0.5255,
+      "std": 0.0767
+     },
+     "vs_random": {
+      "mean": 2.8424,
+      "std": 0.7976
+     },
+     "corrupted_caught": {
+      "mean": 0.958,
+      "std": 0.0098
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.0971,
+      "std": 0.0195
+     },
+     "vs_confidence": {
+      "mean": 0.1932,
+      "std": 0.039
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "corrupted_caught": {
+      "mean": 0.096,
+      "std": 0.0208
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_confidence": {
+      "mean": 1.9942,
+      "std": 0.1312
+     },
+     "vs_random": {
+      "mean": 10.7987,
+      "std": 2.5281
+     },
+     "corrupted_caught": {
+      "mean": 0.101,
+      "std": 0.0136
+     }
+    }
+   },
+   "ratio_vs_confidence_ci95_seed0": {
+    "gated": [
+     0.4053,
+     0.7501
+    ],
+    "regime_switch": [
+     0.2187,
+     0.4493
+    ],
+    "gated_distance": [
+     0.3823,
+     0.7419
+    ],
+    "ood_knn": [
+     0.2353,
+     0.4561
+    ]
+   },
+   "model": {
+    "auc": {
+     "mean": 0.8411,
+     "std": 0.0147
+    },
+    "pr_auc": {
+     "mean": 0.2872,
+     "std": 0.0307
+    },
+    "default_rate": {
+     "mean": 0.0407,
+     "std": 0.0029
+    },
+    "at_0.5": {
+     "accuracy": {
+      "mean": 0.9597,
+      "std": 0.0036
+     },
+     "precision": {
+      "mean": 0.557,
+      "std": 0.1003
+     },
+     "recall": {
+      "mean": 0.0713,
+      "std": 0.011
+     },
+     "f1": {
+      "mean": 0.1261,
+      "std": 0.0191
+     },
+     "flagged_share": {
+      "mean": 0.0054,
+      "std": 0.0012
+     }
+    },
+    "at_f1_cut": {
+     "accuracy": {
+      "mean": 0.9466,
+      "std": 0.0081
+     },
+     "precision": {
+      "mean": 0.3585,
+      "std": 0.0464
+     },
+     "recall": {
+      "mean": 0.3682,
+      "std": 0.0417
+     },
+     "f1": {
+      "mean": 0.3611,
+      "std": 0.0348
+     },
+     "flagged_share": {
+      "mean": 0.0425,
+      "std": 0.0078
+     }
+    },
+    "riskiest_10pct": {
+     "accuracy": {
+      "mean": 0.9031,
+      "std": 0.0026
+     },
+     "precision": {
+      "mean": 0.219,
+      "std": 0.0138
+     },
+     "recall": {
+      "mean": 0.5388,
+      "std": 0.0348
+     },
+     "f1": {
+      "mean": 0.3111,
+      "std": 0.0167
+     },
+     "flagged_share": {
+      "mean": 0.1,
+      "std": 0.0
+     }
+    }
+   }
+  },
+  "0.1": {
+   "auc": {
+    "mean": 0.8414,
+    "std": 0.0145
+   },
+   "default_rate": {
+    "mean": 0.0407,
+    "std": 0.0029
+   },
+   "bad_approvals": {
+    "mean": 151.6,
+    "std": 10.9654
+   },
+   "bad_approval_rate": {
+    "mean": 0.0379,
+    "std": 0.0027
+   },
+   "coverage": {
+    "mean": 0.9509,
+    "std": 0.0029
+   },
+   "review_rate": {
+    "mean": 0.016,
+    "std": 0.0025
+   },
+   "ood_flag_rate": {
+    "mean": 0.1405,
+    "std": 0.0055
+   },
+   "first_alarm_at": {
+    "mean": 20.8,
+    "std": 15.1842
+   },
+   "max_log10_martingale": {
+    "mean": 254.9404,
+    "std": 7.5156
+   },
+   "alarm_seeds": 5,
+   "watch_or_alarm_seeds": 5,
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.5059,
+      "std": 0.0367
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 5.4415,
+      "std": 1.1707
+     },
+     "corrupted_caught": {
+      "mean": 0.099,
+      "std": 0.0173
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.1282,
+      "std": 0.0283
+     },
+     "vs_confidence": {
+      "mean": 0.2522,
+      "std": 0.0457
+     },
+     "vs_random": {
+      "mean": 1.3412,
+      "std": 0.2168
+     },
+     "corrupted_caught": {
+      "mean": 0.9205,
+      "std": 0.0162
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.2245,
+      "std": 0.0333
+     },
+     "vs_confidence": {
+      "mean": 0.4424,
+      "std": 0.0464
+     },
+     "vs_random": {
+      "mean": 2.4153,
+      "std": 0.5879
+     },
+     "corrupted_caught": {
+      "mean": 0.68,
+      "std": 0.0365
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.1295,
+      "std": 0.029
+     },
+     "vs_confidence": {
+      "mean": 0.2546,
+      "std": 0.0474
+     },
+     "vs_random": {
+      "mean": 1.3523,
+      "std": 0.2146
+     },
+     "corrupted_caught": {
+      "mean": 0.919,
+      "std": 0.0159
+     }
+    },
+    "gated_distance": {
+     "bad_capture": {
+      "mean": 0.1295,
+      "std": 0.029
+     },
+     "vs_confidence": {
+      "mean": 0.2546,
+      "std": 0.0474
+     },
+     "vs_random": {
+      "mean": 1.3523,
+      "std": 0.2146
+     },
+     "corrupted_caught": {
+      "mean": 0.9205,
+      "std": 0.0162
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.097,
+      "std": 0.0194
+     },
+     "vs_confidence": {
+      "mean": 0.192,
+      "std": 0.0383
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "corrupted_caught": {
+      "mean": 0.0945,
+      "std": 0.0102
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_confidence": {
+      "mean": 1.9871,
+      "std": 0.1441
+     },
+     "vs_random": {
+      "mean": 10.8105,
+      "std": 2.5182
+     },
+     "corrupted_caught": {
+      "mean": 0.0995,
+      "std": 0.01
+     }
+    }
+   },
+   "ratio_vs_confidence_ci95_seed0": {
+    "gated": [
+     0.32,
+     0.5975
+    ],
+    "regime_switch": [
+     0.1212,
+     0.3448
+    ],
+    "gated_distance": [
+     0.1143,
+     0.3333
+    ],
+    "ood_knn": [
+     0.1176,
+     0.3385
+    ]
+   },
+   "model": {
+    "auc": {
+     "mean": 0.8414,
+     "std": 0.0145
+    },
+    "pr_auc": {
+     "mean": 0.2866,
+     "std": 0.0327
+    },
+    "default_rate": {
+     "mean": 0.0407,
+     "std": 0.0029
+    },
+    "at_0.5": {
+     "accuracy": {
+      "mean": 0.9598,
+      "std": 0.0035
+     },
+     "precision": {
+      "mean": 0.5666,
+      "std": 0.093
+     },
+     "recall": {
+      "mean": 0.07,
+      "std": 0.0128
+     },
+     "f1": {
+      "mean": 0.1243,
+      "std": 0.0217
+     },
+     "flagged_share": {
+      "mean": 0.0052,
+      "std": 0.0012
+     }
+    },
+    "at_f1_cut": {
+     "accuracy": {
+      "mean": 0.9465,
+      "std": 0.0082
+     },
+     "precision": {
+      "mean": 0.3573,
+      "std": 0.0484
+     },
+     "recall": {
+      "mean": 0.366,
+      "std": 0.0423
+     },
+     "f1": {
+      "mean": 0.3597,
+      "std": 0.0381
+     },
+     "flagged_share": {
+      "mean": 0.0424,
+      "std": 0.0074
+     }
+    },
+    "riskiest_10pct": {
+     "accuracy": {
+      "mean": 0.9031,
+      "std": 0.0027
+     },
+     "precision": {
+      "mean": 0.2195,
+      "std": 0.0122
+     },
+     "recall": {
+      "mean": 0.5404,
+      "std": 0.0363
+     },
+     "f1": {
+      "mean": 0.3119,
+      "std": 0.0152
+     },
+     "flagged_share": {
+      "mean": 0.1,
+      "std": 0.0
+     }
+    }
+   }
+  }
+ },
+ "per_seed": {
+  "iid": [
+   {
+    "auc": 0.8675317550465329,
+    "default_rate": 0.06025,
+    "bad_approvals": 192,
+    "bad_approval_rate": 0.048,
+    "coverage": 0.9595,
+    "review_rate": 0.04325,
+    "ood_flag_rate": 0.0465,
+    "alarm": false,
+    "watch_or_alarm": false,
+    "first_alarm_at": null,
+    "max_log10_martingale": 0.0,
+    "model": {
+     "auc": 0.8675317550465329,
+     "pr_auc": 0.35830414021162177,
+     "default_rate": 0.06025,
+     "at_0.5": {
+      "accuracy": 0.9415,
+      "precision": 0.5384615384615384,
+      "recall": 0.2033195020746888,
+      "f1": 0.29518072289156627,
+      "flagged_share": 0.02275
+     },
+     "at_f1_cut": {
+      "accuracy": 0.92175,
+      "precision": 0.38461538461538464,
+      "recall": 0.4979253112033195,
+      "f1": 0.433996383363472,
+      "flagged_share": 0.078
+     },
+     "riskiest_10pct": {
+      "accuracy": 0.90775,
+      "precision": 0.34,
+      "recall": 0.5643153526970954,
+      "f1": 0.4243369734789392,
+      "flagged_share": 0.1
+     }
+    },
+    "signals": {
+     "msp": {
+      "bad_capture": 0.453125,
+      "vs_confidence": 1.0,
+      "vs_random": 6.2142857142857135
+     },
+     "ood_knn": {
+      "bad_capture": 0.15625,
+      "vs_confidence": 0.3448275862068966,
+      "vs_random": 2.142857142857143
+     },
+     "gated": {
+      "bad_capture": 0.3489583333333333,
+      "vs_confidence": 0.7701149425287356,
+      "vs_random": 4.785714285714286
+     },
+     "regime_switch": {
+      "bad_capture": 0.453125,
+      "vs_confidence": 1.0,
+      "vs_random": 6.2142857142857135
+     },
+     "gated_distance": {
+      "bad_capture": 0.3489583333333333,
+      "vs_confidence": 0.7701149425287356,
+      "vs_random": 4.785714285714286
+     },
+     "random": {
+      "bad_capture": 0.07291666666666667,
+      "vs_confidence": 0.16091954022988506,
+      "vs_random": 1.0
+     },
+     "oracle": {
+      "bad_capture": 1.0,
+      "vs_confidence": 2.206896551724138,
+      "vs_random": 13.714285714285714
+     }
+    },
+    "ratio_vs_confidence_ci95": {
+     "gated": [
+      0.6304,
+      0.8637
+     ],
+     "regime_switch": [
+      1.0,
+      1.0
+     ],
+     "gated_distance": [
+      0.6353,
+      0.8605
+     ],
+     "ood_knn": [
+      0.2417,
+      0.4615
+     ]
+    }
+   },
+   {
+    "auc": 0.848040864077709,
+    "default_rate": 0.0665,
+    "bad_approvals": 224,
+    "bad_approval_rate": 0.056,
+    "coverage": 0.94925,
+    "review_rate": 0.02825,
+    "ood_flag_rate": 0.04125,
+    "alarm": false,
+    "watch_or_alarm": false,
+    "first_alarm_at": null,
+    "max_log10_martingale": 0.0,
+    "model": {
+     "auc": 0.848040864077709,
+     "pr_auc": 0.3759698011277992,
+     "default_rate": 0.0665,
+     "at_0.5": {
+      "accuracy": 0.93675,
+      "precision": 0.5915492957746479,
+      "recall": 0.15789473684210525,
+      "f1": 0.24925816023738873,
+      "flagged_share": 0.01775
+     },
+     "at_f1_cut": {
+      "accuracy": 0.91875,
+      "precision": 0.3993174061433447,
+      "recall": 0.4398496240601504,
+      "f1": 0.4186046511627907,
+      "flagged_share": 0.07325
+     },
+     "riskiest_10pct": {
+      "accuracy": 0.9045,
+      "precision": 0.355,
+      "recall": 0.5338345864661654,
+      "f1": 0.4264264264264264,
+      "flagged_share": 0.1
+     }
+    },
+    "signals": {
+     "msp": {
+      "bad_capture": 0.44642857142857145,
+      "vs_confidence": 1.0,
+      "vs_random": 3.7037037037037037
+     },
+     "ood_knn": {
+      "bad_capture": 0.16071428571428573,
+      "vs_confidence": 0.36,
+      "vs_random": 1.3333333333333335
+     },
+     "gated": {
+      "bad_capture": 0.3392857142857143,
+      "vs_confidence": 0.76,
+      "vs_random": 2.814814814814815
+     },
+     "regime_switch": {
+      "bad_capture": 0.44642857142857145,
+      "vs_confidence": 1.0,
+      "vs_random": 3.7037037037037037
+     },
+     "gated_distance": {
+      "bad_capture": 0.3392857142857143,
+      "vs_confidence": 0.76,
+      "vs_random": 2.814814814814815
+     },
+     "random": {
+      "bad_capture": 0.12053571428571429,
+      "vs_confidence": 0.27,
+      "vs_random": 1.0
+     },
+     "oracle": {
+      "bad_capture": 1.0,
+      "vs_confidence": 2.2399999999999998,
+      "vs_random": 8.296296296296296
+     }
+    }
+   },
+   {
+    "auc": 0.853969030471992,
+    "default_rate": 0.07275,
+    "bad_approvals": 242,
+    "bad_approval_rate": 0.0605,
+    "coverage": 0.94175,
+    "review_rate": 0.02175,
+    "ood_flag_rate": 0.0515,
+    "alarm": false,
+    "watch_or_alarm": false,
+    "first_alarm_at": null,
+    "max_log10_martingale": 1.174,
+    "model": {
+     "auc": 0.853969030471992,
+     "pr_auc": 0.38608173341656776,
+     "default_rate": 0.07275,
+     "at_0.5": {
+      "accuracy": 0.92925,
+      "precision": 0.5444444444444444,
+      "recall": 0.16838487972508592,
+      "f1": 0.2572178477690289,
+      "flagged_share": 0.0225
+     },
+     "at_f1_cut": {
+      "accuracy": 0.913,
+      "precision": 0.4117647058823529,
+      "recall": 0.4570446735395189,
+      "f1": 0.4332247557003257,
+      "flagged_share": 0.08075
+     },
+     "riskiest_10pct": {
+      "accuracy": 0.90175,
+      "precision": 0.3725,
+      "recall": 0.5120274914089347,
+      "f1": 0.43125904486251804,
+      "flagged_share": 0.1
+     }
+    },
+    "signals": {
+     "msp": {
+      "bad_capture": 0.4132231404958678,
+      "vs_confidence": 1.0,
+      "vs_random": 4.166666666666667
+     },
+     "ood_knn": {
+      "bad_capture": 0.11983471074380166,
+      "vs_confidence": 0.29,
+      "vs_random": 1.2083333333333333
+     },
+     "gated": {
+      "bad_capture": 0.30991735537190085,
+      "vs_confidence": 0.75,
+      "vs_random": 3.125
+     },
+     "regime_switch": {
+      "bad_capture": 0.4132231404958678,
+      "vs_confidence": 1.0,
+      "vs_random": 4.166666666666667
+     },
+     "gated_distance": {
+      "bad_capture": 0.30991735537190085,
+      "vs_confidence": 0.75,
+      "vs_random": 3.125
+     },
+     "random": {
+      "bad_capture": 0.09917355371900827,
+      "vs_confidence": 0.24,
+      "vs_random": 1.0
+     },
+     "oracle": {
+      "bad_capture": 1.0,
+      "vs_confidence": 2.42,
+      "vs_random": 10.083333333333334
+     }
+    }
+   },
+   {
+    "auc": 0.8534796874174879,
+    "default_rate": 0.06725,
+    "bad_approvals": 224,
+    "bad_approval_rate": 0.056,
+    "coverage": 0.952,
+    "review_rate": 0.041,
+    "ood_flag_rate": 0.06025,
+    "alarm": false,
+    "watch_or_alarm": false,
+    "first_alarm_at": null,
+    "max_log10_martingale": 0.14,
+    "model": {
+     "auc": 0.8534796874174879,
+     "pr_auc": 0.3687346090548641,
+     "default_rate": 0.06725,
+     "at_0.5": {
+      "accuracy": 0.9335,
+      "precision": 0.5172413793103449,
+      "recall": 0.16728624535315986,
+      "f1": 0.252808988764045,
+      "flagged_share": 0.02175
+     },
+     "at_f1_cut": {
+      "accuracy": 0.915,
+      "precision": 0.3836065573770492,
+      "recall": 0.4349442379182156,
+      "f1": 0.4076655052264808,
+      "flagged_share": 0.07625
+     },
+     "riskiest_10pct": {
+      "accuracy": 0.90275,
+      "precision": 0.35,
+      "recall": 0.5204460966542751,
+      "f1": 0.41853512705530643,
+      "flagged_share": 0.1
+     }
+    },
+    "signals": {
+     "msp": {
+      "bad_capture": 0.42410714285714285,
+      "vs_confidence": 1.0,
+      "vs_random": 4.75
+     },
+     "ood_knn": {
+      "bad_capture": 0.1875,
+      "vs_confidence": 0.4421052631578947,
+      "vs_random": 2.1
+     },
+     "gated": {
+      "bad_capture": 0.2767857142857143,
+      "vs_confidence": 0.6526315789473685,
+      "vs_random": 3.1
+     },
+     "regime_switch": {
+      "bad_capture": 0.42410714285714285,
+      "vs_confidence": 1.0,
+      "vs_random": 4.75
+     },
+     "gated_distance": {
+      "bad_capture": 0.2767857142857143,
+      "vs_confidence": 0.6526315789473685,
+      "vs_random": 3.1
+     },
+     "random": {
+      "bad_capture": 0.08928571428571429,
+      "vs_confidence": 0.2105263157894737,
+      "vs_random": 1.0
+     },
+     "oracle": {
+      "bad_capture": 1.0,
+      "vs_confidence": 2.3578947368421055,
+      "vs_random": 11.2
+     }
+    }
+   },
+   {
+    "auc": 0.8544756049402888,
+    "default_rate": 0.0585,
+    "bad_approvals": 189,
+    "bad_approval_rate": 0.04725,
+    "coverage": 0.95775,
+    "review_rate": 0.03375,
+    "ood_flag_rate": 0.0545,
+    "alarm": false,
+    "watch_or_alarm": false,
+    "first_alarm_at": null,
+    "max_log10_martingale": 0.0,
+    "model": {
+     "auc": 0.8544756049402888,
+     "pr_auc": 0.37166617071507263,
+     "default_rate": 0.0585,
+     "at_0.5": {
+      "accuracy": 0.944,
+      "precision": 0.5625,
+      "recall": 0.19230769230769232,
+      "f1": 0.28662420382165604,
+      "flagged_share": 0.02
+     },
+     "at_f1_cut": {
+      "accuracy": 0.922,
+      "precision": 0.3708609271523179,
+      "recall": 0.47863247863247865,
+      "f1": 0.41791044776119407,
+      "flagged_share": 0.0755
+     },
+     "riskiest_10pct": {
+      "accuracy": 0.9065,
+      "precision": 0.325,
+      "recall": 0.5555555555555556,
+      "f1": 0.4100946372239748,
+      "flagged_share": 0.1
+     }
+    },
+    "signals": {
+     "msp": {
+      "bad_capture": 0.4497354497354497,
+      "vs_confidence": 1.0,
+      "vs_random": 5.666666666666667
+     },
+     "ood_knn": {
+      "bad_capture": 0.20105820105820105,
+      "vs_confidence": 0.4470588235294118,
+      "vs_random": 2.533333333333333
+     },
+     "gated": {
+      "bad_capture": 0.31216931216931215,
+      "vs_confidence": 0.6941176470588235,
+      "vs_random": 3.933333333333333
+     },
+     "regime_switch": {
+      "bad_capture": 0.4497354497354497,
+      "vs_confidence": 1.0,
+      "vs_random": 5.666666666666667
+     },
+     "gated_distance": {
+      "bad_capture": 0.31216931216931215,
+      "vs_confidence": 0.6941176470588235,
+      "vs_random": 3.933333333333333
+     },
+     "random": {
+      "bad_capture": 0.07936507936507936,
+      "vs_confidence": 0.17647058823529413,
+      "vs_random": 1.0
+     },
+     "oracle": {
+      "bad_capture": 1.0,
+      "vs_confidence": 2.223529411764706,
+      "vs_random": 12.600000000000001
+     }
+    }
+   }
+  ],
+  "mix": {
+   "0.0": [
+    {
+     "auc": 0.8303353727185585,
+     "default_rate": 0.0405,
+     "bad_approvals": 152,
+     "bad_approval_rate": 0.038,
+     "coverage": 0.9525,
+     "review_rate": 0.01375,
+     "ood_flag_rate": 0.0435,
+     "alarm": false,
+     "watch_or_alarm": false,
+     "first_alarm_at": null,
+     "max_log10_martingale": 0.018,
+     "model": {
+      "auc": 0.8303353727185585,
+      "pr_auc": 0.26613832798156484,
+      "default_rate": 0.0405,
+      "at_0.5": {
+       "accuracy": 0.9595,
+       "precision": 0.5,
+       "recall": 0.06172839506172839,
+       "f1": 0.10989010989010987,
+       "flagged_share": 0.005
+      },
+      "at_f1_cut": {
+       "accuracy": 0.953,
+       "precision": 0.3968253968253968,
+       "recall": 0.30864197530864196,
+       "f1": 0.3472222222222222,
+       "flagged_share": 0.0315
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.9,
+       "precision": 0.2025,
+       "recall": 0.5,
+       "f1": 0.28825622775800713,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.46710526315789475,
+       "vs_confidence": 1.0,
+       "vs_random": 3.736842105263158
+      },
+      "ood_knn": {
+       "bad_capture": 0.2565789473684211,
+       "vs_confidence": 0.5492957746478874,
+       "vs_random": 2.0526315789473686
+      },
+      "gated": {
+       "bad_capture": 0.4473684210526316,
+       "vs_confidence": 0.9577464788732394,
+       "vs_random": 3.5789473684210527
+      },
+      "regime_switch": {
+       "bad_capture": 0.46710526315789475,
+       "vs_confidence": 1.0,
+       "vs_random": 3.736842105263158
+      },
+      "gated_distance": {
+       "bad_capture": 0.4473684210526316,
+       "vs_confidence": 0.9577464788732394,
+       "vs_random": 3.5789473684210527
+      },
+      "random": {
+       "bad_capture": 0.125,
+       "vs_confidence": 0.2676056338028169,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 2.140845070422535,
+       "vs_random": 8.0
+      }
+     },
+     "ratio_vs_confidence_ci95": {
+      "gated": [
+       0.8611,
+       1.0175
+      ],
+      "regime_switch": [
+       1.0,
+       1.0
+      ],
+      "gated_distance": [
+       0.8642,
+       1.0164
+      ],
+      "ood_knn": [
+       0.4062,
+       0.6866
+      ]
+     }
+    },
+    {
+     "auc": 0.8559245272815761,
+     "default_rate": 0.0435,
+     "bad_approvals": 161,
+     "bad_approval_rate": 0.04025,
+     "coverage": 0.949,
+     "review_rate": 0.01275,
+     "ood_flag_rate": 0.04725,
+     "alarm": false,
+     "watch_or_alarm": false,
+     "first_alarm_at": null,
+     "max_log10_martingale": 0.0,
+     "model": {
+      "auc": 0.8559245272815761,
+      "pr_auc": 0.2596151551298097,
+      "default_rate": 0.0435,
+      "at_0.5": {
+       "accuracy": 0.9555,
+       "precision": 0.43333333333333335,
+       "recall": 0.07471264367816093,
+       "f1": 0.12745098039215688,
+       "flagged_share": 0.0075
+      },
+      "at_f1_cut": {
+       "accuracy": 0.9395,
+       "precision": 0.3172043010752688,
+       "recall": 0.3390804597701149,
+       "f1": 0.3277777777777778,
+       "flagged_share": 0.0465
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.9035,
+       "precision": 0.235,
+       "recall": 0.5402298850574713,
+       "f1": 0.3275261324041812,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.5031055900621118,
+       "vs_confidence": 1.0,
+       "vs_random": 5.0625
+      },
+      "ood_knn": {
+       "bad_capture": 0.22981366459627328,
+       "vs_confidence": 0.45679012345679015,
+       "vs_random": 2.3125
+      },
+      "gated": {
+       "bad_capture": 0.4409937888198758,
+       "vs_confidence": 0.8765432098765433,
+       "vs_random": 4.4375
+      },
+      "regime_switch": {
+       "bad_capture": 0.5031055900621118,
+       "vs_confidence": 1.0,
+       "vs_random": 5.0625
+      },
+      "gated_distance": {
+       "bad_capture": 0.4409937888198758,
+       "vs_confidence": 0.8765432098765433,
+       "vs_random": 4.4375
+      },
+      "random": {
+       "bad_capture": 0.09937888198757763,
+       "vs_confidence": 0.19753086419753088,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 1.9876543209876545,
+       "vs_random": 10.0625
+      }
+     }
+    },
+    {
+     "auc": 0.8341003234954654,
+     "default_rate": 0.04425,
+     "bad_approvals": 164,
+     "bad_approval_rate": 0.041,
+     "coverage": 0.94625,
+     "review_rate": 0.019,
+     "ood_flag_rate": 0.049,
+     "alarm": false,
+     "watch_or_alarm": false,
+     "first_alarm_at": null,
+     "max_log10_martingale": 0.0,
+     "model": {
+      "auc": 0.8341003234954654,
+      "pr_auc": 0.28944840250602466,
+      "default_rate": 0.04425,
+      "at_0.5": {
+       "accuracy": 0.95675,
+       "precision": 0.5909090909090909,
+       "recall": 0.07344632768361582,
+       "f1": 0.1306532663316583,
+       "flagged_share": 0.0055
+      },
+      "at_f1_cut": {
+       "accuracy": 0.937,
+       "precision": 0.323943661971831,
+       "recall": 0.3898305084745763,
+       "f1": 0.3538461538461538,
+       "flagged_share": 0.05325
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.90125,
+       "precision": 0.2275,
+       "recall": 0.5141242937853108,
+       "f1": 0.31542461005199307,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.47560975609756095,
+       "vs_confidence": 1.0,
+       "vs_random": 4.588235294117647
+      },
+      "ood_knn": {
+       "bad_capture": 0.21341463414634146,
+       "vs_confidence": 0.44871794871794873,
+       "vs_random": 2.058823529411765
+      },
+      "gated": {
+       "bad_capture": 0.39634146341463417,
+       "vs_confidence": 0.8333333333333334,
+       "vs_random": 3.823529411764706
+      },
+      "regime_switch": {
+       "bad_capture": 0.47560975609756095,
+       "vs_confidence": 1.0,
+       "vs_random": 4.588235294117647
+      },
+      "gated_distance": {
+       "bad_capture": 0.39634146341463417,
+       "vs_confidence": 0.8333333333333334,
+       "vs_random": 3.823529411764706
+      },
+      "random": {
+       "bad_capture": 0.10365853658536585,
+       "vs_confidence": 0.21794871794871795,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 2.1025641025641026,
+       "vs_random": 9.647058823529413
+      }
+     }
+    },
+    {
+     "auc": 0.8612453881752458,
+     "default_rate": 0.0365,
+     "bad_approvals": 133,
+     "bad_approval_rate": 0.03325,
+     "coverage": 0.95525,
+     "review_rate": 0.01875,
+     "ood_flag_rate": 0.06125,
+     "alarm": false,
+     "watch_or_alarm": false,
+     "first_alarm_at": null,
+     "max_log10_martingale": 0.0,
+     "model": {
+      "auc": 0.8612453881752458,
+      "pr_auc": 0.3480422215247298,
+      "default_rate": 0.0365,
+      "at_0.5": {
+       "accuracy": 0.9655,
+       "precision": 0.7222222222222222,
+       "recall": 0.08904109589041095,
+       "f1": 0.15853658536585366,
+       "flagged_share": 0.0045
+      },
+      "at_f1_cut": {
+       "accuracy": 0.95875,
+       "precision": 0.43448275862068964,
+       "recall": 0.4315068493150685,
+       "f1": 0.43298969072164956,
+       "flagged_share": 0.03625
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.9065,
+       "precision": 0.215,
+       "recall": 0.589041095890411,
+       "f1": 0.315018315018315,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.5488721804511278,
+       "vs_confidence": 1.0,
+       "vs_random": 3.4761904761904767
+      },
+      "ood_knn": {
+       "bad_capture": 0.3082706766917293,
+       "vs_confidence": 0.5616438356164383,
+       "vs_random": 1.9523809523809523
+      },
+      "gated": {
+       "bad_capture": 0.5112781954887218,
+       "vs_confidence": 0.9315068493150684,
+       "vs_random": 3.238095238095238
+      },
+      "regime_switch": {
+       "bad_capture": 0.5488721804511278,
+       "vs_confidence": 1.0,
+       "vs_random": 3.4761904761904767
+      },
+      "gated_distance": {
+       "bad_capture": 0.5112781954887218,
+       "vs_confidence": 0.9315068493150684,
+       "vs_random": 3.238095238095238
+      },
+      "random": {
+       "bad_capture": 0.15789473684210525,
+       "vs_confidence": 0.2876712328767123,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 1.821917808219178,
+       "vs_random": 6.333333333333334
+      }
+     }
+    },
+    {
+     "auc": 0.8254297406547666,
+     "default_rate": 0.039,
+     "bad_approvals": 148,
+     "bad_approval_rate": 0.037,
+     "coverage": 0.95275,
+     "review_rate": 0.015,
+     "ood_flag_rate": 0.04825,
+     "alarm": false,
+     "watch_or_alarm": false,
+     "first_alarm_at": null,
+     "max_log10_martingale": 0.0,
+     "model": {
+      "auc": 0.8254297406547666,
+      "pr_auc": 0.27113837490739207,
+      "default_rate": 0.039,
+      "at_0.5": {
+       "accuracy": 0.96125,
+       "precision": 0.5333333333333333,
+       "recall": 0.05128205128205128,
+       "f1": 0.0935672514619883,
+       "flagged_share": 0.00375
+      },
+      "at_f1_cut": {
+       "accuracy": 0.94525,
+       "precision": 0.3259668508287293,
+       "recall": 0.3782051282051282,
+       "f1": 0.3501483679525223,
+       "flagged_share": 0.04525
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.9035,
+       "precision": 0.2125,
+       "recall": 0.5448717948717948,
+       "f1": 0.3057553956834532,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.5202702702702703,
+       "vs_confidence": 1.0,
+       "vs_random": 7.0
+      },
+      "ood_knn": {
+       "bad_capture": 0.2972972972972973,
+       "vs_confidence": 0.5714285714285714,
+       "vs_random": 4.0
+      },
+      "gated": {
+       "bad_capture": 0.47297297297297297,
+       "vs_confidence": 0.9090909090909091,
+       "vs_random": 6.363636363636363
+      },
+      "regime_switch": {
+       "bad_capture": 0.5202702702702703,
+       "vs_confidence": 1.0,
+       "vs_random": 7.0
+      },
+      "gated_distance": {
+       "bad_capture": 0.47297297297297297,
+       "vs_confidence": 0.9090909090909091,
+       "vs_random": 6.363636363636363
+      },
+      "random": {
+       "bad_capture": 0.07432432432432433,
+       "vs_confidence": 0.14285714285714285,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 1.922077922077922,
+       "vs_random": 13.454545454545453
+      }
+     }
+    }
+   ],
+   "0.25": [
+    {
+     "auc": 0.8276348336594912,
+     "default_rate": 0.0875,
+     "bad_approvals": 309,
+     "bad_approval_rate": 0.07725,
+     "coverage": 0.89375,
+     "review_rate": 0.04225,
+     "ood_flag_rate": 0.167,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 40,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.8276348336594912,
+      "pr_auc": 0.3805098391384263,
+      "default_rate": 0.0875,
+      "at_0.5": {
+       "accuracy": 0.91475,
+       "precision": 0.5616438356164384,
+       "recall": 0.11714285714285715,
+       "f1": 0.19385342789598112,
+       "flagged_share": 0.01825
+      },
+      "at_f1_cut": {
+       "accuracy": 0.905,
+       "precision": 0.45588235294117646,
+       "recall": 0.44285714285714284,
+       "f1": 0.4492753623188406,
+       "flagged_share": 0.085
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.8985,
+       "precision": 0.43,
+       "recall": 0.49142857142857144,
+       "f1": 0.4586666666666666,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.42394822006472493,
+       "vs_confidence": 1.0,
+       "vs_random": 5.24
+      },
+      "ood_knn": {
+       "bad_capture": 0.3365695792880259,
+       "vs_confidence": 0.7938931297709924,
+       "vs_random": 4.16
+      },
+      "gated": {
+       "bad_capture": 0.40129449838187703,
+       "vs_confidence": 0.9465648854961832,
+       "vs_random": 4.96
+      },
+      "regime_switch": {
+       "bad_capture": 0.343042071197411,
+       "vs_confidence": 0.8091603053435114,
+       "vs_random": 4.24
+      },
+      "gated_distance": {
+       "bad_capture": 0.343042071197411,
+       "vs_confidence": 0.8091603053435114,
+       "vs_random": 4.24
+      },
+      "random": {
+       "bad_capture": 0.08090614886731391,
+       "vs_confidence": 0.19083969465648853,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 2.3587786259541983,
+       "vs_random": 12.360000000000001
+      }
+     },
+     "ratio_vs_confidence_ci95": {
+      "gated": [
+       0.8478,
+       1.0488
+      ],
+      "regime_switch": [
+       0.6838,
+       0.9324
+      ],
+      "gated_distance": [
+       0.6904,
+       0.9353
+      ],
+      "ood_knn": [
+       0.6928,
+       0.9329
+      ]
+     }
+    },
+    {
+     "auc": 0.8413796943930568,
+     "default_rate": 0.08325,
+     "bad_approvals": 285,
+     "bad_approval_rate": 0.07125,
+     "coverage": 0.89925,
+     "review_rate": 0.03375,
+     "ood_flag_rate": 0.28475,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 36,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.8413796943930568,
+      "pr_auc": 0.35305378214150057,
+      "default_rate": 0.08325,
+      "at_0.5": {
+       "accuracy": 0.91475,
+       "precision": 0.46153846153846156,
+       "recall": 0.14414414414414414,
+       "f1": 0.2196796338672769,
+       "flagged_share": 0.026
+      },
+      "at_f1_cut": {
+       "accuracy": 0.88925,
+       "precision": 0.37149532710280375,
+       "recall": 0.4774774774774775,
+       "f1": 0.4178712220762155,
+       "flagged_share": 0.107
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.89225,
+       "precision": 0.3775,
+       "recall": 0.45345345345345345,
+       "f1": 0.41200545702592084,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.36140350877192984,
+       "vs_confidence": 1.0,
+       "vs_random": 3.21875
+      },
+      "ood_knn": {
+       "bad_capture": 0.27017543859649124,
+       "vs_confidence": 0.7475728155339806,
+       "vs_random": 2.40625
+      },
+      "gated": {
+       "bad_capture": 0.36140350877192984,
+       "vs_confidence": 1.0,
+       "vs_random": 3.21875
+      },
+      "regime_switch": {
+       "bad_capture": 0.27017543859649124,
+       "vs_confidence": 0.7475728155339806,
+       "vs_random": 2.40625
+      },
+      "gated_distance": {
+       "bad_capture": 0.27017543859649124,
+       "vs_confidence": 0.7475728155339806,
+       "vs_random": 2.40625
+      },
+      "random": {
+       "bad_capture": 0.11228070175438597,
+       "vs_confidence": 0.3106796116504854,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 2.766990291262136,
+       "vs_random": 8.90625
+      }
+     }
+    },
+    {
+     "auc": 0.8494018950653066,
+     "default_rate": 0.089,
+     "bad_approvals": 301,
+     "bad_approval_rate": 0.07525,
+     "coverage": 0.89125,
+     "review_rate": 0.04925,
+     "ood_flag_rate": 0.285,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 28,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.8494018950653066,
+      "pr_auc": 0.4448624694575984,
+      "default_rate": 0.089,
+      "at_0.5": {
+       "accuracy": 0.91825,
+       "precision": 0.6790123456790124,
+       "recall": 0.1544943820224719,
+       "f1": 0.2517162471395881,
+       "flagged_share": 0.02025
+      },
+      "at_f1_cut": {
+       "accuracy": 0.89525,
+       "precision": 0.428246013667426,
+       "recall": 0.5280898876404494,
+       "f1": 0.47295597484276725,
+       "flagged_share": 0.10975
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.901,
+       "precision": 0.45,
+       "recall": 0.5056179775280899,
+       "f1": 0.47619047619047616,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.4152823920265781,
+       "vs_confidence": 1.0,
+       "vs_random": 5.208333333333334
+      },
+      "ood_knn": {
+       "bad_capture": 0.32558139534883723,
+       "vs_confidence": 0.784,
+       "vs_random": 4.083333333333334
+      },
+      "gated": {
+       "bad_capture": 0.3853820598006645,
+       "vs_confidence": 0.928,
+       "vs_random": 4.833333333333334
+      },
+      "regime_switch": {
+       "bad_capture": 0.31893687707641194,
+       "vs_confidence": 0.7679999999999999,
+       "vs_random": 4.0
+      },
+      "gated_distance": {
+       "bad_capture": 0.32558139534883723,
+       "vs_confidence": 0.784,
+       "vs_random": 4.083333333333334
+      },
+      "random": {
+       "bad_capture": 0.07973421926910298,
+       "vs_confidence": 0.19199999999999998,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 2.408,
+       "vs_random": 12.541666666666668
+      }
+     }
+    },
+    {
+     "auc": 0.8673057608149796,
+     "default_rate": 0.0795,
+     "bad_approvals": 277,
+     "bad_approval_rate": 0.06925,
+     "coverage": 0.9,
+     "review_rate": 0.04575,
+     "ood_flag_rate": 0.29625,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 47,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.8673057608149796,
+      "pr_auc": 0.42612455599264093,
+      "default_rate": 0.0795,
+      "at_0.5": {
+       "accuracy": 0.925,
+       "precision": 0.640625,
+       "recall": 0.1289308176100629,
+       "f1": 0.21465968586387435,
+       "flagged_share": 0.016
+      },
+      "at_f1_cut": {
+       "accuracy": 0.91675,
+       "precision": 0.4766355140186916,
+       "recall": 0.4811320754716981,
+       "f1": 0.47887323943661975,
+       "flagged_share": 0.08025
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.9065,
+       "precision": 0.43,
+       "recall": 0.5408805031446541,
+       "f1": 0.479108635097493,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.4729241877256318,
+       "vs_confidence": 1.0,
+       "vs_random": 6.238095238095238
+      },
+      "ood_knn": {
+       "bad_capture": 0.33574007220216606,
+       "vs_confidence": 0.7099236641221374,
+       "vs_random": 4.428571428571429
+      },
+      "gated": {
+       "bad_capture": 0.4404332129963899,
+       "vs_confidence": 0.9312977099236641,
+       "vs_random": 5.809523809523809
+      },
+      "regime_switch": {
+       "bad_capture": 0.33212996389891697,
+       "vs_confidence": 0.7022900763358778,
+       "vs_random": 4.380952380952381
+      },
+      "gated_distance": {
+       "bad_capture": 0.33212996389891697,
+       "vs_confidence": 0.7022900763358778,
+       "vs_random": 4.380952380952381
+      },
+      "random": {
+       "bad_capture": 0.07581227436823104,
+       "vs_confidence": 0.16030534351145037,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 2.114503816793893,
+       "vs_random": 13.190476190476192
+      }
+     }
+    },
+    {
+     "auc": 0.8480876888778796,
+     "default_rate": 0.0825,
+     "bad_approvals": 276,
+     "bad_approval_rate": 0.069,
+     "coverage": 0.89525,
+     "review_rate": 0.04925,
+     "ood_flag_rate": 0.285,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 6,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.8480876888778796,
+      "pr_auc": 0.4385910493331745,
+      "default_rate": 0.0825,
+      "at_0.5": {
+       "accuracy": 0.92375,
+       "precision": 0.6506024096385542,
+       "recall": 0.16363636363636364,
+       "f1": 0.261501210653753,
+       "flagged_share": 0.02075
+      },
+      "at_f1_cut": {
+       "accuracy": 0.9035,
+       "precision": 0.43103448275862066,
+       "recall": 0.5303030303030303,
+       "f1": 0.47554347826086957,
+       "flagged_share": 0.1015
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.905,
+       "precision": 0.4375,
+       "recall": 0.5303030303030303,
+       "f1": 0.4794520547945205,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.4384057971014493,
+       "vs_confidence": 1.0,
+       "vs_random": 4.033333333333333
+      },
+      "ood_knn": {
+       "bad_capture": 0.34057971014492755,
+       "vs_confidence": 0.7768595041322315,
+       "vs_random": 3.1333333333333337
+      },
+      "gated": {
+       "bad_capture": 0.42391304347826086,
+       "vs_confidence": 0.9669421487603306,
+       "vs_random": 3.9
+      },
+      "regime_switch": {
+       "bad_capture": 0.34057971014492755,
+       "vs_confidence": 0.7768595041322315,
+       "vs_random": 3.1333333333333337
+      },
+      "gated_distance": {
+       "bad_capture": 0.34782608695652173,
+       "vs_confidence": 0.7933884297520661,
+       "vs_random": 3.2
+      },
+      "random": {
+       "bad_capture": 0.10869565217391304,
+       "vs_confidence": 0.24793388429752064,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 2.28099173553719,
+       "vs_random": 9.200000000000001
+      }
+     }
+    }
+   ],
+   "0.5": [
+    {
+     "auc": 0.8171716885162738,
+     "default_rate": 0.129,
+     "bad_approvals": 442,
+     "bad_approval_rate": 0.1105,
+     "coverage": 0.843,
+     "review_rate": 0.06575,
+     "ood_flag_rate": 0.295,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 5,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.8171716885162738,
+      "pr_auc": 0.4256082592188026,
+      "default_rate": 0.129,
+      "at_0.5": {
+       "accuracy": 0.87525,
+       "precision": 0.5648854961832062,
+       "recall": 0.1434108527131783,
+       "f1": 0.2287480680061824,
+       "flagged_share": 0.03275
+      },
+      "at_f1_cut": {
+       "accuracy": 0.86325,
+       "precision": 0.4708097928436911,
+       "recall": 0.4844961240310077,
+       "f1": 0.47755491881566375,
+       "flagged_share": 0.13275
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.876,
+       "precision": 0.525,
+       "recall": 0.4069767441860465,
+       "f1": 0.45851528384279483,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.31447963800904977,
+       "vs_confidence": 1.0,
+       "vs_random": 3.2325581395348837
+      },
+      "ood_knn": {
+       "bad_capture": 0.24660633484162897,
+       "vs_confidence": 0.7841726618705036,
+       "vs_random": 2.5348837209302326
+      },
+      "gated": {
+       "bad_capture": 0.2986425339366516,
+       "vs_confidence": 0.9496402877697842,
+       "vs_random": 3.069767441860465
+      },
+      "regime_switch": {
+       "bad_capture": 0.24660633484162897,
+       "vs_confidence": 0.7841726618705036,
+       "vs_random": 2.5348837209302326
+      },
+      "gated_distance": {
+       "bad_capture": 0.24660633484162897,
+       "vs_confidence": 0.7841726618705036,
+       "vs_random": 2.5348837209302326
+      },
+      "random": {
+       "bad_capture": 0.09728506787330317,
+       "vs_confidence": 0.30935251798561153,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 0.9049773755656109,
+       "vs_confidence": 2.8776978417266186,
+       "vs_random": 9.30232558139535
+      }
+     },
+     "ratio_vs_confidence_ci95": {
+      "gated": [
+       0.897,
+       1.0301
+      ],
+      "regime_switch": [
+       0.6734,
+       0.9214
+      ],
+      "gated_distance": [
+       0.6716,
+       0.9203
+      ],
+      "ood_knn": [
+       0.6643,
+       0.9123
+      ]
+     }
+    },
+    {
+     "auc": 0.82165643940486,
+     "default_rate": 0.1295,
+     "bad_approvals": 433,
+     "bad_approval_rate": 0.10825,
+     "coverage": 0.847,
+     "review_rate": 0.05525,
+     "ood_flag_rate": 0.52225,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 23,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.82165643940486,
+      "pr_auc": 0.41276553013780715,
+      "default_rate": 0.1295,
+      "at_0.5": {
+       "accuracy": 0.872,
+       "precision": 0.5182926829268293,
+       "recall": 0.1640926640926641,
+       "f1": 0.24926686217008798,
+       "flagged_share": 0.041
+      },
+      "at_f1_cut": {
+       "accuracy": 0.83875,
+       "precision": 0.4072992700729927,
+       "recall": 0.5386100386100386,
+       "f1": 0.46384039900249374,
+       "flagged_share": 0.17125
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.8685,
+       "precision": 0.49,
+       "recall": 0.3783783783783784,
+       "f1": 0.4270152505446623,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.27713625866050806,
+       "vs_confidence": 1.0,
+       "vs_random": 3.4285714285714284
+      },
+      "ood_knn": {
+       "bad_capture": 0.23325635103926096,
+       "vs_confidence": 0.8416666666666667,
+       "vs_random": 2.8857142857142857
+      },
+      "gated": {
+       "bad_capture": 0.2632794457274827,
+       "vs_confidence": 0.9500000000000001,
+       "vs_random": 3.257142857142857
+      },
+      "regime_switch": {
+       "bad_capture": 0.23325635103926096,
+       "vs_confidence": 0.8416666666666667,
+       "vs_random": 2.8857142857142857
+      },
+      "gated_distance": {
+       "bad_capture": 0.23325635103926096,
+       "vs_confidence": 0.8416666666666667,
+       "vs_random": 2.8857142857142857
+      },
+      "random": {
+       "bad_capture": 0.08083140877598152,
+       "vs_confidence": 0.2916666666666667,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 0.9237875288683602,
+       "vs_confidence": 3.3333333333333335,
+       "vs_random": 11.428571428571429
+      }
+     }
+    },
+    {
+     "auc": 0.8426212590299277,
+     "default_rate": 0.133,
+     "bad_approvals": 429,
+     "bad_approval_rate": 0.10725,
+     "coverage": 0.83375,
+     "review_rate": 0.087,
+     "ood_flag_rate": 0.5225,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 7,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.8426212590299277,
+      "pr_auc": 0.5057527837503352,
+      "default_rate": 0.133,
+      "at_0.5": {
+       "accuracy": 0.88125,
+       "precision": 0.6912751677852349,
+       "recall": 0.19360902255639098,
+       "f1": 0.30249632892804695,
+       "flagged_share": 0.03725
+      },
+      "at_f1_cut": {
+       "accuracy": 0.85,
+       "precision": 0.45264623955431754,
+       "recall": 0.6109022556390977,
+       "f1": 0.5199999999999999,
+       "flagged_share": 0.1795
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.882,
+       "precision": 0.575,
+       "recall": 0.4323308270676692,
+       "f1": 0.49356223175965663,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.30536130536130535,
+       "vs_confidence": 1.0,
+       "vs_random": 3.3589743589743586
+      },
+      "ood_knn": {
+       "bad_capture": 0.24242424242424243,
+       "vs_confidence": 0.7938931297709925,
+       "vs_random": 2.6666666666666665
+      },
+      "gated": {
+       "bad_capture": 0.3006993006993007,
+       "vs_confidence": 0.9847328244274809,
+       "vs_random": 3.3076923076923075
+      },
+      "regime_switch": {
+       "bad_capture": 0.24475524475524477,
+       "vs_confidence": 0.801526717557252,
+       "vs_random": 2.6923076923076925
+      },
+      "gated_distance": {
+       "bad_capture": 0.24708624708624707,
+       "vs_confidence": 0.8091603053435115,
+       "vs_random": 2.7179487179487176
+      },
+      "random": {
+       "bad_capture": 0.09090909090909091,
+       "vs_confidence": 0.29770992366412213,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 0.9324009324009324,
+       "vs_confidence": 3.053435114503817,
+       "vs_random": 10.256410256410255
+      }
+     }
+    },
+    {
+     "auc": 0.8498288630464431,
+     "default_rate": 0.12125,
+     "bad_approvals": 412,
+     "bad_approval_rate": 0.103,
+     "coverage": 0.8435,
+     "review_rate": 0.07825,
+     "ood_flag_rate": 0.5325,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 14,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.8498288630464431,
+      "pr_auc": 0.4723997457525564,
+      "default_rate": 0.12125,
+      "at_0.5": {
+       "accuracy": 0.88675,
+       "precision": 0.6403508771929824,
+       "recall": 0.15051546391752577,
+       "f1": 0.2437395659432387,
+       "flagged_share": 0.0285
+      },
+      "at_f1_cut": {
+       "accuracy": 0.8785,
+       "precision": 0.49902152641878667,
+       "recall": 0.5257731958762887,
+       "f1": 0.5120481927710844,
+       "flagged_share": 0.12775
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.88225,
+       "precision": 0.5175,
+       "recall": 0.4268041237113402,
+       "f1": 0.46779661016949153,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.3276699029126214,
+       "vs_confidence": 1.0,
+       "vs_random": 3.0000000000000004
+      },
+      "ood_knn": {
+       "bad_capture": 0.23786407766990292,
+       "vs_confidence": 0.7259259259259259,
+       "vs_random": 2.177777777777778
+      },
+      "gated": {
+       "bad_capture": 0.32281553398058255,
+       "vs_confidence": 0.9851851851851852,
+       "vs_random": 2.955555555555556
+      },
+      "regime_switch": {
+       "bad_capture": 0.2354368932038835,
+       "vs_confidence": 0.7185185185185184,
+       "vs_random": 2.155555555555556
+      },
+      "gated_distance": {
+       "bad_capture": 0.23786407766990292,
+       "vs_confidence": 0.7259259259259259,
+       "vs_random": 2.177777777777778
+      },
+      "random": {
+       "bad_capture": 0.10922330097087378,
+       "vs_confidence": 0.3333333333333333,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 0.970873786407767,
+       "vs_confidence": 2.962962962962963,
+       "vs_random": 8.88888888888889
+      }
+     }
+    },
+    {
+     "auc": 0.837391893254946,
+     "default_rate": 0.12375,
+     "bad_approvals": 398,
+     "bad_approval_rate": 0.0995,
+     "coverage": 0.84025,
+     "review_rate": 0.08225,
+     "ood_flag_rate": 0.5225,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 9,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.837391893254946,
+      "pr_auc": 0.47056082828702644,
+      "default_rate": 0.12375,
+      "at_0.5": {
+       "accuracy": 0.8855,
+       "precision": 0.6178343949044586,
+       "recall": 0.19595959595959597,
+       "f1": 0.29754601226993865,
+       "flagged_share": 0.03925
+      },
+      "at_f1_cut": {
+       "accuracy": 0.86325,
+       "precision": 0.45819935691318325,
+       "recall": 0.5757575757575758,
+       "f1": 0.5102954341987466,
+       "flagged_share": 0.1555
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.87975,
+       "precision": 0.5175,
+       "recall": 0.41818181818181815,
+       "f1": 0.46256983240223465,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.27638190954773867,
+       "vs_confidence": 1.0,
+       "vs_random": 3.0555555555555554
+      },
+      "ood_knn": {
+       "bad_capture": 0.23115577889447236,
+       "vs_confidence": 0.8363636363636364,
+       "vs_random": 2.5555555555555554
+      },
+      "gated": {
+       "bad_capture": 0.28391959798994976,
+       "vs_confidence": 1.0272727272727273,
+       "vs_random": 3.138888888888889
+      },
+      "regime_switch": {
+       "bad_capture": 0.23115577889447236,
+       "vs_confidence": 0.8363636363636364,
+       "vs_random": 2.5555555555555554
+      },
+      "gated_distance": {
+       "bad_capture": 0.23366834170854273,
+       "vs_confidence": 0.8454545454545456,
+       "vs_random": 2.5833333333333335
+      },
+      "random": {
+       "bad_capture": 0.09045226130653267,
+       "vs_confidence": 0.3272727272727273,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 3.6181818181818186,
+       "vs_random": 11.055555555555555
+      }
+     }
+    }
+   ],
+   "0.75": [
+    {
+     "auc": 0.8056891328748863,
+     "default_rate": 0.17025,
+     "bad_approvals": 559,
+     "bad_approval_rate": 0.13975,
+     "coverage": 0.79725,
+     "review_rate": 0.08925,
+     "ood_flag_rate": 0.42125,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 7,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.8056891328748863,
+      "pr_auc": 0.4862051479311993,
+      "default_rate": 0.17025,
+      "at_0.5": {
+       "accuracy": 0.844,
+       "precision": 0.6524064171122995,
+       "recall": 0.17914831130690162,
+       "f1": 0.28110599078341014,
+       "flagged_share": 0.04675
+      },
+      "at_f1_cut": {
+       "accuracy": 0.83225,
+       "precision": 0.5069637883008357,
+       "recall": 0.5345080763582967,
+       "f1": 0.5203716940671909,
+       "flagged_share": 0.1795
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.85075,
+       "precision": 0.605,
+       "recall": 0.355359765051395,
+       "f1": 0.4477335800185014,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.2522361359570662,
+       "vs_confidence": 1.0,
+       "vs_random": 3.1333333333333333
+      },
+      "ood_knn": {
+       "bad_capture": 0.18783542039355994,
+       "vs_confidence": 0.7446808510638299,
+       "vs_random": 2.3333333333333335
+      },
+      "gated": {
+       "bad_capture": 0.23792486583184258,
+       "vs_confidence": 0.9432624113475178,
+       "vs_random": 2.9555555555555557
+      },
+      "regime_switch": {
+       "bad_capture": 0.18604651162790697,
+       "vs_confidence": 0.7375886524822696,
+       "vs_random": 2.311111111111111
+      },
+      "gated_distance": {
+       "bad_capture": 0.18604651162790697,
+       "vs_confidence": 0.7375886524822696,
+       "vs_random": 2.311111111111111
+      },
+      "random": {
+       "bad_capture": 0.08050089445438283,
+       "vs_confidence": 0.3191489361702128,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 0.7155635062611807,
+       "vs_confidence": 2.8368794326241136,
+       "vs_random": 8.88888888888889
+      }
+     },
+     "ratio_vs_confidence_ci95": {
+      "gated": [
+       0.8824,
+       1.0078
+      ],
+      "regime_switch": [
+       0.6225,
+       0.873
+      ],
+      "gated_distance": [
+       0.6218,
+       0.8684
+      ],
+      "ood_knn": [
+       0.6118,
+       0.8621
+      ]
+     }
+    },
+    {
+     "auc": 0.7952932896953262,
+     "default_rate": 0.173,
+     "bad_approvals": 570,
+     "bad_approval_rate": 0.1425,
+     "coverage": 0.80025,
+     "review_rate": 0.0695,
+     "ood_flag_rate": 0.7595,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 5,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.7952932896953262,
+      "pr_auc": 0.4443914939863211,
+      "default_rate": 0.173,
+      "at_0.5": {
+       "accuracy": 0.83325,
+       "precision": 0.5570776255707762,
+       "recall": 0.17630057803468208,
+       "f1": 0.2678375411635565,
+       "flagged_share": 0.05475
+      },
+      "at_f1_cut": {
+       "accuracy": 0.79875,
+       "precision": 0.43542857142857144,
+       "recall": 0.5505780346820809,
+       "f1": 0.4862795149968092,
+       "flagged_share": 0.21875
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.838,
+       "precision": 0.555,
+       "recall": 0.3208092485549133,
+       "f1": 0.4065934065934066,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.21228070175438596,
+       "vs_confidence": 1.0,
+       "vs_random": 2.0508474576271185
+      },
+      "ood_knn": {
+       "bad_capture": 0.17543859649122806,
+       "vs_confidence": 0.8264462809917356,
+       "vs_random": 1.694915254237288
+      },
+      "gated": {
+       "bad_capture": 0.21228070175438596,
+       "vs_confidence": 1.0,
+       "vs_random": 2.0508474576271185
+      },
+      "regime_switch": {
+       "bad_capture": 0.17719298245614035,
+       "vs_confidence": 0.8347107438016529,
+       "vs_random": 1.711864406779661
+      },
+      "gated_distance": {
+       "bad_capture": 0.1736842105263158,
+       "vs_confidence": 0.8181818181818182,
+       "vs_random": 1.6779661016949152
+      },
+      "random": {
+       "bad_capture": 0.10350877192982456,
+       "vs_confidence": 0.487603305785124,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 0.7017543859649122,
+       "vs_confidence": 3.3057851239669422,
+       "vs_random": 6.779661016949152
+      }
+     }
+    },
+    {
+     "auc": 0.8180869711629529,
+     "default_rate": 0.17675,
+     "bad_approvals": 562,
+     "bad_approval_rate": 0.1405,
+     "coverage": 0.78025,
+     "review_rate": 0.11425,
+     "ood_flag_rate": 0.76175,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 6,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.8180869711629529,
+      "pr_auc": 0.5249561742943213,
+      "default_rate": 0.17675,
+      "at_0.5": {
+       "accuracy": 0.84375,
+       "precision": 0.6971153846153846,
+       "recall": 0.2050919377652051,
+       "f1": 0.31693989071038253,
+       "flagged_share": 0.052
+      },
+      "at_f1_cut": {
+       "accuracy": 0.808,
+       "precision": 0.46751863684771033,
+       "recall": 0.620933521923621,
+       "f1": 0.5334143377885784,
+       "flagged_share": 0.23475
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.84725,
+       "precision": 0.62,
+       "recall": 0.3507779349363508,
+       "f1": 0.4480578139114725,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.20640569395017794,
+       "vs_confidence": 1.0,
+       "vs_random": 1.8412698412698414
+      },
+      "ood_knn": {
+       "bad_capture": 0.19395017793594305,
+       "vs_confidence": 0.939655172413793,
+       "vs_random": 1.73015873015873
+      },
+      "gated": {
+       "bad_capture": 0.2099644128113879,
+       "vs_confidence": 1.0172413793103448,
+       "vs_random": 1.873015873015873
+      },
+      "regime_switch": {
+       "bad_capture": 0.19395017793594305,
+       "vs_confidence": 0.939655172413793,
+       "vs_random": 1.73015873015873
+      },
+      "gated_distance": {
+       "bad_capture": 0.19395017793594305,
+       "vs_confidence": 0.939655172413793,
+       "vs_random": 1.73015873015873
+      },
+      "random": {
+       "bad_capture": 0.11209964412811388,
+       "vs_confidence": 0.5431034482758621,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 0.7117437722419929,
+       "vs_confidence": 3.4482758620689657,
+       "vs_random": 6.34920634920635
+      }
+     }
+    },
+    {
+     "auc": 0.8104824875039728,
+     "default_rate": 0.166,
+     "bad_approvals": 562,
+     "bad_approval_rate": 0.1405,
+     "coverage": 0.78475,
+     "review_rate": 0.10925,
+     "ood_flag_rate": 0.7665,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 9,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.8104824875039728,
+      "pr_auc": 0.4755865504841016,
+      "default_rate": 0.166,
+      "at_0.5": {
+       "accuracy": 0.84525,
+       "precision": 0.6415094339622641,
+       "recall": 0.1536144578313253,
+       "f1": 0.24787363304981772,
+       "flagged_share": 0.03975
+      },
+      "at_f1_cut": {
+       "accuracy": 0.8315,
+       "precision": 0.492816091954023,
+       "recall": 0.516566265060241,
+       "f1": 0.5044117647058823,
+       "flagged_share": 0.174
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.8455,
+       "precision": 0.5575,
+       "recall": 0.3358433734939759,
+       "f1": 0.41917293233082703,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.2313167259786477,
+       "vs_confidence": 1.0,
+       "vs_random": 2.1666666666666665
+      },
+      "ood_knn": {
+       "bad_capture": 0.18683274021352314,
+       "vs_confidence": 0.8076923076923077,
+       "vs_random": 1.75
+      },
+      "gated": {
+       "bad_capture": 0.22597864768683273,
+       "vs_confidence": 0.9769230769230769,
+       "vs_random": 2.1166666666666667
+      },
+      "regime_switch": {
+       "bad_capture": 0.18327402135231316,
+       "vs_confidence": 0.7923076923076923,
+       "vs_random": 1.7166666666666666
+      },
+      "gated_distance": {
+       "bad_capture": 0.18327402135231316,
+       "vs_confidence": 0.7923076923076923,
+       "vs_random": 1.7166666666666666
+      },
+      "random": {
+       "bad_capture": 0.10676156583629894,
+       "vs_confidence": 0.46153846153846156,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 0.7117437722419929,
+       "vs_confidence": 3.076923076923077,
+       "vs_random": 6.666666666666667
+      }
+     }
+    },
+    {
+     "auc": 0.8175540841725686,
+     "default_rate": 0.16575,
+     "bad_approvals": 527,
+     "bad_approval_rate": 0.13175,
+     "coverage": 0.78675,
+     "review_rate": 0.11125,
+     "ood_flag_rate": 0.76,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 6,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.8175540841725686,
+      "pr_auc": 0.4945055882068376,
+      "default_rate": 0.16575,
+      "at_0.5": {
+       "accuracy": 0.84875,
+       "precision": 0.6355140186915887,
+       "recall": 0.20512820512820512,
+       "f1": 0.3101482326111744,
+       "flagged_share": 0.0535
+      },
+      "at_f1_cut": {
+       "accuracy": 0.82225,
+       "precision": 0.47058823529411764,
+       "recall": 0.579185520361991,
+       "f1": 0.5192697768762677,
+       "flagged_share": 0.204
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.84825,
+       "precision": 0.57,
+       "recall": 0.3438914027149321,
+       "f1": 0.4289746001881467,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.20872865275142316,
+       "vs_confidence": 1.0,
+       "vs_random": 2.0754716981132075
+      },
+      "ood_knn": {
+       "bad_capture": 0.16318785578747627,
+       "vs_confidence": 0.7818181818181817,
+       "vs_random": 1.6226415094339621
+      },
+      "gated": {
+       "bad_capture": 0.20683111954459202,
+       "vs_confidence": 0.9909090909090909,
+       "vs_random": 2.0566037735849054
+      },
+      "regime_switch": {
+       "bad_capture": 0.16129032258064516,
+       "vs_confidence": 0.7727272727272727,
+       "vs_random": 1.6037735849056602
+      },
+      "gated_distance": {
+       "bad_capture": 0.16129032258064516,
+       "vs_confidence": 0.7727272727272727,
+       "vs_random": 1.6037735849056602
+      },
+      "random": {
+       "bad_capture": 0.10056925996204934,
+       "vs_confidence": 0.4818181818181818,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 0.7590132827324478,
+       "vs_confidence": 3.6363636363636362,
+       "vs_random": 7.547169811320755
+      }
+     }
+    }
+   ],
+   "1.0": [
+    {
+     "auc": 0.7750502530279075,
+     "default_rate": 0.20975,
+     "bad_approvals": 683,
+     "bad_approval_rate": 0.17075,
+     "coverage": 0.7445,
+     "review_rate": 0.1175,
+     "ood_flag_rate": 0.55625,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 4,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.7750502530279075,
+      "pr_auc": 0.4925899364032359,
+      "default_rate": 0.20975,
+      "at_0.5": {
+       "accuracy": 0.80925,
+       "precision": 0.6610169491525424,
+       "recall": 0.18593563766388557,
+       "f1": 0.2902325581395349,
+       "flagged_share": 0.059
+      },
+      "at_f1_cut": {
+       "accuracy": 0.78875,
+       "precision": 0.4968220338983051,
+       "recall": 0.5589988081048868,
+       "f1": 0.5260796410544027,
+       "flagged_share": 0.236
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.81075,
+       "precision": 0.6025,
+       "recall": 0.2872467222884386,
+       "f1": 0.3890234059725585,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.19765739385065886,
+       "vs_confidence": 1.0,
+       "vs_random": 1.8493150684931507
+      },
+      "ood_knn": {
+       "bad_capture": 0.1478770131771596,
+       "vs_confidence": 0.7481481481481481,
+       "vs_random": 1.3835616438356164
+      },
+      "gated": {
+       "bad_capture": 0.18887262079062958,
+       "vs_confidence": 0.9555555555555556,
+       "vs_random": 1.7671232876712328
+      },
+      "regime_switch": {
+       "bad_capture": 0.1478770131771596,
+       "vs_confidence": 0.7481481481481481,
+       "vs_random": 1.3835616438356164
+      },
+      "gated_distance": {
+       "bad_capture": 0.1478770131771596,
+       "vs_confidence": 0.7481481481481481,
+       "vs_random": 1.3835616438356164
+      },
+      "random": {
+       "bad_capture": 0.10688140556368961,
+       "vs_confidence": 0.5407407407407407,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 0.5856515373352855,
+       "vs_confidence": 2.962962962962963,
+       "vs_random": 5.47945205479452
+      }
+     },
+     "ratio_vs_confidence_ci95": {
+      "gated": [
+       0.9134,
+       1.0
+      ],
+      "regime_switch": [
+       0.6178,
+       0.8923
+      ],
+      "gated_distance": [
+       0.6164,
+       0.8952
+      ],
+      "ood_knn": [
+       0.6225,
+       0.8871
+      ]
+     }
+    },
+    {
+     "auc": 0.7605719541263506,
+     "default_rate": 0.2135,
+     "bad_approvals": 691,
+     "bad_approval_rate": 0.17275,
+     "coverage": 0.754,
+     "review_rate": 0.088,
+     "ood_flag_rate": 1.0,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 3,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.7605719541263506,
+      "pr_auc": 0.46002355574802933,
+      "default_rate": 0.2135,
+      "at_0.5": {
+       "accuracy": 0.79575,
+       "precision": 0.5640138408304498,
+       "recall": 0.19086651053864168,
+       "f1": 0.2852143482064742,
+       "flagged_share": 0.07225
+      },
+      "at_f1_cut": {
+       "accuracy": 0.754,
+       "precision": 0.44175627240143367,
+       "recall": 0.5772833723653396,
+       "f1": 0.500507614213198,
+       "flagged_share": 0.279
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.799,
+       "precision": 0.5625,
+       "recall": 0.26346604215456676,
+       "f1": 0.35885167464114837,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.17510853835021709,
+       "vs_confidence": 1.0,
+       "vs_random": 1.7285714285714286
+      },
+      "ood_knn": {
+       "bad_capture": 0.15340086830680175,
+       "vs_confidence": 0.8760330578512396,
+       "vs_random": 1.5142857142857145
+      },
+      "gated": {
+       "bad_capture": 0.1736613603473227,
+       "vs_confidence": 0.9917355371900826,
+       "vs_random": 1.7142857142857142
+      },
+      "regime_switch": {
+       "bad_capture": 0.15195369030390737,
+       "vs_confidence": 0.8677685950413222,
+       "vs_random": 1.5
+      },
+      "gated_distance": {
+       "bad_capture": 0.15629522431259044,
+       "vs_confidence": 0.8925619834710743,
+       "vs_random": 1.5428571428571427
+      },
+      "random": {
+       "bad_capture": 0.10130246020260492,
+       "vs_confidence": 0.5785123966942148,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 0.5788712011577424,
+       "vs_confidence": 3.305785123966942,
+       "vs_random": 5.714285714285714
+      }
+     }
+    },
+    {
+     "auc": 0.7819454180076322,
+     "default_rate": 0.21975,
+     "bad_approvals": 707,
+     "bad_approval_rate": 0.17675,
+     "coverage": 0.72325,
+     "review_rate": 0.145,
+     "ood_flag_rate": 1.0,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 5,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.7819454180076322,
+      "pr_auc": 0.5192065238561555,
+      "default_rate": 0.21975,
+      "at_0.5": {
+       "accuracy": 0.80175,
+       "precision": 0.6666666666666666,
+       "recall": 0.1956769055745165,
+       "f1": 0.30255057167985927,
+       "flagged_share": 0.0645
+      },
+      "at_f1_cut": {
+       "accuracy": 0.76175,
+       "precision": 0.4684300341296928,
+       "recall": 0.6245733788395904,
+       "f1": 0.5353486104339347,
+       "flagged_share": 0.293
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.80425,
+       "precision": 0.62,
+       "recall": 0.2821387940841866,
+       "f1": 0.38780297107114936,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.16831683168316833,
+       "vs_confidence": 1.0,
+       "vs_random": 1.803030303030303
+      },
+      "ood_knn": {
+       "bad_capture": 0.15275813295615276,
+       "vs_confidence": 0.907563025210084,
+       "vs_random": 1.6363636363636362
+      },
+      "gated": {
+       "bad_capture": 0.16265912305516267,
+       "vs_confidence": 0.9663865546218487,
+       "vs_random": 1.7424242424242424
+      },
+      "regime_switch": {
+       "bad_capture": 0.14992927864214992,
+       "vs_confidence": 0.8907563025210082,
+       "vs_random": 1.6060606060606057
+      },
+      "gated_distance": {
+       "bad_capture": 0.15417256011315417,
+       "vs_confidence": 0.9159663865546217,
+       "vs_random": 1.6515151515151514
+      },
+      "random": {
+       "bad_capture": 0.09335219236209336,
+       "vs_confidence": 0.5546218487394958,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 0.5657708628005658,
+       "vs_confidence": 3.3613445378151257,
+       "vs_random": 6.0606060606060606
+      }
+     }
+    },
+    {
+     "auc": 0.7756529072286813,
+     "default_rate": 0.2055,
+     "bad_approvals": 681,
+     "bad_approval_rate": 0.17025,
+     "coverage": 0.728,
+     "review_rate": 0.14225,
+     "ood_flag_rate": 1.0,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 5,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.7756529072286813,
+      "pr_auc": 0.4800742091972224,
+      "default_rate": 0.2055,
+      "at_0.5": {
+       "accuracy": 0.809,
+       "precision": 0.6294642857142857,
+       "recall": 0.17153284671532848,
+       "f1": 0.26959847036328877,
+       "flagged_share": 0.056
+      },
+      "at_f1_cut": {
+       "accuracy": 0.78575,
+       "precision": 0.48027057497181513,
+       "recall": 0.5182481751824818,
+       "f1": 0.49853715623171446,
+       "flagged_share": 0.22175
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.811,
+       "precision": 0.5825,
+       "recall": 0.28345498783454987,
+       "f1": 0.38134206219312605,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.18061674008810572,
+       "vs_confidence": 1.0,
+       "vs_random": 1.4999999999999998
+      },
+      "ood_knn": {
+       "bad_capture": 0.1262848751835536,
+       "vs_confidence": 0.6991869918699188,
+       "vs_random": 1.048780487804878
+      },
+      "gated": {
+       "bad_capture": 0.18061674008810572,
+       "vs_confidence": 1.0,
+       "vs_random": 1.4999999999999998
+      },
+      "regime_switch": {
+       "bad_capture": 0.1262848751835536,
+       "vs_confidence": 0.6991869918699188,
+       "vs_random": 1.048780487804878
+      },
+      "gated_distance": {
+       "bad_capture": 0.1262848751835536,
+       "vs_confidence": 0.6991869918699188,
+       "vs_random": 1.048780487804878
+      },
+      "random": {
+       "bad_capture": 0.12041116005873716,
+       "vs_confidence": 0.6666666666666667,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 0.5873715124816447,
+       "vs_confidence": 3.2520325203252036,
+       "vs_random": 4.878048780487805
+      }
+     }
+    },
+    {
+     "auc": 0.7839731620895719,
+     "default_rate": 0.20775,
+     "bad_approvals": 661,
+     "bad_approval_rate": 0.16525,
+     "coverage": 0.73125,
+     "review_rate": 0.141,
+     "ood_flag_rate": 1.0,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 5,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.7839731620895719,
+      "pr_auc": 0.49956214028574125,
+      "default_rate": 0.20775,
+      "at_0.5": {
+       "accuracy": 0.80975,
+       "precision": 0.6296296296296297,
+       "recall": 0.2045728038507822,
+       "f1": 0.30881017257039056,
+       "flagged_share": 0.0675
+      },
+      "at_f1_cut": {
+       "accuracy": 0.775,
+       "precision": 0.4669223394055609,
+       "recall": 0.5860409145607701,
+       "f1": 0.5197438633938101,
+       "flagged_share": 0.26075
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.81375,
+       "precision": 0.6075,
+       "recall": 0.2924187725631769,
+       "f1": 0.39480097481722176,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.17246596066565809,
+       "vs_confidence": 1.0,
+       "vs_random": 1.52
+      },
+      "ood_knn": {
+       "bad_capture": 0.12254160363086233,
+       "vs_confidence": 0.7105263157894738,
+       "vs_random": 1.08
+      },
+      "gated": {
+       "bad_capture": 0.1664145234493192,
+       "vs_confidence": 0.9649122807017544,
+       "vs_random": 1.4666666666666666
+      },
+      "regime_switch": {
+       "bad_capture": 0.12102874432677761,
+       "vs_confidence": 0.7017543859649124,
+       "vs_random": 1.0666666666666667
+      },
+      "gated_distance": {
+       "bad_capture": 0.12102874432677761,
+       "vs_confidence": 0.7017543859649124,
+       "vs_random": 1.0666666666666667
+      },
+      "random": {
+       "bad_capture": 0.11346444780635401,
+       "vs_confidence": 0.6578947368421053,
+       "vs_random": 1.0
+      },
+      "oracle": {
+       "bad_capture": 0.6051437216338881,
+       "vs_confidence": 3.5087719298245617,
+       "vs_random": 5.333333333333334
+      }
+     }
+    }
+   ]
+  },
+  "corruption": {
+   "0.05": [
+    {
+     "auc": 0.8301391542663038,
+     "default_rate": 0.0405,
+     "bad_approvals": 152,
+     "bad_approval_rate": 0.038,
+     "coverage": 0.9525,
+     "review_rate": 0.01375,
+     "ood_flag_rate": 0.0895,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 91,
+     "max_log10_martingale": 118.168,
+     "model": {
+      "auc": 0.8301391542663038,
+      "pr_auc": 0.26506344893424666,
+      "default_rate": 0.0405,
+      "at_0.5": {
+       "accuracy": 0.95925,
+       "precision": 0.47619047619047616,
+       "recall": 0.06172839506172839,
+       "f1": 0.1092896174863388,
+       "flagged_share": 0.00525
+      },
+      "at_f1_cut": {
+       "accuracy": 0.953,
+       "precision": 0.3968253968253968,
+       "recall": 0.30864197530864196,
+       "f1": 0.3472222222222222,
+       "flagged_share": 0.0315
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.8995,
+       "precision": 0.2,
+       "recall": 0.49382716049382713,
+       "f1": 0.2846975088967972,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.4605263157894737,
+       "vs_confidence": 1.0,
+       "vs_random": 7.0,
+       "corrupted_caught": 0.09
+      },
+      "ood_knn": {
+       "bad_capture": 0.15789473684210525,
+       "vs_confidence": 0.34285714285714286,
+       "vs_random": 2.4,
+       "corrupted_caught": 0.955
+      },
+      "gated": {
+       "bad_capture": 0.2894736842105263,
+       "vs_confidence": 0.6285714285714286,
+       "vs_random": 4.4,
+       "corrupted_caught": 0.945
+      },
+      "regime_switch": {
+       "bad_capture": 0.1513157894736842,
+       "vs_confidence": 0.32857142857142857,
+       "vs_random": 2.3000000000000003,
+       "corrupted_caught": 0.945
+      },
+      "gated_distance": {
+       "bad_capture": 0.2894736842105263,
+       "vs_confidence": 0.6285714285714286,
+       "vs_random": 4.4,
+       "corrupted_caught": 0.945
+      },
+      "random": {
+       "bad_capture": 0.06578947368421052,
+       "vs_confidence": 0.14285714285714285,
+       "vs_random": 1.0,
+       "corrupted_caught": 0.065
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 2.1714285714285713,
+       "vs_random": 15.200000000000001,
+       "corrupted_caught": 0.085
+      }
+     },
+     "ratio_vs_confidence_ci95": {
+      "gated": [
+       0.4053,
+       0.7501
+      ],
+      "regime_switch": [
+       0.2187,
+       0.4493
+      ],
+      "gated_distance": [
+       0.3823,
+       0.7419
+      ],
+      "ood_knn": [
+       0.2353,
+       0.4561
+      ]
+     }
+    },
+    {
+     "auc": 0.8573575535807632,
+     "default_rate": 0.0435,
+     "bad_approvals": 161,
+     "bad_approval_rate": 0.04025,
+     "coverage": 0.949,
+     "review_rate": 0.013,
+     "ood_flag_rate": 0.0925,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 280,
+     "max_log10_martingale": 99.911,
+     "model": {
+      "auc": 0.8573575535807632,
+      "pr_auc": 0.2625470160361589,
+      "default_rate": 0.0435,
+      "at_0.5": {
+       "accuracy": 0.9555,
+       "precision": 0.43333333333333335,
+       "recall": 0.07471264367816093,
+       "f1": 0.12745098039215688,
+       "flagged_share": 0.0075
+      },
+      "at_f1_cut": {
+       "accuracy": 0.93975,
+       "precision": 0.31693989071038253,
+       "recall": 0.3333333333333333,
+       "f1": 0.3249299719887955,
+       "flagged_share": 0.04575
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.9045,
+       "precision": 0.24,
+       "recall": 0.5517241379310345,
+       "f1": 0.3344947735191638,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.515527950310559,
+       "vs_confidence": 1.0,
+       "vs_random": 4.611111111111111,
+       "corrupted_caught": 0.105
+      },
+      "ood_knn": {
+       "bad_capture": 0.18633540372670807,
+       "vs_confidence": 0.3614457831325301,
+       "vs_random": 1.6666666666666665,
+       "corrupted_caught": 0.965
+      },
+      "gated": {
+       "bad_capture": 0.2484472049689441,
+       "vs_confidence": 0.4819277108433735,
+       "vs_random": 2.2222222222222223,
+       "corrupted_caught": 0.96
+      },
+      "regime_switch": {
+       "bad_capture": 0.18633540372670807,
+       "vs_confidence": 0.3614457831325301,
+       "vs_random": 1.6666666666666665,
+       "corrupted_caught": 0.925
+      },
+      "gated_distance": {
+       "bad_capture": 0.2484472049689441,
+       "vs_confidence": 0.4819277108433735,
+       "vs_random": 2.2222222222222223,
+       "corrupted_caught": 0.96
+      },
+      "random": {
+       "bad_capture": 0.11180124223602485,
+       "vs_confidence": 0.21686746987951808,
+       "vs_random": 1.0,
+       "corrupted_caught": 0.1
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 1.9397590361445785,
+       "vs_random": 8.944444444444445,
+       "corrupted_caught": 0.085
+      }
+     }
+    },
+    {
+     "auc": 0.8324562453540938,
+     "default_rate": 0.04425,
+     "bad_approvals": 164,
+     "bad_approval_rate": 0.041,
+     "coverage": 0.946,
+     "review_rate": 0.01925,
+     "ood_flag_rate": 0.09425,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 48,
+     "max_log10_martingale": 87.793,
+     "model": {
+      "auc": 0.8324562453540938,
+      "pr_auc": 0.288505952921696,
+      "default_rate": 0.04425,
+      "at_0.5": {
+       "accuracy": 0.95675,
+       "precision": 0.5909090909090909,
+       "recall": 0.07344632768361582,
+       "f1": 0.1306532663316583,
+       "flagged_share": 0.0055
+      },
+      "at_f1_cut": {
+       "accuracy": 0.937,
+       "precision": 0.323943661971831,
+       "recall": 0.3898305084745763,
+       "f1": 0.3538461538461538,
+       "flagged_share": 0.05325
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.90125,
+       "precision": 0.2275,
+       "recall": 0.5141242937853108,
+       "f1": 0.31542461005199307,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.47560975609756095,
+       "vs_confidence": 1.0,
+       "vs_random": 4.333333333333333,
+       "corrupted_caught": 0.095
+      },
+      "ood_knn": {
+       "bad_capture": 0.17682926829268292,
+       "vs_confidence": 0.3717948717948718,
+       "vs_random": 1.611111111111111,
+       "corrupted_caught": 0.96
+      },
+      "gated": {
+       "bad_capture": 0.25609756097560976,
+       "vs_confidence": 0.5384615384615385,
+       "vs_random": 2.3333333333333335,
+       "corrupted_caught": 0.955
+      },
+      "regime_switch": {
+       "bad_capture": 0.17682926829268292,
+       "vs_confidence": 0.3717948717948718,
+       "vs_random": 1.611111111111111,
+       "corrupted_caught": 0.955
+      },
+      "gated_distance": {
+       "bad_capture": 0.25609756097560976,
+       "vs_confidence": 0.5384615384615385,
+       "vs_random": 2.3333333333333335,
+       "corrupted_caught": 0.955
+      },
+      "random": {
+       "bad_capture": 0.10975609756097561,
+       "vs_confidence": 0.23076923076923078,
+       "vs_random": 1.0,
+       "corrupted_caught": 0.09
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 2.1025641025641026,
+       "vs_random": 9.11111111111111,
+       "corrupted_caught": 0.105
+      }
+     }
+    },
+    {
+     "auc": 0.8603336864030253,
+     "default_rate": 0.0365,
+     "bad_approvals": 133,
+     "bad_approval_rate": 0.03325,
+     "coverage": 0.95525,
+     "review_rate": 0.0185,
+     "ood_flag_rate": 0.10625,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 182,
+     "max_log10_martingale": 77.831,
+     "model": {
+      "auc": 0.8603336864030253,
+      "pr_auc": 0.34584552232752547,
+      "default_rate": 0.0365,
+      "at_0.5": {
+       "accuracy": 0.9655,
+       "precision": 0.7222222222222222,
+       "recall": 0.08904109589041095,
+       "f1": 0.15853658536585366,
+       "flagged_share": 0.0045
+      },
+      "at_f1_cut": {
+       "accuracy": 0.9585,
+       "precision": 0.4305555555555556,
+       "recall": 0.4246575342465753,
+       "f1": 0.42758620689655175,
+       "flagged_share": 0.036
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.907,
+       "precision": 0.2175,
+       "recall": 0.5958904109589042,
+       "f1": 0.31868131868131866,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.556390977443609,
+       "vs_confidence": 1.0,
+       "vs_random": 6.7272727272727275,
+       "corrupted_caught": 0.085
+      },
+      "ood_knn": {
+       "bad_capture": 0.22556390977443608,
+       "vs_confidence": 0.40540540540540543,
+       "vs_random": 2.727272727272727,
+       "corrupted_caught": 0.955
+      },
+      "gated": {
+       "bad_capture": 0.24060150375939848,
+       "vs_confidence": 0.43243243243243246,
+       "vs_random": 2.909090909090909,
+       "corrupted_caught": 0.945
+      },
+      "regime_switch": {
+       "bad_capture": 0.24060150375939848,
+       "vs_confidence": 0.43243243243243246,
+       "vs_random": 2.909090909090909,
+       "corrupted_caught": 0.93
+      },
+      "gated_distance": {
+       "bad_capture": 0.22556390977443608,
+       "vs_confidence": 0.40540540540540543,
+       "vs_random": 2.727272727272727,
+       "corrupted_caught": 0.955
+      },
+      "random": {
+       "bad_capture": 0.08270676691729323,
+       "vs_confidence": 0.14864864864864866,
+       "vs_random": 1.0,
+       "corrupted_caught": 0.13
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 1.7972972972972974,
+       "vs_random": 12.090909090909092,
+       "corrupted_caught": 0.115
+      }
+     }
+    },
+    {
+     "auc": 0.8251462485658636,
+     "default_rate": 0.039,
+     "bad_approvals": 147,
+     "bad_approval_rate": 0.03675,
+     "coverage": 0.9525,
+     "review_rate": 0.01525,
+     "ood_flag_rate": 0.09425,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 3,
+     "max_log10_martingale": 74.939,
+     "model": {
+      "auc": 0.8251462485658636,
+      "pr_auc": 0.2741848680847391,
+      "default_rate": 0.039,
+      "at_0.5": {
+       "accuracy": 0.9615,
+       "precision": 0.5625,
+       "recall": 0.057692307692307696,
+       "f1": 0.10465116279069768,
+       "flagged_share": 0.004
+      },
+      "at_f1_cut": {
+       "accuracy": 0.94475,
+       "precision": 0.32432432432432434,
+       "recall": 0.38461538461538464,
+       "f1": 0.3519061583577713,
+       "flagged_share": 0.04625
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.903,
+       "precision": 0.21,
+       "recall": 0.5384615384615384,
+       "f1": 0.302158273381295,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.5102040816326531,
+       "vs_confidence": 1.0,
+       "vs_random": 4.411764705882353,
+       "corrupted_caught": 0.11
+      },
+      "ood_knn": {
+       "bad_capture": 0.2585034013605442,
+       "vs_confidence": 0.5066666666666667,
+       "vs_random": 2.235294117647059,
+       "corrupted_caught": 0.98
+      },
+      "gated": {
+       "bad_capture": 0.2925170068027211,
+       "vs_confidence": 0.5733333333333333,
+       "vs_random": 2.5294117647058822,
+       "corrupted_caught": 0.975
+      },
+      "regime_switch": {
+       "bad_capture": 0.2585034013605442,
+       "vs_confidence": 0.5066666666666667,
+       "vs_random": 2.235294117647059,
+       "corrupted_caught": 0.98
+      },
+      "gated_distance": {
+       "bad_capture": 0.2925170068027211,
+       "vs_confidence": 0.5733333333333333,
+       "vs_random": 2.5294117647058822,
+       "corrupted_caught": 0.975
+      },
+      "random": {
+       "bad_capture": 0.11564625850340136,
+       "vs_confidence": 0.22666666666666666,
+       "vs_random": 1.0,
+       "corrupted_caught": 0.095
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 1.96,
+       "vs_random": 8.647058823529411,
+       "corrupted_caught": 0.115
+      }
+     }
+    }
+   ],
+   "0.1": [
+    {
+     "auc": 0.8301504127020889,
+     "default_rate": 0.0405,
+     "bad_approvals": 152,
+     "bad_approval_rate": 0.038,
+     "coverage": 0.9515,
+     "review_rate": 0.01425,
+     "ood_flag_rate": 0.13475,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 47,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.8301504127020889,
+      "pr_auc": 0.26232861374513694,
+      "default_rate": 0.0405,
+      "at_0.5": {
+       "accuracy": 0.9595,
+       "precision": 0.5,
+       "recall": 0.06172839506172839,
+       "f1": 0.10989010989010987,
+       "flagged_share": 0.005
+      },
+      "at_f1_cut": {
+       "accuracy": 0.95275,
+       "precision": 0.3937007874015748,
+       "recall": 0.30864197530864196,
+       "f1": 0.3460207612456747,
+       "flagged_share": 0.03175
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.8995,
+       "precision": 0.2,
+       "recall": 0.49382716049382713,
+       "f1": 0.2846975088967972,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.4605263157894737,
+       "vs_confidence": 1.0,
+       "vs_random": 7.0,
+       "corrupted_caught": 0.1175
+      },
+      "ood_knn": {
+       "bad_capture": 0.09868421052631579,
+       "vs_confidence": 0.2142857142857143,
+       "vs_random": 1.5,
+       "corrupted_caught": 0.9275
+      },
+      "gated": {
+       "bad_capture": 0.21052631578947367,
+       "vs_confidence": 0.45714285714285713,
+       "vs_random": 3.2,
+       "corrupted_caught": 0.7125
+      },
+      "regime_switch": {
+       "bad_capture": 0.09868421052631579,
+       "vs_confidence": 0.2142857142857143,
+       "vs_random": 1.5,
+       "corrupted_caught": 0.925
+      },
+      "gated_distance": {
+       "bad_capture": 0.09868421052631579,
+       "vs_confidence": 0.2142857142857143,
+       "vs_random": 1.5,
+       "corrupted_caught": 0.9275
+      },
+      "random": {
+       "bad_capture": 0.06578947368421052,
+       "vs_confidence": 0.14285714285714285,
+       "vs_random": 1.0,
+       "corrupted_caught": 0.095
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 2.1714285714285713,
+       "vs_random": 15.200000000000001,
+       "corrupted_caught": 0.09
+      }
+     },
+     "ratio_vs_confidence_ci95": {
+      "gated": [
+       0.32,
+       0.5975
+      ],
+      "regime_switch": [
+       0.1212,
+       0.3448
+      ],
+      "gated_distance": [
+       0.1143,
+       0.3333
+      ],
+      "ood_knn": [
+       0.1176,
+       0.3385
+      ]
+     }
+    },
+    {
+     "auc": 0.854764887550997,
+     "default_rate": 0.0435,
+     "bad_approvals": 161,
+     "bad_approval_rate": 0.04025,
+     "coverage": 0.94925,
+     "review_rate": 0.01275,
+     "ood_flag_rate": 0.13775,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 21,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.854764887550997,
+      "pr_auc": 0.2605371795858223,
+      "default_rate": 0.0435,
+      "at_0.5": {
+       "accuracy": 0.95575,
+       "precision": 0.4482758620689655,
+       "recall": 0.07471264367816093,
+       "f1": 0.12807881773399016,
+       "flagged_share": 0.00725
+      },
+      "at_f1_cut": {
+       "accuracy": 0.93875,
+       "precision": 0.31016042780748665,
+       "recall": 0.3333333333333333,
+       "f1": 0.32132963988919666,
+       "flagged_share": 0.04675
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.904,
+       "precision": 0.2375,
+       "recall": 0.5459770114942529,
+       "f1": 0.3310104529616725,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.5093167701863354,
+       "vs_confidence": 1.0,
+       "vs_random": 4.555555555555555,
+       "corrupted_caught": 0.1125
+      },
+      "ood_knn": {
+       "bad_capture": 0.14285714285714285,
+       "vs_confidence": 0.2804878048780488,
+       "vs_random": 1.2777777777777777,
+       "corrupted_caught": 0.9275
+      },
+      "gated": {
+       "bad_capture": 0.21739130434782608,
+       "vs_confidence": 0.426829268292683,
+       "vs_random": 1.9444444444444444,
+       "corrupted_caught": 0.7175
+      },
+      "regime_switch": {
+       "bad_capture": 0.14906832298136646,
+       "vs_confidence": 0.29268292682926833,
+       "vs_random": 1.3333333333333333,
+       "corrupted_caught": 0.925
+      },
+      "gated_distance": {
+       "bad_capture": 0.14906832298136646,
+       "vs_confidence": 0.29268292682926833,
+       "vs_random": 1.3333333333333333,
+       "corrupted_caught": 0.9275
+      },
+      "random": {
+       "bad_capture": 0.11180124223602485,
+       "vs_confidence": 0.21951219512195125,
+       "vs_random": 1.0,
+       "corrupted_caught": 0.1025
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 1.9634146341463417,
+       "vs_random": 8.944444444444445,
+       "corrupted_caught": 0.09
+      }
+     }
+    },
+    {
+     "auc": 0.831801569743642,
+     "default_rate": 0.04425,
+     "bad_approvals": 164,
+     "bad_approval_rate": 0.041,
+     "coverage": 0.9465,
+     "review_rate": 0.019,
+     "ood_flag_rate": 0.1405,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 24,
+     "max_log10_martingale": 260.577,
+     "model": {
+      "auc": 0.831801569743642,
+      "pr_auc": 0.288285270480016,
+      "default_rate": 0.04425,
+      "at_0.5": {
+       "accuracy": 0.95675,
+       "precision": 0.5909090909090909,
+       "recall": 0.07344632768361582,
+       "f1": 0.1306532663316583,
+       "flagged_share": 0.0055
+      },
+      "at_f1_cut": {
+       "accuracy": 0.93725,
+       "precision": 0.32211538461538464,
+       "recall": 0.3785310734463277,
+       "f1": 0.34805194805194806,
+       "flagged_share": 0.052
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.90075,
+       "precision": 0.225,
+       "recall": 0.5084745762711864,
+       "f1": 0.31195840554592724,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.4695121951219512,
+       "vs_confidence": 1.0,
+       "vs_random": 4.277777777777778,
+       "corrupted_caught": 0.085
+      },
+      "ood_knn": {
+       "bad_capture": 0.10365853658536585,
+       "vs_confidence": 0.22077922077922077,
+       "vs_random": 0.9444444444444444,
+       "corrupted_caught": 0.92
+      },
+      "gated": {
+       "bad_capture": 0.17682926829268292,
+       "vs_confidence": 0.37662337662337664,
+       "vs_random": 1.611111111111111,
+       "corrupted_caught": 0.665
+      },
+      "regime_switch": {
+       "bad_capture": 0.10365853658536585,
+       "vs_confidence": 0.22077922077922077,
+       "vs_random": 0.9444444444444444,
+       "corrupted_caught": 0.9175
+      },
+      "gated_distance": {
+       "bad_capture": 0.10365853658536585,
+       "vs_confidence": 0.22077922077922077,
+       "vs_random": 0.9444444444444444,
+       "corrupted_caught": 0.92
+      },
+      "random": {
+       "bad_capture": 0.10975609756097561,
+       "vs_confidence": 0.2337662337662338,
+       "vs_random": 1.0,
+       "corrupted_caught": 0.0975
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 2.12987012987013,
+       "vs_random": 9.11111111111111,
+       "corrupted_caught": 0.1
+      }
+     }
+    },
+    {
+     "auc": 0.8627933262719395,
+     "default_rate": 0.0365,
+     "bad_approvals": 133,
+     "bad_approval_rate": 0.03325,
+     "coverage": 0.955,
+     "review_rate": 0.01875,
+     "ood_flag_rate": 0.15075,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 9,
+     "max_log10_martingale": 251.183,
+     "model": {
+      "auc": 0.8627933262719395,
+      "pr_auc": 0.34892526076022845,
+      "default_rate": 0.0365,
+      "at_0.5": {
+       "accuracy": 0.9655,
+       "precision": 0.7222222222222222,
+       "recall": 0.08904109589041095,
+       "f1": 0.15853658536585366,
+       "flagged_share": 0.0045
+      },
+      "at_f1_cut": {
+       "accuracy": 0.95875,
+       "precision": 0.43448275862068964,
+       "recall": 0.4315068493150685,
+       "f1": 0.43298969072164956,
+       "flagged_share": 0.03625
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.907,
+       "precision": 0.2175,
+       "recall": 0.5958904109589042,
+       "f1": 0.31868131868131866,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.556390977443609,
+       "vs_confidence": 1.0,
+       "vs_random": 6.7272727272727275,
+       "corrupted_caught": 0.0725
+      },
+      "ood_knn": {
+       "bad_capture": 0.12030075187969924,
+       "vs_confidence": 0.21621621621621623,
+       "vs_random": 1.4545454545454546,
+       "corrupted_caught": 0.89
+      },
+      "gated": {
+       "bad_capture": 0.24060150375939848,
+       "vs_confidence": 0.43243243243243246,
+       "vs_random": 2.909090909090909,
+       "corrupted_caught": 0.6175
+      },
+      "regime_switch": {
+       "bad_capture": 0.12030075187969924,
+       "vs_confidence": 0.21621621621621623,
+       "vs_random": 1.4545454545454546,
+       "corrupted_caught": 0.89
+      },
+      "gated_distance": {
+       "bad_capture": 0.12030075187969924,
+       "vs_confidence": 0.21621621621621623,
+       "vs_random": 1.4545454545454546,
+       "corrupted_caught": 0.89
+      },
+      "random": {
+       "bad_capture": 0.08270676691729323,
+       "vs_confidence": 0.14864864864864866,
+       "vs_random": 1.0,
+       "corrupted_caught": 0.1025
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 1.7972972972972974,
+       "vs_random": 12.090909090909092,
+       "corrupted_caught": 0.1
+      }
+     }
+    },
+    {
+     "auc": 0.8274041796739506,
+     "default_rate": 0.039,
+     "bad_approvals": 148,
+     "bad_approval_rate": 0.037,
+     "coverage": 0.9525,
+     "review_rate": 0.01525,
+     "ood_flag_rate": 0.1385,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 3,
+     "max_log10_martingale": 241.788,
+     "model": {
+      "auc": 0.8274041796739506,
+      "pr_auc": 0.27277305012248776,
+      "default_rate": 0.039,
+      "at_0.5": {
+       "accuracy": 0.9615,
+       "precision": 0.5714285714285714,
+       "recall": 0.05128205128205128,
+       "f1": 0.09411764705882351,
+       "flagged_share": 0.0035
+      },
+      "at_f1_cut": {
+       "accuracy": 0.94525,
+       "precision": 0.3259668508287293,
+       "recall": 0.3782051282051282,
+       "f1": 0.3501483679525223,
+       "flagged_share": 0.04525
+      },
+      "riskiest_10pct": {
+       "accuracy": 0.9045,
+       "precision": 0.2175,
+       "recall": 0.5576923076923077,
+       "f1": 0.3129496402877698,
+       "flagged_share": 0.1
+      }
+     },
+     "signals": {
+      "msp": {
+       "bad_capture": 0.5337837837837838,
+       "vs_confidence": 1.0,
+       "vs_random": 4.647058823529411,
+       "corrupted_caught": 0.1075
+      },
+      "ood_knn": {
+       "bad_capture": 0.17567567567567569,
+       "vs_confidence": 0.32911392405063294,
+       "vs_random": 1.5294117647058822,
+       "corrupted_caught": 0.9375
+      },
+      "gated": {
+       "bad_capture": 0.27702702702702703,
+       "vs_confidence": 0.5189873417721519,
+       "vs_random": 2.411764705882353,
+       "corrupted_caught": 0.6875
+      },
+      "regime_switch": {
+       "bad_capture": 0.17567567567567569,
+       "vs_confidence": 0.32911392405063294,
+       "vs_random": 1.5294117647058822,
+       "corrupted_caught": 0.9375
+      },
+      "gated_distance": {
+       "bad_capture": 0.17567567567567569,
+       "vs_confidence": 0.32911392405063294,
+       "vs_random": 1.5294117647058822,
+       "corrupted_caught": 0.9375
+      },
+      "random": {
+       "bad_capture": 0.11486486486486487,
+       "vs_confidence": 0.21518987341772153,
+       "vs_random": 1.0,
+       "corrupted_caught": 0.075
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 1.8734177215189873,
+       "vs_random": 8.705882352941176,
+       "corrupted_caught": 0.1175
+      }
+     }
+    }
+   ]
+  }
+ }
+}

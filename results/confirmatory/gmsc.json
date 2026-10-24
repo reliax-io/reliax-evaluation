@@ -1,0 +1,3721 @@
+{
+ "meta": {
+  "dataset": "gmsc",
+  "title": "Give Me Some Credit (Kaggle, 2011)",
+  "status": "confirmatory",
+  "selftest": false,
+  "n_rows": 150000,
+  "n_features": 9,
+  "feature_names": [
+   "RevolvingUtilizationOfUnsecuredLines",
+   "NumberOfTime30-59DaysPastDueNotWorse",
+   "DebtRatio",
+   "MonthlyIncome",
+   "NumberOfOpenCreditLinesAndLoans",
+   "NumberOfTimes90DaysLate",
+   "NumberRealEstateLoansOrLines",
+   "NumberOfTime60-89DaysPastDueNotWorse",
+   "NumberOfDependents"
+  ],
+  "n_reference": 126018,
+  "n_shifted": 23982,
+  "default_rate_reference": 0.04,
+  "default_rate_shifted": 0.2079,
+  "missing_share": 0.0249,
+  "monetary": [
+   "MonthlyIncome",
+   "DebtRatio x MonthlyIncome"
+  ],
+  "seeds": [
+   0,
+   1,
+   2,
+   3,
+   4
+  ],
+  "n_train": 8000,
+  "n_cal": 4000,
+  "n_test": 4000,
+  "referral": 0.1,
+  "alpha": 0.05,
+  "k": 10,
+  "flag_percentile": 95.0,
+  "n_boot": 2000,
+  "seconds": 66.4
+ },
+ "iid_control_auc": {
+  "mean": 0.801,
+  "std": 0.0118
+ },
+ "mix": {
+  "0.0": {
+   "auc": {
+    "mean": 0.7577,
+    "std": 0.0324
+   },
+   "default_rate": {
+    "mean": 0.0402,
+    "std": 0.003
+   },
+   "bad_approvals": {
+    "mean": 146.4,
+    "std": 12.4996
+   },
+   "bad_approval_rate": {
+    "mean": 0.0366,
+    "std": 0.0031
+   },
+   "coverage": {
+    "mean": 0.9506,
+    "std": 0.0027
+   },
+   "review_rate": {
+    "mean": 0.0108,
+    "std": 0.0049
+   },
+   "ood_flag_rate": {
+    "mean": 0.0515,
+    "std": 0.0054
+   },
+   "first_alarm_at": {
+    "mean": null,
+    "std": null
+   },
+   "max_log10_martingale": {
+    "mean": 0.2324,
+    "std": 0.1948
+   },
+   "alarm_seeds": 0,
+   "watch_or_alarm_seeds": 0,
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.3165,
+      "std": 0.0503
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 3.5024,
+      "std": 2.0856
+     },
+     "vs_expected_random": {
+      "mean": 3.1645,
+      "std": 0.5034
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.2783,
+      "std": 0.0183
+     },
+     "vs_confidence": {
+      "mean": 0.9009,
+      "std": 0.1403
+     },
+     "vs_random": {
+      "mean": 2.9005,
+      "std": 1.0815
+     },
+     "vs_expected_random": {
+      "mean": 2.783,
+      "std": 0.1828
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.3314,
+      "std": 0.0365
+     },
+     "vs_confidence": {
+      "mean": 1.0558,
+      "std": 0.0606
+     },
+     "vs_random": {
+      "mean": 3.6156,
+      "std": 1.9284
+     },
+     "vs_expected_random": {
+      "mean": 3.3145,
+      "std": 0.3646
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.3165,
+      "std": 0.0503
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 3.5024,
+      "std": 2.0856
+     },
+     "vs_expected_random": {
+      "mean": 3.1645,
+      "std": 0.5034
+     }
+    },
+    "gated_distance": {
+     "bad_capture": {
+      "mean": 0.3314,
+      "std": 0.0365
+     },
+     "vs_confidence": {
+      "mean": 1.0558,
+      "std": 0.0606
+     },
+     "vs_random": {
+      "mean": 3.6156,
+      "std": 1.9284
+     },
+     "vs_expected_random": {
+      "mean": 3.3145,
+      "std": 0.3646
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.1088,
+      "std": 0.0356
+     },
+     "vs_confidence": {
+      "mean": 0.3557,
+      "std": 0.1212
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_expected_random": {
+      "mean": 1.0876,
+      "std": 0.3556
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_confidence": {
+      "mean": 3.2383,
+      "std": 0.5004
+     },
+     "vs_random": {
+      "mean": 10.6566,
+      "std": 4.5759
+     },
+     "vs_expected_random": {
+      "mean": 10.0,
+      "std": 0.0
+     }
+    }
+   },
+   "ratio_vs_confidence_ci95_seed0": {
+    "gated": [
+     0.8864,
+     1.5278
+    ],
+    "regime_switch": [
+     1.0,
+     1.0
+    ],
+    "gated_distance": [
+     0.8696,
+     1.5518
+    ],
+    "ood_knn": [
+     0.7428,
+     1.5358
+    ]
+   }
+  },
+  "0.25": {
+   "auc": {
+    "mean": 0.7759,
+    "std": 0.0258
+   },
+   "default_rate": {
+    "mean": 0.0837,
+    "std": 0.0033
+   },
+   "bad_approvals": {
+    "mean": 282.4,
+    "std": 18.8637
+   },
+   "bad_approval_rate": {
+    "mean": 0.0706,
+    "std": 0.0047
+   },
+   "coverage": {
+    "mean": 0.9047,
+    "std": 0.0041
+   },
+   "review_rate": {
+    "mean": 0.0209,
+    "std": 0.0099
+   },
+   "ood_flag_rate": {
+    "mean": 0.19,
+    "std": 0.0493
+   },
+   "first_alarm_at": {
+    "mean": 50.2,
+    "std": 27.0658
+   },
+   "max_log10_martingale": {
+    "mean": 249.0782,
+    "std": 10.8296
+   },
+   "alarm_seeds": 5,
+   "watch_or_alarm_seeds": 5,
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.29,
+      "std": 0.0503
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 3.0528,
+      "std": 1.0897
+     },
+     "vs_expected_random": {
+      "mean": 2.8995,
+      "std": 0.503
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.357,
+      "std": 0.0414
+     },
+     "vs_confidence": {
+      "mean": 1.2474,
+      "std": 0.1301
+     },
+     "vs_random": {
+      "mean": 3.7334,
+      "std": 1.1036
+     },
+     "vs_expected_random": {
+      "mean": 3.5705,
+      "std": 0.4136
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.3822,
+      "std": 0.0415
+     },
+     "vs_confidence": {
+      "mean": 1.3326,
+      "std": 0.0977
+     },
+     "vs_random": {
+      "mean": 3.9907,
+      "std": 1.1563
+     },
+     "vs_expected_random": {
+      "mean": 3.822,
+      "std": 0.4152
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.3563,
+      "std": 0.0443
+     },
+     "vs_confidence": {
+      "mean": 1.2441,
+      "std": 0.1339
+     },
+     "vs_random": {
+      "mean": 3.7316,
+      "std": 1.1362
+     },
+     "vs_expected_random": {
+      "mean": 3.5633,
+      "std": 0.4431
+     }
+    },
+    "gated_distance": {
+     "bad_capture": {
+      "mean": 0.357,
+      "std": 0.0414
+     },
+     "vs_confidence": {
+      "mean": 1.2474,
+      "std": 0.1301
+     },
+     "vs_random": {
+      "mean": 3.7334,
+      "std": 1.1036
+     },
+     "vs_expected_random": {
+      "mean": 3.5705,
+      "std": 0.4136
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.0999,
+      "std": 0.0153
+     },
+     "vs_confidence": {
+      "mean": 0.3596,
+      "std": 0.092
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_expected_random": {
+      "mean": 0.9994,
+      "std": 0.1535
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_confidence": {
+      "mean": 3.5397,
+      "std": 0.5277
+     },
+     "vs_random": {
+      "mean": 10.2728,
+      "std": 1.7594
+     },
+     "vs_expected_random": {
+      "mean": 10.0,
+      "std": 0.0
+     }
+    }
+   },
+   "ratio_vs_confidence_ci95_seed0": {
+    "gated": [
+     1.1882,
+     1.7321
+    ],
+    "regime_switch": [
+     1.1039,
+     1.6834
+    ],
+    "gated_distance": [
+     1.0984,
+     1.678
+    ],
+    "ood_knn": [
+     1.0895,
+     1.65
+    ]
+   }
+  },
+  "0.5": {
+   "auc": {
+    "mean": 0.771,
+    "std": 0.024
+   },
+   "default_rate": {
+    "mean": 0.1285,
+    "std": 0.0052
+   },
+   "bad_approvals": {
+    "mean": 421.8,
+    "std": 40.2959
+   },
+   "bad_approval_rate": {
+    "mean": 0.1055,
+    "std": 0.0101
+   },
+   "coverage": {
+    "mean": 0.8558,
+    "std": 0.0065
+   },
+   "review_rate": {
+    "mean": 0.0316,
+    "std": 0.0156
+   },
+   "ood_flag_rate": {
+    "mean": 0.3321,
+    "std": 0.0968
+   },
+   "first_alarm_at": {
+    "mean": 13.4,
+    "std": 10.012
+   },
+   "max_log10_martingale": {
+    "mean": 260.577,
+    "std": 0.0
+   },
+   "alarm_seeds": 5,
+   "watch_or_alarm_seeds": 5,
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.2353,
+      "std": 0.0298
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 2.3701,
+      "std": 0.5267
+     },
+     "vs_expected_random": {
+      "mean": 2.3525,
+      "std": 0.2979
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.286,
+      "std": 0.0383
+     },
+     "vs_confidence": {
+      "mean": 1.2228,
+      "std": 0.1536
+     },
+     "vs_random": {
+      "mean": 2.8772,
+      "std": 0.6152
+     },
+     "vs_expected_random": {
+      "mean": 2.8595,
+      "std": 0.3827
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.2768,
+      "std": 0.0193
+     },
+     "vs_confidence": {
+      "mean": 1.1884,
+      "std": 0.1182
+     },
+     "vs_random": {
+      "mean": 2.7689,
+      "std": 0.4109
+     },
+     "vs_expected_random": {
+      "mean": 2.7682,
+      "std": 0.1931
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.2856,
+      "std": 0.0386
+     },
+     "vs_confidence": {
+      "mean": 1.221,
+      "std": 0.1523
+     },
+     "vs_random": {
+      "mean": 2.8721,
+      "std": 0.6125
+     },
+     "vs_expected_random": {
+      "mean": 2.8559,
+      "std": 0.3856
+     }
+    },
+    "gated_distance": {
+     "bad_capture": {
+      "mean": 0.2848,
+      "std": 0.0408
+     },
+     "vs_confidence": {
+      "mean": 1.2173,
+      "std": 0.1609
+     },
+     "vs_random": {
+      "mean": 2.8672,
+      "std": 0.636
+     },
+     "vs_expected_random": {
+      "mean": 2.8482,
+      "std": 0.4081
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.1014,
+      "std": 0.0105
+     },
+     "vs_confidence": {
+      "mean": 0.4409,
+      "std": 0.0864
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_expected_random": {
+      "mean": 1.0136,
+      "std": 0.1052
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 0.9337,
+      "std": 0.0586
+     },
+     "vs_confidence": {
+      "mean": 4.0214,
+      "std": 0.4871
+     },
+     "vs_random": {
+      "mean": 9.2998,
+      "std": 1.0351
+     },
+     "vs_expected_random": {
+      "mean": 9.3373,
+      "std": 0.5856
+     }
+    }
+   },
+   "ratio_vs_confidence_ci95_seed0": {
+    "gated": [
+     1.1212,
+     1.4885
+    ],
+    "regime_switch": [
+     1.1237,
+     1.6338
+    ],
+    "gated_distance": [
+     1.1084,
+     1.6163
+    ],
+    "ood_knn": [
+     1.1146,
+     1.6234
+    ]
+   }
+  },
+  "0.75": {
+   "auc": {
+    "mean": 0.7456,
+    "std": 0.0202
+   },
+   "default_rate": {
+    "mean": 0.1714,
+    "std": 0.0044
+   },
+   "bad_approvals": {
+    "mean": 560.4,
+    "std": 45.0715
+   },
+   "bad_approval_rate": {
+    "mean": 0.1401,
+    "std": 0.0113
+   },
+   "coverage": {
+    "mean": 0.8116,
+    "std": 0.0078
+   },
+   "review_rate": {
+    "mean": 0.0402,
+    "std": 0.0198
+   },
+   "ood_flag_rate": {
+    "mean": 0.4715,
+    "std": 0.1455
+   },
+   "first_alarm_at": {
+    "mean": 7.4,
+    "std": 1.3565
+   },
+   "max_log10_martingale": {
+    "mean": 260.577,
+    "std": 0.0
+   },
+   "alarm_seeds": 5,
+   "watch_or_alarm_seeds": 5,
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.187,
+      "std": 0.0172
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 1.8379,
+      "std": 0.1696
+     },
+     "vs_expected_random": {
+      "mean": 1.8697,
+      "std": 0.1716
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.2286,
+      "std": 0.0308
+     },
+     "vs_confidence": {
+      "mean": 1.2206,
+      "std": 0.1086
+     },
+     "vs_random": {
+      "mean": 2.2501,
+      "std": 0.3247
+     },
+     "vs_expected_random": {
+      "mean": 2.2857,
+      "std": 0.3084
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.2166,
+      "std": 0.0188
+     },
+     "vs_confidence": {
+      "mean": 1.1603,
+      "std": 0.054
+     },
+     "vs_random": {
+      "mean": 2.1289,
+      "std": 0.1858
+     },
+     "vs_expected_random": {
+      "mean": 2.1664,
+      "std": 0.1875
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.2284,
+      "std": 0.0324
+     },
+     "vs_confidence": {
+      "mean": 1.2193,
+      "std": 0.117
+     },
+     "vs_random": {
+      "mean": 2.2495,
+      "std": 0.3429
+     },
+     "vs_expected_random": {
+      "mean": 2.2844,
+      "std": 0.3241
+     }
+    },
+    "gated_distance": {
+     "bad_capture": {
+      "mean": 0.2281,
+      "std": 0.0319
+     },
+     "vs_confidence": {
+      "mean": 1.2178,
+      "std": 0.1142
+     },
+     "vs_random": {
+      "mean": 2.2468,
+      "std": 0.3399
+     },
+     "vs_expected_random": {
+      "mean": 2.2814,
+      "std": 0.3187
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.1019,
+      "std": 0.0052
+     },
+     "vs_confidence": {
+      "mean": 0.5492,
+      "std": 0.0551
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_expected_random": {
+      "mean": 1.019,
+      "std": 0.0518
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 0.7183,
+      "std": 0.0563
+     },
+     "vs_confidence": {
+      "mean": 3.8833,
+      "std": 0.5556
+     },
+     "vs_random": {
+      "mean": 7.0537,
+      "std": 0.4973
+     },
+     "vs_expected_random": {
+      "mean": 7.1828,
+      "std": 0.5629
+     }
+    }
+   },
+   "ratio_vs_confidence_ci95_seed0": {
+    "gated": [
+     1.0561,
+     1.3191
+    ],
+    "regime_switch": [
+     1.0296,
+     1.4673
+    ],
+    "gated_distance": [
+     1.036,
+     1.4706
+    ],
+    "ood_knn": [
+     1.0312,
+     1.4701
+    ]
+   }
+  },
+  "1.0": {
+   "auc": {
+    "mean": 0.7184,
+    "std": 0.0149
+   },
+   "default_rate": {
+    "mean": 0.2112,
+    "std": 0.005
+   },
+   "bad_approvals": {
+    "mean": 689.0,
+    "std": 54.5674
+   },
+   "bad_approval_rate": {
+    "mean": 0.1723,
+    "std": 0.0136
+   },
+   "coverage": {
+    "mean": 0.7684,
+    "std": 0.0092
+   },
+   "review_rate": {
+    "mean": 0.049,
+    "std": 0.0249
+   },
+   "ood_flag_rate": {
+    "mean": 0.6137,
+    "std": 0.1933
+   },
+   "first_alarm_at": {
+    "mean": 5.4,
+    "std": 1.4967
+   },
+   "max_log10_martingale": {
+    "mean": 260.577,
+    "std": 0.0
+   },
+   "alarm_seeds": 5,
+   "watch_or_alarm_seeds": 5,
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.1581,
+      "std": 0.0137
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 1.4658,
+      "std": 0.2756
+     },
+     "vs_expected_random": {
+      "mean": 1.5811,
+      "std": 0.1372
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.1888,
+      "std": 0.0336
+     },
+     "vs_confidence": {
+      "mean": 1.1935,
+      "std": 0.1882
+     },
+     "vs_random": {
+      "mean": 1.7572,
+      "std": 0.4373
+     },
+     "vs_expected_random": {
+      "mean": 1.8877,
+      "std": 0.3357
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.1671,
+      "std": 0.0163
+     },
+     "vs_confidence": {
+      "mean": 1.0561,
+      "std": 0.0333
+     },
+     "vs_random": {
+      "mean": 1.5507,
+      "std": 0.3045
+     },
+     "vs_expected_random": {
+      "mean": 1.6708,
+      "std": 0.1628
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.1856,
+      "std": 0.0338
+     },
+     "vs_confidence": {
+      "mean": 1.1737,
+      "std": 0.1925
+     },
+     "vs_random": {
+      "mean": 1.7274,
+      "std": 0.4334
+     },
+     "vs_expected_random": {
+      "mean": 1.8559,
+      "std": 0.3382
+     }
+    },
+    "gated_distance": {
+     "bad_capture": {
+      "mean": 0.1901,
+      "std": 0.0313
+     },
+     "vs_confidence": {
+      "mean": 1.2025,
+      "std": 0.175
+     },
+     "vs_random": {
+      "mean": 1.7683,
+      "std": 0.4192
+     },
+     "vs_expected_random": {
+      "mean": 1.901,
+      "std": 0.3125
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.1098,
+      "std": 0.0107
+     },
+     "vs_confidence": {
+      "mean": 0.705,
+      "std": 0.1225
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_expected_random": {
+      "mean": 1.0983,
+      "std": 0.1074
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 0.5841,
+      "std": 0.0444
+     },
+     "vs_confidence": {
+      "mean": 3.7362,
+      "std": 0.5354
+     },
+     "vs_random": {
+      "mean": 5.3366,
+      "std": 0.3123
+     },
+     "vs_expected_random": {
+      "mean": 5.8406,
+      "std": 0.4437
+     }
+    }
+   },
+   "ratio_vs_confidence_ci95_seed0": {
+    "gated": [
+     0.9912,
+     1.2046
+    ],
+    "regime_switch": [
+     1.1091,
+     1.5808
+    ],
+    "gated_distance": [
+     1.1166,
+     1.5956
+    ],
+    "ood_knn": [
+     1.1008,
+     1.5909
+    ]
+   }
+  }
+ },
+ "corruption": {
+  "0.05": {
+   "auc": {
+    "mean": 0.7522,
+    "std": 0.0344
+   },
+   "default_rate": {
+    "mean": 0.0402,
+    "std": 0.003
+   },
+   "bad_approvals": {
+    "mean": 147.0,
+    "std": 12.5379
+   },
+   "bad_approval_rate": {
+    "mean": 0.0367,
+    "std": 0.0031
+   },
+   "coverage": {
+    "mean": 0.951,
+    "std": 0.0025
+   },
+   "review_rate": {
+    "mean": 0.0102,
+    "std": 0.0042
+   },
+   "ood_flag_rate": {
+    "mean": 0.0963,
+    "std": 0.0054
+   },
+   "first_alarm_at": {
+    "mean": 62.6,
+    "std": 53.6082
+   },
+   "max_log10_martingale": {
+    "mean": 80.451,
+    "std": 21.3052
+   },
+   "alarm_seeds": 5,
+   "watch_or_alarm_seeds": 5,
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.3185,
+      "std": 0.0566
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 3.4413,
+      "std": 0.839
+     },
+     "vs_expected_random": {
+      "mean": 3.1849,
+      "std": 0.5664
+     },
+     "corrupted_caught": {
+      "mean": 0.046,
+      "std": 0.0481
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.252,
+      "std": 0.0207
+     },
+     "vs_confidence": {
+      "mean": 0.8245,
+      "std": 0.1945
+     },
+     "vs_random": {
+      "mean": 2.7683,
+      "std": 0.7136
+     },
+     "vs_expected_random": {
+      "mean": 2.5195,
+      "std": 0.2074
+     },
+     "corrupted_caught": {
+      "mean": 0.953,
+      "std": 0.0154
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.2498,
+      "std": 0.0119
+     },
+     "vs_confidence": {
+      "mean": 0.817,
+      "std": 0.1863
+     },
+     "vs_random": {
+      "mean": 2.7405,
+      "std": 0.6583
+     },
+     "vs_expected_random": {
+      "mean": 2.4983,
+      "std": 0.1188
+     },
+     "corrupted_caught": {
+      "mean": 0.951,
+      "std": 0.0191
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.2494,
+      "std": 0.0171
+     },
+     "vs_confidence": {
+      "mean": 0.8122,
+      "std": 0.1694
+     },
+     "vs_random": {
+      "mean": 2.7341,
+      "std": 0.6768
+     },
+     "vs_expected_random": {
+      "mean": 2.4939,
+      "std": 0.1708
+     },
+     "corrupted_caught": {
+      "mean": 0.941,
+      "std": 0.0208
+     }
+    },
+    "gated_distance": {
+     "bad_capture": {
+      "mean": 0.2485,
+      "std": 0.014
+     },
+     "vs_confidence": {
+      "mean": 0.8137,
+      "std": 0.1907
+     },
+     "vs_random": {
+      "mean": 2.7294,
+      "std": 0.672
+     },
+     "vs_expected_random": {
+      "mean": 2.485,
+      "std": 0.14
+     },
+     "corrupted_caught": {
+      "mean": 0.951,
+      "std": 0.0191
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.0962,
+      "std": 0.0213
+     },
+     "vs_confidence": {
+      "mean": 0.3091,
+      "std": 0.0767
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_expected_random": {
+      "mean": 0.962,
+      "std": 0.2134
+     },
+     "corrupted_caught": {
+      "mean": 0.096,
+      "std": 0.0208
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_confidence": {
+      "mean": 3.2519,
+      "std": 0.6441
+     },
+     "vs_random": {
+      "mean": 10.9238,
+      "std": 2.4012
+     },
+     "vs_expected_random": {
+      "mean": 10.0,
+      "std": 0.0
+     },
+     "corrupted_caught": {
+      "mean": 0.101,
+      "std": 0.0073
+     }
+    }
+   },
+   "ratio_vs_confidence_ci95_seed0": {
+    "gated": [
+     0.7551,
+     1.6667
+    ],
+    "regime_switch": [
+     0.7179,
+     1.6155
+    ],
+    "gated_distance": [
+     0.7568,
+     1.6786
+    ],
+    "ood_knn": [
+     0.7632,
+     1.7
+    ]
+   }
+  },
+  "0.1": {
+   "auc": {
+    "mean": 0.7497,
+    "std": 0.0333
+   },
+   "default_rate": {
+    "mean": 0.0402,
+    "std": 0.003
+   },
+   "bad_approvals": {
+    "mean": 147.8,
+    "std": 12.2703
+   },
+   "bad_approval_rate": {
+    "mean": 0.0369,
+    "std": 0.0031
+   },
+   "coverage": {
+    "mean": 0.951,
+    "std": 0.0022
+   },
+   "review_rate": {
+    "mean": 0.0102,
+    "std": 0.0047
+   },
+   "ood_flag_rate": {
+    "mean": 0.1416,
+    "std": 0.0049
+   },
+   "first_alarm_at": {
+    "mean": 22.2,
+    "std": 19.5387
+   },
+   "max_log10_martingale": {
+    "mean": 239.95,
+    "std": 37.8376
+   },
+   "alarm_seeds": 5,
+   "watch_or_alarm_seeds": 5,
+   "signals": {
+    "msp": {
+     "bad_capture": {
+      "mean": 0.3224,
+      "std": 0.053
+     },
+     "vs_confidence": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_random": {
+      "mean": 3.4865,
+      "std": 0.7413
+     },
+     "vs_expected_random": {
+      "mean": 3.2236,
+      "std": 0.5304
+     },
+     "corrupted_caught": {
+      "mean": 0.047,
+      "std": 0.0358
+     }
+    },
+    "ood_knn": {
+     "bad_capture": {
+      "mean": 0.1372,
+      "std": 0.0449
+     },
+     "vs_confidence": {
+      "mean": 0.4349,
+      "std": 0.1345
+     },
+     "vs_random": {
+      "mean": 1.5143,
+      "std": 0.5656
+     },
+     "vs_expected_random": {
+      "mean": 1.3715,
+      "std": 0.4492
+     },
+     "corrupted_caught": {
+      "mean": 0.922,
+      "std": 0.0124
+     }
+    },
+    "gated": {
+     "bad_capture": {
+      "mean": 0.2079,
+      "std": 0.0374
+     },
+     "vs_confidence": {
+      "mean": 0.6538,
+      "std": 0.116
+     },
+     "vs_random": {
+      "mean": 2.3143,
+      "std": 0.7784
+     },
+     "vs_expected_random": {
+      "mean": 2.0789,
+      "std": 0.3739
+     },
+     "corrupted_caught": {
+      "mean": 0.8225,
+      "std": 0.0148
+     }
+    },
+    "regime_switch": {
+     "bad_capture": {
+      "mean": 0.1372,
+      "std": 0.0449
+     },
+     "vs_confidence": {
+      "mean": 0.4349,
+      "std": 0.1345
+     },
+     "vs_random": {
+      "mean": 1.5143,
+      "std": 0.5656
+     },
+     "vs_expected_random": {
+      "mean": 1.3715,
+      "std": 0.4492
+     },
+     "corrupted_caught": {
+      "mean": 0.9195,
+      "std": 0.0117
+     }
+    },
+    "gated_distance": {
+     "bad_capture": {
+      "mean": 0.1371,
+      "std": 0.0474
+     },
+     "vs_confidence": {
+      "mean": 0.4354,
+      "std": 0.1421
+     },
+     "vs_random": {
+      "mean": 1.5198,
+      "std": 0.602
+     },
+     "vs_expected_random": {
+      "mean": 1.3708,
+      "std": 0.4736
+     },
+     "corrupted_caught": {
+      "mean": 0.922,
+      "std": 0.0124
+     }
+    },
+    "random": {
+     "bad_capture": {
+      "mean": 0.0957,
+      "std": 0.0214
+     },
+     "vs_confidence": {
+      "mean": 0.3005,
+      "std": 0.0648
+     },
+     "vs_random": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_expected_random": {
+      "mean": 0.9571,
+      "std": 0.2141
+     },
+     "corrupted_caught": {
+      "mean": 0.0945,
+      "std": 0.0102
+     }
+    },
+    "oracle": {
+     "bad_capture": {
+      "mean": 1.0,
+      "std": 0.0
+     },
+     "vs_confidence": {
+      "mean": 3.1924,
+      "std": 0.5575
+     },
+     "vs_random": {
+      "mean": 10.9929,
+      "std": 2.4526
+     },
+     "vs_expected_random": {
+      "mean": 10.0,
+      "std": 0.0
+     },
+     "corrupted_caught": {
+      "mean": 0.0985,
+      "std": 0.0098
+     }
+    }
+   },
+   "ratio_vs_confidence_ci95_seed0": {
+    "gated": [
+     0.3889,
+     0.9334
+    ],
+    "regime_switch": [
+     0.204,
+     0.7407
+    ],
+    "gated_distance": [
+     0.1961,
+     0.7308
+    ],
+    "ood_knn": [
+     0.2,
+     0.7308
+    ]
+   }
+  }
+ },
+ "per_seed": {
+  "mix": {
+   "0.0": [
+    {
+     "auc": 0.7160008491674037,
+     "default_rate": 0.04275,
+     "bad_approvals": 150,
+     "bad_approval_rate": 0.0375,
+     "coverage": 0.951,
+     "review_rate": 0.0095,
+     "ood_flag_rate": 0.05775,
+     "alarm": false,
+     "watch_or_alarm": false,
+     "first_alarm_at": null,
+     "max_log10_martingale": 0.454,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.24666666666666667,
+       "vs_confidence": 1.0,
+       "vs_random": 3.0833333333333335,
+       "vs_expected_random": 2.466666666666667
+      },
+      "ood_knn": {
+       "bad_capture": 0.26,
+       "vs_confidence": 1.0540540540540542,
+       "vs_random": 3.25,
+       "vs_expected_random": 2.6
+      },
+      "gated": {
+       "bad_capture": 0.28,
+       "vs_confidence": 1.1351351351351353,
+       "vs_random": 3.5000000000000004,
+       "vs_expected_random": 2.8000000000000003
+      },
+      "regime_switch": {
+       "bad_capture": 0.24666666666666667,
+       "vs_confidence": 1.0,
+       "vs_random": 3.0833333333333335,
+       "vs_expected_random": 2.466666666666667
+      },
+      "gated_distance": {
+       "bad_capture": 0.28,
+       "vs_confidence": 1.1351351351351353,
+       "vs_random": 3.5000000000000004,
+       "vs_expected_random": 2.8000000000000003
+      },
+      "random": {
+       "bad_capture": 0.08,
+       "vs_confidence": 0.32432432432432434,
+       "vs_random": 1.0,
+       "vs_expected_random": 0.7999999999999999
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 4.054054054054054,
+       "vs_random": 12.5,
+       "vs_expected_random": 10.0
+      }
+     },
+     "ratio_vs_confidence_ci95": {
+      "gated": [
+       0.8864,
+       1.5278
+      ],
+      "regime_switch": [
+       1.0,
+       1.0
+      ],
+      "gated_distance": [
+       0.8696,
+       1.5518
+      ],
+      "ood_knn": [
+       0.7428,
+       1.5358
+      ]
+     }
+    },
+    {
+     "auc": 0.7615651822024931,
+     "default_rate": 0.04225,
+     "bad_approvals": 162,
+     "bad_approval_rate": 0.0405,
+     "coverage": 0.9515,
+     "review_rate": 0.00525,
+     "ood_flag_rate": 0.044,
+     "alarm": false,
+     "watch_or_alarm": false,
+     "first_alarm_at": null,
+     "max_log10_martingale": 0.423,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.3148148148148148,
+       "vs_confidence": 1.0,
+       "vs_random": 2.3181818181818183,
+       "vs_expected_random": 3.148148148148148
+      },
+      "ood_knn": {
+       "bad_capture": 0.30246913580246915,
+       "vs_confidence": 0.9607843137254902,
+       "vs_random": 2.2272727272727275,
+       "vs_expected_random": 3.0246913580246915
+      },
+      "gated": {
+       "bad_capture": 0.3271604938271605,
+       "vs_confidence": 1.0392156862745099,
+       "vs_random": 2.409090909090909,
+       "vs_expected_random": 3.271604938271605
+      },
+      "regime_switch": {
+       "bad_capture": 0.3148148148148148,
+       "vs_confidence": 1.0,
+       "vs_random": 2.3181818181818183,
+       "vs_expected_random": 3.148148148148148
+      },
+      "gated_distance": {
+       "bad_capture": 0.3271604938271605,
+       "vs_confidence": 1.0392156862745099,
+       "vs_random": 2.409090909090909,
+       "vs_expected_random": 3.271604938271605
+      },
+      "random": {
+       "bad_capture": 0.13580246913580246,
+       "vs_confidence": 0.4313725490196078,
+       "vs_random": 1.0,
+       "vs_expected_random": 1.3580246913580245
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 3.176470588235294,
+       "vs_random": 7.363636363636364,
+       "vs_expected_random": 10.0
+      }
+     }
+    },
+    {
+     "auc": 0.809291669726032,
+     "default_rate": 0.04175,
+     "bad_approvals": 151,
+     "bad_approval_rate": 0.03775,
+     "coverage": 0.95175,
+     "review_rate": 0.00625,
+     "ood_flag_rate": 0.0565,
+     "alarm": false,
+     "watch_or_alarm": false,
+     "first_alarm_at": null,
+     "max_log10_martingale": 0.0,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.40397350993377484,
+       "vs_confidence": 1.0,
+       "vs_random": 7.625,
+       "vs_expected_random": 4.039735099337748
+      },
+      "ood_knn": {
+       "bad_capture": 0.2582781456953642,
+       "vs_confidence": 0.6393442622950819,
+       "vs_random": 4.875,
+       "vs_expected_random": 2.5827814569536423
+      },
+      "gated": {
+       "bad_capture": 0.39072847682119205,
+       "vs_confidence": 0.9672131147540983,
+       "vs_random": 7.375,
+       "vs_expected_random": 3.9072847682119205
+      },
+      "regime_switch": {
+       "bad_capture": 0.40397350993377484,
+       "vs_confidence": 1.0,
+       "vs_random": 7.625,
+       "vs_expected_random": 4.039735099337748
+      },
+      "gated_distance": {
+       "bad_capture": 0.39072847682119205,
+       "vs_confidence": 0.9672131147540983,
+       "vs_random": 7.375,
+       "vs_expected_random": 3.9072847682119205
+      },
+      "random": {
+       "bad_capture": 0.052980132450331126,
+       "vs_confidence": 0.13114754098360656,
+       "vs_random": 1.0,
+       "vs_expected_random": 0.5298013245033112
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 2.4754098360655736,
+       "vs_random": 18.875,
+       "vs_expected_random": 10.0
+      }
+     }
+    },
+    {
+     "auc": 0.7315341200233286,
+     "default_rate": 0.03475,
+     "bad_approvals": 124,
+     "bad_approval_rate": 0.031,
+     "coverage": 0.9535,
+     "review_rate": 0.01525,
+     "ood_flag_rate": 0.0465,
+     "alarm": false,
+     "watch_or_alarm": false,
+     "first_alarm_at": null,
+     "max_log10_martingale": 0.273,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.3064516129032258,
+       "vs_confidence": 1.0,
+       "vs_random": 2.235294117647059,
+       "vs_expected_random": 3.064516129032258
+      },
+      "ood_knn": {
+       "bad_capture": 0.27419354838709675,
+       "vs_confidence": 0.894736842105263,
+       "vs_random": 2.0,
+       "vs_expected_random": 2.7419354838709675
+      },
+      "gated": {
+       "bad_capture": 0.31451612903225806,
+       "vs_confidence": 1.0263157894736843,
+       "vs_random": 2.294117647058824,
+       "vs_expected_random": 3.1451612903225805
+      },
+      "regime_switch": {
+       "bad_capture": 0.3064516129032258,
+       "vs_confidence": 1.0,
+       "vs_random": 2.235294117647059,
+       "vs_expected_random": 3.064516129032258
+      },
+      "gated_distance": {
+       "bad_capture": 0.31451612903225806,
+       "vs_confidence": 1.0263157894736843,
+       "vs_random": 2.294117647058824,
+       "vs_expected_random": 3.1451612903225805
+      },
+      "random": {
+       "bad_capture": 0.13709677419354838,
+       "vs_confidence": 0.4473684210526315,
+       "vs_random": 1.0,
+       "vs_expected_random": 1.3709677419354838
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 3.263157894736842,
+       "vs_random": 7.294117647058824,
+       "vs_expected_random": 10.0
+      }
+     }
+    },
+    {
+     "auc": 0.7701677796175029,
+     "default_rate": 0.03925,
+     "bad_approvals": 145,
+     "bad_approval_rate": 0.03625,
+     "coverage": 0.9455,
+     "review_rate": 0.01775,
+     "ood_flag_rate": 0.053,
+     "alarm": false,
+     "watch_or_alarm": false,
+     "first_alarm_at": null,
+     "max_log10_martingale": 0.012,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.3103448275862069,
+       "vs_confidence": 1.0,
+       "vs_random": 2.25,
+       "vs_expected_random": 3.103448275862069
+      },
+      "ood_knn": {
+       "bad_capture": 0.296551724137931,
+       "vs_confidence": 0.9555555555555555,
+       "vs_random": 2.15,
+       "vs_expected_random": 2.96551724137931
+      },
+      "gated": {
+       "bad_capture": 0.3448275862068966,
+       "vs_confidence": 1.1111111111111112,
+       "vs_random": 2.5,
+       "vs_expected_random": 3.4482758620689657
+      },
+      "regime_switch": {
+       "bad_capture": 0.3103448275862069,
+       "vs_confidence": 1.0,
+       "vs_random": 2.25,
+       "vs_expected_random": 3.103448275862069
+      },
+      "gated_distance": {
+       "bad_capture": 0.3448275862068966,
+       "vs_confidence": 1.1111111111111112,
+       "vs_random": 2.5,
+       "vs_expected_random": 3.4482758620689657
+      },
+      "random": {
+       "bad_capture": 0.13793103448275862,
+       "vs_confidence": 0.4444444444444444,
+       "vs_random": 1.0,
+       "vs_expected_random": 1.379310344827586
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 3.2222222222222223,
+       "vs_random": 7.25,
+       "vs_expected_random": 10.0
+      }
+     }
+    }
+   ],
+   "0.25": [
+    {
+     "auc": 0.7352248387229451,
+     "default_rate": 0.0865,
+     "bad_approvals": 279,
+     "bad_approval_rate": 0.06975,
+     "coverage": 0.90425,
+     "review_rate": 0.0185,
+     "ood_flag_rate": 0.166,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 40,
+     "max_log10_martingale": 251.859,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.24372759856630824,
+       "vs_confidence": 1.0,
+       "vs_random": 2.4285714285714284,
+       "vs_expected_random": 2.4372759856630823
+      },
+      "ood_knn": {
+       "bad_capture": 0.32616487455197135,
+       "vs_confidence": 1.3382352941176472,
+       "vs_random": 3.25,
+       "vs_expected_random": 3.261648745519713
+      },
+      "gated": {
+       "bad_capture": 0.34050179211469533,
+       "vs_confidence": 1.3970588235294117,
+       "vs_random": 3.392857142857143,
+       "vs_expected_random": 3.4050179211469533
+      },
+      "regime_switch": {
+       "bad_capture": 0.32616487455197135,
+       "vs_confidence": 1.3382352941176472,
+       "vs_random": 3.25,
+       "vs_expected_random": 3.261648745519713
+      },
+      "gated_distance": {
+       "bad_capture": 0.32616487455197135,
+       "vs_confidence": 1.3382352941176472,
+       "vs_random": 3.25,
+       "vs_expected_random": 3.261648745519713
+      },
+      "random": {
+       "bad_capture": 0.1003584229390681,
+       "vs_confidence": 0.411764705882353,
+       "vs_random": 1.0,
+       "vs_expected_random": 1.003584229390681
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 4.102941176470588,
+       "vs_random": 9.964285714285714,
+       "vs_expected_random": 10.0
+      }
+     },
+     "ratio_vs_confidence_ci95": {
+      "gated": [
+       1.1882,
+       1.7321
+      ],
+      "regime_switch": [
+       1.1039,
+       1.6834
+      ],
+      "gated_distance": [
+       1.0984,
+       1.678
+      ],
+      "ood_knn": [
+       1.0895,
+       1.65
+      ]
+     }
+    },
+    {
+     "auc": 0.7620500498869908,
+     "default_rate": 0.08375,
+     "bad_approvals": 306,
+     "bad_approval_rate": 0.0765,
+     "coverage": 0.90875,
+     "review_rate": 0.00775,
+     "ood_flag_rate": 0.16,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 74,
+     "max_log10_martingale": 231.674,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.2581699346405229,
+       "vs_confidence": 1.0,
+       "vs_random": 2.1351351351351355,
+       "vs_expected_random": 2.581699346405229
+      },
+      "ood_knn": {
+       "bad_capture": 0.3366013071895425,
+       "vs_confidence": 1.3037974683544304,
+       "vs_random": 2.7837837837837838,
+       "vs_expected_random": 3.366013071895425
+      },
+      "gated": {
+       "bad_capture": 0.3627450980392157,
+       "vs_confidence": 1.4050632911392402,
+       "vs_random": 3.0,
+       "vs_expected_random": 3.6274509803921564
+      },
+      "regime_switch": {
+       "bad_capture": 0.3300653594771242,
+       "vs_confidence": 1.2784810126582278,
+       "vs_random": 2.72972972972973,
+       "vs_expected_random": 3.3006535947712417
+      },
+      "gated_distance": {
+       "bad_capture": 0.3366013071895425,
+       "vs_confidence": 1.3037974683544304,
+       "vs_random": 2.7837837837837838,
+       "vs_expected_random": 3.366013071895425
+      },
+      "random": {
+       "bad_capture": 0.12091503267973856,
+       "vs_confidence": 0.4683544303797468,
+       "vs_random": 1.0,
+       "vs_expected_random": 1.2091503267973855
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 3.873417721518987,
+       "vs_random": 8.27027027027027,
+       "vs_expected_random": 10.0
+      }
+     }
+    },
+    {
+     "auc": 0.811790555405504,
+     "default_rate": 0.08525,
+     "bad_approvals": 297,
+     "bad_approval_rate": 0.07425,
+     "coverage": 0.9065,
+     "review_rate": 0.014,
+     "ood_flag_rate": 0.1725,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 81,
+     "max_log10_martingale": 258.967,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.3838383838383838,
+       "vs_confidence": 1.0,
+       "vs_random": 5.181818181818182,
+       "vs_expected_random": 3.838383838383838
+      },
+      "ood_knn": {
+       "bad_capture": 0.43097643097643096,
+       "vs_confidence": 1.1228070175438596,
+       "vs_random": 5.818181818181818,
+       "vs_expected_random": 4.30976430976431
+      },
+      "gated": {
+       "bad_capture": 0.4612794612794613,
+       "vs_confidence": 1.2017543859649125,
+       "vs_random": 6.2272727272727275,
+       "vs_expected_random": 4.6127946127946124
+      },
+      "regime_switch": {
+       "bad_capture": 0.43434343434343436,
+       "vs_confidence": 1.1315789473684212,
+       "vs_random": 5.863636363636364,
+       "vs_expected_random": 4.343434343434343
+      },
+      "gated_distance": {
+       "bad_capture": 0.43097643097643096,
+       "vs_confidence": 1.1228070175438596,
+       "vs_random": 5.818181818181818,
+       "vs_expected_random": 4.30976430976431
+      },
+      "random": {
+       "bad_capture": 0.07407407407407407,
+       "vs_confidence": 0.19298245614035087,
+       "vs_random": 1.0,
+       "vs_expected_random": 0.7407407407407407
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 2.605263157894737,
+       "vs_random": 13.5,
+       "vs_expected_random": 10.0
+      }
+     }
+    },
+    {
+     "auc": 0.781159279240416,
+     "default_rate": 0.07725,
+     "bad_approvals": 251,
+     "bad_approval_rate": 0.06275,
+     "coverage": 0.907,
+     "review_rate": 0.02875,
+     "ood_flag_rate": 0.1635,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 51,
+     "max_log10_martingale": 242.314,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.29880478087649404,
+       "vs_confidence": 1.0,
+       "vs_random": 2.7777777777777777,
+       "vs_expected_random": 2.9880478087649402
+      },
+      "ood_knn": {
+       "bad_capture": 0.3187250996015936,
+       "vs_confidence": 1.0666666666666667,
+       "vs_random": 2.962962962962963,
+       "vs_expected_random": 3.187250996015936
+      },
+      "gated": {
+       "bad_capture": 0.3665338645418327,
+       "vs_confidence": 1.2266666666666666,
+       "vs_random": 3.4074074074074074,
+       "vs_expected_random": 3.6653386454183265
+      },
+      "regime_switch": {
+       "bad_capture": 0.3147410358565737,
+       "vs_confidence": 1.0533333333333332,
+       "vs_random": 2.925925925925926,
+       "vs_expected_random": 3.147410358565737
+      },
+      "gated_distance": {
+       "bad_capture": 0.3187250996015936,
+       "vs_confidence": 1.0666666666666667,
+       "vs_random": 2.962962962962963,
+       "vs_expected_random": 3.187250996015936
+      },
+      "random": {
+       "bad_capture": 0.10756972111553785,
+       "vs_confidence": 0.36,
+       "vs_random": 1.0,
+       "vs_expected_random": 1.0756972111553784
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 3.3466666666666667,
+       "vs_random": 9.296296296296296,
+       "vs_expected_random": 10.0
+      }
+     }
+    },
+    {
+     "auc": 0.7890284532179731,
+     "default_rate": 0.0855,
+     "bad_approvals": 279,
+     "bad_approval_rate": 0.06975,
+     "coverage": 0.897,
+     "review_rate": 0.03525,
+     "ood_flag_rate": 0.28825,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 5,
+     "max_log10_martingale": 260.577,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.26523297491039427,
+       "vs_confidence": 1.0,
+       "vs_random": 2.740740740740741,
+       "vs_expected_random": 2.6523297491039424
+      },
+      "ood_knn": {
+       "bad_capture": 0.3727598566308244,
+       "vs_confidence": 1.4054054054054055,
+       "vs_random": 3.851851851851852,
+       "vs_expected_random": 3.727598566308244
+      },
+      "gated": {
+       "bad_capture": 0.37992831541218636,
+       "vs_confidence": 1.4324324324324322,
+       "vs_random": 3.9259259259259256,
+       "vs_expected_random": 3.7992831541218632
+      },
+      "regime_switch": {
+       "bad_capture": 0.3763440860215054,
+       "vs_confidence": 1.4189189189189189,
+       "vs_random": 3.888888888888889,
+       "vs_expected_random": 3.7634408602150535
+      },
+      "gated_distance": {
+       "bad_capture": 0.3727598566308244,
+       "vs_confidence": 1.4054054054054055,
+       "vs_random": 3.851851851851852,
+       "vs_expected_random": 3.727598566308244
+      },
+      "random": {
+       "bad_capture": 0.0967741935483871,
+       "vs_confidence": 0.36486486486486486,
+       "vs_random": 1.0,
+       "vs_expected_random": 0.9677419354838709
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 3.77027027027027,
+       "vs_random": 10.333333333333334,
+       "vs_expected_random": 10.0
+      }
+     }
+    }
+   ],
+   "0.5": [
+    {
+     "auc": 0.741780056519807,
+     "default_rate": 0.1315,
+     "bad_approvals": 419,
+     "bad_approval_rate": 0.10475,
+     "coverage": 0.85675,
+     "review_rate": 0.0265,
+     "ood_flag_rate": 0.276,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 5,
+     "max_log10_martingale": 260.577,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.2100238663484487,
+       "vs_confidence": 1.0,
+       "vs_random": 1.8333333333333333,
+       "vs_expected_random": 2.100238663484487
+      },
+      "ood_knn": {
+       "bad_capture": 0.27684964200477324,
+       "vs_confidence": 1.3181818181818181,
+       "vs_random": 2.4166666666666665,
+       "vs_expected_random": 2.7684964200477324
+      },
+      "gated": {
+       "bad_capture": 0.26730310262529833,
+       "vs_confidence": 1.2727272727272727,
+       "vs_random": 2.333333333333333,
+       "vs_expected_random": 2.6730310262529833
+      },
+      "regime_switch": {
+       "bad_capture": 0.28162291169451076,
+       "vs_confidence": 1.340909090909091,
+       "vs_random": 2.4583333333333335,
+       "vs_expected_random": 2.8162291169451072
+      },
+      "gated_distance": {
+       "bad_capture": 0.27684964200477324,
+       "vs_confidence": 1.3181818181818181,
+       "vs_random": 2.4166666666666665,
+       "vs_expected_random": 2.7684964200477324
+      },
+      "random": {
+       "bad_capture": 0.11455847255369929,
+       "vs_confidence": 0.5454545454545455,
+       "vs_random": 1.0,
+       "vs_expected_random": 1.1455847255369929
+      },
+      "oracle": {
+       "bad_capture": 0.954653937947494,
+       "vs_confidence": 4.545454545454545,
+       "vs_random": 8.333333333333332,
+       "vs_expected_random": 9.54653937947494
+      }
+     },
+     "ratio_vs_confidence_ci95": {
+      "gated": [
+       1.1212,
+       1.4885
+      ],
+      "regime_switch": [
+       1.1237,
+       1.6338
+      ],
+      "gated_distance": [
+       1.1084,
+       1.6163
+      ],
+      "ood_knn": [
+       1.1146,
+       1.6234
+      ]
+     }
+    },
+    {
+     "auc": 0.7444646457373272,
+     "default_rate": 0.132,
+     "bad_approvals": 485,
+     "bad_approval_rate": 0.12125,
+     "coverage": 0.85725,
+     "review_rate": 0.0095,
+     "ood_flag_rate": 0.2805,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 33,
+     "max_log10_martingale": 260.577,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.21443298969072164,
+       "vs_confidence": 1.0,
+       "vs_random": 2.1224489795918364,
+       "vs_expected_random": 2.1443298969072164
+      },
+      "ood_knn": {
+       "bad_capture": 0.3134020618556701,
+       "vs_confidence": 1.4615384615384617,
+       "vs_random": 3.1020408163265305,
+       "vs_expected_random": 3.134020618556701
+      },
+      "gated": {
+       "bad_capture": 0.2927835051546392,
+       "vs_confidence": 1.3653846153846156,
+       "vs_random": 2.8979591836734695,
+       "vs_expected_random": 2.9278350515463916
+      },
+      "regime_switch": {
+       "bad_capture": 0.30927835051546393,
+       "vs_confidence": 1.4423076923076925,
+       "vs_random": 3.061224489795918,
+       "vs_expected_random": 3.0927835051546393
+      },
+      "gated_distance": {
+       "bad_capture": 0.3134020618556701,
+       "vs_confidence": 1.4615384615384617,
+       "vs_random": 3.1020408163265305,
+       "vs_expected_random": 3.134020618556701
+      },
+      "random": {
+       "bad_capture": 0.10103092783505155,
+       "vs_confidence": 0.4711538461538462,
+       "vs_random": 1.0,
+       "vs_expected_random": 1.0103092783505154
+      },
+      "oracle": {
+       "bad_capture": 0.8247422680412371,
+       "vs_confidence": 3.8461538461538463,
+       "vs_random": 8.16326530612245,
+       "vs_expected_random": 8.24742268041237
+      }
+     }
+    },
+    {
+     "auc": 0.8009643816151041,
+     "default_rate": 0.13075,
+     "bad_approvals": 428,
+     "bad_approval_rate": 0.107,
+     "coverage": 0.86175,
+     "review_rate": 0.0235,
+     "ood_flag_rate": 0.2955,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 8,
+     "max_log10_martingale": 260.577,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.29205607476635514,
+       "vs_confidence": 1.0,
+       "vs_random": 3.2894736842105265,
+       "vs_expected_random": 2.920560747663551
+      },
+      "ood_knn": {
+       "bad_capture": 0.338785046728972,
+       "vs_confidence": 1.16,
+       "vs_random": 3.8157894736842106,
+       "vs_expected_random": 3.3878504672897196
+      },
+      "gated": {
+       "bad_capture": 0.3060747663551402,
+       "vs_confidence": 1.048,
+       "vs_random": 3.447368421052632,
+       "vs_expected_random": 3.060747663551402
+      },
+      "regime_switch": {
+       "bad_capture": 0.3411214953271028,
+       "vs_confidence": 1.168,
+       "vs_random": 3.8421052631578947,
+       "vs_expected_random": 3.4112149532710276
+      },
+      "gated_distance": {
+       "bad_capture": 0.3411214953271028,
+       "vs_confidence": 1.168,
+       "vs_random": 3.8421052631578947,
+       "vs_expected_random": 3.4112149532710276
+      },
+      "random": {
+       "bad_capture": 0.08878504672897196,
+       "vs_confidence": 0.304,
+       "vs_random": 1.0,
+       "vs_expected_random": 0.8878504672897195
+      },
+      "oracle": {
+       "bad_capture": 0.9345794392523364,
+       "vs_confidence": 3.1999999999999997,
+       "vs_random": 10.526315789473685,
+       "vs_expected_random": 9.345794392523365
+      }
+     }
+    },
+    {
+     "auc": 0.7907935820978725,
+     "default_rate": 0.11825,
+     "bad_approvals": 358,
+     "bad_approval_rate": 0.0895,
+     "coverage": 0.86,
+     "review_rate": 0.046,
+     "ood_flag_rate": 0.28325,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 10,
+     "max_log10_martingale": 260.577,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.22346368715083798,
+       "vs_confidence": 1.0,
+       "vs_random": 2.0,
+       "vs_expected_random": 2.2346368715083798
+      },
+      "ood_knn": {
+       "bad_capture": 0.22625698324022347,
+       "vs_confidence": 1.0125000000000002,
+       "vs_random": 2.0250000000000004,
+       "vs_expected_random": 2.2625698324022347
+      },
+      "gated": {
+       "bad_capture": 0.26256983240223464,
+       "vs_confidence": 1.175,
+       "vs_random": 2.35,
+       "vs_expected_random": 2.625698324022346
+      },
+      "regime_switch": {
+       "bad_capture": 0.22625698324022347,
+       "vs_confidence": 1.0125000000000002,
+       "vs_random": 2.0250000000000004,
+       "vs_expected_random": 2.2625698324022347
+      },
+      "gated_distance": {
+       "bad_capture": 0.2206703910614525,
+       "vs_confidence": 0.9875,
+       "vs_random": 1.975,
+       "vs_expected_random": 2.2067039106145248
+      },
+      "random": {
+       "bad_capture": 0.11173184357541899,
+       "vs_confidence": 0.5,
+       "vs_random": 1.0,
+       "vs_expected_random": 1.1173184357541899
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 4.4750000000000005,
+       "vs_random": 8.950000000000001,
+       "vs_expected_random": 10.0
+      }
+     }
+    },
+    {
+     "auc": 0.7772020309536105,
+     "default_rate": 0.12975,
+     "bad_approvals": 419,
+     "bad_approval_rate": 0.10475,
+     "coverage": 0.84325,
+     "review_rate": 0.05225,
+     "ood_flag_rate": 0.52525,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 11,
+     "max_log10_martingale": 260.577,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.23627684964200477,
+       "vs_confidence": 1.0,
+       "vs_random": 2.6052631578947367,
+       "vs_expected_random": 2.3627684964200477
+      },
+      "ood_knn": {
+       "bad_capture": 0.2744630071599045,
+       "vs_confidence": 1.1616161616161615,
+       "vs_random": 3.026315789473684,
+       "vs_expected_random": 2.744630071599045
+      },
+      "gated": {
+       "bad_capture": 0.2553699284009546,
+       "vs_confidence": 1.0808080808080807,
+       "vs_random": 2.81578947368421,
+       "vs_expected_random": 2.553699284009546
+      },
+      "regime_switch": {
+       "bad_capture": 0.26968973747016706,
+       "vs_confidence": 1.1414141414141414,
+       "vs_random": 2.973684210526316,
+       "vs_expected_random": 2.6968973747016705
+      },
+      "gated_distance": {
+       "bad_capture": 0.2720763723150358,
+       "vs_confidence": 1.1515151515151516,
+       "vs_random": 3.0,
+       "vs_expected_random": 2.7207637231503576
+      },
+      "random": {
+       "bad_capture": 0.09069212410501193,
+       "vs_confidence": 0.3838383838383838,
+       "vs_random": 1.0,
+       "vs_expected_random": 0.9069212410501193
+      },
+      "oracle": {
+       "bad_capture": 0.954653937947494,
+       "vs_confidence": 4.040404040404041,
+       "vs_random": 10.526315789473685,
+       "vs_expected_random": 9.54653937947494
+      }
+     }
+    }
+   ],
+   "0.75": [
+    {
+     "auc": 0.731589233443342,
+     "default_rate": 0.1735,
+     "bad_approvals": 554,
+     "bad_approval_rate": 0.1385,
+     "coverage": 0.81475,
+     "review_rate": 0.0345,
+     "ood_flag_rate": 0.38525,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 9,
+     "max_log10_martingale": 260.577,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.19494584837545126,
+       "vs_confidence": 1.0,
+       "vs_random": 2.0,
+       "vs_expected_random": 1.9494584837545126
+      },
+      "ood_knn": {
+       "bad_capture": 0.2364620938628159,
+       "vs_confidence": 1.212962962962963,
+       "vs_random": 2.425925925925926,
+       "vs_expected_random": 2.3646209386281587
+      },
+      "gated": {
+       "bad_capture": 0.22563176895306858,
+       "vs_confidence": 1.1574074074074074,
+       "vs_random": 2.314814814814815,
+       "vs_expected_random": 2.2563176895306856
+      },
+      "regime_switch": {
+       "bad_capture": 0.23826714801444043,
+       "vs_confidence": 1.2222222222222223,
+       "vs_random": 2.4444444444444446,
+       "vs_expected_random": 2.382671480144404
+      },
+      "gated_distance": {
+       "bad_capture": 0.24007220216606498,
+       "vs_confidence": 1.2314814814814814,
+       "vs_random": 2.462962962962963,
+       "vs_expected_random": 2.4007220216606497
+      },
+      "random": {
+       "bad_capture": 0.09747292418772563,
+       "vs_confidence": 0.5,
+       "vs_random": 1.0,
+       "vs_expected_random": 0.9747292418772563
+      },
+      "oracle": {
+       "bad_capture": 0.7220216606498195,
+       "vs_confidence": 3.703703703703704,
+       "vs_random": 7.407407407407408,
+       "vs_expected_random": 7.220216606498195
+      }
+     },
+     "ratio_vs_confidence_ci95": {
+      "gated": [
+       1.0561,
+       1.3191
+      ],
+      "regime_switch": [
+       1.0296,
+       1.4673
+      ],
+      "gated_distance": [
+       1.036,
+       1.4706
+      ],
+      "ood_knn": [
+       1.0312,
+       1.4701
+      ]
+     }
+    },
+    {
+     "auc": 0.7191707535321347,
+     "default_rate": 0.17575,
+     "bad_approvals": 638,
+     "bad_approval_rate": 0.1595,
+     "coverage": 0.8135,
+     "review_rate": 0.0125,
+     "ood_flag_rate": 0.39775,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 6,
+     "max_log10_martingale": 260.577,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.18181818181818182,
+       "vs_confidence": 1.0,
+       "vs_random": 1.8412698412698414,
+       "vs_expected_random": 1.8181818181818181
+      },
+      "ood_knn": {
+       "bad_capture": 0.25862068965517243,
+       "vs_confidence": 1.4224137931034484,
+       "vs_random": 2.619047619047619,
+       "vs_expected_random": 2.586206896551724
+      },
+      "gated": {
+       "bad_capture": 0.22413793103448276,
+       "vs_confidence": 1.2327586206896552,
+       "vs_random": 2.2698412698412698,
+       "vs_expected_random": 2.2413793103448274
+      },
+      "regime_switch": {
+       "bad_capture": 0.2601880877742947,
+       "vs_confidence": 1.4310344827586208,
+       "vs_random": 2.6349206349206353,
+       "vs_expected_random": 2.6018808777429467
+      },
+      "gated_distance": {
+       "bad_capture": 0.25862068965517243,
+       "vs_confidence": 1.4224137931034484,
+       "vs_random": 2.619047619047619,
+       "vs_expected_random": 2.586206896551724
+      },
+      "random": {
+       "bad_capture": 0.0987460815047022,
+       "vs_confidence": 0.5431034482758621,
+       "vs_random": 1.0,
+       "vs_expected_random": 0.9874608150470219
+      },
+      "oracle": {
+       "bad_capture": 0.6269592476489029,
+       "vs_confidence": 3.4482758620689657,
+       "vs_random": 6.34920634920635,
+       "vs_expected_random": 6.269592476489028
+      }
+     }
+    },
+    {
+     "auc": 0.7756513786841446,
+     "default_rate": 0.174,
+     "bad_approvals": 565,
+     "bad_approval_rate": 0.14125,
+     "coverage": 0.82175,
+     "review_rate": 0.0285,
+     "ood_flag_rate": 0.41725,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 7,
+     "max_log10_martingale": 260.577,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.215929203539823,
+       "vs_confidence": 1.0,
+       "vs_random": 2.0,
+       "vs_expected_random": 2.15929203539823
+      },
+      "ood_knn": {
+       "bad_capture": 0.26194690265486725,
+       "vs_confidence": 1.2131147540983607,
+       "vs_random": 2.4262295081967213,
+       "vs_expected_random": 2.619469026548672
+      },
+      "gated": {
+       "bad_capture": 0.2424778761061947,
+       "vs_confidence": 1.1229508196721312,
+       "vs_random": 2.2459016393442623,
+       "vs_expected_random": 2.4247787610619467
+      },
+      "regime_switch": {
+       "bad_capture": 0.26194690265486725,
+       "vs_confidence": 1.2131147540983607,
+       "vs_random": 2.4262295081967213,
+       "vs_expected_random": 2.619469026548672
+      },
+      "gated_distance": {
+       "bad_capture": 0.26017699115044246,
+       "vs_confidence": 1.2049180327868851,
+       "vs_random": 2.4098360655737703,
+       "vs_expected_random": 2.6017699115044244
+      },
+      "random": {
+       "bad_capture": 0.1079646017699115,
+       "vs_confidence": 0.5,
+       "vs_random": 1.0,
+       "vs_expected_random": 1.079646017699115
+      },
+      "oracle": {
+       "bad_capture": 0.7079646017699115,
+       "vs_confidence": 3.278688524590164,
+       "vs_random": 6.557377049180328,
+       "vs_expected_random": 7.0796460176991145
+      }
+     }
+    },
+    {
+     "auc": 0.7606569573172657,
+     "default_rate": 0.16325,
+     "bad_approvals": 498,
+     "bad_approval_rate": 0.1245,
+     "coverage": 0.81,
+     "review_rate": 0.0595,
+     "ood_flag_rate": 0.3955,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 9,
+     "max_log10_martingale": 260.577,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.16666666666666666,
+       "vs_confidence": 1.0,
+       "vs_random": 1.537037037037037,
+       "vs_expected_random": 1.6666666666666665
+      },
+      "ood_knn": {
+       "bad_capture": 0.18473895582329317,
+       "vs_confidence": 1.108433734939759,
+       "vs_random": 1.7037037037037035,
+       "vs_expected_random": 1.8473895582329316
+      },
+      "gated": {
+       "bad_capture": 0.20080321285140562,
+       "vs_confidence": 1.2048192771084338,
+       "vs_random": 1.8518518518518519,
+       "vs_expected_random": 2.008032128514056
+      },
+      "regime_switch": {
+       "bad_capture": 0.18072289156626506,
+       "vs_confidence": 1.0843373493975905,
+       "vs_random": 1.6666666666666665,
+       "vs_expected_random": 1.8072289156626504
+      },
+      "gated_distance": {
+       "bad_capture": 0.18072289156626506,
+       "vs_confidence": 1.0843373493975905,
+       "vs_random": 1.6666666666666665,
+       "vs_expected_random": 1.8072289156626504
+      },
+      "random": {
+       "bad_capture": 0.10843373493975904,
+       "vs_confidence": 0.6506024096385543,
+       "vs_random": 1.0,
+       "vs_expected_random": 1.0843373493975903
+      },
+      "oracle": {
+       "bad_capture": 0.8032128514056225,
+       "vs_confidence": 4.819277108433735,
+       "vs_random": 7.407407407407407,
+       "vs_expected_random": 8.032128514056224
+      }
+     }
+    },
+    {
+     "auc": 0.7410265020646046,
+     "default_rate": 0.17025,
+     "bad_approvals": 547,
+     "bad_approval_rate": 0.13675,
+     "coverage": 0.798,
+     "review_rate": 0.06575,
+     "ood_flag_rate": 0.76175,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 6,
+     "max_log10_martingale": 260.577,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.17550274223034734,
+       "vs_confidence": 1.0,
+       "vs_random": 1.8113207547169812,
+       "vs_expected_random": 1.7550274223034734
+      },
+      "ood_knn": {
+       "bad_capture": 0.20109689213893966,
+       "vs_confidence": 1.1458333333333333,
+       "vs_random": 2.0754716981132075,
+       "vs_expected_random": 2.0109689213893964
+      },
+      "gated": {
+       "bad_capture": 0.19012797074954296,
+       "vs_confidence": 1.0833333333333335,
+       "vs_random": 1.9622641509433962,
+       "vs_expected_random": 1.9012797074954295
+      },
+      "regime_switch": {
+       "bad_capture": 0.20109689213893966,
+       "vs_confidence": 1.1458333333333333,
+       "vs_random": 2.0754716981132075,
+       "vs_expected_random": 2.0109689213893964
+      },
+      "gated_distance": {
+       "bad_capture": 0.20109689213893966,
+       "vs_confidence": 1.1458333333333333,
+       "vs_random": 2.0754716981132075,
+       "vs_expected_random": 2.0109689213893964
+      },
+      "random": {
+       "bad_capture": 0.09689213893967093,
+       "vs_confidence": 0.5520833333333334,
+       "vs_random": 1.0,
+       "vs_expected_random": 0.9689213893967092
+      },
+      "oracle": {
+       "bad_capture": 0.7312614259597806,
+       "vs_confidence": 4.166666666666667,
+       "vs_random": 7.547169811320755,
+       "vs_expected_random": 7.312614259597805
+      }
+     }
+    }
+   ],
+   "1.0": [
+    {
+     "auc": 0.7134757297953794,
+     "default_rate": 0.20975,
+     "bad_approvals": 658,
+     "bad_approval_rate": 0.1645,
+     "coverage": 0.77825,
+     "review_rate": 0.04225,
+     "ood_flag_rate": 0.511,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 4,
+     "max_log10_martingale": 260.577,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.15501519756838905,
+       "vs_confidence": 1.0,
+       "vs_random": 1.3972602739726028,
+       "vs_expected_random": 1.5501519756838904
+      },
+      "ood_knn": {
+       "bad_capture": 0.20516717325227962,
+       "vs_confidence": 1.3235294117647058,
+       "vs_random": 1.8493150684931505,
+       "vs_expected_random": 2.051671732522796
+      },
+      "gated": {
+       "bad_capture": 0.16717325227963525,
+       "vs_confidence": 1.0784313725490196,
+       "vs_random": 1.5068493150684932,
+       "vs_expected_random": 1.6717325227963524
+      },
+      "regime_switch": {
+       "bad_capture": 0.20364741641337386,
+       "vs_confidence": 1.3137254901960784,
+       "vs_random": 1.8356164383561644,
+       "vs_expected_random": 2.0364741641337383
+      },
+      "gated_distance": {
+       "bad_capture": 0.20516717325227962,
+       "vs_confidence": 1.3235294117647058,
+       "vs_random": 1.8493150684931505,
+       "vs_expected_random": 2.051671732522796
+      },
+      "random": {
+       "bad_capture": 0.11094224924012158,
+       "vs_confidence": 0.7156862745098039,
+       "vs_random": 1.0,
+       "vs_expected_random": 1.1094224924012157
+      },
+      "oracle": {
+       "bad_capture": 0.60790273556231,
+       "vs_confidence": 3.9215686274509802,
+       "vs_random": 5.47945205479452,
+       "vs_expected_random": 6.0790273556231
+      }
+     },
+     "ratio_vs_confidence_ci95": {
+      "gated": [
+       0.9912,
+       1.2046
+      ],
+      "regime_switch": [
+       1.1091,
+       1.5808
+      ],
+      "gated_distance": [
+       1.1166,
+       1.5956
+      ],
+      "ood_knn": [
+       1.1008,
+       1.5909
+      ]
+     }
+    },
+    {
+     "auc": 0.6941087973129701,
+     "default_rate": 0.2135,
+     "bad_approvals": 780,
+     "bad_approval_rate": 0.195,
+     "coverage": 0.774,
+     "review_rate": 0.0145,
+     "ood_flag_rate": 0.51925,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 4,
+     "max_log10_martingale": 260.577,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.16282051282051282,
+       "vs_confidence": 1.0,
+       "vs_random": 1.6075949367088609,
+       "vs_expected_random": 1.6282051282051282
+      },
+      "ood_knn": {
+       "bad_capture": 0.23461538461538461,
+       "vs_confidence": 1.4409448818897637,
+       "vs_random": 2.3164556962025316,
+       "vs_expected_random": 2.346153846153846
+      },
+      "gated": {
+       "bad_capture": 0.18076923076923077,
+       "vs_confidence": 1.110236220472441,
+       "vs_random": 1.7848101265822784,
+       "vs_expected_random": 1.8076923076923075
+      },
+      "regime_switch": {
+       "bad_capture": 0.23205128205128206,
+       "vs_confidence": 1.4251968503937007,
+       "vs_random": 2.2911392405063293,
+       "vs_expected_random": 2.3205128205128203
+      },
+      "gated_distance": {
+       "bad_capture": 0.23076923076923078,
+       "vs_confidence": 1.4173228346456694,
+       "vs_random": 2.278481012658228,
+       "vs_expected_random": 2.3076923076923075
+      },
+      "random": {
+       "bad_capture": 0.10128205128205128,
+       "vs_confidence": 0.6220472440944882,
+       "vs_random": 1.0,
+       "vs_expected_random": 1.0128205128205128
+      },
+      "oracle": {
+       "bad_capture": 0.5128205128205128,
+       "vs_confidence": 3.149606299212598,
+       "vs_random": 5.063291139240506,
+       "vs_expected_random": 5.128205128205128
+      }
+     }
+    },
+    {
+     "auc": 0.7351330977826818,
+     "default_rate": 0.21975,
+     "bad_approvals": 720,
+     "bad_approval_rate": 0.18,
+     "coverage": 0.77425,
+     "review_rate": 0.034,
+     "ood_flag_rate": 0.52975,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 8,
+     "max_log10_martingale": 260.577,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.18194444444444444,
+       "vs_confidence": 1.0,
+       "vs_random": 1.9264705882352942,
+       "vs_expected_random": 1.8194444444444442
+      },
+      "ood_knn": {
+       "bad_capture": 0.19583333333333333,
+       "vs_confidence": 1.0763358778625955,
+       "vs_random": 2.073529411764706,
+       "vs_expected_random": 1.9583333333333333
+      },
+      "gated": {
+       "bad_capture": 0.18888888888888888,
+       "vs_confidence": 1.0381679389312977,
+       "vs_random": 2.0,
+       "vs_expected_random": 1.8888888888888888
+      },
+      "regime_switch": {
+       "bad_capture": 0.19027777777777777,
+       "vs_confidence": 1.0458015267175573,
+       "vs_random": 2.014705882352941,
+       "vs_expected_random": 1.9027777777777777
+      },
+      "gated_distance": {
+       "bad_capture": 0.1986111111111111,
+       "vs_confidence": 1.0916030534351144,
+       "vs_random": 2.1029411764705883,
+       "vs_expected_random": 1.986111111111111
+      },
+      "random": {
+       "bad_capture": 0.09444444444444444,
+       "vs_confidence": 0.5190839694656488,
+       "vs_random": 1.0,
+       "vs_expected_random": 0.9444444444444444
+      },
+      "oracle": {
+       "bad_capture": 0.5555555555555556,
+       "vs_confidence": 3.053435114503817,
+       "vs_random": 5.882352941176471,
+       "vs_expected_random": 5.555555555555555
+      }
+     }
+    },
+    {
+     "auc": 0.7328594626377514,
+     "default_rate": 0.2055,
+     "bad_approvals": 627,
+     "bad_approval_rate": 0.15675,
+     "coverage": 0.762,
+     "review_rate": 0.07325,
+     "ood_flag_rate": 0.5085,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 6,
+     "max_log10_martingale": 260.577,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.14832535885167464,
+       "vs_confidence": 1.0,
+       "vs_random": 1.2077922077922079,
+       "vs_expected_random": 1.4832535885167464
+      },
+      "ood_knn": {
+       "bad_capture": 0.1339712918660287,
+       "vs_confidence": 0.903225806451613,
+       "vs_random": 1.090909090909091,
+       "vs_expected_random": 1.339712918660287
+      },
+      "gated": {
+       "bad_capture": 0.15311004784688995,
+       "vs_confidence": 1.032258064516129,
+       "vs_random": 1.2467532467532467,
+       "vs_expected_random": 1.5311004784688993
+      },
+      "regime_switch": {
+       "bad_capture": 0.13078149920255183,
+       "vs_confidence": 0.8817204301075269,
+       "vs_random": 1.064935064935065,
+       "vs_expected_random": 1.3078149920255182
+      },
+      "gated_distance": {
+       "bad_capture": 0.1371610845295056,
+       "vs_confidence": 0.924731182795699,
+       "vs_random": 1.116883116883117,
+       "vs_expected_random": 1.371610845295056
+      },
+      "random": {
+       "bad_capture": 0.12280701754385964,
+       "vs_confidence": 0.8279569892473118,
+       "vs_random": 1.0,
+       "vs_expected_random": 1.2280701754385963
+      },
+      "oracle": {
+       "bad_capture": 0.6379585326953748,
+       "vs_confidence": 4.301075268817205,
+       "vs_random": 5.194805194805196,
+       "vs_expected_random": 6.379585326953748
+      }
+     }
+    },
+    {
+     "auc": 0.7165544749660046,
+     "default_rate": 0.20775,
+     "bad_approvals": 660,
+     "bad_approval_rate": 0.165,
+     "coverage": 0.7535,
+     "review_rate": 0.08125,
+     "ood_flag_rate": 1.0,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 5,
+     "max_log10_martingale": 260.577,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.14242424242424243,
+       "vs_confidence": 1.0,
+       "vs_random": 1.189873417721519,
+       "vs_expected_random": 1.424242424242424
+      },
+      "ood_knn": {
+       "bad_capture": 0.17424242424242425,
+       "vs_confidence": 1.223404255319149,
+       "vs_random": 1.4556962025316458,
+       "vs_expected_random": 1.7424242424242424
+      },
+      "gated": {
+       "bad_capture": 0.14545454545454545,
+       "vs_confidence": 1.0212765957446808,
+       "vs_random": 1.2151898734177216,
+       "vs_expected_random": 1.4545454545454544
+      },
+      "regime_switch": {
+       "bad_capture": 0.1712121212121212,
+       "vs_confidence": 1.202127659574468,
+       "vs_random": 1.4303797468354431,
+       "vs_expected_random": 1.712121212121212
+      },
+      "gated_distance": {
+       "bad_capture": 0.1787878787878788,
+       "vs_confidence": 1.2553191489361704,
+       "vs_random": 1.4936708860759496,
+       "vs_expected_random": 1.7878787878787878
+      },
+      "random": {
+       "bad_capture": 0.11969696969696969,
+       "vs_confidence": 0.8404255319148936,
+       "vs_random": 1.0,
+       "vs_expected_random": 1.1969696969696968
+      },
+      "oracle": {
+       "bad_capture": 0.6060606060606061,
+       "vs_confidence": 4.25531914893617,
+       "vs_random": 5.063291139240507,
+       "vs_expected_random": 6.0606060606060606
+      }
+     }
+    }
+   ]
+  },
+  "corruption": {
+   "0.05": [
+    {
+     "auc": 0.7052961471319982,
+     "default_rate": 0.04275,
+     "bad_approvals": 151,
+     "bad_approval_rate": 0.03775,
+     "coverage": 0.9515,
+     "review_rate": 0.00875,
+     "ood_flag_rate": 0.10175,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 159,
+     "max_log10_martingale": 103.403,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.2251655629139073,
+       "vs_confidence": 1.0,
+       "vs_random": 2.428571428571429,
+       "vs_expected_random": 2.251655629139073,
+       "corrupted_caught": 0.025
+      },
+      "ood_knn": {
+       "bad_capture": 0.2582781456953642,
+       "vs_confidence": 1.1470588235294117,
+       "vs_random": 2.7857142857142856,
+       "vs_expected_random": 2.5827814569536423,
+       "corrupted_caught": 0.95
+      },
+      "gated": {
+       "bad_capture": 0.2582781456953642,
+       "vs_confidence": 1.1470588235294117,
+       "vs_random": 2.7857142857142856,
+       "vs_expected_random": 2.5827814569536423,
+       "corrupted_caught": 0.95
+      },
+      "regime_switch": {
+       "bad_capture": 0.24503311258278146,
+       "vs_confidence": 1.088235294117647,
+       "vs_random": 2.642857142857143,
+       "vs_expected_random": 2.4503311258278146,
+       "corrupted_caught": 0.93
+      },
+      "gated_distance": {
+       "bad_capture": 0.2582781456953642,
+       "vs_confidence": 1.1470588235294117,
+       "vs_random": 2.7857142857142856,
+       "vs_expected_random": 2.5827814569536423,
+       "corrupted_caught": 0.95
+      },
+      "random": {
+       "bad_capture": 0.09271523178807947,
+       "vs_confidence": 0.4117647058823529,
+       "vs_random": 1.0,
+       "vs_expected_random": 0.9271523178807947,
+       "corrupted_caught": 0.065
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 4.441176470588235,
+       "vs_random": 10.785714285714285,
+       "vs_expected_random": 10.0,
+       "corrupted_caught": 0.11
+      }
+     },
+     "ratio_vs_confidence_ci95": {
+      "gated": [
+       0.7551,
+       1.6667
+      ],
+      "regime_switch": [
+       0.7179,
+       1.6155
+      ],
+      "gated_distance": [
+       0.7568,
+       1.6786
+      ],
+      "ood_knn": [
+       0.7632,
+       1.7
+      ]
+     }
+    },
+    {
+     "auc": 0.7635113114903489,
+     "default_rate": 0.04225,
+     "bad_approvals": 162,
+     "bad_approval_rate": 0.0405,
+     "coverage": 0.95075,
+     "review_rate": 0.00575,
+     "ood_flag_rate": 0.0875,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 76,
+     "max_log10_martingale": 75.226,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.32098765432098764,
+       "vs_confidence": 1.0,
+       "vs_random": 4.333333333333333,
+       "vs_expected_random": 3.209876543209876,
+       "corrupted_caught": 0.14
+      },
+      "ood_knn": {
+       "bad_capture": 0.2839506172839506,
+       "vs_confidence": 0.8846153846153846,
+       "vs_random": 3.8333333333333335,
+       "vs_expected_random": 2.839506172839506,
+       "corrupted_caught": 0.925
+      },
+      "gated": {
+       "bad_capture": 0.2654320987654321,
+       "vs_confidence": 0.826923076923077,
+       "vs_random": 3.583333333333334,
+       "vs_expected_random": 2.654320987654321,
+       "corrupted_caught": 0.915
+      },
+      "regime_switch": {
+       "bad_capture": 0.2777777777777778,
+       "vs_confidence": 0.8653846153846154,
+       "vs_random": 3.7500000000000004,
+       "vs_expected_random": 2.7777777777777777,
+       "corrupted_caught": 0.905
+      },
+      "gated_distance": {
+       "bad_capture": 0.2654320987654321,
+       "vs_confidence": 0.826923076923077,
+       "vs_random": 3.583333333333334,
+       "vs_expected_random": 2.654320987654321,
+       "corrupted_caught": 0.915
+      },
+      "random": {
+       "bad_capture": 0.07407407407407407,
+       "vs_confidence": 0.23076923076923078,
+       "vs_random": 1.0,
+       "vs_expected_random": 0.7407407407407407,
+       "corrupted_caught": 0.1
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 3.1153846153846154,
+       "vs_random": 13.5,
+       "vs_expected_random": 10.0,
+       "corrupted_caught": 0.095
+      }
+     }
+    },
+    {
+     "auc": 0.8044690686459067,
+     "default_rate": 0.04175,
+     "bad_approvals": 151,
+     "bad_approval_rate": 0.03775,
+     "coverage": 0.9515,
+     "review_rate": 0.006,
+     "ood_flag_rate": 0.1015,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 31,
+     "max_log10_martingale": 101.626,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.40397350993377484,
+       "vs_confidence": 1.0,
+       "vs_random": 3.388888888888889,
+       "vs_expected_random": 4.039735099337748,
+       "corrupted_caught": 0.04
+      },
+      "ood_knn": {
+       "bad_capture": 0.2251655629139073,
+       "vs_confidence": 0.5573770491803279,
+       "vs_random": 1.888888888888889,
+       "vs_expected_random": 2.251655629139073,
+       "corrupted_caught": 0.96
+      },
+      "gated": {
+       "bad_capture": 0.23178807947019867,
+       "vs_confidence": 0.5737704918032787,
+       "vs_random": 1.9444444444444444,
+       "vs_expected_random": 2.3178807947019866,
+       "corrupted_caught": 0.96
+      },
+      "regime_switch": {
+       "bad_capture": 0.23178807947019867,
+       "vs_confidence": 0.5737704918032787,
+       "vs_random": 1.9444444444444444,
+       "vs_expected_random": 2.3178807947019866,
+       "corrupted_caught": 0.955
+      },
+      "gated_distance": {
+       "bad_capture": 0.2251655629139073,
+       "vs_confidence": 0.5573770491803279,
+       "vs_random": 1.888888888888889,
+       "vs_expected_random": 2.251655629139073,
+       "corrupted_caught": 0.96
+      },
+      "random": {
+       "bad_capture": 0.11920529801324503,
+       "vs_confidence": 0.29508196721311475,
+       "vs_random": 1.0,
+       "vs_expected_random": 1.1920529801324502,
+       "corrupted_caught": 0.09
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 2.4754098360655736,
+       "vs_random": 8.38888888888889,
+       "vs_expected_random": 10.0,
+       "corrupted_caught": 0.095
+      }
+     }
+    },
+    {
+     "auc": 0.7250926531502071,
+     "default_rate": 0.03475,
+     "bad_approvals": 124,
+     "bad_approval_rate": 0.031,
+     "coverage": 0.9545,
+     "review_rate": 0.01425,
+     "ood_flag_rate": 0.093,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 44,
+     "max_log10_martingale": 76.975,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.3225806451612903,
+       "vs_confidence": 1.0,
+       "vs_random": 4.444444444444444,
+       "vs_expected_random": 3.225806451612903,
+       "corrupted_caught": 0.01
+      },
+      "ood_knn": {
+       "bad_capture": 0.23387096774193547,
+       "vs_confidence": 0.725,
+       "vs_random": 3.222222222222222,
+       "vs_expected_random": 2.3387096774193545,
+       "corrupted_caught": 0.97
+      },
+      "gated": {
+       "bad_capture": 0.24193548387096775,
+       "vs_confidence": 0.75,
+       "vs_random": 3.333333333333333,
+       "vs_expected_random": 2.4193548387096775,
+       "corrupted_caught": 0.97
+      },
+      "regime_switch": {
+       "bad_capture": 0.23387096774193547,
+       "vs_confidence": 0.725,
+       "vs_random": 3.222222222222222,
+       "vs_expected_random": 2.3387096774193545,
+       "corrupted_caught": 0.955
+      },
+      "gated_distance": {
+       "bad_capture": 0.24193548387096775,
+       "vs_confidence": 0.75,
+       "vs_random": 3.333333333333333,
+       "vs_expected_random": 2.4193548387096775,
+       "corrupted_caught": 0.97
+      },
+      "random": {
+       "bad_capture": 0.07258064516129033,
+       "vs_confidence": 0.22500000000000003,
+       "vs_random": 1.0,
+       "vs_expected_random": 0.7258064516129032,
+       "corrupted_caught": 0.13
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 3.1,
+       "vs_random": 13.777777777777777,
+       "vs_expected_random": 10.0,
+       "corrupted_caught": 0.095
+      }
+     }
+    },
+    {
+     "auc": 0.7624889989409152,
+     "default_rate": 0.03925,
+     "bad_approvals": 147,
+     "bad_approval_rate": 0.03675,
+     "coverage": 0.94675,
+     "review_rate": 0.016,
+     "ood_flag_rate": 0.09775,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 3,
+     "max_log10_martingale": 45.025,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.3197278911564626,
+       "vs_confidence": 1.0,
+       "vs_random": 2.611111111111111,
+       "vs_expected_random": 3.197278911564626,
+       "corrupted_caught": 0.015
+      },
+      "ood_knn": {
+       "bad_capture": 0.2585034013605442,
+       "vs_confidence": 0.8085106382978723,
+       "vs_random": 2.111111111111111,
+       "vs_expected_random": 2.585034013605442,
+       "corrupted_caught": 0.96
+      },
+      "gated": {
+       "bad_capture": 0.25170068027210885,
+       "vs_confidence": 0.7872340425531914,
+       "vs_random": 2.055555555555556,
+       "vs_expected_random": 2.517006802721088,
+       "corrupted_caught": 0.96
+      },
+      "regime_switch": {
+       "bad_capture": 0.2585034013605442,
+       "vs_confidence": 0.8085106382978723,
+       "vs_random": 2.111111111111111,
+       "vs_expected_random": 2.585034013605442,
+       "corrupted_caught": 0.96
+      },
+      "gated_distance": {
+       "bad_capture": 0.25170068027210885,
+       "vs_confidence": 0.7872340425531914,
+       "vs_random": 2.055555555555556,
+       "vs_expected_random": 2.517006802721088,
+       "corrupted_caught": 0.96
+      },
+      "random": {
+       "bad_capture": 0.12244897959183673,
+       "vs_confidence": 0.38297872340425526,
+       "vs_random": 1.0,
+       "vs_expected_random": 1.2244897959183672,
+       "corrupted_caught": 0.095
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 3.127659574468085,
+       "vs_random": 8.166666666666666,
+       "vs_expected_random": 10.0,
+       "corrupted_caught": 0.11
+      }
+     }
+    }
+   ],
+   "0.1": [
+    {
+     "auc": 0.7156892841488242,
+     "default_rate": 0.04275,
+     "bad_approvals": 150,
+     "bad_approval_rate": 0.0375,
+     "coverage": 0.95175,
+     "review_rate": 0.00925,
+     "ood_flag_rate": 0.14775,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 59,
+     "max_log10_martingale": 260.577,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.24,
+       "vs_confidence": 1.0,
+       "vs_random": 2.571428571428571,
+       "vs_expected_random": 2.4,
+       "corrupted_caught": 0.035
+      },
+      "ood_knn": {
+       "bad_capture": 0.1,
+       "vs_confidence": 0.4166666666666667,
+       "vs_random": 1.0714285714285714,
+       "vs_expected_random": 1.0,
+       "corrupted_caught": 0.9225
+      },
+      "gated": {
+       "bad_capture": 0.14666666666666667,
+       "vs_confidence": 0.6111111111111112,
+       "vs_random": 1.5714285714285714,
+       "vs_expected_random": 1.4666666666666666,
+       "corrupted_caught": 0.82
+      },
+      "regime_switch": {
+       "bad_capture": 0.1,
+       "vs_confidence": 0.4166666666666667,
+       "vs_random": 1.0714285714285714,
+       "vs_expected_random": 1.0,
+       "corrupted_caught": 0.9175
+      },
+      "gated_distance": {
+       "bad_capture": 0.1,
+       "vs_confidence": 0.4166666666666667,
+       "vs_random": 1.0714285714285714,
+       "vs_expected_random": 1.0,
+       "corrupted_caught": 0.9225
+      },
+      "random": {
+       "bad_capture": 0.09333333333333334,
+       "vs_confidence": 0.3888888888888889,
+       "vs_random": 1.0,
+       "vs_expected_random": 0.9333333333333333,
+       "corrupted_caught": 0.095
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 4.166666666666667,
+       "vs_random": 10.714285714285714,
+       "vs_expected_random": 10.0,
+       "corrupted_caught": 0.095
+      }
+     },
+     "ratio_vs_confidence_ci95": {
+      "gated": [
+       0.3889,
+       0.9334
+      ],
+      "regime_switch": [
+       0.204,
+       0.7407
+      ],
+      "gated_distance": [
+       0.1961,
+       0.7308
+      ],
+      "ood_knn": [
+       0.2,
+       0.7308
+      ]
+     }
+    },
+    {
+     "auc": 0.7663996144810553,
+     "default_rate": 0.04225,
+     "bad_approvals": 163,
+     "bad_approval_rate": 0.04075,
+     "coverage": 0.952,
+     "review_rate": 0.0045,
+     "ood_flag_rate": 0.13625,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 21,
+     "max_log10_martingale": 260.577,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.32515337423312884,
+       "vs_confidence": 1.0,
+       "vs_random": 4.416666666666666,
+       "vs_expected_random": 3.2515337423312882,
+       "corrupted_caught": 0.1125
+      },
+      "ood_knn": {
+       "bad_capture": 0.15950920245398773,
+       "vs_confidence": 0.490566037735849,
+       "vs_random": 2.1666666666666665,
+       "vs_expected_random": 1.5950920245398772,
+       "corrupted_caught": 0.935
+      },
+      "gated": {
+       "bad_capture": 0.2331288343558282,
+       "vs_confidence": 0.7169811320754716,
+       "vs_random": 3.166666666666666,
+       "vs_expected_random": 2.331288343558282,
+       "corrupted_caught": 0.845
+      },
+      "regime_switch": {
+       "bad_capture": 0.15950920245398773,
+       "vs_confidence": 0.490566037735849,
+       "vs_random": 2.1666666666666665,
+       "vs_expected_random": 1.5950920245398772,
+       "corrupted_caught": 0.9325
+      },
+      "gated_distance": {
+       "bad_capture": 0.1656441717791411,
+       "vs_confidence": 0.5094339622641509,
+       "vs_random": 2.2499999999999996,
+       "vs_expected_random": 1.6564417177914108,
+       "corrupted_caught": 0.935
+      },
+      "random": {
+       "bad_capture": 0.0736196319018405,
+       "vs_confidence": 0.22641509433962265,
+       "vs_random": 1.0,
+       "vs_expected_random": 0.7361963190184049,
+       "corrupted_caught": 0.1025
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 3.0754716981132075,
+       "vs_random": 13.583333333333332,
+       "vs_expected_random": 10.0,
+       "corrupted_caught": 0.0875
+      }
+     }
+    },
+    {
+     "auc": 0.801757039013546,
+     "default_rate": 0.04175,
+     "bad_approvals": 154,
+     "bad_approval_rate": 0.0385,
+     "coverage": 0.95125,
+     "review_rate": 0.00625,
+     "ood_flag_rate": 0.1465,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 19,
+     "max_log10_martingale": 260.577,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.4025974025974026,
+       "vs_confidence": 1.0,
+       "vs_random": 3.4444444444444446,
+       "vs_expected_random": 4.025974025974026,
+       "corrupted_caught": 0.055
+      },
+      "ood_knn": {
+       "bad_capture": 0.07792207792207792,
+       "vs_confidence": 0.1935483870967742,
+       "vs_random": 0.6666666666666666,
+       "vs_expected_random": 0.7792207792207791,
+       "corrupted_caught": 0.935
+      },
+      "gated": {
+       "bad_capture": 0.18181818181818182,
+       "vs_confidence": 0.45161290322580644,
+       "vs_random": 1.5555555555555556,
+       "vs_expected_random": 1.8181818181818181,
+       "corrupted_caught": 0.83
+      },
+      "regime_switch": {
+       "bad_capture": 0.07792207792207792,
+       "vs_confidence": 0.1935483870967742,
+       "vs_random": 0.6666666666666666,
+       "vs_expected_random": 0.7792207792207791,
+       "corrupted_caught": 0.9325
+      },
+      "gated_distance": {
+       "bad_capture": 0.07142857142857142,
+       "vs_confidence": 0.17741935483870966,
+       "vs_random": 0.611111111111111,
+       "vs_expected_random": 0.7142857142857142,
+       "corrupted_caught": 0.935
+      },
+      "random": {
+       "bad_capture": 0.11688311688311688,
+       "vs_confidence": 0.29032258064516125,
+       "vs_random": 1.0,
+       "vs_expected_random": 1.1688311688311688,
+       "corrupted_caught": 0.0975
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 2.4838709677419355,
+       "vs_random": 8.555555555555555,
+       "vs_expected_random": 10.0,
+       "corrupted_caught": 0.09
+      }
+     }
+    },
+    {
+     "auc": 0.7125618852237559,
+     "default_rate": 0.03475,
+     "bad_approvals": 126,
+     "bad_approval_rate": 0.0315,
+     "coverage": 0.95325,
+     "review_rate": 0.015,
+     "ood_flag_rate": 0.13625,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 9,
+     "max_log10_martingale": 253.548,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.30158730158730157,
+       "vs_confidence": 1.0,
+       "vs_random": 4.222222222222222,
+       "vs_expected_random": 3.0158730158730154,
+       "corrupted_caught": 0.015
+      },
+      "ood_knn": {
+       "bad_capture": 0.14285714285714285,
+       "vs_confidence": 0.47368421052631576,
+       "vs_random": 2.0,
+       "vs_expected_random": 1.4285714285714284,
+       "corrupted_caught": 0.915
+      },
+      "gated": {
+       "bad_capture": 0.23809523809523808,
+       "vs_confidence": 0.7894736842105263,
+       "vs_random": 3.3333333333333335,
+       "vs_expected_random": 2.3809523809523805,
+       "corrupted_caught": 0.8175
+      },
+      "regime_switch": {
+       "bad_capture": 0.14285714285714285,
+       "vs_confidence": 0.47368421052631576,
+       "vs_random": 2.0,
+       "vs_expected_random": 1.4285714285714284,
+       "corrupted_caught": 0.9125
+      },
+      "gated_distance": {
+       "bad_capture": 0.14285714285714285,
+       "vs_confidence": 0.47368421052631576,
+       "vs_random": 2.0,
+       "vs_expected_random": 1.4285714285714284,
+       "corrupted_caught": 0.915
+      },
+      "random": {
+       "bad_capture": 0.07142857142857142,
+       "vs_confidence": 0.23684210526315788,
+       "vs_random": 1.0,
+       "vs_expected_random": 0.7142857142857142,
+       "corrupted_caught": 0.1025
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 3.3157894736842106,
+       "vs_random": 14.0,
+       "vs_expected_random": 10.0,
+       "corrupted_caught": 0.1125
+      }
+     }
+    },
+    {
+     "auc": 0.7521127834378329,
+     "default_rate": 0.03925,
+     "bad_approvals": 146,
+     "bad_approval_rate": 0.0365,
+     "coverage": 0.94675,
+     "review_rate": 0.01625,
+     "ood_flag_rate": 0.14125,
+     "alarm": true,
+     "watch_or_alarm": true,
+     "first_alarm_at": 3,
+     "max_log10_martingale": 164.471,
+     "signals": {
+      "msp": {
+       "bad_capture": 0.3424657534246575,
+       "vs_confidence": 1.0,
+       "vs_random": 2.7777777777777777,
+       "vs_expected_random": 3.424657534246575,
+       "corrupted_caught": 0.0175
+      },
+      "ood_knn": {
+       "bad_capture": 0.2054794520547945,
+       "vs_confidence": 0.6,
+       "vs_random": 1.6666666666666667,
+       "vs_expected_random": 2.054794520547945,
+       "corrupted_caught": 0.9025
+      },
+      "gated": {
+       "bad_capture": 0.23972602739726026,
+       "vs_confidence": 0.7,
+       "vs_random": 1.9444444444444444,
+       "vs_expected_random": 2.3972602739726026,
+       "corrupted_caught": 0.8
+      },
+      "regime_switch": {
+       "bad_capture": 0.2054794520547945,
+       "vs_confidence": 0.6,
+       "vs_random": 1.6666666666666667,
+       "vs_expected_random": 2.054794520547945,
+       "corrupted_caught": 0.9025
+      },
+      "gated_distance": {
+       "bad_capture": 0.2054794520547945,
+       "vs_confidence": 0.6,
+       "vs_random": 1.6666666666666667,
+       "vs_expected_random": 2.054794520547945,
+       "corrupted_caught": 0.9025
+      },
+      "random": {
+       "bad_capture": 0.1232876712328767,
+       "vs_confidence": 0.36,
+       "vs_random": 1.0,
+       "vs_expected_random": 1.232876712328767,
+       "corrupted_caught": 0.075
+      },
+      "oracle": {
+       "bad_capture": 1.0,
+       "vs_confidence": 2.9200000000000004,
+       "vs_random": 8.11111111111111,
+       "vs_expected_random": 10.0,
+       "corrupted_caught": 0.1075
+      }
+     }
+    }
+   ]
+  },
+  "iid_auc": [
+   0.8149205333333334,
+   0.8072009762050031,
+   0.8057236656130342,
+   0.7968808713270843,
+   0.7802836879432624
+  ]
+ },
+ "verdict": {
+  "iid_control_auc": 0.801,
+  "calm": {
+   "coverage": 0.9506,
+   "review_rate": 0.0108,
+   "auc": 0.7577
+  },
+  "moderate": {
+   "0.25": {
+    "auc_loss": 0.0251,
+    "auc_loss_vs_calm": -0.0182,
+    "mild": true,
+    "gated_vs_random": 3.9907,
+    "gated_vs_confidence": 1.3326,
+    "gated_vs_confidence_ci95_seed0": [
+     1.1882,
+     1.7321
+    ],
+    "regime_switch_vs_random": 3.7316,
+    "regime_switch_vs_confidence": 1.2441,
+    "regime_switch_vs_confidence_ci95_seed0": [
+     1.1039,
+     1.6834
+    ],
+    "meets_random_bar": true,
+    "beats_confidence": true,
+    "pass": false
+   },
+   "0.5": {
+    "auc_loss": 0.03,
+    "auc_loss_vs_calm": -0.0133,
+    "mild": false,
+    "gated_vs_random": 2.7689,
+    "gated_vs_confidence": 1.1884,
+    "gated_vs_confidence_ci95_seed0": [
+     1.1212,
+     1.4885
+    ],
+    "regime_switch_vs_random": 2.8721,
+    "regime_switch_vs_confidence": 1.221,
+    "regime_switch_vs_confidence_ci95_seed0": [
+     1.1237,
+     1.6338
+    ],
+    "meets_random_bar": true,
+    "beats_confidence": true,
+    "pass": true
+   }
+  },
+  "severe": {
+   "0.75": {
+    "alarm_seeds": 5,
+    "of": 5,
+    "first_alarm_at": 7.4,
+    "review_rate": 0.0402,
+    "review_rate_calm": 0.0108,
+    "review_rises": true,
+    "coverage": 0.8116,
+    "auc": 0.7456,
+    "holds": true
+   },
+   "1.0": {
+    "alarm_seeds": 5,
+    "of": 5,
+    "first_alarm_at": 5.4,
+    "review_rate": 0.049,
+    "review_rate_calm": 0.0108,
+    "review_rises": true,
+    "coverage": 0.7684,
+    "auc": 0.7184,
+    "holds": true
+   }
+  },
+  "corruption": {
+   "0.05": {
+    "gated_caught": 0.951,
+    "confidence_caught": 0.046,
+    "alarm_seeds": 5,
+    "of": 5,
+    "holds": true
+   },
+   "0.1": {
+    "gated_caught": 0.8225,
+    "confidence_caught": 0.047,
+    "alarm_seeds": 5,
+    "of": 5,
+    "holds": true
+   }
+  },
+  "moderate_pass": false
+ }
+}

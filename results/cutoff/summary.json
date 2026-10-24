@@ -322,5 +322,653 @@
     }
    }
   }
+ },
+ "gmsc": {
+  "A_routing": {
+   "worked_example": {
+    "pd_star": 0.1071,
+    "P0": {
+     "approve": 0.8425,
+     "decline": 0.1575,
+     "review": 0.0,
+     "default_among_approved": 0.0273,
+     "good_among_declined": 0.7329,
+     "margin_per_1000": 376700.0
+    },
+    "P1": {
+     "approve": 0.9588,
+     "decline": 0.0075,
+     "review": 0.0336,
+     "default_among_approved": 0.0469,
+     "good_among_declined": 0.4033,
+     "margin_per_1000": 323590.0
+    },
+    "P2": {
+     "approve": 0.8313,
+     "decline": 0.1623,
+     "review": 0.0065,
+     "default_among_approved": 0.0268,
+     "good_among_declined": 0.7387,
+     "margin_per_1000": 373590.0,
+     "default_among_approved_by_class": {
+      "near": 0.0199,
+      "middle": 0.0253,
+      "far": 0.0395
+     },
+     "approve_by_class": {
+      "near": 0.9685,
+      "middle": 0.8994,
+      "far": 0.6274
+     }
+    },
+    "P3": {
+     "approve": 0.8223,
+     "decline": 0.1649,
+     "review": 0.0128,
+     "default_among_approved": 0.026,
+     "good_among_declined": 0.7413,
+     "margin_per_1000": 373790.0,
+     "default_among_approved_by_class": {
+      "near": 0.0189,
+      "middle": 0.0252,
+      "far": 0.0376
+     },
+     "approve_by_class": {
+      "near": 0.9516,
+      "middle": 0.9,
+      "far": 0.6163
+     }
+    }
+   },
+   "thin_margin": {
+    "pd_star": 0.0566,
+    "P0": {
+     "approve": 0.7219,
+     "decline": 0.2781,
+     "review": 0.0,
+     "default_among_approved": 0.0189,
+     "good_among_declined": 0.815,
+     "margin_per_1000": 144505.0
+    },
+    "P1": {
+     "approve": 0.9588,
+     "decline": 0.0075,
+     "review": 0.0336,
+     "default_among_approved": 0.0469,
+     "good_among_declined": 0.4033,
+     "margin_per_1000": 49420.0
+    },
+    "P2": {
+     "approve": 0.6784,
+     "decline": 0.3024,
+     "review": 0.0192,
+     "default_among_approved": 0.0161,
+     "good_among_declined": 0.8239,
+     "margin_per_1000": 145485.0,
+     "default_among_approved_by_class": {
+      "near": 0.012,
+      "middle": 0.0167,
+      "far": 0.0228
+     },
+     "approve_by_class": {
+      "near": 0.8278,
+      "middle": 0.7518,
+      "far": 0.4571
+     }
+    },
+    "P3": {
+     "approve": 0.6929,
+     "decline": 0.2868,
+     "review": 0.0203,
+     "default_among_approved": 0.0175,
+     "good_among_declined": 0.8194,
+     "margin_per_1000": 143725.0,
+     "default_among_approved_by_class": {
+      "near": 0.0137,
+      "middle": 0.0189,
+      "far": 0.0218
+     },
+     "approve_by_class": {
+      "near": 0.8553,
+      "middle": 0.7748,
+      "far": 0.4479
+     }
+    }
+   },
+   "class_share_test": {
+    "near": 0.331,
+    "middle": 0.3334,
+    "far": 0.3355
+   },
+   "default_rate_by_class_test": {
+    "near": 0.0241,
+    "middle": 0.0409,
+    "far": 0.1294
+   },
+   "bracket_width_median": {
+    "marginal": 0.0018,
+    "by_class": 0.0035
+   }
+  },
+  "B_cutoff": {
+   "0.5": {
+    "target": 0.034,
+    "guaranteed": {
+     "approve": {
+      "mean": 0.8599,
+      "std": 0.0096
+     },
+     "default_among_approved": {
+      "mean": 0.0294,
+      "std": 0.003
+     },
+     "above_target_share": 0.06,
+     "no_cutoff_share": 0.0
+    },
+    "naive": {
+     "approve": {
+      "mean": 0.8946,
+      "std": 0.0074
+     },
+     "default_among_approved": {
+      "mean": 0.034,
+      "std": 0.0033
+     },
+     "above_target_share": 0.52,
+     "no_cutoff_share": 0.0
+    }
+   },
+   "0.75": {
+    "target": 0.051,
+    "guaranteed": {
+     "approve": {
+      "mean": 0.9444,
+      "std": 0.0048
+     },
+     "default_among_approved": {
+      "mean": 0.0444,
+      "std": 0.0029
+     },
+     "above_target_share": 0.0,
+     "no_cutoff_share": 0.0
+    },
+    "naive": {
+     "approve": {
+      "mean": 0.9657,
+      "std": 0.0035
+     },
+     "default_among_approved": {
+      "mean": 0.0514,
+      "std": 0.004
+     },
+     "above_target_share": 0.54,
+     "no_cutoff_share": 0.0
+    }
+   }
+  },
+  "C_shift": {
+   "routing": {
+    "worked_example": {
+     "pd_star": 0.1071,
+     "P0": {
+      "approve": 0.8653,
+      "decline": 0.1347,
+      "review": 0.0,
+      "default_among_approved": 0.0411,
+      "good_among_declined": 0.6373,
+      "margin_per_1000": 320100.0
+     },
+     "P1": {
+      "approve": 0.952,
+      "decline": 0.004,
+      "review": 0.0441,
+      "default_among_approved": 0.0614,
+      "good_among_declined": 0.29,
+      "margin_per_1000": 243570.0
+     },
+     "P2": {
+      "approve": 0.8403,
+      "decline": 0.1551,
+      "review": 0.0046,
+      "default_among_approved": 0.038,
+      "good_among_declined": 0.6621,
+      "margin_per_1000": 325010.0,
+      "default_among_approved_by_class": {
+       "near": 0.0222,
+       "middle": 0.0241,
+       "far": 0.0576
+      },
+      "approve_by_class": {
+       "near": 0.9634,
+       "middle": 0.9411,
+       "far": 0.7281
+      }
+     },
+     "P3": {
+      "approve": 0.8353,
+      "decline": 0.1477,
+      "review": 0.017,
+      "default_among_approved": 0.0372,
+      "good_among_declined": 0.6542,
+      "margin_per_1000": 327050.0,
+      "default_among_approved_by_class": {
+       "near": 0.0213,
+       "middle": 0.0232,
+       "far": 0.0567
+      },
+      "approve_by_class": {
+       "near": 0.9665,
+       "middle": 0.9312,
+       "far": 0.7215
+      }
+     }
+    },
+    "thin_margin": {
+     "pd_star": 0.0566,
+     "P0": {
+      "approve": 0.7444,
+      "decline": 0.2556,
+      "review": 0.0,
+      "default_among_approved": 0.0281,
+      "good_among_declined": 0.7519,
+      "margin_per_1000": 112285.0
+     },
+     "P1": {
+      "approve": 0.952,
+      "decline": 0.004,
+      "review": 0.0441,
+      "default_among_approved": 0.0614,
+      "good_among_declined": 0.29,
+      "margin_per_1000": -24465.0
+     },
+     "P2": {
+      "approve": 0.7297,
+      "decline": 0.2506,
+      "review": 0.0197,
+      "default_among_approved": 0.027,
+      "good_among_declined": 0.7476,
+      "margin_per_1000": 114220.0,
+      "default_among_approved_by_class": {
+       "near": 0.0158,
+       "middle": 0.0176,
+       "far": 0.0419
+      },
+      "approve_by_class": {
+       "near": 0.8601,
+       "middle": 0.8537,
+       "far": 0.6021
+      }
+     },
+     "P3": {
+      "approve": 0.731,
+      "decline": 0.2445,
+      "review": 0.0244,
+      "default_among_approved": 0.028,
+      "good_among_declined": 0.7491,
+      "margin_per_1000": 110400.0,
+      "default_among_approved_by_class": {
+       "near": 0.0146,
+       "middle": 0.0186,
+       "far": 0.0425
+      },
+      "approve_by_class": {
+       "near": 0.8203,
+       "middle": 0.8437,
+       "far": 0.6294
+      }
+     }
+    },
+    "class_share_test": {
+     "near": 0.2507,
+     "middle": 0.2495,
+     "far": 0.4997
+    },
+    "default_rate_by_class_test": {
+     "near": 0.0244,
+     "middle": 0.0318,
+     "far": 0.1408
+    },
+    "bracket_width_median": {
+     "marginal": 0.0018,
+     "by_class": 0.0033
+    }
+   },
+   "cutoff": {
+    "0.5": {
+     "target": 0.0201,
+     "approve": 0.7217,
+     "default_among_approved": 0.027
+    },
+    "0.75": {
+     "target": 0.0301,
+     "approve": 0.8802,
+     "default_among_approved": 0.0427
+    }
+   }
+  }
+ },
+ "homecredit2018": {
+  "A_routing": {
+   "worked_example": {
+    "pd_star": 0.1071,
+    "P0": {
+     "approve": 0.7673,
+     "decline": 0.2327,
+     "review": 0.0,
+     "default_among_approved": 0.0463,
+     "good_among_declined": 0.8011,
+     "margin_per_1000": 261330.0
+    },
+    "P1": {
+     "approve": 0.8812,
+     "decline": 0.0,
+     "review": 0.1187,
+     "default_among_approved": 0.0576,
+     "good_among_declined": null,
+     "margin_per_1000": 244550.0
+    },
+    "P2": {
+     "approve": 0.7797,
+     "decline": 0.2146,
+     "review": 0.0057,
+     "default_among_approved": 0.0474,
+     "good_among_declined": 0.7904,
+     "margin_per_1000": 261180.0,
+     "default_among_approved_by_class": {
+      "near": 0.0477,
+      "middle": 0.0502,
+      "far": 0.0445
+     },
+     "approve_by_class": {
+      "near": 0.7676,
+      "middle": 0.7628,
+      "far": 0.8084
+     }
+    },
+    "P3": {
+     "approve": 0.7746,
+     "decline": 0.2118,
+     "review": 0.0137,
+     "default_among_approved": 0.0468,
+     "good_among_declined": 0.7894,
+     "margin_per_1000": 262320.0,
+     "default_among_approved_by_class": {
+      "near": 0.0467,
+      "middle": 0.05,
+      "far": 0.0435
+     },
+     "approve_by_class": {
+      "near": 0.7551,
+      "middle": 0.7659,
+      "far": 0.8023
+     }
+    }
+   },
+   "thin_margin": {
+    "pd_star": 0.0566,
+    "P0": {
+     "approve": 0.5452,
+     "decline": 0.4548,
+     "review": 0.0,
+     "default_among_approved": 0.0321,
+     "good_among_declined": 0.8585,
+     "margin_per_1000": 70810.0
+    },
+    "P1": {
+     "approve": 0.8812,
+     "decline": 0.0,
+     "review": 0.1187,
+     "default_among_approved": 0.0576,
+     "good_among_declined": null,
+     "margin_per_1000": -4600.0
+    },
+    "P2": {
+     "approve": 0.51,
+     "decline": 0.47,
+     "review": 0.02,
+     "default_among_approved": 0.0313,
+     "good_among_declined": 0.8623,
+     "margin_per_1000": 68715.0,
+     "default_among_approved_by_class": {
+      "near": 0.0309,
+      "middle": 0.0339,
+      "far": 0.0292
+     },
+     "approve_by_class": {
+      "near": 0.4648,
+      "middle": 0.4945,
+      "far": 0.5698
+     }
+    },
+    "P3": {
+     "approve": 0.5151,
+     "decline": 0.4505,
+     "review": 0.0344,
+     "default_among_approved": 0.0311,
+     "good_among_declined": 0.8584,
+     "margin_per_1000": 69480.0,
+     "default_among_approved_by_class": {
+      "near": 0.0308,
+      "middle": 0.0329,
+      "far": 0.0293
+     },
+     "approve_by_class": {
+      "near": 0.4743,
+      "middle": 0.5051,
+      "far": 0.5655
+     }
+    }
+   },
+   "class_share_test": {
+    "near": 0.3312,
+    "middle": 0.3331,
+    "far": 0.3357
+   },
+   "default_rate_by_class_test": {
+    "near": 0.0803,
+    "middle": 0.0887,
+    "far": 0.0766
+   },
+   "bracket_width_median": {
+    "marginal": 0.0019,
+    "by_class": 0.0038
+   }
+  },
+  "B_cutoff": {
+   "0.5": {
+    "target": 0.0412,
+    "guaranteed": {
+     "approve": {
+      "mean": 0.6408,
+      "std": 0.025
+     },
+     "default_among_approved": {
+      "mean": 0.0371,
+      "std": 0.0049
+     },
+     "above_target_share": 0.19,
+     "no_cutoff_share": 0.0
+    },
+    "naive": {
+     "approve": {
+      "mean": 0.7179,
+      "std": 0.0208
+     },
+     "default_among_approved": {
+      "mean": 0.0422,
+      "std": 0.0048
+     },
+     "above_target_share": 0.59,
+     "no_cutoff_share": 0.0
+    }
+   },
+   "0.75": {
+    "target": 0.0619,
+    "guaranteed": {
+     "approve": {
+      "mean": 0.8746,
+      "std": 0.0116
+     },
+     "default_among_approved": {
+      "mean": 0.0569,
+      "std": 0.0046
+     },
+     "above_target_share": 0.14,
+     "no_cutoff_share": 0.0
+    },
+    "naive": {
+     "approve": {
+      "mean": 0.9146,
+      "std": 0.0099
+     },
+     "default_among_approved": {
+      "mean": 0.0628,
+      "std": 0.0054
+     },
+     "above_target_share": 0.55,
+     "no_cutoff_share": 0.0
+    }
+   }
+  },
+  "C_shift": {
+   "routing": {
+    "worked_example": {
+     "pd_star": 0.1071,
+     "P0": {
+      "approve": 0.7695,
+      "decline": 0.2305,
+      "review": 0.0,
+      "default_among_approved": 0.0472,
+      "good_among_declined": 0.7901,
+      "margin_per_1000": 258450.0
+     },
+     "P1": {
+      "approve": 0.8985,
+      "decline": 0.0,
+      "review": 0.1015,
+      "default_among_approved": 0.0626,
+      "good_among_declined": null,
+      "margin_per_1000": 224100.0
+     },
+     "P2": {
+      "approve": 0.7502,
+      "decline": 0.2387,
+      "review": 0.0112,
+      "default_among_approved": 0.0457,
+      "good_among_declined": 0.7923,
+      "margin_per_1000": 257200.0,
+      "default_among_approved_by_class": {
+       "near": 0.0445,
+       "middle": 0.0427,
+       "far": 0.0479
+      },
+      "approve_by_class": {
+       "near": 0.7304,
+       "middle": 0.7496,
+       "far": 0.7605
+      }
+     },
+     "P3": {
+      "approve": 0.7457,
+      "decline": 0.2334,
+      "review": 0.021,
+      "default_among_approved": 0.0458,
+      "good_among_declined": 0.7953,
+      "margin_per_1000": 255620.0,
+      "default_among_approved_by_class": {
+       "near": 0.0407,
+       "middle": 0.046,
+       "far": 0.0476
+      },
+      "approve_by_class": {
+       "near": 0.6756,
+       "middle": 0.7856,
+       "far": 0.7622
+      }
+     }
+    },
+    "thin_margin": {
+     "pd_star": 0.0566,
+     "P0": {
+      "approve": 0.5556,
+      "decline": 0.4444,
+      "review": 0.0,
+      "default_among_approved": 0.0317,
+      "good_among_declined": 0.849,
+      "margin_per_1000": 73400.0
+     },
+     "P1": {
+      "approve": 0.8985,
+      "decline": 0.0,
+      "review": 0.1015,
+      "default_among_approved": 0.0626,
+      "good_among_declined": null,
+      "margin_per_1000": -28575.0
+     },
+     "P2": {
+      "approve": 0.5331,
+      "decline": 0.4521,
+      "review": 0.0149,
+      "default_among_approved": 0.0308,
+      "good_among_declined": 0.8507,
+      "margin_per_1000": 72730.0,
+      "default_among_approved_by_class": {
+       "near": 0.0249,
+       "middle": 0.0314,
+       "far": 0.0332
+      },
+      "approve_by_class": {
+       "near": 0.4936,
+       "middle": 0.5232,
+       "far": 0.5581
+      }
+     },
+     "P3": {
+      "approve": 0.5167,
+      "decline": 0.4627,
+      "review": 0.0206,
+      "default_among_approved": 0.0296,
+      "good_among_declined": 0.8515,
+      "margin_per_1000": 73390.0,
+      "default_among_approved_by_class": {
+       "near": 0.0257,
+       "middle": 0.0321,
+       "far": 0.03
+      },
+      "approve_by_class": {
+       "near": 0.4928,
+       "middle": 0.5676,
+       "far": 0.5014
+      }
+     }
+    },
+    "class_share_test": {
+     "near": 0.2515,
+     "middle": 0.2528,
+     "far": 0.4957
+    },
+    "default_rate_by_class_test": {
+     "near": 0.081,
+     "middle": 0.0829,
+     "far": 0.0876
+    },
+    "bracket_width_median": {
+     "marginal": 0.0019,
+     "by_class": 0.004
+    }
+   },
+   "cutoff": {
+    "0.5": {
+     "target": 0.0369,
+     "approve": 0.6377,
+     "default_among_approved": 0.0364
+    },
+    "0.75": {
+     "target": 0.0553,
+     "approve": 0.8515,
+     "default_among_approved": 0.0558
+    }
+   }
+  }
  }
 }
