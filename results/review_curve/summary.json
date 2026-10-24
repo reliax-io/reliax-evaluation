@@ -1,0 +1,67 @@
+{
+ "gmsc": {
+  "meta": {
+   "dataset": "gmsc",
+   "status": "exploratory, descriptive",
+   "model": "production-grade (Amendment 3)",
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "n_cal": 10000,
+   "n_test": 4000,
+   "params": {
+    "max_leaf_nodes": 31,
+    "min_samples_leaf": 200
+   },
+   "selftest": false
+  },
+  "targets": {
+   "0.8": {
+    "coverage": {"mean": 0.7965, "min": 0.7778, "max": 0.8145},
+    "review": {"mean": 0.1826, "min": 0.1678, "max": 0.1993},
+    "both": {"mean": 0.0, "min": 0.0, "max": 0.0},
+    "empty": {"mean": 0.1826, "min": 0.1678, "max": 0.1993}
+   },
+   "0.85": {
+    "coverage": {"mean": 0.8497, "min": 0.8357, "max": 0.8618},
+    "review": {"mean": 0.1234, "min": 0.1153, "max": 0.1345},
+    "both": {"mean": 0.0, "min": 0.0, "max": 0.0},
+    "empty": {"mean": 0.1234, "min": 0.1153, "max": 0.1345}
+   },
+   "0.9": {
+    "coverage": {"mean": 0.8995, "min": 0.8895, "max": 0.904},
+    "review": {"mean": 0.0609, "min": 0.053, "max": 0.0675},
+    "both": {"mean": 0.0, "min": 0.0, "max": 0.0},
+    "empty": {"mean": 0.0609, "min": 0.053, "max": 0.0675}
+   },
+   "0.925": {
+    "coverage": {"mean": 0.9269, "min": 0.9205, "max": 0.9323},
+    "review": {"mean": 0.0199, "min": 0.0165, "max": 0.0213},
+    "both": {"mean": 0.0, "min": 0.0, "max": 0.0},
+    "empty": {"mean": 0.0199, "min": 0.0165, "max": 0.0213}
+   },
+   "0.95": {
+    "coverage": {"mean": 0.9521, "min": 0.9417, "max": 0.9595},
+    "review": {"mean": 0.0336, "min": 0.0217, "max": 0.0432},
+    "both": {"mean": 0.0336, "min": 0.0217, "max": 0.0432},
+    "empty": {"mean": 0.0, "min": 0.0, "max": 0.0}
+   },
+   "0.975": {
+    "coverage": {"mean": 0.9758, "min": 0.9722, "max": 0.9805},
+    "review": {"mean": 0.1465, "min": 0.1355, "max": 0.1628},
+    "both": {"mean": 0.1465, "min": 0.1355, "max": 0.1628},
+    "empty": {"mean": 0.0, "min": 0.0, "max": 0.0}
+   },
+   "0.99": {
+    "coverage": {"mean": 0.9904, "min": 0.9888, "max": 0.9922},
+    "review": {"mean": 0.3583, "min": 0.3217, "max": 0.4123},
+    "both": {"mean": 0.3583, "min": 0.3217, "max": 0.4123},
+    "empty": {"mean": 0.0, "min": 0.0, "max": 0.0}
+   }
+  }
+ }
+}
