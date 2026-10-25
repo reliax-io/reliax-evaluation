@@ -462,5 +462,361 @@
     }
    }
   }
+ },
+ "gmsc": {
+  "meta": {
+   "dataset": "gmsc",
+   "status": "exploratory, descriptive",
+   "model": "production-grade (Amendment 3)",
+   "repay_share": 0.9332,
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "n_cal": 10000,
+   "n_test": 4000,
+   "params": {
+    "max_leaf_nodes": 31,
+    "min_samples_leaf": 200
+   },
+   "selftest": false
+  },
+  "targets": {
+   "0.94": {
+    "coverage": {
+     "mean": 0.9417,
+     "min": 0.9313,
+     "max": 0.9487
+    },
+    "review": {
+     "mean": 0.0088,
+     "min": 0.0025,
+     "max": 0.016
+    },
+    "both": {
+     "mean": 0.0088,
+     "min": 0.0025,
+     "max": 0.016
+    },
+    "empty": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "0.95": {
+    "coverage": {
+     "mean": 0.9521,
+     "min": 0.9417,
+     "max": 0.9595
+    },
+    "review": {
+     "mean": 0.0336,
+     "min": 0.0217,
+     "max": 0.0432
+    },
+    "both": {
+     "mean": 0.0336,
+     "min": 0.0217,
+     "max": 0.0432
+    },
+    "empty": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "0.96": {
+    "coverage": {
+     "mean": 0.9614,
+     "min": 0.955,
+     "max": 0.9685
+    },
+    "review": {
+     "mean": 0.0639,
+     "min": 0.056,
+     "max": 0.0737
+    },
+    "both": {
+     "mean": 0.0639,
+     "min": 0.056,
+     "max": 0.0737
+    },
+    "empty": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "0.97": {
+    "coverage": {
+     "mean": 0.9713,
+     "min": 0.9677,
+     "max": 0.9772
+    },
+    "review": {
+     "mean": 0.1094,
+     "min": 0.0945,
+     "max": 0.1207
+    },
+    "both": {
+     "mean": 0.1094,
+     "min": 0.0945,
+     "max": 0.1207
+    },
+    "empty": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "0.98": {
+    "coverage": {
+     "mean": 0.9808,
+     "min": 0.9772,
+     "max": 0.984
+    },
+    "review": {
+     "mean": 0.199,
+     "min": 0.1822,
+     "max": 0.2338
+    },
+    "both": {
+     "mean": 0.199,
+     "min": 0.1822,
+     "max": 0.2338
+    },
+    "empty": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "0.99": {
+    "coverage": {
+     "mean": 0.9904,
+     "min": 0.9888,
+     "max": 0.9922
+    },
+    "review": {
+     "mean": 0.3583,
+     "min": 0.3217,
+     "max": 0.4123
+    },
+    "both": {
+     "mean": 0.3583,
+     "min": 0.3217,
+     "max": 0.4123
+    },
+    "empty": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   }
+  }
+ },
+ "homecredit2018": {
+  "meta": {
+   "dataset": "homecredit2018",
+   "status": "exploratory, descriptive",
+   "model": "production-grade (Amendment 3)",
+   "repay_share": 0.9193,
+   "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "n_cal": 10000,
+   "n_test": 4000,
+   "params": {
+    "max_leaf_nodes": 15,
+    "min_samples_leaf": 200
+   },
+   "selftest": false
+  },
+  "targets": {
+   "0.92": {
+    "coverage": {
+     "mean": 0.9204,
+     "min": 0.9143,
+     "max": 0.928
+    },
+    "review": {
+     "mean": 0.0051,
+     "min": 0.0005,
+     "max": 0.012
+    },
+    "both": {
+     "mean": 0.0045,
+     "min": 0.0,
+     "max": 0.012
+    },
+    "empty": {
+     "mean": 0.0005,
+     "min": 0.0,
+     "max": 0.0022
+    }
+   },
+   "0.93": {
+    "coverage": {
+     "mean": 0.9302,
+     "min": 0.9223,
+     "max": 0.9367
+    },
+    "review": {
+     "mean": 0.0303,
+     "min": 0.019,
+     "max": 0.0428
+    },
+    "both": {
+     "mean": 0.0303,
+     "min": 0.019,
+     "max": 0.0428
+    },
+    "empty": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "0.94": {
+    "coverage": {
+     "mean": 0.94,
+     "min": 0.929,
+     "max": 0.9475
+    },
+    "review": {
+     "mean": 0.0701,
+     "min": 0.0573,
+     "max": 0.082
+    },
+    "both": {
+     "mean": 0.0701,
+     "min": 0.0573,
+     "max": 0.082
+    },
+    "empty": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "0.95": {
+    "coverage": {
+     "mean": 0.9492,
+     "min": 0.9393,
+     "max": 0.9565
+    },
+    "review": {
+     "mean": 0.1187,
+     "min": 0.1037,
+     "max": 0.1293
+    },
+    "both": {
+     "mean": 0.1187,
+     "min": 0.1037,
+     "max": 0.1293
+    },
+    "empty": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "0.96": {
+    "coverage": {
+     "mean": 0.9586,
+     "min": 0.9493,
+     "max": 0.9627
+    },
+    "review": {
+     "mean": 0.1835,
+     "min": 0.1628,
+     "max": 0.2127
+    },
+    "both": {
+     "mean": 0.1835,
+     "min": 0.1628,
+     "max": 0.2127
+    },
+    "empty": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "0.97": {
+    "coverage": {
+     "mean": 0.9693,
+     "min": 0.959,
+     "max": 0.9742
+    },
+    "review": {
+     "mean": 0.278,
+     "min": 0.26,
+     "max": 0.32
+    },
+    "both": {
+     "mean": 0.278,
+     "min": 0.26,
+     "max": 0.32
+    },
+    "empty": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "0.98": {
+    "coverage": {
+     "mean": 0.9788,
+     "min": 0.9748,
+     "max": 0.982
+    },
+    "review": {
+     "mean": 0.3943,
+     "min": 0.381,
+     "max": 0.4183
+    },
+    "both": {
+     "mean": 0.3943,
+     "min": 0.381,
+     "max": 0.4183
+    },
+    "empty": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   },
+   "0.99": {
+    "coverage": {
+     "mean": 0.9887,
+     "min": 0.9852,
+     "max": 0.9912
+    },
+    "review": {
+     "mean": 0.5805,
+     "min": 0.5625,
+     "max": 0.6065
+    },
+    "both": {
+     "mean": 0.5805,
+     "min": 0.5625,
+     "max": 0.6065
+    },
+    "empty": {
+     "mean": 0.0,
+     "min": 0.0,
+     "max": 0.0
+    }
+   }
+  }
  }
 }
