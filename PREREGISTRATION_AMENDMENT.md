@@ -631,3 +631,27 @@ Known limit, stated now: in a lender's own book, declined applicants have no
 outcome. These public datasets have one for everybody; a deployment needs
 outcomes from past periods, a random approval sample or bureau data before
 the guarantee on declines can be offered.
+
+# Amendment 6: a cut-off per applicant from soft clusters (exploratory, 8 November 2026)
+
+Written after the earlier results were seen; it tests nothing fixed in advance.
+
+Question: does a cut-off that adapts to the applicant earn more than one cut-off
+for everyone? With the economics of Amendment 4's worked example (M = 600,
+L = 5,000, PD* = 0.107), on held-out test rows.
+
+1. Each of 20 re-draws splits the rows 40 / 30 / 30 into training, calibration
+   and test. The model's inputs are standardised on the calibration rows and
+   cut into K = 4 or 8 clusters (k-means). An applicant's weight for each
+   cluster is softmax(-squared distance to its centre / T), T the median
+   squared distance of the calibration rows to their nearest centre.
+2. Compared: G0 the break-even PD* for everyone; G1 the single cut-off that
+   earned most on the calibration rows; H one cut-off per cluster, by nearest
+   cluster; S per applicant, t(x) = sum_k w_k(x) t_k, each t_k fitted on the
+   calibration rows weighted for cluster k.
+3. Data: a synthetic population of four groups whose risk differs beyond what
+   the inputs show, which a logistic regression on the inputs cannot see, with
+   that group error scaled by 0, 1 and 2; and Taiwan (20 inputs; sex, age and
+   marital status never used), with the platform demo's gradient boosting.
+
+Script `eval/run_cluster_cutoff.py`; results `results/cluster_cutoff/summary.json`.
